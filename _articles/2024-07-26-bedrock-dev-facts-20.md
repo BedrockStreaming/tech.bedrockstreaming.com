@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2024-07-26
 permalink: /2024/07/26/bedrock-dev-facts-20.html
 title: "Bedrock Dev Facts #20"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 ---
 
 Bien que cela fasse près de 18 mois que nous n'avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs.

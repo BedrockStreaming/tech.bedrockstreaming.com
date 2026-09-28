@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [performance, mobile]
 date: 2013-07-02
 title: "Performances web et \"Disaster case\" sur applications mobile native"
 description: ""
 author: k_dits 
-tags: [webperf,mobile]
 image:
   feature: 
   credit: 

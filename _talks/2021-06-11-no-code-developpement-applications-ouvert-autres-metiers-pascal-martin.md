@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [practices]
 date: 2021-06-11
 permalink: /2021/06/11/no-code-developpement-applications-ouvert-autres-metiers-pascal-martin.html
 
@@ -10,8 +11,6 @@ author: p_martin
 eventName: AFUP Day Toulouse 2021
 eventUrl: https://event.afup.org/afup-day-2021/
 youtubeId: 9OM2gdMpCg0
-
-tags: [conference, nocode, lowcode, afup]
 ---
 
 Construire une application sans coder ? C’est une idée que j’entends depuis le début de mes études… Et c’est la promesse de no-code !  

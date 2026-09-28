@@ -5,10 +5,10 @@ permalink: /2017/06/01/migration-elasticsearch.html
 title: "Elasticsearch: la grande migration"
 description: "Migration de Elasticsearch 1.7 à 5.2 sans interruption de service"
 author: b_viguier
-tags: [Elasticsearch, Php]
 feature-img: "images/posts/migration-es/migration.jpg"
 thumbnail: "images/posts/migration-es/migration.jpg"
 language: fr
+topics: [backend]
 ---
 
 Pour assurer la scalabilité des performances de l'API 6play, les données suivent tout [un *workflow*](/2016/11/24/une-donnee-presque-parfaite) pour être dénormalisées et stockées dans [Elasticsearch](https://www.elastic.co/products/elasticsearch).

@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [video]
 date: 2013-06-26
 title: "Encodage - packaging - DRM - tout sur la vidéo"
 description: ""
 author: o_noel 
-tags: [video,codec,drm,lft]
 permalink: encodage-packaging-drm-tout-sur-la-vidéo
 ---
 

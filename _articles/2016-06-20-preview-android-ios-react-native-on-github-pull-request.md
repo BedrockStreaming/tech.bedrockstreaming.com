@@ -5,10 +5,10 @@ permalink: /2016/06/20/preview-android-ios-react-native-on-github-pull-request.h
 title: "Preview your Android & iOS React Native apps on your Github Pull Request"
 description: "Staging environment for your Android and iOS React Native apps on your Github Pull Request with Jenkins, Fastlane & Appetize"
 author: k_dits
-tags: [reactnative, react, mobile, github, jenkins, fastlane, appetize]
 feature-img: "images/posts/reactnative/nighttrain.jpg"
 thumbnail: "images/posts/reactnative/nighttrain.jpg"
 language: en
+topics: [mobile, frontend, platform]
 ---
 
 We are playing since a few weeks with [React Native](https://facebook.github.io/react-native/) for a Proof Of Concept and wanted to have the same development workflow for mobile apps, as we have for the web.

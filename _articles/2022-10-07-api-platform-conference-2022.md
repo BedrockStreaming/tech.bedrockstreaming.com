@@ -1,10 +1,10 @@
 ---
 layout: post
 language: fr
+topics: [backend]
 title: API Platform Conference 2022
 description: Venez avec nous assister aux conférences API Platform ! 
 author: bedrock
-tags: [conferences, backend, api, php]
 date: 2022-10-07
 permalink: /2022/10/07/api-platform-conference-2022.html
 ---

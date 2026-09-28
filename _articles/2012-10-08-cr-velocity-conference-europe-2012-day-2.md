@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [performance, platform]
 date: 2012-10-08
 title: "CR Velocity Conférence Europe 2012 : Day 2"
 description: ""
 author: k_dits
-tags: [velocity,conference,webperf,devops] 
 permalink: cr-velocity-conference-europe-2012-day-2
 ---
 

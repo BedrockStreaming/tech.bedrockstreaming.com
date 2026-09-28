@@ -18,7 +18,7 @@ layout: default
   </section>
 
    <!-- Tag list -->
-  {% capture tag_list %}{{ page.tags | join: "|"}}{% endcapture %}
+  {% capture tag_list %}{{ page.topics | join: "|"}}{% endcapture %}
   {% include default/tags_list.liquid tags=tag_list %}
 
 </article>

@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2013-02-05
 title: "M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI"
 description: ""
 author: bedrock
-tags: [recrutement]
 permalink: m6web-lyon-recherche-un-lead-developpeur-architecte-web-h-f-en-cdi
 ---
 

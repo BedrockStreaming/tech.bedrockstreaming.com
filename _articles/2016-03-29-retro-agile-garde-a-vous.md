@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [practices]
 date: 2016-03-29
 permalink: /2016/03/29/retro-agile-garde-a-vous.html
 title: "La retrospective Agile ‘Garde à vous’"
@@ -12,7 +13,6 @@ author:
   twitter:  PierreTomas     
   facebook:       
   github:    
-tags: [agile, scrum]
 feature-img: "images/posts/retro/retroagile.png"
 thumbnail: "images/posts/retro/retroagile.png"
 ---

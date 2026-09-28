@@ -1,12 +1,12 @@
 ---
 layout: post
 language: en
+topics: [backend]
 date: 2023-08-12
 permalink: /2023/08/12/gophercon-uk-london-2023.html
 title: "GopherCon UK 2023 highlights"
 description: My highlights of GopherCon UK 2023
 author: pa_bedu
-tags: [conference, london, tech, golang, go]
 thumbnail: /images/posts/gopherconuk2023/IMG_6877.jpeg
 ---
 Hello there! I'm Pierre-Alain, a senior back-end developer at Bedrock and I had the opportunity to go to London for the GopherCon UK.

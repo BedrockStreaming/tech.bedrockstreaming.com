@@ -5,10 +5,10 @@ permalink: /2016/07/04/migrate-smoothly-flux-isomorphic-app-to-redux.html
 title: "Migrate smoothly your Flux isomorphic app to Redux"
 description: "How we upgraded your big isomorphic web app from Fluxible to Redux, examples and tips."
 author: f_dubost
-tags: [react, flux, redux, fluxible, isomorphic, javascript]
 feature-img: "images/posts/redux.jpg"
 thumbnail: "images/posts/redux.jpg"
 language: en
+topics: [frontend]
 ---
 
 ## Flux, history reminders...

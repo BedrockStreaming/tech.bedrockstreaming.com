@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [observability]
 date: 2012-06-26
 title: "Monitoring applicatif : Pourquoi et comment ?"
 description: ""
 author: k_dits 
-tags: [monitoring,graphite,statsd,conference]
 permalink: monitoring-applicatif-pourquoi-et-comment
 ---
 

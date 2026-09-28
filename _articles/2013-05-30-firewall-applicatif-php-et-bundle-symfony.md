@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, backend, open-source]
 date: 2013-05-30
 title: "Firewall applicatif PHP et bundle Symfony"
 description: ""
 author: team_cytron
-tags: [outil, php, symfony, open-source]
 feature-img: "images/posts/cytron/football.png"
 thumbnail: "images/posts/cytron/football.png"
 permalink: firewall-applicatif-php-et-bundle-symfony

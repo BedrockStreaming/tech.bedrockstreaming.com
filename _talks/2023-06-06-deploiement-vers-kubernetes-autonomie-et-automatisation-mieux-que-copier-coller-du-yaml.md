@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: []
 title: "Déploiement vers Kubernetes : autonomie et automatisation, mieux que copier-coller du YAML !"
 date: 2023-06-06
 author: "p_martin"

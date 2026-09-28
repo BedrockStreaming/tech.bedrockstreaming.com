@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [video]
 date: 2014-06-25
 permalink: /2014/06/25/m6web-etait-au-phptour-lyon-2014.html
 title: "M6Web était présent au PHPTour Lyon 2014"
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [afup, phptour, conference, video]
 feature-img: "images/posts/phptour2014/elephant.jpg"
 thumbnail: "images/posts/phptour2014/elephant.jpg"
 ---

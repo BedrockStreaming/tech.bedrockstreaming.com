@@ -11,9 +11,9 @@ author:
   twitter:
   facebook:
   github:
-tags: [kubernetes, KubeCon]
 feature-img: "images/posts/kubecon-2018/title-kubecon.jpg"
 language: en
+topics: [platform]
 ---
 
 At the very beginning of May, we (Pascal and Vincent) went to KubeCon 2018. It was a three-days long event, with more than 300 conferences. 4300 people met at Bella Center, a huge conference place close to Copenhagen in Denmark. Here are some of our notes about some talks we saw.

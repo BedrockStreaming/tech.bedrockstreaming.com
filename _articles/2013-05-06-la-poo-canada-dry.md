@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, video]
 date: 2013-05-06
 title: "La POO Canada Dry"
 description: ""
 author: k_dits 
-tags: [php,poo,lft,video]
 permalink: la-poo-canada-dry
 ---
 

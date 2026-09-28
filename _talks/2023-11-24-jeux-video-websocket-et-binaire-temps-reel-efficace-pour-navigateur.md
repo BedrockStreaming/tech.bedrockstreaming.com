@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Jeux vidéo, websocket et binaire: temps réel efficace pour navigateur #LFT 24/11/23"
 description: ""
 author: t_jarrand
-tags: [lft, tech]
 youtubeId: jJ258c_C6Sc
 permalink: jeux-video-websocket-et-binaire-temps-reel-efficace-pour-navigateur
 ---

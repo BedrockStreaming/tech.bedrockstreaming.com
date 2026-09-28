@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Situations conflictuelles : et si vous sortiez de la spirale infernale ? #LFT 02/06/23"
 description: ""
 author: e_perrin
-tags: [lft, tech]
 youtubeId: SFPktJAO4uI
 permalink: situations-conflictuelles
 ---

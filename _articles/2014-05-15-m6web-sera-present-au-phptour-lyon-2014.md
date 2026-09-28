@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2014-05-15
 permalink: /2014/05/15/m6web-sera-present-au-phptour-lyon-2014.html
 title: "M6Web sera présent au PHPTour Lyon 2014"
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [afup, phptour]
 thumbnail: "images/posts/phptour/PHPTourLyon2014_megaban.jpg"
 ---
 

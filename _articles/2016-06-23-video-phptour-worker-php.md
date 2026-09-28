@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [video, backend]
 date: 2016-06-23
 permalink: /2016/06/23/video-phptour-worker-php.html
 title: "Retour d’expérience : réaliser des Workers en PHP - Fabien de Saint pern au PHP Tour 2016 "
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [6tech, lyon, conference, video, phptour, php, Symfony]
 ---
 
 

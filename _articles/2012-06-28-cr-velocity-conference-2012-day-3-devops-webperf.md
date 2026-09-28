@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [performance, platform, mobile]
 date: 2012-06-28
 title: "CR Velocity Conference 2012 : Day 3 (DevOps/WebPerf)"
 description: ""
 author: k_dits
-tags: [velocity,conference,webperf,devops,mobile]
 permalink: cr-velocity-conference-2012-day-3-devops-webperf
 ---
 

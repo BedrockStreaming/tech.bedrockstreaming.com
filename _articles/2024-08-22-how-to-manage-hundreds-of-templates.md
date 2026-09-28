@@ -5,8 +5,8 @@ permalink: /2024/08/22/how-to-manage-hundreds-of-templates.html
 title: How to manage hundreds of view templates?
 description: Let’s dive together into the depths of a large scale template versioning for a white label streaming application.
 author: [d_cuny, m_oudji]
-tags: [android, versioning, design, atomic design, design system]
 language: en
+topics: [mobile, frontend]
 thumbnail: "/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/thumbnail.png"
 feature-img: "/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/thumbnail.png"
 ---

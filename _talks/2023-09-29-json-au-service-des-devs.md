@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-09-29
 eventName: "Last Friday Talks"
 title: "Json au service des devs #LFT 29/09/23"
 description: ""
 author: j_nginn
-tags: [lft, tech]
 youtubeId: cdWwagPGsXo
 permalink: json-au-service-des-devs
 ---

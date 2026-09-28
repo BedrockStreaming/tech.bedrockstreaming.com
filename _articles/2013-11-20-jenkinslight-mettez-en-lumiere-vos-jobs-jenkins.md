@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, platform, open-source]
 date: 2013-11-20
 title: "JenkinsLight, mettez en lumière vos jobs Jenkins"
 description:
 author: team_cytron
-tags: [outil, jenkins, ci, cytron, open-source]
 thumbnail: "images/posts/cytron/jenkinslight.png"
 feature-img: "images/posts/cytron/jenkinslight.png"
 permalink: jenkinslight-mettez-en-lumiere-vos-jobs-jenkins

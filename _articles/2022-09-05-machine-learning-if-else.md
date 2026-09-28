@@ -1,12 +1,12 @@
 ---
 layout: post
 language: en
+topics: [machine-learning, data]
 date: 2022-09-05
 permalink: /2022/09/05/machine-learning-if-else.html
 title: Is machine learning a unicorn hiding a series of if and else?
 description: Let's think about what is behind machine learning
 author: n_saby
-tags: [machine learning, Data Science]
 ---
 
 Recently, a colleague asked me:

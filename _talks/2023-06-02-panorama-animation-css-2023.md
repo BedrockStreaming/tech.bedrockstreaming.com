@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Du CSS aux shaders WebGL : panorama des techniques d'animation en 2023 #LFT 02/06/23"
 description: ""
 author: j_sulpis
-tags: [lft, tech]
 youtubeId: 41yhiAumEy4
 permalink: panorama-css-animations
 ---

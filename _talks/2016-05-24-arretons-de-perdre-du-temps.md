@@ -9,8 +9,8 @@ eventName: PHPTour Clermont‑Ferrand 2016
 eventUrl: https://event.afup.org/php-tour-2016/home-phptour-2016/
 youtubeId: iuod3e6e7FM
 
-tags: [afup, php, debug, conference]
 language: fr
+topics: [backend, observability]
 ---
 
 Arrêtons de perdre du temps à débuguer ! Débuguer peut se révéler long et fastidieux. 

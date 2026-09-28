@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend]
 date: 2018-03-07
 permalink: /2018/03/07/atteindre-les-etoiles-avec-php-et-symfony.html
 
@@ -11,8 +12,6 @@ eventName: Confoo Montreal 2018
 eventUrl: https://confoo.ca/fr/yul2018
 conferenceUrl: https://confoo.ca/fr/yul2018/session/atteindre-les-etoiles-avec-php-et-symfony
 slideshareKey: 2CHGfkIFMor2BU
-
-tags: [conference, confoo, PHP, Symfony]
 ---
 
 À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct depuis son application mobile.

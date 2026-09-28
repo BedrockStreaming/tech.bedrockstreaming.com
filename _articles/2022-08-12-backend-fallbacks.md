@@ -5,8 +5,8 @@ permalink: /2022/08/12/backend-fallbacks.html
 title: "Handling dependencies failures in an API gateway"
 description: "How are we handling downtime from the API we are calling, and what can we do about it?"
 author: v_claras
-tags: [backend, php, api, api-gateway, back-for-front, resiliency]
 language: en
+topics: [backend, architecture]
 ---
 
 Welcome to our second article about the backend architecture and its api gateway.

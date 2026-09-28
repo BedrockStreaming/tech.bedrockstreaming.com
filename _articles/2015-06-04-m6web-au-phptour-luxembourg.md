@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2015-06-04
 permalink: /2015/06/04/m6web-au-phptour-luxembourg.html
 title: "On était au PHPTour ! "
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [conference,afup,phptour]
 feature-img: "images/posts/phptourlux/inphinity.jpg"
 thumbnail: "images/posts/phptourlux/inphinity.jpg"
 ---

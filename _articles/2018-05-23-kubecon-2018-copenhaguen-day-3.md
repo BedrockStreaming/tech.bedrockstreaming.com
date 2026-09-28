@@ -11,9 +11,9 @@ author:
   twitter:
   facebook:
   github:
-tags: [kubernetes, KubeCon]
 feature-img: "images/posts/kubecon-2018/title-kubecon.jpg"
 language: en
+topics: [platform]
 ---
 
 Back to KubeCon 2018 in Copenhagen, for the third and last day! You can read about [our first day here](/kubecon-2018-copenhaguen-day-1/) and [about our second day there](/kubecon-2018-copenhaguen-day-2/).

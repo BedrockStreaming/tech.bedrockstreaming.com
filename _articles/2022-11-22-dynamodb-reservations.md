@@ -5,10 +5,10 @@ permalink: /2022/11/22/dynamodb-reservations.html
 title: "How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?"
 description: "How many DynamoDB RCU and WCU should we reserve to achieve maximum cost reductions, when our workloads are changing all the time?"
 author: p_martin
-tags: [aws, dynamodb, finops]
 feature-img: "images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
 thumbnail: "images/posts/aws/dynamodb-reservations/cost-explorer-reserved-vs-not-reserved-CENSORED-inverted-colors.png"
 language: en
+topics: [platform]
 excerpt_separator: <!--more-->
 ---
 

@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2022-11-25
 eventName: "Last Friday Talks"
 title: "Docteur qui ? #LFT 25/11/22"
 description: ""
 author: s_haim
-tags: [lft, tech]
 youtubeId: 9ulkF_TvaKw
 permalink: docteur-qui
 ---

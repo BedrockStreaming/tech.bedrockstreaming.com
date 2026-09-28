@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [backend, observability, practices]
 date: 2014-02-18
 permalink: /2014/02/18/refonte-de-notre-systeme-de-vote.html
 title: "Refonte de notre système de vote"
 description: "Création d'un nouveau service de vote communiquant avec une API REST"
 author: d_roussel
-tags: [api, symfony, redis, monitoring, qualite, cytron]
 thumbnail: "images/posts/cytron/polls.png"
 feature-img: "images/posts/cytron/polls.png"
 ---

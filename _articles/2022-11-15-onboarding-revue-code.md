@@ -6,8 +6,8 @@ title: "Un onboarding facilité grâce à la revue de code!"
 description: "Comment l'exercice de la revue du delta du code, souvent redouté, peut-il devenir 
 un outil d'onboarding ?"
 author: al_deboissieu
-tags: [team]
 language: fr
+topics: [culture]
 ---
 
 Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 

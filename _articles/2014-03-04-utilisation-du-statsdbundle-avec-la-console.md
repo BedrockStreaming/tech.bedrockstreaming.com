@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [observability, backend]
 date: 2014-03-04
 permalink: /2014/03/04/utilisation-du-statsdbundle-avec-la-console.html
 title: "Utilisation du StatsdBundle avec le composant Console"
 description: "Adaptation du StatsdBundle pour le composant Console de Symfony"
 author: team_cytron
-tags: [statsd, php, symfony, console, monitoring, cytron]
 feature-img: "images/posts/cytron/console.png"
 thumbnail: "images/posts/cytron/console.png"
 ---

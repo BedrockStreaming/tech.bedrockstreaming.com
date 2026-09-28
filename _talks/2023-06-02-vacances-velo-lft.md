@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "Et si vos prochaines vacances se passaient à vélo ? #LFT 02/06/23"
 description: ""
 author: t_jarrand
-tags: [lft, tech]
 youtubeId: hVzmy8HMg6k
 permalink: vacances-a-velo
 ---

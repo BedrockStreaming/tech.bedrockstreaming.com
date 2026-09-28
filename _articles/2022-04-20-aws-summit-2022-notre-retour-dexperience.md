@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [platform]
 date: 2022-04-20
 permalink: /2022/04/20/aws-summit-2022-notre-retour-dexperience.html
 title: Bedrock à l'AWS Summit 2022
 description: Cinq de nos DevOps, Ops et Développeurs étaient à l'AWS Summit Paris 2022, voici leur retour d'expérience.
 author: bedrock
-tags: [aws, summit, cloud, sysadmin, conference, kubernetes]
 thumbnail: "images/posts/2022-04-20-aws-summit-2022-notre-retour-dexperience/main-image.jpg"
 ---
 

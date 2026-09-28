@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-06-02
 eventName: "Last Friday Talks"
 title: "OZINT - Vos traces vous trahissent ! #LFT 02/06/23"
 description: ""
 author: a_martins
-tags: [lft, tech]
 youtubeId: ZC5KjlXpEBE
 permalink: ozint-lft
 ---

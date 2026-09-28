@@ -6,8 +6,8 @@ permalink: /2019/11/14/machine-learning-sans-magie-et-sans-sarracher-les-cheveux
 eventName: "BlendWebMix"
 title: "Machine learning sans magie et sans s'arracher les cheveux"
 author: n_saby
-tags: [machine learning, blendwebmix, conference]
 language: fr
+topics: [machine-learning]
 youtubeId: 5c120IGLHk8
 ---
 

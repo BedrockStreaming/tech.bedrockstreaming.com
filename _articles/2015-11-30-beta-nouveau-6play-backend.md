@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [video, backend]
 date: 2015-11-30
 permalink: /2015/11/30/beta-nouveau-6play-backend.html
 title: "L'envers du décor du nouveau 6play"
 description: "Présentation du backend derrière les nouvelles applications 6play"
 author: bedrock   
-tags: [6play, REST, Symfony, Elasticsearch, Cassandra]
 feature-img: "images/posts/6play/logo.jpg"
 thumbnail: "images/posts/6play/logo.jpg"
 ---

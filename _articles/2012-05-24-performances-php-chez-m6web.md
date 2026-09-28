@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [observability, backend, performance]
 date: 2012-05-24
 title: "Performances PHP chez M6Web"
 description: ""
 author: k_dits
-tags: [graphite,monitoring,nodejs,php,varnish,webperf,conference]
 
 permalink: post/23671071384/performances-php-chez-m6web
 ---

@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend, open-source]
 date: 2020-11-23
 permalink: /2020/11/23/php-cest-vous-et-vous-pouvez-contribuer-pascal-martin.html
 
@@ -10,8 +11,6 @@ author: p_martin
 eventName: ForumPHP 2020
 eventUrl: https://event.afup.org/forum-php-2020/
 youtubeId: bGklD-ZxIjI
-
-tags: [conference, php, open-source, afup]
 ---
 
 Quand nous posons la question « qui contribue à PHP ? » lors des évènements que nous organisons ou auxquels nous participons, nous n’obtenons que très peu de réponses. Est-ce parce que peu d’entre nous savent ou aiment coder en C ? Pourtant, participer et contribuer ne se limite pas à des lignes de code, loin de là !

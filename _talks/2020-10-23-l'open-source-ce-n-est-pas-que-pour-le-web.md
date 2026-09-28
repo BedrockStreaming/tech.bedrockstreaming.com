@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [open-source]
 date: 2020-10-23
 permalink: /2020/10/23/l'open-source-ce-n-est-pas-que-pour-le-web.html
 
@@ -10,8 +11,6 @@ author: s_haim
 eventName: ForumPHP 2020
 eventUrl: https://event.afup.org/forum-php-2020/
 youtubeId: riPzJ-IMs6k 
-
-tags: [conference, afup, open-source]
 ---
 Une conférence sur l'open source hors des solutions informatiques uniquement, lors du forum PHP 2020 qui marquait les 20 ans de l'AFUP.
 

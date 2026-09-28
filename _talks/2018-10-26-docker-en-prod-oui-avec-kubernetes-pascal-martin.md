@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend, open-source, platform]
 date: 2018-10-26
 permalink: /2018/10/26/docker-en-prod-oui-avec-kubernetes-pascal-martin.html
 
@@ -10,8 +11,6 @@ author: p_martin
 eventName: ForumPHP 2018
 eventUrl: https://event.afup.org/forumphp2018/
 youtubeId: Cq1sR005B2E
-
-tags: [conference, php, open-source, afup, docker, kubernetes]
 ---
 
 Kubernetes. À en croire certains articles, c’est une solution miracle. Développeurs, vous avez peut-être entendu ce mot ?  

@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [platform, frontend]
 date: 2014-10-09
 title: "Providers AngularJS et configuration dynamique"
 description: "Comment surcharger un provider AngularJS pour le rendre configurable dynamiquement."
 author: team_cytron
-tags: [configuration, angular, cytron]
 feature-img: "images/posts/cytron/providersangular.jpg"
 thumbnail: "images/posts/cytron/providersangular.jpg"
 permalink: surcharger-un-provider-angular

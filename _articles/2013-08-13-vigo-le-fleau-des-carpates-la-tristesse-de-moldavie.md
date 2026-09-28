@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, frontend, testing]
 date: 2013-08-13
 title: "Vigo, le fléau des Carpates"
 description: ""
 author: team_cytron
-tags: [outil, qualite, javascript, tests fonctionnels]
 feature-img: "images/posts/cytron/vigo.jpg"
 thumbnail: "images/posts/cytron/vigo.jpg"
 permalink: vigo-le-fleau-des-carpates-la-tristesse-de-moldavie

@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2020-02-08
 permalink: /2020/02/08/m6web-dev-facts-12.html
 title: "M6Web Dev Facts #12"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 redirect_from:
   - /m6web-dev-facts-12/
 ---

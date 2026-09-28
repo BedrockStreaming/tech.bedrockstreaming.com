@@ -5,9 +5,9 @@ title: "The 6play platform goes international"
 description: ""
 author: bedrock
 permalink: /6play/2018/03/26/6play-goes-international.html
-tags: [6play, intl]
 thumbnail: "images/posts/6play-intl/feature.png"
 language: en
+topics: [video, frontend]
 ---
 
 Within less than a year m6web and [techm6web](https://twitter.com/Bedrock_Stream) managed to launch websites, android apps and ios apps for three RTL TV channels in Europe, all based on the [6play](https://www.6play.fr) technology. 

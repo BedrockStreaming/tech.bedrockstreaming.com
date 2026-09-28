@@ -5,8 +5,8 @@ permalink: /2022/08/25/backend-errors-connections.html
 title: "BFF's error definition, and handling connections to multiple API"
 description: "What is an error, a failing API? How is the BFF handling connections to multiple API?"
 author: v_claras
-tags: [backend, php, api, api-gateway, back-for-front, error, timout, retry, slo, guzzle]
 language: en
+topics: [backend, architecture, observability]
 ---
 
 A _quick_ sidetrack in [our series](#from-the-same-series) about Bedrock's API gateway.

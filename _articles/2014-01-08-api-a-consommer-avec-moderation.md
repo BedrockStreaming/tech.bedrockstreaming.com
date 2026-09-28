@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [practices, backend, open-source]
 date: 2014-01-08
 permalink: /2014/01/08/api-a-consommer-avec-moderation.html
 title: "API à consommer avec modération"
 description: "Authentification des API par nom de domaine"
 author: team_cytron
-tags: [outil, api, symfony, doctrine, cytron, open-source]
 feature-img: "images/posts/cytron/domainuserbundle.png"
 thumbnail: "images/posts/cytron/domainuserbundle.png"
 ---

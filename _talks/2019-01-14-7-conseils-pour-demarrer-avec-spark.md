@@ -9,8 +9,8 @@ eventName: Scala IO
 eventUrl: https://scala.io/
 youtubeId: QCFnjpUL95I
 
-tags: [spark, scalaio, conference]
 language: fr
+topics: [data]
 ---
 
 Je suis entrée dans le monde de la data avec Spark. 

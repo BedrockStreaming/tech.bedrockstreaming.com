@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, observability]
 date: 2012-06-01
 title: "M6Web au Forum PHP 2012 et au WebEvent #4"
 description: ""
 author: k_dits
-tags: [php,afup,monitoring,conference]
 permalink: post/24184111542/m6web-au-forum-php-2012-et-au-webevent-4
 ---
 

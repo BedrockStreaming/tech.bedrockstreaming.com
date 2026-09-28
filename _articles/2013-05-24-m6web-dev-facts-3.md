@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2013-05-24
 title: "M6Web Dev Facts #3"
 description: ""
 author: o_mansour 
-tags: [devfacts,humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones

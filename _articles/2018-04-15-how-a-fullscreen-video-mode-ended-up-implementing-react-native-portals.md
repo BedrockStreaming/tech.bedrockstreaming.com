@@ -11,8 +11,8 @@ author:
   facebook:
   github: M6Web
 permalink: /6play/2018/04/15/how-a-fullscreen-video-mode-ended-up-implementing-react-native-portals.html
-tags: [React,ReactNative,mobile]
 language: en
+topics: [frontend, mobile]
 ---
 
 This story introduces a declarative native side portal implementation module called rn-reparentable.

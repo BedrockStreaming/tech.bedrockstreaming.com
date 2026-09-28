@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2023-03-13
 permalink: /2023/03/13/bedrock-dev-facts-19.html
 title: "Bedrock Dev Facts #19"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 ---
 
 La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le froid aura-t-il apportées parmi les devs ? ❄️

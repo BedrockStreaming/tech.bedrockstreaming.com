@@ -5,9 +5,9 @@ permalink: /2017/02/20/retour-de-paris-video-tech.html
 title: "L'équipe Player de 6play.fr au Paris Video Tech"
 description: "Paris Video Tech : La plus grande rencontre des ingénieurs de la vidéo à Paris"
 author: f_vieudrin 
-tags: [video, ott, react, dash, hls, mse, cmaf, 6play, html5]
 feature-img: "images/posts/retour-de-paris-video-tech/banner-paris-video-tech.jpg"
 language: fr
+topics: [video, frontend]
 ---
 
 ![Logo Paris Video Tech](/images/posts/retour-de-paris-video-tech/logo-paris-video-tech.png)

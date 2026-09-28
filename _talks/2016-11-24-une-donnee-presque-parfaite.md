@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend, video]
 date: 2016-11-24
 permalink: /2016/11/24/une-donnee-presque-parfaite.html
 
@@ -11,7 +12,6 @@ eventName: ForumPHP 2016
 eventUrl: https://event.afup.org/forum-php-2016/home-forum-php-2016/
 youtubeId: kSlYXpezjIQ
 
-tags: [lyon, conference, elasticsearch, video]
 thumbnail: "images/posts/conf-afup-viguier/6play.jpg"
 ---
 

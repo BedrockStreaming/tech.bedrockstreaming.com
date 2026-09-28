@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend]
 date: 2022-10-13
 permalink: /2022/10/13/comprenez-comment-php-fonctionne-vos-applications-marcheront-mieux.html
 title: Comprenez comment PHP fonctionne, vos applications marcheront mieux, Forum PHP 2022
@@ -13,7 +14,6 @@ eventName: "Forum PHP 2022"
 sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: eWlsd9Vtszs
-tags: [conference, afup, forumphp, php]
 ---
 
 Pour exécuter du code, PHP consomme du processeur et de la mémoire. Quand une requête HTTP arrive, un processus php-fpm lui est dédié. Mais ces ressources sont limitées. Et, même dans Le Cloud ou en serverless, scaler prend du temps et les coûts s’envolent !

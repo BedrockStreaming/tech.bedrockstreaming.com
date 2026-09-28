@@ -11,10 +11,10 @@ author:
   twitter: Bedrock_Stream
   facebook:
   github: BedrockStreaming
-tags: [opensource, babyfoot, angularjs, d3js, symfony]
 feature-img: "images/posts/babitch/tablesoccer.jpg"
 thumbnail: "images/posts/babitch/tablesoccer.jpg"
 language: en
+topics: [open-source, culture, frontend, backend]
 ---
 
 At M6Web, we love playing foosball!

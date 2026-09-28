@@ -5,10 +5,10 @@ permalink: /2021/10/14/live-streaming-lft.html
 title: "How did we live stream our Last Friday Talks?"
 description: "Discover how we live streamed our Last Friday Talks of September 2021 to 150+ remote employees."
 author: p_martin
-tags: [lft, talks, live, stream, obs]
 feature-img: "images/posts/lft/live-streaming/header.jpg"
 thumbnail: "images/posts/lft/live-streaming/header.jpg"
 language: en
+topics: [video, observability]
 redirect_from:
   - /live-streaming-lft/
 ---

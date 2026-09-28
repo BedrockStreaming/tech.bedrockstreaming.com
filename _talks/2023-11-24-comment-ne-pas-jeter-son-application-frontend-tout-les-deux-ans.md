@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Comment ne pas jeter son application Frontend tout les deux ans ? #LFT 24/11/23"
 description: ""
 author: [f_dubost, a_caron]
-tags: [lft, tech]
 youtubeId: 34y6yBimcxo
 permalink: comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans
 ---

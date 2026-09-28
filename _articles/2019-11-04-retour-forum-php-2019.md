@@ -5,10 +5,10 @@ permalink: /2019/11/04/retour-forum-php-2019.html
 title: "Forum PHP Paris 2019"
 description: "Nos retours du Forum PHP à Paris, les 24 et 25 octobre 2019"
 author: p_martin
-tags: [forumphp, php, afup, 2019]
 thumbnail: "images/posts/forumphp2019/header.jpg"
 feature-img: "images/posts/forumphp2019/header.jpg"
 language: fr
+topics: [backend]
 ---
 
 Comme tous les ans, nous étions au [Forum PHP 2019](https://event.afup.org/forumphp2019/) organisé par l’AFUP ! 

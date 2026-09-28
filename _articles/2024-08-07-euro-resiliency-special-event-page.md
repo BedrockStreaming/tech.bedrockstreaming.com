@@ -1,12 +1,12 @@
 ---
 layout: post
 language: en
+topics: [architecture, frontend, backend]
 date: 2024-08-07
 permalink: /2024/08/07/euro-resiliency-special-event-page.html
 title: How Special Event Page allowed us to handle more than 1 million of users
 description: "Earlier this year took place the Euro: with the increase of traffic that was expected, we developed a way to both enhance user experience, allowing them to access easier than ever their soccer match, and protect our backend servers at the same time. But how did we do that ?"
 author: bedrock 
-tags: [ resilience, frontend, back-for-front, 2024 ]
 thumbnail: "/images/posts/2024-08-07-euro-resiliency-special-event-page/Euro2024.png"
 ---
 

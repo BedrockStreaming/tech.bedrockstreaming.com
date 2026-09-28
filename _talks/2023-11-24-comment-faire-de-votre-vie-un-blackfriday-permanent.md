@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-11-24
 eventName: "Last Friday Talks"
 title: "Comment faire de votre vie un BlackFriday permanent #LFT 24/11/23"
 description: ""
 author: t_sontag
-tags: [lft]
 youtubeId: WUA7Zi5pakc
 permalink: comment-faire-de-votre-vie-un-blackfriday-permanent
 ---

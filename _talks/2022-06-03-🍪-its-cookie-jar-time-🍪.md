@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: [frontend]
 date: 2022-06-03
 eventName: "Last Friday Talks"
 title: "🍪 It’s Cookie Jar Time 🍪 #LFT 03/06/22"
 description: ""
 author: e_carneau
-tags: [UX, lft, tech]
 youtubeId: -rMtDI3tvDI
 permalink: 🍪-its-cookie-jar-time-🍪
 ---

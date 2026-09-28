@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [backend]
 date: 2014-04-10
 permalink: /2014/04/10/SfLive2014-symfony-a-la-tele.html
 title: "Conférence au Symfony Live 2014 : Symfony à la télé"
 description: "M6Web était présent au Symfony Live 2014"
 author: o_mansour
-tags: [symfony, conference]
 thumbnail: "images/posts/sflive2014/header_sflive2014.jpg"
 ---
 

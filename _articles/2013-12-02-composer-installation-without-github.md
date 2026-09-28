@@ -4,11 +4,11 @@ date: 2013-12-02
 title: "Composer installation without github.com (nor packagist) dependency - like a boss !"
 description: ""
 author: o_mansour
-tags: [satis,composer,aws,s3,github,packagist, cloud]
 feature-img: "images/posts/composer-installation-without-github/cloud.jpg"
 thumbnail: "images/posts/composer-installation-without-github/cloud.jpg"
 permalink: composer-installation-without-github
 language: en
+topics: [backend, platform]
 ---
 
 ![github is down ! ok carry on](/images/posts/composer-installation-without-github/github_down.png)

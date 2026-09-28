@@ -4,10 +4,10 @@ date: 2025-11-18
 permalink: /2025/11/18/performance-now-2025.html
 title: "Performance.now() 2025 - Pragmatic, Magical and Responsible Performance"
 description: "Takeaways from the Performance.now() 2025 conference in Amsterdam - investigating runtime costs, modern DevTools and responsible performance."
-tags: [performance, conference, webperf, javascript, react, web, frontend]
 author: [f_dubost, m_bernier]
 cover: /assets/images/perfnow-2025-cover.jpg
 language: en
+topics: [performance, frontend]
 feature-img: "/images/posts/2025-11-18-performance-now-2025/perfnow-2025-1.jpg"
 thumbnail: "/images/posts/2025-11-18-performance-now-2025/perfnow-2025.jpg"
 ---

@@ -5,9 +5,9 @@ permalink: /2014/01/28/how-we-use-statsd.html
 title: "How we use StatsD"
 description: "How we use statsd to monitor our applications"
 author: o_mansour
-tags: [statsd, graphite, php, nodejs, monitoring]
 thumbnail: "images/posts/statsd/header_pourri.jpg"
 language: en
+topics: [observability, backend]
 ---
 
 # What we want

@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [culture]
 date: 2021-12-20
 permalink: /2021/12/20/bedrock-dev-facts-15.html
 title: "Bedrock Dev Facts #15"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-tags: [devfacts, humour]
 redirect_from:
   - /bedrock-dev-facts-15/
 ---

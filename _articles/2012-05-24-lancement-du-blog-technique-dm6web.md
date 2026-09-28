@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2012-05-24
 title: "Lancement du blog technique d'M6Web"
 description: ""
@@ -11,7 +12,6 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-tags: []
 image:
   feature: 
   credit: 

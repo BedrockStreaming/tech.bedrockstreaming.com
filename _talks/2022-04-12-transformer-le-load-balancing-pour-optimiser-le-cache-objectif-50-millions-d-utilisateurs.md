@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: []
 title: "Transformer le load balancing pour optimiser le cache : objectif 50 millions d’utilisateurs"
 date: 2022-04-12
 author: "v_gallissot"

@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [frontend, performance]
 date: 2014-12-04
 permalink: /2014/12/04/isomorphic-single-page-app-parfaite-react-flux.html
 title: "App Isomorphic: la Single Page App parfaite ?"
 description: "Développer une SPA référencable et performante avec React.Js et Flux"
 author: k_dits
-tags: [javascript, webperf, angular, react, flux, isomorphic]
 feature-img: "images/posts/reflection.jpg"
 thumbnail: "images/posts/reflection.jpg"
 ---

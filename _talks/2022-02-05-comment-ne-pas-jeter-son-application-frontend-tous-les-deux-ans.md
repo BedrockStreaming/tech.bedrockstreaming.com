@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: []
 title: "Comment ne pas jeter son application Frontend tous les deux ans ?"
 date: 2022-02-05
 author: ["f_dubost", "a_caron"]

@@ -1,12 +1,12 @@
 ---
 layout: video
 language: fr
+topics: []
 date: 2023-09-29
 eventName: "Last Friday Talks"
 title: "Nourrir nos IA #LFT 29/09/23"
 description: ""
 author: n_saby
-tags: [lft, tech]
 youtubeId: gfXopH0v9Wg
 permalink: nourrir-nos-ia
 ---

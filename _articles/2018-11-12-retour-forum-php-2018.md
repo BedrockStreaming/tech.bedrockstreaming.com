@@ -6,9 +6,9 @@ title: "Forum PHP Paris 2018"
 description: "Nos retours du Forum PHP à Paris, les 25 et 26 octobre 2018"
 author:
   name: Olivier Mansour, Fabien De Saint Pern, Francois-Xavier Gaberan, Héléna Hiraux, Pascal Martin, Benoit Viguier, Guillaume Bouyge
-tags: [forumphp, php, afup, 2018]
 feature-img: "images/posts/forumphp2018/header.jpg"
 language: fr
+topics: [backend]
 ---
 
 Comme tous les ans, nous étions au [Forum PHP 2018](https://event.afup.org/forumphp2018/) organisé par l’AFUP ! Encore une fois, nous avons pu assister à plusieurs conférences et échanger avec grand nombre d’entre vous. Voici quelques mots sur celles qui nous ont le plus marqué.

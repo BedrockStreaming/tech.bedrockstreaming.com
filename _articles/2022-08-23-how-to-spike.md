@@ -4,8 +4,8 @@ date: 2022-08-23
 title: "Les spikes : quand, comment, pour quoi faire ?"
 description: "Décomposer une tâche complexe, de A à Z"
 author: e_doyon
-tags: [spike, methodologie, cytron, tech]
 language: fr
+topics: [practices]
 feature-img: "images/posts/how-to-spike/cactus.jpg"
 permalink: how-to-spike
 ---

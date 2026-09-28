@@ -5,10 +5,10 @@ permalink: /2017/05/17/spa-mode-isomorphism-js.html
 title: "Last night isomorphic JS saved our life!"
 description: "How we use isomorphism to ensure a high availability of our app."
 author: f_dubost
-tags: [SPA, SSR, isomorphic, javascript, node.js, high availability]
 feature-img: "images/posts/spamode/spamode.jpg"
 thumbnail: "images/posts/spamode/spamode.jpg"
 language: en
+topics: [frontend, backend, performance]
 ---
 
 For more than a year and a half, we use [Node.js](https://nodejs.org/en/) and [React](https://facebook.github.io/react/) together to make the best app possible for our users. These 2 technologies are complementary to write only once code executed on the server and the client side: that’s the isomorphic way! This approach helped us to develop a reliable app with [a fast first render and SEO friendly](/isomorphic-single-page-app-parfaite-react-flux/).

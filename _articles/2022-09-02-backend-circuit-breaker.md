@@ -5,8 +5,8 @@ permalink: /2022/09/02/backend-circuit-breaker.html
 title: "Using a circuit breaker to spare the API we are calling"
 description: "What is a circuit-breaker, and how are we using it?"
 author: v_claras
-tags: [backend, php, api, api-gateway, back-for-front, resiliency, circuit-breaker]
 language: en
+topics: [backend, architecture]
 ---
 
 Hi! We're going to start our [fourth article](#from-the-same-series) about Bedrock's API gateway.

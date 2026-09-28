@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [frontend, mobile, video, backend]
 date: 2015-07-10
 permalink: /2015/07/10/cr-react-europe-2015-day-two.html
 title: "CR React Europe Conférence 2015 - Day 2"
@@ -12,7 +13,6 @@ author:
   twitter: techM6Web
   facebook:
   github:
-tags: [javascript, react, reactnative, video, graphql]
 feature-img: "images/posts/reacteurope/reacteurope2.png"
 thumbnail: "images/posts/reacteurope/reacteurope2.png"
 ---

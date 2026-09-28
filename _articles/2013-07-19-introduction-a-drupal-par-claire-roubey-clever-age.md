@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, video]
 date: 2013-07-19
 title: "Introduction à Drupal par Claire Roubey (Clever Age)"
 description: ""
 author: o_mansour 
-tags: [lft,drupal,video]
 image:
   feature: 
   credit: 

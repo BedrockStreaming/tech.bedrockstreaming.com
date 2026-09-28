@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [practices, testing, frontend]
 date: 2014-09-24
 title: "Tests E2E sur son application AngularJS avec Protractor"
 description: "Comment mettre en place des tests E2E sur son application AngularJS : outils et problématiques."
 author: team_cytron
-tags: [qualite, tests, javascript, angular, protractor, cytron]
 feature-img: "images/posts/cytron/protractor.jpg"
 thumbnail: "images/posts/cytron/protractor.jpg"
 permalink: tests-e2e-application-angularjs-protractor.html

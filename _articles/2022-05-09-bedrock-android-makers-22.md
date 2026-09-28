@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [mobile, culture]
 date: 2022-05-09
 permalink: /2022/05/09/bedrock-android-makers-22.html
 title: Retour sur l'Android Makers 2022
 description: Notre équipe de développeurs Android était à l'Android Makers 2022 !
 author: r_panoyan
-tags: [android, mobile, conference, makers]
 thumbnail: "/images/posts/2022-05-09-bedrock-android-makers-2022/am2022.jpg"
 ---
 

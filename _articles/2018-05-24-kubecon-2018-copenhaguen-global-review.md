@@ -11,10 +11,10 @@ author:
   twitter:
   facebook:
   github:
-tags: [kubernetes, KubeCon]
 feature-img: "images/posts/kubecon-2018/title-kubecon.jpg"
 thumbnail: "images/posts/kubecon-2018/title-kubecon.jpg"
 language: en
+topics: [platform]
 ---
 
 After those three days at KubeCon, we've seen and heard a lot of interesting ideas. You can read about [our first day here](/kubecon-2018-copenhaguen-day-1/), [about our second day there](/kubecon-2018-copenhaguen-day-2/), and [about our third day there](/kubecon-2018-copenhaguen-day-3/). If we had to do a short recap, here are the points we would list.

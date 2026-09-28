@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [practices]
 date: 2024-04-17
 permalink: /2024/04/17/sauve-un-e-dev-ecris-une-doc.html
 title: "Sauve un-e dév, écris une doc !"
@@ -10,7 +11,6 @@ eventName: "Devoxx France 2024"
 sponsored: true
 eventUrl: "https://mobile.devoxx.com/events/devoxxfr2024/talks/10852/details"
 youtubeId: Jd8k4s7O3GM
-tags: [conference, devoxx, doc]
 ---
 
 Vous êtes développeur ou développeuse PHP : vous aimez programmer, réfléchir. Vous aimez créer des applications ou des bibliothèques de qualité. Mais pourquoi personne ne les utilise ? Parce que votre documentation n'est pas à la hauteur !

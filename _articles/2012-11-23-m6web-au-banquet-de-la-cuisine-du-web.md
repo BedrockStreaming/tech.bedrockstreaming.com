@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2012-11-23
 title: "M6Web au banquet de la cuisine du web"
 description: ""
 author: o_mansour
-tags: [conference,lcdw]
 permalink: m6web-au-banquet-de-la-cuisine-du-web
 ---
 

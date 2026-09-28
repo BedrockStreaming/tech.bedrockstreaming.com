@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: [backend, testing, platform]
 date: 2012-07-11
 title: "Intégration continue avec Jenkins et Atoum"
 description: ""
 author: o_mansour
-tags: [php,atoum,jenkins,ci]
 permalink: integration-continue-avec-jenkins-et-atoum
 ---
 

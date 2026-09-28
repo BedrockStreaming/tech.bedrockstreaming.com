@@ -1,6 +1,7 @@
 ---
 layout: conference
 language: fr
+topics: [backend]
 date: 2022-10-13
 permalink: /2022/10/13/bff-notre-best-friend-forever-pour-faire-plein-d-applications-frontend.html
 title: "BFF, notre best friend forever pour faire plein d’applications frontend ?"
@@ -10,7 +11,6 @@ eventName: "Forum PHP 2022"
 sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: pQipUAsvACA
-tags: [conference, afup, forumphp, php, bff]
 ---
 
 Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connecté, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.

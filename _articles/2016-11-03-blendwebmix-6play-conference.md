@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2016-11-03
 permalink: /2016/11/03/blendwebmix-6play-conference.html
 title: "Enquête exclusive au coeur de la technique de 6play. Les slides."
@@ -12,7 +13,6 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-tags: [conference]
 feature-img: "images/posts/blend2016.jpg"
 ---
 

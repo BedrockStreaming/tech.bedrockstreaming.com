@@ -1,6 +1,7 @@
 ---
 layout: post
 language: fr
+topics: [backend]
 date: 2014-11-12
 permalink: /2014/11/12/retour-sur-le-forumphp2014.html
 title: "Retour sur le forum PHP 2014 organisé par l'AFUP"
@@ -12,7 +13,6 @@ author:
   twitter: techM6Web
   facebook:
   github:
-tags: [afup, php, forumphp, conference]
 thumbnail: "images/posts/forumphp2014/cover.jpg"
 feature-img: "images/posts/forumphp2014/cover.jpg"
 ---

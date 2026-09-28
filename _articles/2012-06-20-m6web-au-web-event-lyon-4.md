@@ -1,11 +1,11 @@
 ---
 layout: post
 language: fr
+topics: []
 date: 2012-06-20
 title: "M6Web au Web Event Lyon #4"
 description: ""
 author: o_mansour
-tags: [webevent]
 permalink: m6web-au-web-event-lyon-4
 ---
 

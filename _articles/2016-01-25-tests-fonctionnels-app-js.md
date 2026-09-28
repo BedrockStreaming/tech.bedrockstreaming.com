@@ -1,12 +1,12 @@
 ---
 layout: post
 language: fr
+topics: [testing, frontend]
 date: 2016-01-25
 permalink: /2016/01/25/tests-fonctionnels-app-js.html
 title: "On a testé fonctionnellement notre app JS"
 description: "Faire des tests fonctionnels avec Cucumber.js, WebdriverIO et PhantomJS sur une app JS isomorphique."
 author: f_dubost 
-tags: [tests fonctionnels, javascript, phantomjs, webdriver, Cytron]
 feature-img: "images/posts/cytron/moon.jpg"
 ---
 
