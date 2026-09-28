@@ -3,13 +3,11 @@ layout: post
 title: "Introduction à la qualité logicielle avec Node.js"
 description: ""
 author: bedrock 
-category: 
 tags: [nodejs,javascript,qualite]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: introduction-qualite-logicielle-avec-node-js
 ---
 

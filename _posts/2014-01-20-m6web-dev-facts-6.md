@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category: 
 tags: [devfacts, humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones
   creditlink: 
-comments: true  
 ---
 
 Parce que nous en avons encore une quantité incroyable en stock, voici une nouvelle sélection des meilleures phrases entendues dans nos bureaux !

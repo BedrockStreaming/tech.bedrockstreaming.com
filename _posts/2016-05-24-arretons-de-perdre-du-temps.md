@@ -8,7 +8,6 @@ eventUrl: https://event.afup.org/php-tour-2016/home-phptour-2016/
 youtubeId: iuod3e6e7FM
 
 tags: [afup, php, debug, conference]
-color: rgb(251,87,66)
 language: fr
 ---
 

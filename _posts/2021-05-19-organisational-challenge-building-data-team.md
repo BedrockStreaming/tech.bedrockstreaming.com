@@ -3,11 +3,10 @@ layout: post
 title: "The organisational challenge of building a Data team: lessons learnt"
 description: "Over the past 4 years, we've scaled our Data team from 2 to 40 people. Down the road we met some unexpected challenges in the way we organised and staffed the team."
 author: c_chaplin
-category: Data
+permalink: /data/2021/05/19/organisational-challenge-building-data-team.html
 tags: [Data,Data Science,Data Engineering,Agile,BigData,Organization]
 feature-img: "images/posts/data-org-challenge/team.jpg"
 thumbnail: "images/posts/data-org-challenge/team.jpg"
-comments: true
 language: en
 redirect_from:
   - /organisational-challenge-building-data-team/

@@ -4,7 +4,6 @@ title: "Siteswap: jongler avec les maths #LFT 29/09/23"
 description: ""
 author: d_krieger
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: stp4lnxvyJk
 permalink: siteswap-jongler-avec-les-maths
 ---

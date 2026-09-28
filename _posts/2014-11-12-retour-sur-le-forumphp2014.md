@@ -9,11 +9,9 @@ author:
   twitter: techM6Web
   facebook:
   github:
-category:
 tags: [afup, php, forumphp, conference]
 thumbnail: "images/posts/forumphp2014/cover.jpg"
 feature-img: "images/posts/forumphp2014/cover.jpg"
-comments: true
 permalink: 
 ---
 

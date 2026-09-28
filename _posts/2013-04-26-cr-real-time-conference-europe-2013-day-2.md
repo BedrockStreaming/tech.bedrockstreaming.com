@@ -3,9 +3,7 @@ layout: post
 title: "CR Real Time Conférence Europe 2013 - Day 2"
 description: ""
 author: o_noel
-category: 
 tags: [conference,nodejs,realtime]
-comments: true  
 permalink: cr-real-time-conference-europe-2013-day-2
 ---
 

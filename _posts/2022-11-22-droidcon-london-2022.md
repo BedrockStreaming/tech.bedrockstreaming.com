@@ -3,11 +3,8 @@ layout: post
 title: "Ce que nous retenons de la droidcon London 2022"
 description: "Retour sur la virée de Bedrock à la droidcon London 2022, et ce que nous en retenons"
 author: [r_panoyan, d_yim, d_cuny]
-category:
 tags: [android, droidcon, conference]
-color: rgb(251,87,66)
 language: fr
-comments: true
 ---
 
 La communauté Android a apporté le soleil sur Londres les 27 et 28 octobre 2022. La droidcon London a réuni plus de 1400 développeurs autour de l'écosystème Android, de ses outils et enjeux actuels. Jetpack Compose, évidemment, mais aussi Gradle, modularisation, optimisation et autres sujets plus divers ont été abordés lors de ce rendez-vous incontournable pour la communauté.

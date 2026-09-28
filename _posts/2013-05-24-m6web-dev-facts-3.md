@@ -3,13 +3,11 @@ layout: post
 title: "M6Web Dev Facts #3"
 description: ""
 author: o_mansour 
-category: 
 tags: [devfacts,humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones
   creditlink: 
-comments: true  
 permalink: m6web-dev-facts-3
 ---
 

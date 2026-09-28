@@ -3,9 +3,7 @@ layout: post
 title: "Bedrock Dev Facts #19"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-category: 
 tags: [devfacts, humour]
-color: rgb(251,87,66)
 ---
 
 La fin de l'hiver approche, il est temps de faire un bilan ! Quelles bêtises le froid aura-t-il apportées parmi les devs ? ❄️

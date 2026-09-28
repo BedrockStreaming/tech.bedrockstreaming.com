@@ -11,7 +11,6 @@ sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: eWlsd9Vtszs
 tags: [conference, afup, forumphp, php]
-color: rgb(251,87,66)
 ---
 
 Pour exécuter du code, PHP consomme du processeur et de la mémoire. Quand une requête HTTP arrive, un processus php-fpm lui est dédié. Mais ces ressources sont limitées. Et, même dans Le Cloud ou en serverless, scaler prend du temps et les coûts s’envolent !

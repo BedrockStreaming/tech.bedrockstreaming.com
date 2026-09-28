@@ -3,9 +3,7 @@ layout: post
 title: "M6 Web était présent au Forum PHP 2012"
 description: ""
 author: o_mansour 
-category: 
 tags: [afup,forumphp,conference]
-comments: true  
 permalink: post/24732185644/m6-web-tait-pr-sent-au-forum-php-2012
 ---
 

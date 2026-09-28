@@ -8,7 +8,6 @@ sponsored: true
 eventUrl: "https://event.afup.org/forum-php-2022/"
 youtubeId: pQipUAsvACA
 tags: [conference, afup, forumphp, php, bff]
-color: rgb(251,87,66)
 ---
 
 Chez Bedrock nous fournissons des applications de streaming (ASVOD, AVOD) pour plusieurs clients en France et en Europe, chaque application étant déployée sur de nombreux appareils (ordinateur, mobile, set top box, tv connecté, consoles de jeux, tv stick etc …). Il était devenu très difficile de gérer la création et l’évolution de ces nombreuses applications qui requêtaient et formataient chacune elles-mêmes les données dont elles avaient besoin.

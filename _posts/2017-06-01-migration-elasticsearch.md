@@ -3,11 +3,9 @@ layout: post
 title: "Elasticsearch: la grande migration"
 description: "Migration de Elasticsearch 1.7 à 5.2 sans interruption de service"
 author: b_viguier
-category:
 tags: [Elasticsearch, Php]
 feature-img: "images/posts/migration-es/migration.jpg"
 thumbnail: "images/posts/migration-es/migration.jpg"
-comments: true
 language: fr
 ---
 

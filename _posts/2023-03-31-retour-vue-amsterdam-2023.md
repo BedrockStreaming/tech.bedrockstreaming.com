@@ -4,7 +4,6 @@ title: Retour Conférence Vue Amsterdam 2023
 description: Retour sur la conférence Vuejs à Amsterdam 2023
 author: [pl_perez, l_penaguin, c_berard]
 tags: [node, Node, vue, vuex, pinia, vite, Vitest, TypeScript, developer, javascript]
-color: rgb(251,87,66)
 thumbnail: /images/posts/2023-03-31-retour-vue-amsterdam-2023/vue_amsterdam_logo.jpeg
 ---
 

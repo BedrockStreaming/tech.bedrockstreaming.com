@@ -4,7 +4,6 @@ title: Bedrock au Devoxx 2025
 description: 
 author: [p_rambaud, f_ferriere, g_damour, b_colin]
 tags: [devoxx, conference, event, backend, go, kubernetes, github, IA, openid, oauth2, architecture]
-color: rgb(251,87,66)
 language: fr
 thumbnail: "/images/posts/2025-04-16_devoxx_2025/thumbnail.jpg"
 ---

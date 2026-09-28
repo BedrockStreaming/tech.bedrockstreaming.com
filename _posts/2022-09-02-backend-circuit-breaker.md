@@ -4,8 +4,6 @@ title: "Using a circuit breaker to spare the API we are calling"
 description: "What is a circuit-breaker, and how are we using it?"
 author: v_claras
 tags: [backend, php, api, api-gateway, back-for-front, resiliency, circuit-breaker]
-comments: true
-color: rgb(255,128,0)
 language: en
 ---
 

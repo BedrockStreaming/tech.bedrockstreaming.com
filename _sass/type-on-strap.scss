@@ -9,7 +9,6 @@
 @import 'external/reset';
 @import 'external/font-awesome';
 @import 'external/pacifico';
-@import 'external/katex';
 @import 'external/source-sans-pro';
 
 /* Base */
@@ -23,10 +22,7 @@
 @import 'includes/post_nav';
 @import 'includes/footer';
 @import 'includes/navbar';
-@import 'includes/share_buttons';
 @import 'includes/blog_nav';
-@import 'includes/gallery';
-@import 'includes/portfolio';
 
 /* Posts */
 // Linked with the html in the _layouts folder

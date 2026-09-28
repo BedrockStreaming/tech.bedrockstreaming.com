@@ -4,7 +4,6 @@ title: Enhancing Production Monitoring with New Relic
 description: How did we improve the monitoring practices on the mobile service? Let's find out.
 author: [m_benali, m_julieron]
 tags: [monitoring, production, newrelic, shared practice, alerting]
-color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2024-10-03-enhancing-production-monitoring-with-newrelic/main.png"
 ---

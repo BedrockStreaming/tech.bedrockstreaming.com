@@ -3,9 +3,7 @@ layout: post
 title: "M6Web au Web Event Lyon #4"
 description: ""
 author: o_mansour
-category: 
 tags: [webevent]
-comments: true  
 permalink: m6web-au-web-event-lyon-4
 ---
 

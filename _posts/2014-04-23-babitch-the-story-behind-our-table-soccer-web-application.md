@@ -9,11 +9,9 @@ author:
   twitter: Bedrock_Stream
   facebook:
   github: BedrockStreaming
-category:
 tags: [opensource, babyfoot, angularjs, d3js, symfony]
 feature-img: "images/posts/babitch/tablesoccer.jpg"
 thumbnail: "images/posts/babitch/tablesoccer.jpg"
-comments: true
 language: en
 ---
 

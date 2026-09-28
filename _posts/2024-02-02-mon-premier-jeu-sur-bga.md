@@ -4,7 +4,6 @@ title: "Mon premier jeu sur BGA #LFT 02/02/24"
 description: ""
 author: o_thebault
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: zwiMJjc9n7g
 permalink: mon-premier-jeu-sur-bga
 ---

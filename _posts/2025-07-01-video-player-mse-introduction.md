@@ -4,7 +4,6 @@ title: "Crafting Your Own Streamer: A Hands-on Guide to JavaScript MSE"
 description: In this article, I'm going to explain how to enhance your player using the Media Source Extension API.
 author: [a_gaudard]
 tags: [TVJS, smartTV, web, javascript, frontend, player, video]
-color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2025-07-01-video-player-mse-introduction/thumbnail.jpeg"
 ---

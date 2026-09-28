@@ -3,9 +3,7 @@ layout: post
 title: "M6Web Dev Facts #12"
 description: "Les plus belles phrases de nos équipes techniques"
 author: bedrock 
-category: 
 tags: [devfacts, humour]
-comments: true
 redirect_from:
   - /m6web-dev-facts-12/
 ---

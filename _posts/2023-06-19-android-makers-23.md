@@ -4,7 +4,6 @@ title: Deux jours à Android Makers by Droidcon 2023
 description: "Les équipes Android de Bedrock étaient à Android Makers 2023 − on vous résume tout."
 author: [b_candellier, a_pitel]
 tags: [android, mobile, conference, makers]
-color: rgb(254,91,73)
 language: fr
 thumbnail: "/images/posts/2023-06-19-android-makers-23/cover.jpg"
 ---

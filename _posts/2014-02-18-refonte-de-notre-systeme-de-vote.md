@@ -3,11 +3,9 @@ layout: post
 title: "Refonte de notre système de vote"
 description: "Création d'un nouveau service de vote communiquant avec une API REST"
 author: d_roussel
-category:
 tags: [api, symfony, redis, monitoring, qualite, cytron]
 thumbnail: "images/posts/cytron/polls.png"
 feature-img: "images/posts/cytron/polls.png"
-comments: true
 ---
 
 Notre système de vote est utilisé d'une part pour gérer l'ensemble des questions et des réponses associées utilisées dans nos [quizz](https://www.m6.fr/emission-top_chef/jeux.html) et d'autre part pour récolter le nombre de votes des internautes lors des [jeux concours](https://www.m6.fr/jeux-concours.html).

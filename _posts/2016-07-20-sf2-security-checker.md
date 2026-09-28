@@ -9,10 +9,8 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category:
 tags: [6tech, lyon, symfony, security, php, jenkins]
 
-comments: true
 language: en
 ---
 

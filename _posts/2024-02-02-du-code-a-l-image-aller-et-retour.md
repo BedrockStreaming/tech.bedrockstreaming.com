@@ -4,7 +4,6 @@ title: "Du code à l'image : Aller et Retour #LFT 02/02/24"
 description: ""
 author: e_doyon
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: 6Y9IEdmvETU
 permalink: du-code-a-l-image-aller-et-retour
 ---

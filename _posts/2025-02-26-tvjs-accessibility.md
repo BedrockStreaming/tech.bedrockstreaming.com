@@ -4,7 +4,6 @@ title: How we made our apps more accessible on SmartTVs 📺
 description: In this article, I'm going to share with you how we improved our accessibility score of our apps at _TVJS_.
 author: [j_nginn]
 tags: [TVJS, smartTV, javascript, react, web, frontend, accessibility, a11y]
-color: rgb(251,87,66)
 language: en
 ---
 

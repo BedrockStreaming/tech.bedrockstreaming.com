@@ -4,7 +4,6 @@ title: KubeCon Europe 2024, Paris
 description: A few notes and ideas, coming back from KubeCon EU 2024 Paris.
 author: [g_sanchez, j_menan, l_caillet, p_martin, v_chabrier, v_pelus]
 tags: [kubernetes, cloud, devops, opensource, community, conference, 2024]
-color: rgb(251,87,66)
 thumbnail: "/images/posts/2024-04-09-kubecon-europe-2024/bienvenue-kubecon.jpeg"
 ---
 

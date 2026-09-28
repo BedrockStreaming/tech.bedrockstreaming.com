@@ -4,8 +4,6 @@ title: "BFF's error definition, and handling connections to multiple API"
 description: "What is an error, a failing API? How is the BFF handling connections to multiple API?"
 author: v_claras
 tags: [backend, php, api, api-gateway, back-for-front, error, timout, retry, slo, guzzle]
-comments: true
-color: rgb(255,128,0)
 language: en
 ---
 

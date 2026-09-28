@@ -4,7 +4,6 @@ title: "Situations conflictuelles : et si vous sortiez de la spirale infernale ?
 description: ""
 author: e_perrin
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: SFPktJAO4uI
 permalink: situations-conflictuelles
 ---

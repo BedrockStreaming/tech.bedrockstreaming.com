@@ -4,7 +4,6 @@ title: "Le leader imposteur #LFT 02/02/24"
 description: ""
 author: m_mure
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: XzfzloYblbs
 permalink: le-leader-imposteur
 ---

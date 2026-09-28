@@ -9,11 +9,9 @@ author:
   twitter: techM6Web
   facebook:
   github:
-category:
 tags: [javascript, react, reactnative, video, graphql]
 feature-img: "images/posts/reacteurope/reacteurope2.png"
 thumbnail: "images/posts/reacteurope/reacteurope2.png"
-comments: true
 ---
 
 Après une [première journée pleine de nouveautés et d'annonces](/2015/02/04/cr-react-conf-2015-day-one), voici la suite du compte rendu avec un programme encore très chargé pour cette deuxième journée de la React Europe.

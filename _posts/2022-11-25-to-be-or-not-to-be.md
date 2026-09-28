@@ -4,8 +4,6 @@ title: "To be or not to be, ou quelques réflexions sur la dette technique et hu
 description: ""
 author: e_herve
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: 52JEUdJk2BY
 permalink: to-be-or-not-to-be
 ---

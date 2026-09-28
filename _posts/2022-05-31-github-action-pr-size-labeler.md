@@ -5,7 +5,6 @@ description: We have just published a github action that dynamically adds size l
 author: a_caron
 lang: en
 tags: [oss, github, devops]
-color: rgb(251,87,66)
 ---
 
 ![laurel branch with a white paper label](/images/posts/pr-size-labeler/helena-hertz-wWZzXlDpMog-unsplash.jpg)

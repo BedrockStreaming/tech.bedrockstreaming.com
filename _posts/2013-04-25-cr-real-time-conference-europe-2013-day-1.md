@@ -3,13 +3,11 @@ layout: post
 title: "CR Real Time Conférence Europe 2013 - Day 1"
 description: ""
 author: k_dits
-category: 
 tags: [conference,nodejs,zeromq,rabbitmq,realtime]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: cr-real-time-conference-europe-2013-day-1
 ---
 

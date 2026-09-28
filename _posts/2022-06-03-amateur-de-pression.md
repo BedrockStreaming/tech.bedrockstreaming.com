@@ -4,8 +4,6 @@ title: "Amateur de pression #LFT 03/06/22"
 description: ""
 author: h_riffiod
 tags: [plongée, partage, lft, partage]
-comments: true
-color: rgb(251,87,66)
 youtubeId: 3KbXTzypKRY
 permalink: amateur-de-pression
 ---

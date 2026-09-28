@@ -4,7 +4,6 @@ title: "Switching from Babel to SWC: Balancing performance with modern tools and
 description: "From Babel to SWC: our journey of migrating from a 10-year-old transpiler to a next-gen compiler, overcoming challenges and achieving build performance improvements."
 tags: [swc, babel, JavaScript, react, web, frontend, performance, bundler]
 author: [jf_farge, m_alves, t_gianella]
-color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2025-12-22-switching-from-babel-to-swc/thumbnail.jpeg"
 ---

@@ -4,8 +4,6 @@ title: "Docteur qui ? #LFT 25/11/22"
 description: ""
 author: s_haim
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: 9ulkF_TvaKw
 permalink: docteur-qui
 ---

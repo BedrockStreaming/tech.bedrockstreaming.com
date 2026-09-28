@@ -3,11 +3,9 @@ layout: post
 title: "Contrôlez facilement votre cohérence de code sur votre projet Symfony2 avec coke"
 description: "Voici comment facilement et rapidement mettre en place un système de contrôle de la cohérence du code d'un projet Symfony2 avec coke"
 author: m_randy
-category:
 tags: [code sniffing, coke, Symfony2]
 feature-img: "images/posts/coke-et-symfony2/feature.png"
 thumbnail: "images/posts/coke-et-symfony2/feature.png"
-comments: true
 ---
 
 Pour qu'un projet persiste dans le temps, il est important que le style de codage soit le même. Et quand vous vous reposez sur des outils, autant faire en sorte que le style de codage retenu soit proche, si ce n'est le même, que les briques que vous utilisez. Et dans le cas où vous utilisez un framework, c'est d'autant plus important.

@@ -9,11 +9,9 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [conference,velocity,webperf]
 feature-img: "images/posts/velocity2014/velocity_banner.jpg"
 thumbnail: "images/posts/velocity2014/velocity_banner.jpg"
-comments: true
 permalink: velocity-europe-2014-day-1
 ---
 

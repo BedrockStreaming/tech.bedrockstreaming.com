@@ -3,10 +3,8 @@ layout: post
 title: "Performances PHP chez M6Web"
 description: ""
 author: k_dits
-category: 
 tags: [graphite,monitoring,nodejs,php,varnish,webperf,conference]
 
-comments: true  
 permalink: post/23671071384/performances-php-chez-m6web
 ---
 

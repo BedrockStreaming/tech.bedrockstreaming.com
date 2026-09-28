@@ -4,7 +4,6 @@ title: "Comment faire de votre vie un BlackFriday permanent #LFT 24/11/23"
 description: ""
 author: t_sontag
 tags: [lft]
-color: rgb(251,87,66)
 youtubeId: WUA7Zi5pakc
 permalink: comment-faire-de-votre-vie-un-blackfriday-permanent
 ---

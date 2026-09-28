@@ -4,8 +4,6 @@ title: "40 min pour (tenter de) comprendre l'informatique quantique #LFT 25/11/2
 description: ""
 author: g_forien
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: _L2j8DdDUTo
 permalink: quarante-min-pour-comprendre-informatique-quantique
 ---

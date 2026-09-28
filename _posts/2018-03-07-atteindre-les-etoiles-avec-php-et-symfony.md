@@ -11,7 +11,6 @@ slideshareKey: 2CHGfkIFMor2BU
 
 lang: fr
 tags: [conference, confoo, PHP, Symfony]
-color: rgb(251,87,66) 
 ---
 
 À l’automne 2014, M6 décide d’adapter le programme Rising Star en France, un concours de chant en direct, mais dont le jury est le public, qui vote en direct depuis son application mobile.

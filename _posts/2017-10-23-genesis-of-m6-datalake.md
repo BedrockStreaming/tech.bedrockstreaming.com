@@ -3,11 +3,10 @@ layout: post
 title: "Genesis of M6's Datalake"
 description: "From using a market DMP to creating our second Hadoop platform"
 author: c_chaplin
-category: Data
+permalink: /data/2017/10/23/genesis-of-m6-datalake.html
 tags: [Data,Hadoop,BigData,Airflow,Hive,Spark,DMP]
 feature-img: "/images/posts/cerebro/data-lake.jpg"
 thumbnail: "/images/posts/cerebro/data-lake.jpg"
-comments: true
 language: en
 ---
 

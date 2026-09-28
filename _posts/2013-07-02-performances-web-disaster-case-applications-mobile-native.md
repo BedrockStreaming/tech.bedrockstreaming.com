@@ -3,13 +3,11 @@ layout: post
 title: "Performances web et \"Disaster case\" sur applications mobile native"
 description: ""
 author: k_dits 
-category: 
 tags: [webperf,mobile]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: performances-web-disaster-case-applications-mobile-native
 ---
 

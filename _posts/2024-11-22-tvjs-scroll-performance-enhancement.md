@@ -4,7 +4,6 @@ title: How we improved scroll performance on Smart TV apps
 description: From an R&D project came a new scroll implementation for our Smart TV apps, with better performance and experience.
 author: [m_bernier]
 tags: [TV, performance, javascript, react, web, frontend]
-color: rgb(251,87,66)
 ---
 
 One of the core experiences of a Bedrock app for the end user is browsing the catalog. Scrolling vertically through blocks of content, and scrolling horizontally through lists of items. However, TVs do not offer high performance and provide poor user experience during heavy resource actions. We especially noticed that scrolling horizontally in a list was laggy and unpleasant. This article focuses on performance optimization to enhance the horizontal scroll experience on Smart TVs.

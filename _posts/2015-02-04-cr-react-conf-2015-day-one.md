@@ -3,11 +3,9 @@ layout: post
 title: "CR React Conférence 2015 - Day 1"
 description: "Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 1"
 author: k_dits
-category:
 tags: [javascript, react, flux, isomorphic, conference]
 feature-img: "images/posts/reactconf/reactconf.png"
 thumbnail: "images/posts/reactconf/reactconf.png"
-comments: true
 ---
 
 Les 28 et 29 janvier 2015, sur le campus de Facebook (à Menlo Park), avait lieu la première conférence officielle sur la librairie open-source React (créée par les équipes de Facebook).

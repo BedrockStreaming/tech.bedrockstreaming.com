@@ -4,7 +4,6 @@ title: Bedrock au Kubernetes Community Days France 2023
 description: Notre retour sur cette édition de Kubernetes Community Days en France
 author: c_vanderzwaard
 tags: [kubernetes, cloud, devops, opensource, community, conference, rex]
-color: rgb(251,87,66)
 thumbnail: "images/posts/2023-kcd-france/KCD_LOGO_2023-color-2000px.png"
 ---
 

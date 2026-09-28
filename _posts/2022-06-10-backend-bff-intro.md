@@ -4,8 +4,6 @@ title: "Bedrock's backend architecture and its front API Gateway"
 description: "What is a BFF, and how does it simplify the development of frontend applications?"
 author: v_claras
 tags: [backend, php, api, api-gateway, back-for-front]
-comments: true
-color: rgb(255,128,0)
 language: en
 ---
 

@@ -10,7 +10,6 @@ youtubeId: bGklD-ZxIjI
 
 lang: fr
 tags: [conference, php, open-source, afup]
-color: rgb(251,87,66)
 ---
 
 Quand nous posons la question « qui contribue à PHP ? » lors des évènements que nous organisons ou auxquels nous participons, nous n’obtenons que très peu de réponses. Est-ce parce que peu d’entre nous savent ou aiment coder en C ? Pourtant, participer et contribuer ne se limite pas à des lignes de code, loin de là !

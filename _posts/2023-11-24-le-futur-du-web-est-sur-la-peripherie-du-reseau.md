@@ -4,7 +4,6 @@ title: "Le futur du web est sur la périphérie du réseau #LFT 24/11/23"
 description: ""
 author: j_sulpis
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: 2iQJgNB2DN0
 permalink: le-futur-du-web-est-sur-la-peripherie-du-reseau
 ---

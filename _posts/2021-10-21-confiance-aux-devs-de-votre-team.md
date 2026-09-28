@@ -10,7 +10,6 @@ youtubeId: tuGpNiy6e9s
 
 lang: fr
 tags: [conference, afup, php]
-color: rgb(251,87,66) 
 ---
 
 Deadlines, besoins produit, pression forte et fonctionnalités à livrer : nos projets ont besoin de nous ! L'amélioration du quotidien se perd dans un second plan, alors qu’elle a un impact majeur sur l'augmentation de notre productivité et la qualité et maintenabilité de notre code.

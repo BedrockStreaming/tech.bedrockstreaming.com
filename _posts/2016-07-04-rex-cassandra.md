@@ -3,9 +3,7 @@ layout: post
 title: "Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo"
 description: "Retour d'expérience sur l'utilisation de Cassandra sur 6play en vidéo"
 author: o_mansour 
-category:
 tags: [6tech, lyon, conference, cassandra, video]
-comments: true
 ---
 
 <iframe width="853" height="480" src="https://www.youtube.com/embed/dOOjUNnwLC4" frameborder="0" allowfullscreen></iframe>

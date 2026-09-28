@@ -2,9 +2,7 @@
 layout: post
 title: "Tentative d'explication des Fast-Forward sous Git"
 description: ""
-category: 
 tags: [git]
-comments: true  
 permalink: tentative-d-explication-des-fast-forward-sous-git
 ---
 

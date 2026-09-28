@@ -9,10 +9,8 @@ author:
   twitter:
   facebook:
   github:
-category:
 tags: [phptour, php, afup, 2018]
 feature-img: "images/posts/phptour2018/team.jpg"
-comments: true
 language: fr
 ---
 

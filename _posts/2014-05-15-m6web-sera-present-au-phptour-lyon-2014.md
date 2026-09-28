@@ -9,10 +9,8 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [afup, phptour]
 thumbnail: "images/posts/phptour/PHPTourLyon2014_megaban.jpg"
-comments: true
 ---
 
 

@@ -3,9 +3,7 @@ layout: post
 title: "CR Velocity Conférence Europe 2012 : Day 2"
 description: ""
 author: k_dits
-category: 
 tags: [velocity,conference,webperf,devops] 
-comments: true  
 permalink: cr-velocity-conference-europe-2012-day-2
 ---
 

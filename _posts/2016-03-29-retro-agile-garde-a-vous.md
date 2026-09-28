@@ -9,11 +9,9 @@ author:
   twitter:  PierreTomas     
   facebook:       
   github:    
-category: 
 tags: [agile, scrum]
 feature-img: "images/posts/retro/retroagile.png"
 thumbnail: "images/posts/retro/retroagile.png"
-comments: true
 ---
 
 Depuis quelques années les équipes d’M6Web se sont organisées autour des méthodes agiles. Scrum, Kanban, Lean, méthodes adaptées, nous nous efforçons de toujours garder en tête l’amélioration continue et le fun spirit au coeur du travail de nos équipes. 

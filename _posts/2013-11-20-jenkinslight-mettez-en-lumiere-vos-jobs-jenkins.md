@@ -3,11 +3,9 @@ layout: post
 title: "JenkinsLight, mettez en lumière vos jobs Jenkins"
 description:
 author: team_cytron
-category:
 tags: [outil, jenkins, ci, cytron, open-source]
 thumbnail: "images/posts/cytron/jenkinslight.png"
 feature-img: "images/posts/cytron/jenkinslight.png"
-comments: true
 permalink: jenkinslight-mettez-en-lumiere-vos-jobs-jenkins
 ---
 

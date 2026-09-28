@@ -3,13 +3,11 @@ layout: video
 title: "Distribuez votre vidéo partout avec 3 euros en poche et devenez millionaire. Ou presque."
 description: ""
 author: o_mansour 
-category: 
 tags: [lft,video]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 youtubeId: uGTF44yjoPg
 permalink: 2013/10/distribuez-votre-video-partout-avec-3-euros-en-poche-et-devenez-millionaire-ou-presque.html
 ---

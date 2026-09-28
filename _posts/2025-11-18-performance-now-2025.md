@@ -5,7 +5,6 @@ description: "Takeaways from the Performance.now() 2025 conference in Amsterdam 
 tags: [performance, conference, webperf, javascript, react, web, frontend]
 author: [f_dubost, m_bernier]
 cover: /assets/images/perfnow-2025-cover.jpg
-color: rgb(251,87,66)
 language: en
 feature-img: "/images/posts/2025-11-18-performance-now-2025/perfnow-2025-1.jpg"
 thumbnail: "/images/posts/2025-11-18-performance-now-2025/perfnow-2025.jpg"

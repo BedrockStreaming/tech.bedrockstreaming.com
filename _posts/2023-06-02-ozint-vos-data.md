@@ -4,7 +4,6 @@ title: "OZINT - Vos traces vous trahissent ! #LFT 02/06/23"
 description: ""
 author: a_martins
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: ZC5KjlXpEBE
 permalink: ozint-lft
 ---

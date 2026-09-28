@@ -4,10 +4,8 @@ title: "How we lost our tests migrating to Databricks (and how we're getting the
 description: "Three generations of data pipelines: a well-tested Scala stack, a Databricks rebuild that lost the tests along the way, and the platform we're building to keep the best of both — property-based testing, self-discovering CI gates, and AI with guardrails."
 tags: [data-engineering, databricks, spark, scala, python, terraform, testing, tdd, hypothesis, ci, ai]
 author: [b_abbad]
-color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2026-09-17-how-we-lost-our-tests-migrating-to-databricks/thumbnail.png"
-comments: true
 ---
 
 Earlier this year, a one-character-wide fix closed a bug that had been failing one of our

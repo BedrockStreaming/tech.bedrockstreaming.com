@@ -8,7 +8,6 @@ eventUrl: http://www.lyondata.science/
 youtubeId: f93yCPq-VMc
 
 tags: [machine learning, Lyon Data Science, conference]
-color: rgb(251,87,66)
 language: fr
 ---
 

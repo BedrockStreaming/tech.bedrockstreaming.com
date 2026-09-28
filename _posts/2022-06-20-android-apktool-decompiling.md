@@ -3,10 +3,7 @@ layout: post
 title: "Debugging and reviewing your Android dependencies with apktool"
 description: "How decompiling your Android app using apktool can help you find the source of instrumentation issues at the bytecode level, as well as improve your review process."
 author: b_candellier
-category:
-color: rgb(19,174,19)
 tags: [android, apktool, instrumentation, debugging, productivity]
-comments: true
 language: en
 ---
 

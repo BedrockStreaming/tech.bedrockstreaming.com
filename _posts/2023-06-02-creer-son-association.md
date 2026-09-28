@@ -4,7 +4,6 @@ title: "Créer son association #LFT 02/06/23"
 description: ""
 author: g_treme
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: 7m-DM8A76UI
 permalink: creer-son-association
 ---

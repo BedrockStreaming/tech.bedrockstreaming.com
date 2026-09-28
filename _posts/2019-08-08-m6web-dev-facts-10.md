@@ -3,13 +3,11 @@ layout: post
 title: "M6Web Dev Facts #10"
 description: "Les plus belles phrases de nos équipes technique"
 author: bedrock 
-category: 
 tags: [devfacts, humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones
   creditlink: 
-comments: true  
 ---
 
 Ça faisait un très très long moment ! Voici le retour des [devfacts](/tags.html#devfacts) !

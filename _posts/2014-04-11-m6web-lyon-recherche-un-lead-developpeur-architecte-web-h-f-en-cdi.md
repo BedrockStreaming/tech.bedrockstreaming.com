@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [recrutement]
 image:
   feature:
   credit:
   creditlink:
-comments: false  
 ---
 
 ![M6Web Lyon recherche un Lead Developpeur / Architecte web (H/F) en CDI](/images/posts/imgob/0-00-30-83-201302-ob_e427fc_05646956-photo-galaxie-m6-web-jpg.png)

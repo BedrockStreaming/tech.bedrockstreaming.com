@@ -3,13 +3,10 @@ layout: post
 title: "How Micro-Services changed our caching architecture"
 description: "Varnish Operator is a good solution to problem caused by Microservices architecture in Kubernetes environment. Especially where most of the traffic comes from other API rather than from an end-user."
 author: a_zinck
-category:
 tags: [on-premise, cloud, cdn, varnish, aws, cloud, fastly, varnish-operator, cloudfront, alb]
-color: rgb(0, 150, 255)
 thumbnail: "/images/posts/2022-12-23-varnish-operator/main.png"
 feature-img:
 language: en
-comments: true
 ---
 
 At Bedrock we use Cloudfront or Fastly for two different reason. To protect our applications from potential Distributed Denial of Service Attack. And to provide a layer of cache in front of our applications. No need to go down to the app for an easily cacheable response.

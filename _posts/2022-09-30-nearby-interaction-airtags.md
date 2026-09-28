@@ -4,8 +4,6 @@ title: "Nearby interaction, Airtags or how your iPhone shares your location #LFT
 description: ""
 author: o_balystky
 tags: [lft, tech]
-comments: true
-color: rgb(251,87,66)
 youtubeId: gYtGrS4IchM
 permalink: nearby-interaction-airtags
 ---

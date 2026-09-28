@@ -3,11 +3,9 @@ layout: post
 title: "Get your brownfield React Native app built on demand"
 description: "Get your brownfield React Native app built on demand"
 author: k_dits 
-category:
 tags: [mobile, github, ci, react-native]
 feature-img: "images/posts/rn-brownfield/feature.jpg"
 thumbnail: "images/posts/rn-brownfield/feature.jpg"
-comments: true
 language: en
 ---
 As you may know, at M6Web we decided to embrace [React Native](https://facebook.github.io/react-native/) a few months ago.

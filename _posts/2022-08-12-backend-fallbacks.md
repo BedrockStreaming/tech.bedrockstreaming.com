@@ -4,8 +4,6 @@ title: "Handling dependencies failures in an API gateway"
 description: "How are we handling downtime from the API we are calling, and what can we do about it?"
 author: v_claras
 tags: [backend, php, api, api-gateway, back-for-front, resiliency]
-comments: true
-color: rgb(255,128,0)
 language: en
 ---
 

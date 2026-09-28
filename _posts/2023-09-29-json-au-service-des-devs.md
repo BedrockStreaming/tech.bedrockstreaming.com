@@ -4,7 +4,6 @@ title: "Json au service des devs #LFT 29/09/23"
 description: ""
 author: j_nginn
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: cdWwagPGsXo
 permalink: json-au-service-des-devs
 ---

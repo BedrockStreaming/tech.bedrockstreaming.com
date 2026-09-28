@@ -3,10 +3,8 @@ layout: post
 title: "Useful (or not) M6Web OSS stuff"
 description: "Yeah, we are still open sourcing code !"
 author: o_mansour
-category: OSS
+permalink: /oss/2018/03/20/useful-or-not-usefull-m6web-stuff.html
 tags: [OSS, Open source, php, js]
-color: rgb(255, 255, 255)
-comments: true
 language: en
 ---
 

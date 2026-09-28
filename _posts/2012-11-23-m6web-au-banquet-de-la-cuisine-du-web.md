@@ -3,9 +3,7 @@ layout: post
 title: "M6Web au banquet de la cuisine du web"
 description: ""
 author: o_mansour
-category: 
 tags: [conference,lcdw]
-comments: true  
 permalink: m6web-au-banquet-de-la-cuisine-du-web
 ---
 

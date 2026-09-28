@@ -9,13 +9,11 @@ author:
   twitter:  techM6Web      
   facebook:       
   github:    
-category: 
 tags: [devfacts, humour]
 image:
   feature: posts/devfacts.jpg
   credit: Game Of Thrones
   creditlink: 
-comments: true  
 ---
 
 Ça faisait un moment ! Voici le retour des [devfacts](/tags.html#devfacts) !

@@ -4,7 +4,6 @@ title: "Building a Scalable, Multi-Tenant QA Automation Stack at Bedrock Streami
 description: "We share here QA context, key takeaways and reveal the architecture of the Web homologation stack."
 tags: [bdd, frontend, ownership, playwright, QA, web]
 author: [m_bayard]
-color: rgb(251,87,66)
 language: en
 thumbnail: "/images/posts/2026-02-06-web-homologation-as-app/homologation_qa_web_10.jpg"
 ---

@@ -3,11 +3,9 @@ layout: post
 title: "CR React Conférence 2015 - Day 2"
 description: "Compte rendu de la conférence React - Facebook HQ - Menlo Park - Day 2"
 author: k_dits
-category:
 tags: [javascript, react, flux, isomorphic, conference]
 feature-img: "images/posts/reactconf/reactconf.png"
 thumbnail: "images/posts/reactconf/reactconf.png"
-comments: true
 ---
 
 De retour à Menlo Park pour cette deuxième journée de la React conférence.

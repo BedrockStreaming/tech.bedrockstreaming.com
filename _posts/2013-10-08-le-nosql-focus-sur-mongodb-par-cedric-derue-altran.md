@@ -3,13 +3,11 @@ layout: post
 title: "Le NoSQL, Focus sur MongoDB par Cédric Derue (Altran)"
 description: ""
 author: bedrock
-category: 
 tags: [lft,nosql,mongodb,video]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true  
 permalink: le-nosql-focus-sur-mongodb-par-cedric-derue-altran
 ---
 

@@ -9,9 +9,7 @@ author:
   twitter:  techM6Web
   facebook:
   github:
-category:
 tags: [6tech, lyon, conference, video, phptour, php, Symfony]
-comments: true
 ---
 
 

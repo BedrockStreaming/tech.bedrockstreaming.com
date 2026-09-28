@@ -4,7 +4,6 @@ title: "Comment ne pas jeter son application Frontend tout les deux ans ? #LFT 2
 description: ""
 author: [f_dubost, a_caron]
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: 34y6yBimcxo
 permalink: comment-ne-pas-jeter-son-application-frontend-tout-les-deux-ans
 ---

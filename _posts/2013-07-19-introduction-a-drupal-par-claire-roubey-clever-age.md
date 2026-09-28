@@ -3,13 +3,11 @@ layout: post
 title: "Introduction à Drupal par Claire Roubey (Clever Age)"
 description: ""
 author: o_mansour 
-category: 
 tags: [lft,drupal,video]
 image:
   feature: 
   credit: 
   creditlink: 
-comments: true
 permalink: introduction-à-drupal-par-claire-roubey-clever-age
 ---
 

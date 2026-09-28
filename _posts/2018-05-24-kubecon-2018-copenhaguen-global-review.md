@@ -9,11 +9,9 @@ author:
   twitter:
   facebook:
   github:
-category:
 tags: [kubernetes, KubeCon]
 feature-img: "images/posts/kubecon-2018/title-kubecon.jpg"
 thumbnail: "images/posts/kubecon-2018/title-kubecon.jpg"
-comments: true
 language: en
 ---
 

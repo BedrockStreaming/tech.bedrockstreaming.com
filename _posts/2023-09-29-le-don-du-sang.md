@@ -4,7 +4,6 @@ title: "Le Don du Sang (et +) #LFT 29/09/23"
 description: ""
 author: q_nambot
 tags: [lft, tech]
-color: rgb(251,87,66)
 youtubeId: PvtIvvx-ORI
 permalink: le-don-du-sang
 ---

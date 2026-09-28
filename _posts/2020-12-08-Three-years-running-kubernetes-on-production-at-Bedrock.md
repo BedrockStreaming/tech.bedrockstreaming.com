@@ -3,10 +3,8 @@ layout: post
 title: "Three years running Kubernetes on production at Bedrock"
 description: "Running all our workloads on Kubernetes is not that simple. We've learned a lot and are still learning, but we can already share what we're doing"
 author: v_gallissot
-category:
 tags: [Infrastructure, Cloud, Kubernetes, Kops, AWS, HAProxy]
 feature-img: "images/posts/2020-12-08-three-years-running-kubernetes/ihor-dvoretskyi-UGKfiS5CcZI-unsplash.jpg"
-comments: true
 language: en
 redirect_from:
   - /Three-years-running-kubernetes-on-production-at-Bedrock/

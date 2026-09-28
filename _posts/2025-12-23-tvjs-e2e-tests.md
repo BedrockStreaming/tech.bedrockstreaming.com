@@ -4,7 +4,6 @@ title: "Writing end-to-end tests for a Smart TV app"
 description: "REX on stabilising end-to-end tests for a focused based app, using Cypress."
 author: [m_bernier]
 tags: [smartTV, javascript, react, web, frontend, e2e, testing, cypress]
-color: rgb(251,87,66)
 feature-img: "/images/posts/2025-12-23-tvjs-e2e-tests/catalog.jpg"
 language: en
 ---

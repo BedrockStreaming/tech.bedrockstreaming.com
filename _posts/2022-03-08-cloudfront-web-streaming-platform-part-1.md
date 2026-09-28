@@ -4,8 +4,6 @@ title: "How AWS Cloudfront is helping us deliver our Web streaming platform? - P
 description: "What is a CDN, how is it useful for us? Feedback on the use of the AWS Cloudfront service for the deployment of high traffic web applications. Configuration example, best practices."
 author: a_caron
 tags: [cloudfront, aws, cdn, node.js, react, javascript, frontend]
-comments: true
-color: rgb(255,99,71)
 language: en
 ---
 
