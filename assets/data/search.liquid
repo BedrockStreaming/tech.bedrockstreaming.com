@@ -1,7 +1,8 @@
 ---
 ---
 [
-  {% for post in site.posts %}
+  {% assign docs = site.articles | concat: site.talks %}
+  {% for post in docs %}
   {
     "title"    : "{{ post.title | strip_newlines | escape }}",
     "category" : "{{ post.category }}",

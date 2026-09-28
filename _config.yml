@@ -28,16 +28,32 @@ google_analytics: # Tracking ID, e.g. "UA-000000-01"
 cookie_consent: false # To respect the usage of cookies
 color_theme: auto # auto, dark or light
 
+collections:
+  articles:
+    output: true
+    sort_by: date
+  talks:
+    output: true
+    sort_by: date
+
 # PAGINATION
-paginate: 10
-paginate_path: "/blog/page:num"
+# Page 1 is the site index. Later pages stay at /blog/page:num/.
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: "/blog/page:num/"
+  sort_field: "date"
+  sort_reverse: true
+  collection: "articles"
+  autopages:
+    enabled: false
 
 # BUILD SETTINGS
 sass:
   style: compressed
 plugins:
   [
-    jekyll-paginate,
+    jekyll-paginate-v2,
     jekyll-seo-tag,
     jekyll-feed,
     jekyll-redirect-from,

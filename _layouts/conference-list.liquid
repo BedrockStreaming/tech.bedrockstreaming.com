@@ -44,8 +44,7 @@ layout: page
 
     {{ content }}
     
-    {% assign postConferences = site.posts | where: 'layout', 'conference' %}
-    {% assign allConferences = site.data.conferences | concat: postConferences | sort: 'date' | reverse %}
+    {% assign allConferences = site.talks | where_exp: "talk", "talk.eventName != 'Last Friday Talks'" | sort: "date" | reverse %}
 
     {% assign conferencesByYear = allConferences | group_by_exp: "conference", "conference.date | date: '%Y'" %}
 
