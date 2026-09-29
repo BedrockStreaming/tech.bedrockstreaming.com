@@ -129,11 +129,11 @@ const summary = plainText(entry.rendered?.html ?? '', 160);
           <ul>
             <li class="meta">{data.topics.length === 1 ? 'Tag' : 'Tags'}</li>
             {[...data.topics].sort().map((topic) => (
-              <li>
+              <>{' '}<li>
                 <a class="button" href={`/tags/#${topic}`}>
                   <p><i class="fas fa-tag fa-fw fa-sm" /> {topic}</p>
                 </a>
-              </li>
+              </li></>
             ))}
           </ul>
         )
