@@ -3,6 +3,61 @@ $ssp-font-path: "/assets/fonts/roboto";
 $pacifico-font-path: "/assets/fonts/Pacifico";
 @import "../../../_sass/type-on-strap";
 
+// Shiki's css-variables theme, with the colors _sass/base/_highlight.scss gives the matching Rouge tokens.
+:root {
+  --astro-code-background: var(--base00);
+  --astro-code-foreground: var(--base05);
+  --astro-code-token-comment: var(--base03);
+  --astro-code-token-constant: var(--base0e);
+  --astro-code-token-deleted: var(--base0c);
+  --astro-code-token-function: var(--base0b);
+  --astro-code-token-inserted: var(--base0a);
+  --astro-code-token-keyword: var(--base0d);
+  --astro-code-token-link: var(--base0e);
+  --astro-code-token-parameter: var(--base0c);
+  --astro-code-token-punctuation: var(--base05);
+  --astro-code-token-string: var(--base0a);
+  --astro-code-token-string-expression: var(--base0a);
+}
+
+// The div.highlighter-rouge rules of _sass/base/_highlight.scss, for Shiki's pre.
+pre.astro-code {
+  margin: 0 0 1em;
+  padding: 1em;
+  border-radius: $border-radius;
+  font-family: $monospace;
+  font-size: $font-size-code;
+  line-height: $font-height-code;
+
+  code {
+    font-family: $monospace;
+    font-size: $font-size-code;
+    line-height: $font-height-code;
+  }
+
+  ::selection {
+    background-color: var(--base02);
+  }
+}
+
+// kramdown adds the highlighter-rouge class to inline code; Astro doesn't.
+:not(pre) > code {
+  padding: 0.2em 0.4em;
+  font-size: $font-size-code;
+  background-color: var(--code-background);
+  color: var(--code-inline);
+  border-radius: 2px;
+  font-family: $monospace;
+}
+
+li pre.astro-code {
+  margin-top: 0.5em;
+
+  &, * {
+    font-size: 14px;
+  }
+}
+
 // GFM footnotes add a "Footnotes" heading for screen readers only.
 .sr-only {
   position: absolute;

@@ -1,0 +1,23 @@
+---
+import Page from '../../layouts/Page.astro';
+---
+
+<Page title="Search" subtitle="What are you looking for?" featureImage="/images/common/travel.jpg">
+  <link slot="head" rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+  <script slot="head" is:inline src="/pagefind/pagefind-ui.js"></script>
+  <div id="search"></div>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => new PagefindUI({ element: '#search', showSubResults: true, autofocus: true }));
+  </script>
+</Page>
+
+<style>
+  #search {
+    --pagefind-ui-primary: var(--link);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--background);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-tag: var(--blockquote);
+    --pagefind-ui-font: inherit;
+  }
+</style>
