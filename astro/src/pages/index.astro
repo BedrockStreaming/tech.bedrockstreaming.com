@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+const talks = await getCollection('talks');
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bedrock Tech Blog (Astro scaffold)</title>
+  </head>
+  <body>
+    <h1>Bedrock Tech Blog (Astro scaffold)</h1>
+    <p>{articles.length} Articles and {talks.length} Talks.</p>
+  </body>
+</html>
