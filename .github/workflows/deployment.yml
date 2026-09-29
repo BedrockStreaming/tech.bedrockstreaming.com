@@ -9,18 +9,22 @@ jobs:
     name: 'Build 📦 & Deploy 🚀'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          ruby-version: '3.3'
-      - run: gem install bundler
-      - run: bundle install --jobs 4 --retry 3
+          node-version: 26
+          cache: npm
+          cache-dependency-path: astro/package-lock.json
+      - run: npm --prefix astro ci
 
       - name: 'Build 📦'
-        run: bundle exec jekyll build
+        run: |
+          npm --prefix astro run build
+          cp CNAME astro/dist/
+          touch astro/dist/.nojekyll
 
       - uses: JamesIves/github-pages-deploy-action@v4.3.4
         name: 'Deploy 🚀'
         with:
-          folder: _site
+          folder: astro/dist
           clean: true
