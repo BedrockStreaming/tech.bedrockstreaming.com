@@ -1,0 +1,166 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { absoluteUrl, authorsOf, formatDate, outputSlug, plainText, published, url, type Entry } from '../lib/site';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const collection of ['articles', 'talks'] as const) {
+    const entries: Entry[] = await published(collection);
+    entries.forEach((entry, index) => {
+      paths.push({
+        params: { slug: outputSlug(entry.data.permalink) },
+        props: { entry, newer: entries[index + 1], older: entries[index - 1] },
+      });
+    });
+  }
+  return paths;
+}
+
+interface Props {
+  entry: Entry;
+  newer?: Entry;
+  older?: Entry;
+}
+
+const { entry, newer, older } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+const authors = await authorsOf(entry);
+const talk = entry.collection === 'talks' ? (entry.data as Extract<Entry, { collection: 'talks' }>['data']) : undefined;
+const featureImage = data['feature-img'] && url(data['feature-img']);
+const summary = plainText(entry.rendered?.html ?? '', 160);
+---
+
+<Base
+  title={data.title}
+  description={data.description || plainText(entry.rendered?.html?.split('</p>')[0] ?? '', 200)}
+  summary={summary}
+  language={data.language}
+  image={data.thumbnail ?? data['feature-img'] ?? undefined}
+  largeImage={Boolean(data.thumbnail)}
+  canonical={data.canonical ?? absoluteUrl(data.permalink)}
+  article={{ published: data.date, author: authors[0]?.name }}
+>
+  <article class={featureImage ? 'feature-image' : undefined}>
+    <header id="main" style={featureImage ? `background-image: url('${featureImage}')` : undefined}>
+      <div class="title-padder">
+        <h1 class="title">{data.title}</h1>
+        <div class="post-info">
+          {
+            authors.map((author) => {
+              const Tag = author.url ? 'a' : 'span';
+              return (
+                <>
+                  <Tag class="author" {...(author.url ? { href: author.url, target: '_blank', rel: 'noopener' } : {})}>
+                    {author.avatar && <img alt="Author's avatar" src={author.avatar} class="thumbnail" />}
+                    {author.name && <span class="name">{author.name}</span>}
+                  </Tag>
+                  <span class="spacer"> - </span>
+                </>
+              );
+            })
+          }
+          <span class="publication-date">{formatDate(data.date)}</span>
+          <span class="spacer"> - </span>
+          <span class="publication-language">{data.language}</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="post-content">
+      <Content />
+
+      {
+        talk && data.layout === 'conference' && (
+          <p>
+            <em>
+              Par{' '}
+              {authors.map((author, index) => (
+                <>
+                  {author.url ? <a href={author.url}>{author.name}</a> : author.name}
+                  {index < authors.length - 1 && ' et '}
+                </>
+              ))}{' '}
+              - <a href={talk.eventUrl}>{talk.eventName}</a>
+            </em>
+          </p>
+        )
+      }
+
+      {
+        talk?.youtubeId && (
+          <iframe
+            width="100%"
+            height="auto"
+            style="aspect-ratio: 16/9"
+            src={`https://www.youtube-nocookie.com/embed/${talk.youtubeId}`}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        )
+      }
+
+      {
+        talk && data.layout === 'conference' && talk.slideshareKey && (
+          <iframe
+            width="100%"
+            height="auto"
+            style="aspect-ratio: 16/9"
+            src={`https://www.slideshare.net/slideshow/embed_code/key/${talk.slideshareKey}`}
+            frameborder="0"
+            allowfullscreen
+          />
+        )
+      }
+
+      {
+        talk && data.layout === 'conference' && talk.conferenceUrl && (
+          <p><a href={talk.conferenceUrl} target="_blank">Lien vers la conférence</a></p>
+        )
+      }
+    </section>
+
+    <div class="tag-list">
+      {
+        data.topics.length > 0 && (
+          <ul>
+            <li class="meta">{data.topics.length === 1 ? 'Tag' : 'Tags'}</li>
+            {[...data.topics].sort().map((topic) => (
+              <li>
+                <a class="button" href={`/tags/#${topic}`}>
+                  <p><i class="fas fa-tag fa-fw fa-sm" /> {topic}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </article>
+
+  <div id="post-nav">
+    {
+      newer && (
+        <div id="previous-post">
+          <a href={url(newer.data.permalink)}>
+            <p>Previous post</p>
+            {newer.data.title}
+          </a>
+        </div>
+      )
+    }
+    {
+      older && (
+        <div id="next-post">
+          <a href={url(older.data.permalink)}>
+            <p>Next post</p>
+            {older.data.title}
+          </a>
+        </div>
+      )
+    }
+  </div>
+</Base>

@@ -1,0 +1,11 @@
+$fa-font-path: "/assets/fonts/font-awesome";
+$ssp-font-path: "/assets/fonts/roboto";
+$pacifico-font-path: "/assets/fonts/Pacifico";
+@import "../../../_sass/type-on-strap";
+
+// From the <style> block of the Jekyll post, video, and conference layouts.
+header#main {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -59,6 +59,7 @@ The second is a [Router layer](https://watermill.io/docs/messages-router/) which
 The last block is the [CQRS management block](https://watermill.io/docs/cqrs/).
 The project documentation is well supplied and full of examples that make bootstrapping in existing projects much easier.
 You will find its presentation materials [here](https://threedots.tech/presentations/2024/golab/).
+
 ---
 
 ## Let’s Go Asynchronous

@@ -11,7 +11,12 @@
     "node": ">=22.12.0"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
     "astro": "^7.3.5",
+    "github-slugger": "^2.0.0",
     "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "sass": "^1.105.0"
   }
 }
