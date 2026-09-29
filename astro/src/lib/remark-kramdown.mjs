@@ -72,3 +72,6 @@ export default function remarkKramdown() {
     applyLinkAttributes(tree);
   };
 }
+
+// kramdown typography: "--" is an en dash and "---" an em dash.
+export const markdownOptions = { remarkPlugins: [remarkKramdown], smartypants: { dashes: 'oldschool' } };

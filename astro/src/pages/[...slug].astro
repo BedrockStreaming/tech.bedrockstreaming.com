@@ -1,7 +1,8 @@
 ---
 import { render } from 'astro:content';
+import PostInfo from '../components/PostInfo.astro';
 import Base from '../layouts/Base.astro';
-import { absoluteUrl, authorsOf, formatDate, outputSlug, plainText, published, url, type Entry } from '../lib/site';
+import { absoluteUrl, authorsOf, outputSlug, plainText, published, url, type Entry } from '../lib/site';
 
 export async function getStaticPaths() {
   const paths = [];
@@ -46,25 +47,7 @@ const summary = plainText(entry.rendered?.html ?? '', 160);
     <header id="main" style={featureImage ? `background-image: url('${featureImage}')` : undefined}>
       <div class="title-padder">
         <h1 class="title">{data.title}</h1>
-        <div class="post-info">
-          {
-            authors.map((author) => {
-              const Tag = author.url ? 'a' : 'span';
-              return (
-                <>
-                  <Tag class="author" {...(author.url ? { href: author.url, target: '_blank', rel: 'noopener' } : {})}>
-                    {author.avatar && <img alt="Author's avatar" src={author.avatar} class="thumbnail" />}
-                    {author.name && <span class="name">{author.name}</span>}
-                  </Tag>
-                  <span class="spacer"> - </span>
-                </>
-              );
-            })
-          }
-          <span class="publication-date">{formatDate(data.date)}</span>
-          <span class="spacer"> - </span>
-          <span class="publication-language">{data.language}</span>
-        </div>
+        <PostInfo authors={authors} date={data.date} language={data.language} />
       </div>
     </header>
 

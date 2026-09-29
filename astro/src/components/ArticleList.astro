@@ -1,0 +1,73 @@
+---
+import { authorsOf, excerpt, url, type Entry } from '../lib/site';
+import PostInfo from './PostInfo.astro';
+
+interface Props {
+  articles: Extract<Entry, { collection: 'articles' }>[];
+  page: number;
+  totalPages: number;
+}
+
+const { articles, page, totalPages } = Astro.props;
+const pagePath = (n: number) => (n === 1 ? '/' : `/blog/page${n}/`);
+const teasers = await Promise.all(
+  articles.map(async (article) => ({ article, authors: await authorsOf(article), excerpt: await excerpt(article) })),
+);
+---
+
+<div class="posts">
+  {
+    teasers.map(({ article, authors, excerpt }) => (
+      <div class="post-teaser">
+        {article.data.thumbnail && (
+          <div class="post-img">
+            <a aria-label={article.data.title} href={url(article.data.permalink)}>
+              <img alt={article.data.title} src={url(article.data.thumbnail)} />
+            </a>
+          </div>
+        )}
+        <span>
+          <header>
+            <h1>
+              <a aria-label={article.data.title} class="post-link" href={url(article.data.permalink)}>
+                {article.data.title}
+              </a>
+            </h1>
+            <PostInfo authors={authors} date={article.data.date} language={article.data.language} />
+          </header>
+          <div class="excerpt" set:html={excerpt} />
+        </span>
+      </div>
+    ))
+  }
+</div>
+
+{
+  totalPages > 1 && (
+    <div class="pagination">
+      <div class="previous">
+        {page > 2 && (
+          <a aria-label="Prev" href="/" class="button">
+            <span><i class="fas fa-angle-double-left" /></span>
+          </a>
+        )}
+        <a aria-label="Prev" href={page > 1 ? pagePath(page - 1) : ''} style={page > 1 ? undefined : 'visibility:hidden'} class="button">
+          <span><i class="fas fa-chevron-left" /></span>
+          Prev
+        </a>
+      </div>
+      <div class="page_number">{page} / {totalPages}</div>
+      <div class="next">
+        <a aria-label="Next" href={page < totalPages ? pagePath(page + 1) : ''} style={page < totalPages ? undefined : 'visibility:hidden'} class="button">
+          Next
+          <span><i class="fas fa-chevron-right" /></span>
+        </a>
+        {page + 1 < totalPages && (
+          <a aria-label="Next" href={pagePath(totalPages)} class="button">
+            <span><i class="fas fa-angle-double-right" /></span>
+          </a>
+        )}
+      </div>
+    </div>
+  )
+}

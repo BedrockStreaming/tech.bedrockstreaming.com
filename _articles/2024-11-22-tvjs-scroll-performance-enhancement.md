@@ -90,6 +90,7 @@ This is where we can leverage [React's keys mechanism](https://react.dev/learn/r
   <img src="/images/posts/2024-11-22-tvjs-scroll-performance-enhancement/profiling.png" alt="Profiling flame graph"/>
   <figcaption>☝️Profiling during a single scroll right. The only items rendering are the ones with focus change (item losing focus and item gaining focus) and the new item that wasn’t on the screen. Every other item is unaffected by a horizontal scroll</figcaption>
 </figure>
+
 ---  
 
 # [Optimised pagination](#optimised-pagination)

@@ -9,3 +9,13 @@ header#main {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+// GFM footnotes add a "Footnotes" heading for screen readers only.
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}

@@ -161,6 +161,7 @@ Néanmoins, après trois éditions du jeudi du fun, il nous semblait important d
 <br>
 
 <hr>
+
 Pour vous donner un aperçu de comment se déroulent ces fameux jeudis, voici _grosso modo_ le programme d’une journée : 
 
 - ⏰ 9h00 Petit déjeuner convivial (car c’est très important de commencer une telle journée en prenant des forces)

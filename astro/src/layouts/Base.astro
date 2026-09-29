@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { title, description, summary, language = 'en', image, largeImage = false, canonical, article } = Astro.props;
-const pageTitle = title ? `${title} | ${site.title}` : site.title;
+const pageTitle = `${title ?? site.title} | ${title ? site.title : site.description}`;
 const pageUrl = canonical ?? absoluteUrl(Astro.url.pathname);
 const imageUrl = absoluteUrl(image ?? site.headerImage);
 const locale = language === 'fr' ? 'fr_FR' : 'en_US';

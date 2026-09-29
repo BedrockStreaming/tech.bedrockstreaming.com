@@ -52,6 +52,7 @@ Vigilance, donc, sur les "hubs de dépendances" (ces dépendances dont beaucoup 
   <img src="/images/posts/2022-11-22-droidcon-london/dep-hub.png" alt="Dependency hub"/>
   <figcaption>1. Hub de dépendances</figcaption>
 </figure>
+
 ---  
 
 De la même manière, un chemin de dépendances de trop grande profondeur ne permettra pas de tirer parti de la parallélisation des tâches de compilation.
@@ -61,6 +62,7 @@ Sur le schéma ci-dessous, on peut voir qu'un chemin de profondeur 4 existe pour
   <img src="/images/posts/2022-11-22-droidcon-london/dep-height.png" alt="Dependency height"/>
   <figcaption>2. Profondeur de dépendances</figcaption>
 </figure>
+
 ---  
 
 Josef Raska propose le schéma suivant avec un découpage API/implémentation afin de réduire au maximum cette profondeur, et ainsi compiler plus rapidement.  
@@ -69,6 +71,7 @@ Josef Raska propose le schéma suivant avec un découpage API/implémentation af
   <img src="/images/posts/2022-11-22-droidcon-london/dep-height-fix.png" alt="Dependency height fix"/>
   <figcaption>3. Profondeur de dépendances réduite</figcaption>
 </figure>
+
 ---  
   
 Android Studio et son analyse de dépendances peut être très utile pour vérifier et mesurer cela.

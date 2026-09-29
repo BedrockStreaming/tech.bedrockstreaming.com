@@ -1,0 +1,24 @@
+---
+import ArticleList from '../../../components/ArticleList.astro';
+import Base from '../../../layouts/Base.astro';
+import { articlePages, site } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const pages = await articlePages();
+  return pages.slice(1).map((articles, index) => ({
+    params: { num: String(index + 2) },
+    props: { articles, page: index + 2, totalPages: pages.length },
+  }));
+}
+
+const { articles, page, totalPages } = Astro.props;
+---
+
+<Base title={`Page ${page} of ${totalPages}`}>
+  <div class="home">
+    <div id="main" class="call-out call-out_img" style={`background-image: url('${site.headerImage}')`}>
+      <h1>{site.headerText}</h1>
+    </div>
+    <ArticleList articles={articles} page={page} totalPages={totalPages} />
+  </div>
+</Base>

@@ -1,17 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
+import ArticleList from '../components/ArticleList.astro';
+import Base from '../layouts/Base.astro';
+import { articlePages, site } from '../lib/site';
 
-const articles = await getCollection('articles');
-const talks = await getCollection('talks');
+const pages = await articlePages();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Bedrock Tech Blog (Astro scaffold)</title>
-  </head>
-  <body>
-    <h1>Bedrock Tech Blog (Astro scaffold)</h1>
-    <p>{articles.length} Articles and {talks.length} Talks.</p>
-  </body>
-</html>
+<Base>
+  <div class="home">
+    <div id="main" class="call-out call-out_img" style={`background-image: url('${site.headerImage}')`}>
+      <h1>{site.headerText}</h1>
+    </div>
+    <ArticleList articles={pages[0]} page={1} totalPages={pages.length} />
+  </div>
+</Base>
