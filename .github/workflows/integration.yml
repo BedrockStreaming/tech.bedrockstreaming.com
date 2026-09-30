@@ -5,19 +5,6 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: 'Build 📦'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-      - run: gem install bundler
-      - run: bundle install --jobs 4 --retry 3
-      - run: python3 script/check-front-matter.py
-      - run: bundle exec jekyll build
-
   astro:
     name: 'Build Astro 🚀'
     runs-on: ubuntu-latest
