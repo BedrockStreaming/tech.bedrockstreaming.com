@@ -1,793 +1,133 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/mixit-crepes.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Retour sur la conférence MiXiT 2022 | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Retour sur la conférence MiXiT 2022" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées." />
-<meta property="og:description" content="Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées." />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-28T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Retour sur la conférence MiXiT 2022" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées.","headline":"Retour sur la conférence MiXiT 2022","dateModified":"2022-07-28T00:00:00+00:00","datePublished":"2022-07-28T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Retour sur la conférence MiXiT 2022">
-    <meta name="twitter:description" content="MiXiT est une conférence “avec des crêpes et du cœur” qui se déroule à Lyon. Les sujets sont assez variés abordant autant l’agilité, que la programmation, le...">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/mixit-crepes.jpg">
-    <meta name="twitter:image:alt" content="Retour sur la conférence MiXiT 2022">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Retour sur la conférence MiXiT 2022 " aria-label="Retour sur la conférence MiXiT 2022" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Retour+sur+la+conf%C3%A9rence+MiXiT+2022" class="title">Retour sur la conférence MiXiT 2022</h1>
-      <div class="post-info">
-
-
-<a
-      href="https://twitter.com/sarahhaim"
-      target="_blank"
-      rel="noopener"
-      class="author">
-
-    
-      <span class="name">
-        Sarah Haïm-Lubczanski
-      </span>
-    </a><span class="spacer"> - </span>
-
-
-
-<span class="author">
-      <img alt="Author's avatar" src="/images/avatar/e_perrin.jpeg" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Élodie Perrin
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-
-    
-      <span class="name">
-        Jules Matsounga
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-<span class="author">
-      <img alt="Author's avatar" src="https://ca.slack-edge.com/T108ZKPMF-UN73NDMTR-1254cd998d50-512" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Sylvain Zoccarato
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    July 28, 2022
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p><img src="/images/posts/mixit-crepes.jpg" alt="&quot;MiXiT, la conférence avec des crêpes et du cœur&quot;" /></p>
-
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Retour sur la conférence MiXiT 2022 | Bedrock Tech Blog</title><meta name="description" content="Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées."><link rel="canonical" href="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html"><meta property="og:title" content="Retour sur la conférence MiXiT 2022"><meta property="og:description" content="Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées."><meta property="og:url" content="https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/mixit-crepes.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2022-07-28T00:00:00.000Z"><meta name="author" content="Sarah Haïm-Lubczanski"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Retour sur la conférence MiXiT 2022","description":"Plusieurs Bedrockiens étaient présents à MiXiT 2022, voici un résumé de leurs conférences préférées.","author":{"@type":"Person","name":"Sarah Haïm-Lubczanski"},"datePublished":"2022-07-28T00:00:00.000Z","dateModified":"2022-07-28T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/07/28/retour-sur-mixit-2022.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Retour sur la conférence MiXiT 2022"><meta name="twitter:description" content="MiXiT est une conférence “avec des crêpes et du cœur” qui se déroule à Lyon. Les sujets sont assez variés abordant autant l’agilité, que la programmation, le..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/mixit-crepes.jpg"><meta name="twitter:image:alt" content="Retour sur la conférence MiXiT 2022"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Retour sur la conférence MiXiT 2022" aria-label="Retour sur la conférence MiXiT 2022" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Retour sur la conférence MiXiT 2022</h1><div class="post-info"><a class="author" href="https://twitter.com/sarahhaim" target="_blank" rel="noopener"><span class="name">Sarah Haïm-Lubczanski</span></a><span class="spacer"> - </span><span class="author"><img alt="Author's avatar" src="/images/avatar/e_perrin.jpeg" class="thumbnail"><span class="name">Élodie Perrin</span></span><span class="spacer"> - </span><span class="author"><span class="name">Jules Matsounga</span></span><span class="spacer"> - </span><span class="author"><img alt="Author's avatar" src="https://ca.slack-edge.com/T108ZKPMF-UN73NDMTR-1254cd998d50-512" class="thumbnail"><span class="name">Sylvain Zoccarato</span></span><span class="spacer"> - </span><span class="publication-date">July 28, 2022</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p><img src="/images/posts/mixit-crepes.jpg" alt="&#x22;MiXiT, la conférence avec des crêpes et du cœur&#x22;"></p>
 <p><a href="https://mixitconf.org/">MiXiT</a> est une conférence “avec des crêpes et du cœur” qui se déroule à Lyon. Les sujets sont assez variés abordant autant l’agilité, que la programmation, le droit ou encore l’histoire de l’informatique.</p>
-
 <p>Voici un résumé des conférences de l’édition 2022 qui nous ont le plus marquées.</p>
-
 <h2 id="how-to-build-the-alert-system-that-france-deserves">How to build the alert system that France deserves?</h2>
-
 <p>Gaël Musquet nous a d’abord expliqué le rôle de Gustave Ferrié, qu’il considère comme le premier hacker, qui a installé des mâts de télégraphe sans fil en 1902, entre les émetteurs en Martinique, pour remplacer le câble télégraphique, détruit lors de la catastrophe de la montagne Pelée du 8 mai 1902. Cet homme avait saisi l’intérêt d’avoir un système de communication fiable.</p>
-
 <p>Gaël Musquet nous explique ce qu’on est en droit d’attendre en 2022 d’un pays moderne, concernant les alertes sur les risques majeurs, qui varient selon notre emplacement (du tsunami à la rupture de barrage artificiel).</p>
-
 <p>Il nous incite à lire le DICRIM de notre ville (<a href="https://www.lyon.fr/sites/lyonfr/files/content/documents/2021-02/risque-majeurs-DICRIM-ALEX-25-01-2021.pdf">celui de Lyon</a>) ainsi qu’à nous procurer un poste de radio à piles, car dans l’éventualité d’un moment catastrophique sans Internet et sans satellites, comment ferons-nous pour nous tenir au courant de ce qu’il faut faire pour rester en vie ?</p>
-
 <p><a href="https://mixitconf.org/2022/how-to-build-the-alert-system-that-france-deserves-">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h2 id="meet-null-the-unknown">Meet NULL the UNKNOWN</h2>
-
 <p>Dans cette conférence, Laëtiia Avrot entame un rappel de la norme SQL, que PostgresQL implémente au plus près, sur la valeur de NULL en SQL. Et la valeur UNKNOWN est également abordée. Notamment la complexité induite par le fait qu’un champ de type Boolean peut se retrouver avec comme valeurs possibles : True, False, UNKNOWN et NULL. Cela donne un système à quadruple valeur. Pour un champ typé.</p>
-
 <p>NULL est plus facile à définir par ce qu’il n’est pas qu’en expliquant ce qu’il est.
 Une option intéressante pour mettre en évidence la valeur NULL dans PostgresQL est d’en définir nous-même une valeur affichée.</p>
-
 <p>Ensuite, Laëtitia nous propose un Quizz. Sur une base de données qu’on connaît, chaque fois la même question est posée sur “Combien de lignes vont être retournées par la requête SQL ?”</p>
-
 <p>C’est intéressant, car chaque question comporte un degré de complexité élevé impliquant l’usage de la valeur NULL, tout en suivant la logique de la norme SQL. Cerise sur le gâteau, Laëtitia propose en “Réponse D”, le nom d’une scientifique célèbre et nous en donne une courte biographie à chaque question.</p>
-
-<p><strong><em>Liens</em></strong></p>
-
+<p><em><strong>Liens</strong></em></p>
 <ul>
-  <li><a href="https://mydbanotebook.org/">Blog de l’oratrice, Laëtitia Avrot</a></li>
-  <li><a href="https://mixitconf.org/2022/meet-null-the-unknown">Page du talk sur le site de MiXiT et voir le replay</a></li>
+<li><a href="https://mydbanotebook.org/">Blog de l’oratrice, Laëtitia Avrot</a></li>
+<li><a href="https://mixitconf.org/2022/meet-null-the-unknown">Page du talk sur le site de MiXiT et voir le replay</a></li>
 </ul>
-
 <h2 id="parlez-de-vous-faites-des-feedbacks">Parlez de vous, faites des feedbacks</h2>
-
 <p>Le feedback est un outil communicationnel qui permet de formuler un avis sur une situation passée dans le but de gérer les situations futures.</p>
-
 <p>On peut trouver plusieurs formes de feedbacks :
 le feedback est à destination de la personne, pour l’aider à s’améliorer. Elle peut décider de le suivre ou non,
 la demande que l’on fait à quelqu’un est à notre bénéfice (on demande à la personne de changer un comportement qui nous gêne) en laissant la possibilité à la personne de décider si elle veut ou non répondre favorablement à cette demande,
 l’exigence qui est aussi à notre bénéfice, mais pour laquelle on ne laisse pas le choix (dans le cadre d’une relation hiérarchique)</p>
-
 <p>Julie Quillié propose un modèle de feedbacks basé sur la CNV (Communication Non Violente) et qui peut se résumer de la manière suivante.</p>
-
 <h3 id="feedback-basé-sur-la-cnv-communication-non-violente">Feedback basé sur la CNV (Communication Non Violente)</h3>
-
 <ol>
-  <li>On vérifie la disponibilité de la personne en lui demandant si elle est d’accord pour qu’on lui fasse des feedbacks et sous quelle forme.</li>
-  <li>On formule le feedback :
-  Décrire une Observation, les faits (= pas de jugement)
-  Exprimer le Sentiment que cette situation a engendré
-  Expliquer le Besoin qui est la source du sentiment ressenti
-  et finir par faire une Demande (= réalisable, formulée positivement, précise)</li>
+<li>On vérifie la disponibilité de la personne en lui demandant si elle est d’accord pour qu’on lui fasse des feedbacks et sous quelle forme.</li>
+<li>On formule le feedback :
+Décrire une Observation, les faits (= pas de jugement)
+Exprimer le Sentiment que cette situation a engendré
+Expliquer le Besoin qui est la source du sentiment ressenti
+et finir par faire une Demande (= réalisable, formulée positivement, précise)</li>
 </ol>
-
 <p><strong>Un exemple :</strong>
-  Nous avions rendez-vous à 12h et il est 12h30 = observation, factuel.
-  Je suis très fâché car je m’étais organisé pour être à l’heure = le sentiment
-  C’est important pour moi de ne pas perdre de temps et de pouvoir rester libre dans mon organisation = le besoin
-  La prochaine fois que tu sais que tu seras en retard, peux-tu stp m’appeler dès que possible pour me le signaler ? De cette manière, je peux me réorganiser facilement. = la demande</p>
-
-<ol>
-  <li>On vérifie ce qui a été reçu par la personne. On lui propose de nous reformuler ce qu’elle en a retenu. Cela permet de vérifier que le message que l’on voulait faire passer a bien été entendu.</li>
+Nous avions rendez-vous à 12h et il est 12h30 = observation, factuel.
+Je suis très fâché car je m’étais organisé pour être à l’heure = le sentiment
+C’est important pour moi de ne pas perdre de temps et de pouvoir rester libre dans mon organisation = le besoin
+La prochaine fois que tu sais que tu seras en retard, peux-tu stp m’appeler dès que possible pour me le signaler ? De cette manière, je peux me réorganiser facilement. = la demande</p>
+<ol start="3">
+<li>On vérifie ce qui a été reçu par la personne. On lui propose de nous reformuler ce qu’elle en a retenu. Cela permet de vérifier que le message que l’on voulait faire passer a bien été entendu.</li>
 </ol>
-
 <h3 id="2ème-possibilité-pour-faire-un-feedback--le-feedback-en-4-temps">2ème possibilité pour faire un feedback : le feedback en 4 temps</h3>
-
 <ol>
-  <li>On demande à la personne ce qu’elle a aimé dans ce qu’elle vient de faire</li>
-  <li>
-    <p>On lui demande ensuite ce qu’elle aurait aimé faire différemment</p>
-
-    <p>On lui demande si elle veut qu’on lui donne notre feedback</p>
-  </li>
-  <li><em>“Moi, j’ai aimé …, parce que … ”</em> : on parle de ce que ça nous a apporté (clarté, motivation, inspiration, soutien, etc.)</li>
-  <li><em>“Et j’aurais aimé …  de différent, parce que … ”</em> on parle de ce que ça nous apporterait (clarté, motivation, inspiration, soutien, etc.)</li>
+<li>
+<p>On demande à la personne ce qu’elle a aimé dans ce qu’elle vient de faire</p>
+</li>
+<li>
+<p>On lui demande ensuite ce qu’elle aurait aimé faire différemment</p>
+<p>On lui demande si elle veut qu’on lui donne notre feedback</p>
+</li>
+<li>
+<p><em>“Moi, j’ai aimé …, parce que … ”</em> : on parle de ce que ça nous a apporté (clarté, motivation, inspiration, soutien, etc.)</p>
+</li>
+<li>
+<p><em>“Et j’aurais aimé …  de différent, parce que … ”</em> on parle de ce que ça nous apporterait (clarté, motivation, inspiration, soutien, etc.)</p>
+</li>
 </ol>
-
 <p>Et en bonus : “Peux-tu me dire comment tu reçois ce que je te dis ?”</p>
-
 <p><a href="https://mixitconf.org/2022/parlez-de-vous-faites-des-feedbacks-">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h2 id="arrêtez-lauto-sabotage-et-sortez-de-la-boucle-systémique">Arrêtez l’auto-sabotage et sortez de la boucle (systémique)</h2>
-
 <p>Dans cet atelier, Albane Veyron nous explique que nous avons tous des croyances sur nous-mêmes et sur les autres. Les croyances sont des pensées qui sont des vérités, pour nous. Elles ont plusieurs origines : l’enfance, notre cercle social et notre expérience de vie.</p>
-
 <p>Les croyances peuvent être aidantes ou limitantes.</p>
-
 <p>L’atelier commence par une première phase qui consiste à reconnaître une de ses croyances limitantes :</p>
 <ul>
-  <li>les généralisations : personne, tout le monde, toujours, tout le temps, jamais, trop, je dois, il faut, pas assez</li>
-  <li>les barrières infinies aka les bonnes excuses pour ne pas passer à l’action : j’aimerais, mais … / je pourrais, mais …</li>
-  <li>les sensations de déjà vu : les blocages et les situations récurrentes</li>
+<li>les généralisations : personne, tout le monde, toujours, tout le temps, jamais, trop, je dois, il faut, pas assez</li>
+<li>les barrières infinies aka les bonnes excuses pour ne pas passer à l’action : j’aimerais, mais … / je pourrais, mais …</li>
+<li>les sensations de déjà vu : les blocages et les situations récurrentes</li>
 </ul>
-
 <p>Une fois qu’on a repéré une de ses croyances limitantes, on l’écrit sur une feuille et on va ensuite décomposer cette croyance et réfléchir à :</p>
 <ul>
-  <li>son origine : d’où nous vient cette croyance ? depuis combien de temps fait-elle partie de nous ? nous vient-elle de notre éducation ?</li>
-  <li>les bénéfices : quels bénéfices nous apporte cette croyance ? qu’est-ce qu’elle nous permet ?</li>
-  <li>les inconvénients / les freins : en quoi cette croyance nous gêne et quels sont les impacts sur notre vie (pro ou perso) ?</li>
-  <li>les contradictions : a-t-on déjà fait quelque chose ou été dans une situation qui vient contredire cette croyance ?</li>
+<li>son origine : d’où nous vient cette croyance ? depuis combien de temps fait-elle partie de nous ? nous vient-elle de notre éducation ?</li>
+<li>les bénéfices : quels bénéfices nous apporte cette croyance ? qu’est-ce qu’elle nous permet ?</li>
+<li>les inconvénients / les freins : en quoi cette croyance nous gêne et quels sont les impacts sur notre vie (pro ou perso) ?</li>
+<li>les contradictions : a-t-on déjà fait quelque chose ou été dans une situation qui vient contredire cette croyance ?</li>
 </ul>
-
 <p>On va ensuite venir agrémenter notre croyance avec tous ces éléments puis, pour finir, transformer notre croyance limitante en une croyance aidante.</p>
-
 <p><a href="https://mixitconf.org/2022/-arretez-l-auto-sabotage-et-sortez-de-votre-boucle-systemique-">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h2 id="comment-fonctionne-un-gestionnaire-de-mots-de-passe">Comment fonctionne un gestionnaire de mots de passe</h2>
-
 <p>Les mots de passe sont partout. Ils nous permettent d’accéder à nos photos, nos comptes bancaires, nos documents de santé et bien d’autres données sensibles que l’on ne souhaite pas voir aux mains d’individus que l’on ne connaît pas.
 Tout le monde sait que l’on doit avoir des longs mots de passe mais comment tous les retenir ? C’est là que les gestionnaires de mot de passe entrent en jeu. Mais peut-on leur faire confiance ? Comment ça marche au juste ? C’est à cette question qu’a souhaité répondre Eric Daspet pendant sa conférence.</p>
-
 <p>Le rôle d’un gestionnaire de mots de passe est de permettre à son utilisateur d’utiliser qu’un seul mot de passe pour ensuite laisser l’outil générer et mémoriser tous les autres mots de passe. On a plus qu’à retenir un seul mot de passe qui peut donc être long et complexe. L’exercice de mémoire sera alors moins compliqué que si on en avait plusieurs à retenir.</p>
-
 <p>À travers son exposé, on découvre un peu plus tous les procédés de cryptographie utilisés afin de gérer les mots de passe que l’on va créer ou modifier en utilisant ces outils.
 Grâce à de nombreux schémas, il explique clairement les différentes étapes de chiffrements utilisées que ce soit pour la création du mot de passe maître, la création et le changement des mots de passe, l’affichage des mots de passe et même le fonctionnement du partage de mots de passe (lorsque celui-ci existe dans l’outil).</p>
-
 <p>On découvre pendant cette heure que les gestionnaires de mots de passe ne cherchent pas à réinventer la roue en matière de cryptographie mais s’appuient sur des concepts déjà éprouvés et robustes. On apprend aussi que tout est chiffré de bout en bout et que seul celui qui détient le mot de passe maître (l’utilisateur donc, même l’outil ne le connaît pas et n’en a pas besoin) peut interagir avec les mots de passe créés. Rassurant, non ? En tout cas, me voilà maintenant prêt à expliquer autour de moi pourquoi il est grand temps de passer à un gestionnaire de mot de passe !</p>
-
 <p><a href="https://mixitconf.org/2022/comment-fonctionne-un-gestionnaire-de-mots-de-passe-">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h2 id="optimiser-votre-revue-de-code-avec-le-rebase-interactif">Optimiser votre revue de code avec le rebase interactif</h2>
-
 <p>GIT est un outil bien connu des développeurs de nos jours, mais dès qu’on s’écarte des commandes traditionnelles (checkout, commit et push), on sait bien moins ce que l’on peut faire d’autre avec.</p>
-
 <p>Sonia Seddiki nous explique ici comment rendre la revue de code, souvent longue et fastidieuse, plus simple et agréable pour nos collègues avec quelques astuces qu’elle a partagées avec nous lors d’un live coding.
 Contrairement à l’idée que j’en avais, le rebase interactif n’est pas là que pour nettoyer les noms de commit sans aucun sens que j’avais mis dans la précipitation mais que c’est un outil bien plus puissant.</p>
-
 <p>Elle nous a ainsi montré comment elle utilise cette commande afin d’organiser et de donner une chronologie à son travail rendant ainsi la revue de code plus facile. Elle a ainsi, devant nos yeux, changé des fichiers de commits, réorganisé l’ordre des commits et tout ça sans altérer le code produit.</p>
-
 <p>Évidemment, c’est une habitude à prendre, elle-même le souligne que ce n’est pas facile d’exporter cette bonne pratique au sein des équipes avec qui elle travaille. Mais la démonstration m’a convaincu, je vais m’essayer à cette pratique et qui sait, un jour j’arriverai peut-être à mon tour à convaincre des gens de mon équipe à en faire de même.</p>
-
 <p><a href="https://mixitconf.org/2022/optimisez-vos-revues-de-code-avec-le-rebase-interactif-">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h2 id="violence-herméneutique---comment-éviter-le-malaise">Violence Herméneutique - Comment éviter le malaise</h2>
-
 <p>Le MiXiT est aussi un évènement nous permettant d’ouvrir notre esprit à des connaissances qui sortent de notre quotidien. Cette conférence animée par Romeu Moura et Sara Dufour en fait partie. Ce talk nous fait découvrir le concept d’herméneutique, défini en début de présentation comme étant “La connaissance d’un concept permettant l’interprétation”. Si vous n’avez rien compris à cette définition à ce stade, c’était également mon cas.</p>
-
 <p>Malgré cette introduction confuse, petit à petit, en allant de plus en plus dans le détail, des sujets apparaissent et donnent sens à ce concept. On y parle de systémisme, de charge mentale, de patriarcat et autres systèmes de notre société dont l’exercice de compréhension va plus loin que leur simple mot ou leur définition. L’herméneutique consiste à comprendre les fondements et rouages d’un système, qu’on y appartienne ou non.</p>
-
 <p>Mais notre société, et l’humain, tend à compliquer cet exercice de compréhension de concept. C’est là qu’on arrive à la notion de violence herméneutique, à savoir tous les mécanismes conscients et inconscients, systémiques ou non, internes ou externes, qui vont venir entraver et contraindre l’herméneutique. De réels freins à la compréhension d’un système. Ils peuvent prendre plusieurs formes, comme la notion de norme, le fait de nier l’existence d’un système ou de réfuter un sujet du simple fait qu’il soit considéré tabou. On y retrouve également la déformation de mots, et le fameux “wokisme”.</p>
-
 <p>Il s’agit d’une conférence passionnante, dérangeante et éclairante que je conseille à tous. Le début piétine un peu, mais le voyage en vaut la peine.</p>
-
 <p><a href="https://mixitconf.org/2022/violence-hermeneutique-comment-eviter-le-malaise-">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h2 id="designer-pour-le-service-public">Designer pour le service public</h2>
-
 <p>Cela peut faire un peu peur dit comme ça, mais je suis allé sceptique à cette conférence d’Anne-Sophie Tranchet. J’étais rattaché à une image peu flatteuse des outils du service public, alors que ces derniers ont connu une vraie progression ces dernières années. Anne-Sophie fait partie du programme beta.gouv qui intervient auprès des administrations pour les services numériques.</p>
-
 <p>C’est armé des bonnes pratiques de nos métiers que Beta.gouv a la mission de transformer et d’accompagner les services publics. On y apprendra le parcours d’Anne-Sophie, ce que travailler pour le service public veut dire, ainsi que les projets et challenges qui en découlent. Leur méthodologie centrée utilisateur leur permet de travailler en itération, et de délivrer de la valeur, en incubation d’abord, puis jusqu’à un développement national en fonction des retours sur le service.</p>
-
 <p>On peut citer quelques réalisations Beta.gouv comme la plateforme dossierfacile.com, qui facilite la création de dossier pour une location, ou 1000 Premiers Jours, qui délivre des informations et un accompagnement sur la grossesse et les 2 premières années de l’enfant</p>
-
 <p><a href="https://mixitconf.org/2022/designer-pour-le-service-public">Page du talk sur le site de MiXiT et voir le replay</a></p>
-
 <h3 id="nos-autres-conférences-coup-de-coeur">Nos autres conférences coup de coeur</h3>
-
 <ul>
-  <li><a href="https://mixitconf.org/2022/ma-vie-est-un-ticket-eloge-de-la-communication-paresseuse-et-enjeux-pour-l-agilite-du-futur">Ma vie est un ticket</a> de Romain Couturier, une conférence raconté avec dessins légère et qui donne des idées pour lutter contre la mauvaise utilisation des outils de ticketing</li>
-  <li><a href="https://mixitconf.org/2022/tout-ce-que-l-on-ne-vous-dit-pas-sur-l-intelligence-artificielle-ia-">Tout ce que l’on ne vous pas dit sur l’IA</a> de Amélie Cordier, une conférence pleine d’humour sur ce qu’est et n’est pas une IA</li>
-</ul>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tag</li>
-      
-
-      
-        <li><a class="button" href="/tags/#practices">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="How to ingest 400GB of logs per hour?" href="/2022/08/08/private-cdn-logs.html">
-            <p>Previous post</p>
-            How to ingest 400GB of logs per hour?
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" href="/refactorer-avec-jscodeshift">
-            <p>Next post</p>
-            Comment appliquer automatiquement des modifications sur une codebase JS 🤖
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<li><a href="https://mixitconf.org/2022/ma-vie-est-un-ticket-eloge-de-la-communication-paresseuse-et-enjeux-pour-l-agilite-du-futur">Ma vie est un ticket</a> de Romain Couturier, une conférence raconté avec dessins légère et qui donne des idées pour lutter contre la mauvaise utilisation des outils de ticketing</li>
+<li><a href="https://mixitconf.org/2022/tout-ce-que-l-on-ne-vous-dit-pas-sur-l-intelligence-artificielle-ia-">Tout ce que l’on ne vous pas dit sur l’IA</a> de Amélie Cordier, une conférence pleine d’humour sur ce qu’est et n’est pas une IA</li>
+</ul></section><div class="tag-list"><ul><li class="meta">Tag</li> <li><a class="button" href="/tags/#practices"><p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2022/08/08/private-cdn-logs.html"><p>Previous post</p>How to ingest 400GB of logs per hour?</a></div><div id="next-post"><a href="/refactorer-avec-jscodeshift"><p>Next post</p>Comment appliquer automatiquement des modifications sur une codebase JS 🤖</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

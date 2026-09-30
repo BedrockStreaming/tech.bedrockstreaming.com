@@ -1,860 +1,223 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Un onboarding facilité grâce à la revue de code! | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Un onboarding facilité grâce à la revue de code!" />
-<meta name="author" content="Anne-Laure De Boissieu" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Comment l’exercice de la revue du delta du code, souvent redouté, peut-il devenir un outil d’onboarding ?" />
-<meta property="og:description" content="Comment l’exercice de la revue du delta du code, souvent redouté, peut-il devenir un outil d’onboarding ?" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-11-15T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Un onboarding facilité grâce à la revue de code!" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Comment l’exercice de la revue du delta du code, souvent redouté, peut-il devenir un outil d’onboarding ?","author":{"@type":"Person","name":"Anne-Laure De Boissieu"},"headline":"Un onboarding facilité grâce à la revue de code!","dateModified":"2022-11-15T00:00:00+00:00","datePublished":"2022-11-15T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Un onboarding facilité grâce à la revue de code!">
-    <meta name="twitter:description" content="Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et plus précisément de la revue du delta du code. Il s’agit de ...">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    <meta name="twitter:image:alt" content="Un onboarding facilité grâce à la revue de code!">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Un onboarding facilité grâce à la revue de code! " aria-label="Un onboarding facilité grâce à la revue de code!" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Un+onboarding+facilit%C3%A9+gr%C3%A2ce+%C3%A0+la+revue+de+code%21" class="title">Un onboarding facilité grâce à la revue de code!</h1>
-      <div class="post-info">
-
-
-<span class="author">
-      <img alt="Author's avatar" src="/images/avatar/al_deboissieu.jpeg" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Anne-Laure De Boissieu
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    November 15, 2022
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et 
-plus 
-précisément de la <strong>revue du delta du code</strong>. Il s’agit de l’inspection par nos 
-pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux 
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Un onboarding facilité grâce à la revue de code! | Bedrock Tech Blog</title><meta name="description" content="Comment l'exercice de la revue du delta du code, souvent redouté, peut-il devenir un outil d'onboarding ?"><link rel="canonical" href="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html"><meta property="og:title" content="Un onboarding facilité grâce à la revue de code!"><meta property="og:description" content="Comment l'exercice de la revue du delta du code, souvent redouté, peut-il devenir un outil d'onboarding ?"><meta property="og:url" content="https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2022-11-15T00:00:00.000Z"><meta name="author" content="Anne-Laure De Boissieu"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Un onboarding facilité grâce à la revue de code!","description":"Comment l'exercice de la revue du delta du code, souvent redouté, peut-il devenir un outil d'onboarding ?","author":{"@type":"Person","name":"Anne-Laure De Boissieu"},"datePublished":"2022-11-15T00:00:00.000Z","dateModified":"2022-11-15T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/11/15/onboarding-revue-code.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Un onboarding facilité grâce à la revue de code!"><meta name="twitter:description" content="Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et plus précisément de la revue du delta du code. Il s’agit de ..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="Un onboarding facilité grâce à la revue de code!"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Un onboarding facilité grâce à la revue de code!" aria-label="Un onboarding facilité grâce à la revue de code!" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Un onboarding facilité grâce à la revue de code!</h1><div class="post-info"><span class="author"><img alt="Author's avatar" src="/images/avatar/al_deboissieu.jpeg" class="thumbnail"><span class="name">Anne-Laure De Boissieu</span></span><span class="spacer"> - </span><span class="publication-date">November 15, 2022</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>Au sein des équipes de développement, une activité bien connue est celle de la revue de code, et
+plus
+précisément de la <strong>revue du delta du code</strong>. Il s’agit de l’inspection par nos
+pairs du code proposé par nos soins, qui se trouve ainsi commenté pour répondre aux
 exigences de qualité de l’équipe et du projet.</p>
-
 <p>Les risques d’incompréhensions inhérents à la communication écrite, de malentendus
-ou encore les remarques <em>malheureuses</em> peuvent rendre cet exercice redouté tant par les 
-relecteurs et relectrices 
-que 
+ou encore les remarques <em>malheureuses</em> peuvent rendre cet exercice redouté tant par les
+relecteurs et relectrices
+que
 par celles et ceux dont le code est relu.</p>
-
-<p>Avant d’arriver chez Bedrock, j’étais un peu 
-inquiète. Je savais déjà que les 9 personnes de ma future équipe font tou(te)s de la revue de code. 
-<strong>Comment échangerons-nous? Saurai-je faire “bonne impression” via mes commentaires 
+<p>Avant d’arriver chez Bedrock, j’étais un peu
+inquiète. Je savais déjà que les 9 personnes de ma future équipe font tou(te)s de la revue de code.
+<strong>Comment échangerons-nous? Saurai-je faire “bonne impression” via mes commentaires
 sur leur code ?</strong></p>
-
-<p>En arrivant, j’ai été très 
-agréablement surprise de découvrir que l’équipe applique un 
-standard, celui des conventions de commentaires, <a href="https://conventionalcomments.org/">ou conventional comments</a>. <strong>Grâce à cela, mon 
-onboarding a été grandement facilité</strong> et j’ai découvert une façon plus efficace d’écrire mes 
+<p>En arrivant, j’ai été très
+agréablement surprise de découvrir que l’équipe applique un
+standard, celui des conventions de commentaires, <a href="https://conventionalcomments.org/">ou conventional comments</a>. <strong>Grâce à cela, mon
+onboarding a été grandement facilité</strong> et j’ai découvert une façon plus efficace d’écrire mes
 commentaires !</p>
-
-<p><strong>Disclaimer</strong> : cet article est inspiré de ma conférence “<em>Revue de code : on n’est pas 
+<p><strong>Disclaimer</strong> : cet article est inspiré de ma conférence “<em>Revue de code : on n’est pas
 venu-e-s pour
 souffrir !</em>” donnée à l’occasion du meet-up anniversaire Duchess chez Dataiku en 2022 et <a href="https://afup.org/talks/4038-revue-de-code-on-n-est-pas-venu-pour-souffrir">au Forum
 PHP 2022</a>.</p>
-
-<iframe width="1127" height="773" src="https://www.youtube.com/embed/LVh6iQtJW2I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-
+<iframe width="1127" height="773" src="https://www.youtube.com/embed/LVh6iQtJW2I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="petit-rappel--pourquoi-faisons-nous-des-revues-de-code-">Petit rappel : pourquoi faisons-nous des revues de code ?</h2>
-
-<p>Passer en revue le code proposé par ses co-équipier(e)s est largement répandu dans les 
-équipes de développeurs et développeuses. Bien sûr, la qualité du code en elle-même se trouve 
-améliorée 
-car chacun apporte un regard neuf sur ce qui est proposé, mais ce n’est pas tout. La 
-revue de code est également une façon de nous tenir informé(e) de 
-l’implémentation de nouvelles features, d’apprendre autant du métier que de la 
+<p>Passer en revue le code proposé par ses co-équipier(e)s est largement répandu dans les
+équipes de développeurs et développeuses. Bien sûr, la qualité du code en elle-même se trouve
+améliorée
+car chacun apporte un regard neuf sur ce qui est proposé, mais ce n’est pas tout. La
+revue de code est également une façon de nous tenir informé(e) de
+l’implémentation de nouvelles features, d’apprendre autant du métier que de la
 technique et enfin, d’apprendre à travailler ensemble.</p>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/code-review.png" alt="Pourquoi faisons-nous de la code review ?" /></p>
-
-<p>Voici une 
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/code-review.png" alt="Pourquoi faisons-nous de la code review ?"></p>
+<p>Voici une
 petite liste non exhaustive de l’intérêt de la revue de code :</p>
-
 <ul>
-  <li>Améliorer la qualité et la lisibilité du code grâce aux remarques de toutes les
+<li>Améliorer la qualité et la lisibilité du code grâce aux remarques de toutes les
 personnes de l’équipe</li>
-  <li>Appliquer les standards adoptés par l’équipe (et les apprendre !)</li>
-  <li>Détecter et corriger les éventuels bugs fonctionnels</li>
-  <li>Favoriser la collaboration en équipe</li>
-  <li>Former les développeurs et développeuses au fur et à mesure des remarques</li>
-  <li>Partager les responsabilités : en approuvant une pull request ou une merge request, nous
+<li>Appliquer les standards adoptés par l’équipe (et les apprendre !)</li>
+<li>Détecter et corriger les éventuels bugs fonctionnels</li>
+<li>Favoriser la collaboration en équipe</li>
+<li>Former les développeurs et développeuses au fur et à mesure des remarques</li>
+<li>Partager les responsabilités : en approuvant une pull request ou une merge request, nous
 sommes responsables en tant qu’équipe du code ajouté/modifié au tronc commun !</li>
 </ul>
-
 <h2 id="et-parfois-on-souffre">…Et parfois, on souffre</h2>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/parfois-on-souffre.png" alt="parfois on souffre" /></p>
-
-<p>Mais parfois, ce n’est pas tout rose. Les commentaires qu’on laisse peuvent vexer. On 
-peut nous-même être vexé. Car certains jours, on peut manquer d’empathie. On peut avoir 
-l’impression d’être plus compétent(e) en 
-critiquant les autres, on veut se rassurer en se montrant plus qualifié(e). On peut également 
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/parfois-on-souffre.png" alt="parfois on souffre"></p>
+<p>Mais parfois, ce n’est pas tout rose. Les commentaires qu’on laisse peuvent vexer. On
+peut nous-même être vexé. Car certains jours, on peut manquer d’empathie. On peut avoir
+l’impression d’être plus compétent(e) en
+critiquant les autres, on veut se rassurer en se montrant plus qualifié(e). On peut également
 être habitué(e) à une culture de la compétition, nous poussant ainsi à faire des remarques désagréables à nos pairs.</p>
-
 <h2 id="comment-le-formatage-de-commentaire-a-t-il-amélioré-mon-arrivée-dans-léquipe-">Comment le formatage de commentaire a-t-il amélioré mon arrivée dans l’équipe ?</h2>
-
-<p>La standardisation des commentaires a énormément amélioré mon intégration dans 
+<p>La standardisation des commentaires a énormément amélioré mon intégration dans
 l’équipe. En effet, grâce à cela :</p>
-
 <ul>
-  <li>J’ai pu rapidement me rendre compte de ce qui était bloquant / non bloquant et ainsi me 
+<li>J’ai pu rapidement me rendre compte de ce qui était bloquant / non bloquant et ainsi me
 <strong>concentrer sur les actions essentielles et prioritaires</strong> à mener;</li>
-  <li><strong>je n’ai pas eu à me poser de questions sur le ton employé par mes collègues ni sur leur 
+<li><strong>je n’ai pas eu à me poser de questions sur le ton employé par mes collègues ni sur leur
 intention</strong>;</li>
-  <li>j’ai pu rapidement faire moi-même des revues de code <strong>sans craindre d’être mal comprise</strong>;</li>
-  <li>j’ai eu des retours qui m’ont permis de <strong>progresser sur la connaissance du fonctionnel</strong> et 
+<li>j’ai pu rapidement faire moi-même des revues de code <strong>sans craindre d’être mal comprise</strong>;</li>
+<li>j’ai eu des retours qui m’ont permis de <strong>progresser sur la connaissance du fonctionnel</strong> et
 des standards de la team.</li>
 </ul>
-
 <h2 id="améliorer-sa-posture">Améliorer sa posture</h2>
-
-<p>Avant de parler du standard, je vous propose de nous interroger sur 
-notre posture en tant que développeur et développeuse. Recevoir ou donner des commentaires, ce 
-n’est pas aisé pour tous. <strong>Notre ego peut interférer et dégrader la qualité de nos 
-échanges avec nos collègues</strong>. Aussi, avant de chercher à formater nos commentaires, nous pouvons 
+<p>Avant de parler du standard, je vous propose de nous interroger sur
+notre posture en tant que développeur et développeuse. Recevoir ou donner des commentaires, ce
+n’est pas aisé pour tous. <strong>Notre ego peut interférer et dégrader la qualité de nos
+échanges avec nos collègues</strong>. Aussi, avant de chercher à formater nos commentaires, nous pouvons
 nous interroger sur leur contenu.</p>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/egoless.png" alt="Egoless programming" /></p>
-
-<p>L’Egoless Programming, proposé par <a href="https://en.wikipedia.org/wiki/Gerald_Weinberg">Gerald Weinberg</a> en 1971 dans son livre <em>The Psychology of 
-Computer Programming</em>, présente une dizaine de commandements pour nous 
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/egoless.png" alt="Egoless programming"></p>
+<p>L’Egoless Programming, proposé par <a href="https://en.wikipedia.org/wiki/Gerald_Weinberg">Gerald Weinberg</a> en 1971 dans son livre <em>The Psychology of
+Computer Programming</em>, présente une dizaine de commandements pour nous
 aider à progresser.</p>
-
-<p>Le principe est le suivant : <strong>réduire au minimum les facteurs personnels lors des interactions 
+<p>Le principe est le suivant : <strong>réduire au minimum les facteurs personnels lors des interactions
 avec ses pairs</strong>, pour favoriser le travail en équipe et produire le maximum de qualité.</p>
-
 <ul>
-  <li>Critiquez le code au lieu des personnes,</li>
-  <li>Soyez factuels sur le code,</li>
-  <li>N’attaquez jamais les personnes.</li>
+<li>Critiquez le code au lieu des personnes,</li>
+<li>Soyez factuels sur le code,</li>
+<li>N’attaquez jamais les personnes.</li>
 </ul>
-
-<p>Je vous recommande de regarder cette excellente conférence sur l’egoless programming, où Olivier 
+<p>Je vous recommande de regarder cette excellente conférence sur l’egoless programming, où Olivier
 Thelu prend le temps de revenir sur tous les concepts :</p>
-
-<iframe src="https://player.vimeo.com/video/728605321?h=60e48e1686&amp;title=0&amp;byline=0&amp;portrait=0" width="1127" height="773" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe>
-<p><a href="https://vimeo.com/728605321">Les 10 commandements de la programmation sans &eacute;go - Olivier Thelu - MiXiT 2022</a> from <a href="https://vimeo.com/mixitconf">MiXiT</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-
-<p>Une autre excellente conférence de Kim Laï Trinh, lead développeur, et son <a href="https://afup.org/talks/3415-auto-critique-de-la-revue-de-code-bienveillante">“Auto-critique de la 
+<iframe src="https://player.vimeo.com/video/728605321?h=60e48e1686&#x26;title=0&#x26;byline=0&#x26;portrait=0" width="1127" height="773" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/728605321">Les 10 commandements de la programmation sans égo - Olivier Thelu - MiXiT 2022</a> from <a href="https://vimeo.com/mixitconf">MiXiT</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<p>Une autre excellente conférence de Kim Laï Trinh, lead développeur, et son <a href="https://afup.org/talks/3415-auto-critique-de-la-revue-de-code-bienveillante">“Auto-critique de la
 revue de code
 bienveillante”</a>.</p>
-
-<iframe width="1127" height="773" src="https://www.youtube.com/embed/jMzhP1n19e8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-
+<iframe width="1127" height="773" src="https://www.youtube.com/embed/jMzhP1n19e8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <h2 id="formatez-vos-commentaires-">Formatez vos commentaires !</h2>
-
 <p>Une fois qu’on a adopté une posture qui nous aide à mieux recevoir et donner des commentaires dans le cadre de nos revues de code, on peut réfléchir à la façon dont on les formate.</p>
-
-<p>Grâce au standard des <a href="https://conventionalcomments.org/">conventional comments</a>, nous disposons d’une convention pour écrire des 
-commentaires clairs et visuels et limiter les incompréhensions. Chacun de nous est invité 
+<p>Grâce au standard des <a href="https://conventionalcomments.org/">conventional comments</a>, nous disposons d’une convention pour écrire des
+commentaires clairs et visuels et limiter les incompréhensions. Chacun de nous est invité
 à réfléchir à l’intention de son commentaire <strong>avant</strong> de l’écrire.</p>
-
-<p>Par exemple, avec ce commentaire qui peut prêter à confusion (le OMG qui signifie “Oh my god” 
-peut être autant interprété comme quelque chose de négatif que de positif, notamment ici puisque 
+<p>Par exemple, avec ce commentaire qui peut prêter à confusion (le OMG qui signifie “Oh my god”
+peut être autant interprété comme quelque chose de négatif que de positif, notamment ici puisque
 nous n’avons pas le contexte 😈) :</p>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-omg.png" alt="Utilisateur Kittycat dit : &quot;Omg&quot;" /></p>
-
-<p>Ce commentaire peut être préfixé par <code class="language-plaintext highlighter-rouge">praise</code>, ce qui signifie éloge. Cela change radicalement 
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-omg.png" alt="Utilisateur Kittycat dit : &#x22;Omg&#x22;"></p>
+<p>Ce commentaire peut être préfixé par <code>praise</code>, ce qui signifie éloge. Cela change radicalement
 le ton du commentaire.</p>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-praise-omg.png" alt="praise : Omg" /></p>
-
-<p>Voici un autre exemple laconique : <code class="language-plaintext highlighter-rouge">Poubelle</code>.</p>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-poubelle.png" alt="Poubelle" /></p>
-
-<p>Celui-ci peut être amélioré en étant préfixé par l’étiquette <code class="language-plaintext highlighter-rouge">nitpick</code>, qui signifie 
-“tatillonner”, ce qui diminue également son ton dramatique. De plus, l’urgence peut être 
-indiquée (ici, <code class="language-plaintext highlighter-rouge">non-bloquant</code>) et le contexte est décrit et peut être exploité grâce à un patch 
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-praise-omg.png" alt="praise : Omg"></p>
+<p>Voici un autre exemple laconique : <code>Poubelle</code>.</p>
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-poubelle.png" alt="Poubelle"></p>
+<p>Celui-ci peut être amélioré en étant préfixé par l’étiquette <code>nitpick</code>, qui signifie
+“tatillonner”, ce qui diminue également son ton dramatique. De plus, l’urgence peut être
+indiquée (ici, <code>non-bloquant</code>) et le contexte est décrit et peut être exploité grâce à un patch
 proposant un code de remplacement.</p>
-
-<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-nitpick.png" alt="nitpick (non-bloquant): le résultat peut être directement retourné (patch)" /></p>
-
+<p><img src="/images/posts/2022-11-07-code-review-onboarding/commentaire-nitpick.png" alt="nitpick (non-bloquant): le résultat peut être directement retourné (patch)"></p>
 <p>La compréhension du commentaire est facilitée par l’effort fourni pour ajouter le maximum de
 contexte possible. On gagne en lisibilité grâce à la catégorisation (étiquette), qui nous permet
-également d’immédiatement savoir de quoi on parle. Par exemple, une <code class="language-plaintext highlighter-rouge">question</code> ne sera pas lue
-de la même façon qu’une <code class="language-plaintext highlighter-rouge">suggestion</code> !</p>
-
+également d’immédiatement savoir de quoi on parle. Par exemple, une <code>question</code> ne sera pas lue
+de la même façon qu’une <code>suggestion</code> !</p>
 <p>La contextualisation permet de savoir si on traite le retour immédiatement ou si on ouvre une
 nouvelle pull request plus tard, pour rémedier au point soulevé. On limite ainsi les
 quiproquos ou les pertes de temps sur des actions non prioritaires.
 Et surtout, on limite les mauvaises impressions sur le ton employé.</p>
-
 <h3 id="description-du-standard">Description du standard</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;label&gt; [decorations]: &lt;subject&gt;
-
-[discussion]
-</code></pre></div></div>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>&#x3C;label> [decorations]: &#x3C;subject></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>[discussion]</span></span></code></pre>
 <ul>
-  <li><strong>étiquette (label)</strong> : “étiquette” pour signifier de quel genre de commentaire il s’agit</li>
-  <li><strong>sujet (subject)</strong> : le commentaire en lui-même</li>
-  <li><strong>contexte supplémentaire (decorations)</strong> (optionnel)  : labels supplémentaires pour donner plus d’indications (entre parenthèses, séparés par des virgules).
-Exemple : <code class="language-plaintext highlighter-rouge">non-blocking</code>, <code class="language-plaintext highlighter-rouge">blocking</code>, <code class="language-plaintext highlighter-rouge">test</code> …</li>
-  <li><strong>discussion (optional)</strong> : contexte, raisonnement ou tout autre élément pour aider à 
+<li><strong>étiquette (label)</strong> : “étiquette” pour signifier de quel genre de commentaire il s’agit</li>
+<li><strong>sujet (subject)</strong> : le commentaire en lui-même</li>
+<li><strong>contexte supplémentaire (decorations)</strong> (optionnel)  : labels supplémentaires pour donner plus d’indications (entre parenthèses, séparés par des virgules).
+Exemple : <code>non-blocking</code>, <code>blocking</code>, <code>test</code> …</li>
+<li><strong>discussion (optional)</strong> : contexte, raisonnement ou tout autre élément pour aider à
 comprendre le « pourquoi » et les « prochaines étapes » pour résoudre le commentaire</li>
 </ul>
-
 <h3 id="les-labels">Les labels</h3>
-
 <p>Voici la liste de labels ou étiquettes, extraits du standard :</p>
-
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">praise</code></li>
-  <li><code class="language-plaintext highlighter-rouge">nitpick</code></li>
-  <li><code class="language-plaintext highlighter-rouge">suggestion</code></li>
-  <li><code class="language-plaintext highlighter-rouge">issue</code></li>
-  <li><code class="language-plaintext highlighter-rouge">todo</code></li>
-  <li><code class="language-plaintext highlighter-rouge">question</code></li>
-  <li><code class="language-plaintext highlighter-rouge">thought</code></li>
-  <li><code class="language-plaintext highlighter-rouge">chore</code></li>
-  <li><code class="language-plaintext highlighter-rouge">typo</code></li>
-  <li><code class="language-plaintext highlighter-rouge">polish</code></li>
-  <li><code class="language-plaintext highlighter-rouge">quibble</code></li>
+<li><code>praise</code></li>
+<li><code>nitpick</code></li>
+<li><code>suggestion</code></li>
+<li><code>issue</code></li>
+<li><code>todo</code></li>
+<li><code>question</code></li>
+<li><code>thought</code></li>
+<li><code>chore</code></li>
+<li><code>typo</code></li>
+<li><code>polish</code></li>
+<li><code>quibble</code></li>
 </ul>
-
-<p>L’équipe est, bien entendu, libre de choisir ou d’inventer ses labels ! Chez nous, le choix a été 
+<p>L’équipe est, bien entendu, libre de choisir ou d’inventer ses labels ! Chez nous, le choix a été
 fait de respecter le standard tel qu’il est proposé, mais cela pourrait être rediscuté si besoin.</p>
-
 <p>Voici quelques définitions (pour le reste, <a href="https://conventionalcomments.org/">se référer au site du standard</a>):</p>
-
 <h4 id="praise-éloge">Praise (éloge)</h4>
-
-<p>Grâce à ce commentaire, on souligne quelque chose de positif, on encourage la personne. Bien 
+<p>Grâce à ce commentaire, on souligne quelque chose de positif, on encourage la personne. Bien
 entendu, pas de second degré !</p>
-
 <h4 id="suggestion-suggestion">Suggestion (suggestion)</h4>
-
-<p>Les suggestions sont la majorité des commentaires qu’on laisse, en général. Il s’agit 
+<p>Les suggestions sont la majorité des commentaires qu’on laisse, en général. Il s’agit
 d’améliorations à apporter au sujet actuel. On cherchera à être explicite et clair,</p>
-
 <ul>
-  <li>expliquer en quoi il s’agit d’une amélioration;</li>
-  <li>utiliser des patchs;</li>
-  <li>utiliser des décorations <strong>blocking</strong> ou <strong>non-blocking</strong>.</li>
+<li>expliquer en quoi il s’agit d’une amélioration;</li>
+<li>utiliser des patchs;</li>
+<li>utiliser des décorations <strong>blocking</strong> ou <strong>non-blocking</strong>.</li>
 </ul>
-
 <h4 id="issue-problème">Issue (problème)</h4>
-
-<p>Grâce aux issues, on met en évidence des problèmes spécifiques. Idéalement, on couple ce 
-commentaire avec une <code class="language-plaintext highlighter-rouge">Suggestion</code>.</p>
-
+<p>Grâce aux issues, on met en évidence des problèmes spécifiques. Idéalement, on couple ce
+commentaire avec une <code>Suggestion</code>.</p>
 <h4 id="thought-pensée">Thought (pensée)</h4>
-
-<p>Les pensées sont des idées qui surgissent lors de la relecture du code. Celles-ci ne sont pas 
-bloquantes par nature, mais sont extrêmement précieuses, car elles peuvent conduire à des 
+<p>Les pensées sont des idées qui surgissent lors de la relecture du code. Celles-ci ne sont pas
+bloquantes par nature, mais sont extrêmement précieuses, car elles peuvent conduire à des
 possibilités de mentorat.</p>
-
 <h2 id="appropriez-vous-la-méthode-">Appropriez-vous la méthode !</h2>
-
-<p>Bien entendu, vous n’êtes pas obligé d’utiliser toute la liste de labels proposée par le 
-standard. Vous pouvez en choisir quelques uns, ou bien carrément vous en inspirer et créer les 
-vôtres. C’est le choix qu’ont fait Camille et son équipe, <a href="https://www.24joursdeweb.fr/2021/conventional-comments-faire-des-revues-de-code-avec-le-smiley/">qu’elle décrit dans cet excellent 
-article 
+<p>Bien entendu, vous n’êtes pas obligé d’utiliser toute la liste de labels proposée par le
+standard. Vous pouvez en choisir quelques uns, ou bien carrément vous en inspirer et créer les
+vôtres. C’est le choix qu’ont fait Camille et son équipe, <a href="https://www.24joursdeweb.fr/2021/conventional-comments-faire-des-revues-de-code-avec-le-smiley/">qu’elle décrit dans cet excellent
+article
 sur les conventional Comments et l’utilisation des emojis</a>.</p>
-
-<p>Ainsi, l’équipe a porté son choix sur une liste d’étiquettes illustrées par des emojis, qui 
+<p>Ainsi, l’équipe a porté son choix sur une liste d’étiquettes illustrées par des emojis, qui
 traduisent à fois l’intention du commentaire et son urgence.
 Voici quelques exemples, tirés de l’article :</p>
-
-<p><code class="language-plaintext highlighter-rouge">🥜 peanuts</code>
-<code class="language-plaintext highlighter-rouge">❓ question</code>
-<code class="language-plaintext highlighter-rouge">💬 discussion</code>
-<code class="language-plaintext highlighter-rouge">🚨 alerte</code>
-<code class="language-plaintext highlighter-rouge">🚫 no-go</code>
-<code class="language-plaintext highlighter-rouge">👏 bravo</code>
-<code class="language-plaintext highlighter-rouge">⚠️ warning</code>
-<code class="language-plaintext highlighter-rouge">☠️ bad idea</code>
-<code class="language-plaintext highlighter-rouge">✨ magic</code>
-<code class="language-plaintext highlighter-rouge">🔥 burn-it-all</code></p>
-
+<p><code>🥜 peanuts</code>
+<code>❓ question</code>
+<code>💬 discussion</code>
+<code>🚨 alerte</code>
+<code>🚫 no-go</code>
+<code>👏 bravo</code>
+<code>⚠️ warning</code>
+<code>☠️ bad idea</code>
+<code>✨ magic</code>
+<code>🔥 burn-it-all</code></p>
 <h2 id="quelques-autres-bonnes-pratiques-donboarding">Quelques autres bonnes pratiques d’onboarding</h2>
-
 <p>Bien entendu, il y a plein d’autres façons d’aider vos nouveaux développeurs ou
 nouvelles développeuses à découvrir le code. Voici quelques autres idées :</p>
-
 <ul>
-  <li>
-    <p>On peut se familiariser avec le workflow d’une publication de pull request ou de merge 
-request en faisant une petite modification (ajouter son nom dans un fichier, par exemple ?);</p>
-  </li>
-  <li>
-    <p>on peut être accompagné(e) d’un “buddy” qui nous est assigné à l’arrivée dans l’entreprise avec 
-qui on fait les premières revues de code en direct, et pas par écrit.</p>
-  </li>
-</ul>
-
-<p>Une dernière bonne pratique très largement répandue : si les échanges par commentaires sont trop 
-nombreux sur une même pull request, pourquoi ne pas se retrouver directement et résoudre en pair 
-les 
-points discutés ?</p>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tag</li>
-      
-
-      
-        <li><a class="button" href="/tags/#culture">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022" href="/2022/11/17/symfonycon.html">
-            <p>Previous post</p>
-            Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles" href="/2022/10/28/forum-php-afup-2022.html">
-            <p>Next post</p>
-            Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
 <li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
+<p>On peut se familiariser avec le workflow d’une publication de pull request ou de merge
+request en faisant une petite modification (ajouter son nom dans un fichier, par exemple ?);</p>
 </li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<li>
+<p>on peut être accompagné(e) d’un “buddy” qui nous est assigné à l’arrivée dans l’entreprise avec
+qui on fait les premières revues de code en direct, et pas par écrit.</p>
+</li>
+</ul>
+<p>Une dernière bonne pratique très largement répandue : si les échanges par commentaires sont trop
+nombreux sur une même pull request, pourquoi ne pas se retrouver directement et résoudre en pair
+les
+points discutés ?</p></section><div class="tag-list"><ul><li class="meta">Tag</li> <li><a class="button" href="/tags/#culture"><p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2022/11/17/symfonycon.html"><p>Previous post</p>Ce que nous avons retenu de la SymfonyCon - Disneyland Paris 2022</a></div><div id="next-post"><a href="/2022/10/28/forum-php-afup-2022.html"><p>Next post</p>Forum PHP 2022 - L’éléphant bleu n’a pas peur de la souris aux grandes oreilles</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

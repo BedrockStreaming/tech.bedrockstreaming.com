@@ -1,788 +1,155 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com//images/posts/afup-day-lyon-2023/thumbnail.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Bedrock à l’AFUP Day Lyon (2023) | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Bedrock à l’AFUP Day Lyon (2023)" />
-<meta name="author" content="Backend teams" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Nous étions à l’AFUP Day à Lyon pour l’édition 2023 !" />
-<meta property="og:description" content="Nous étions à l’AFUP Day à Lyon pour l’édition 2023 !" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-06-06T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Bedrock à l’AFUP Day Lyon (2023)" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Nous étions à l’AFUP Day à Lyon pour l’édition 2023 !","author":{"@type":"Person","name":"Backend teams"},"headline":"Bedrock à l’AFUP Day Lyon (2023)","dateModified":"2023-06-06T00:00:00+00:00","datePublished":"2023-06-06T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Bedrock à l'AFUP Day Lyon (2023)">
-    <meta name="twitter:description" content="Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.Pour...">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com//images/posts/afup-day-lyon-2023/thumbnail.jpg">
-    <meta name="twitter:image:alt" content="Bedrock à l'AFUP Day Lyon (2023)">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Bedrock à l'AFUP Day Lyon (2023) " aria-label="Bedrock à l'AFUP Day Lyon (2023)" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Bedrock+%C3%A0+l%27AFUP+Day+Lyon+%282023%29" class="title">Bedrock à l'AFUP Day Lyon (2023)</h1>
-      <div class="post-info">
-
-
-<span class="author">
-
-    
-      <span class="name">
-        Backend teams
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    June 06, 2023
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.</p>
-
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Bedrock à l&#39;AFUP Day Lyon (2023) | Bedrock Tech Blog</title><meta name="description" content="Nous étions à l'AFUP Day à Lyon pour l'édition 2023 !"><link rel="canonical" href="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html"><meta property="og:title" content="Bedrock à l'AFUP Day Lyon (2023)"><meta property="og:description" content="Nous étions à l'AFUP Day à Lyon pour l'édition 2023 !"><meta property="og:url" content="https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/afup-day-lyon-2023/thumbnail.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2023-06-06T00:00:00.000Z"><meta name="author" content="Backend teams"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bedrock à l'AFUP Day Lyon (2023)","description":"Nous étions à l'AFUP Day à Lyon pour l'édition 2023 !","author":{"@type":"Person","name":"Backend teams"},"datePublished":"2023-06-06T00:00:00.000Z","dateModified":"2023-06-06T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/06/06/afup-day-lyon-2023.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Bedrock à l'AFUP Day Lyon (2023)"><meta name="twitter:description" content="Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day. Pou..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/afup-day-lyon-2023/thumbnail.jpg"><meta name="twitter:image:alt" content="Bedrock à l'AFUP Day Lyon (2023)"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Bedrock à l'AFUP Day Lyon (2023)" aria-label="Bedrock à l'AFUP Day Lyon (2023)" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Bedrock à l&#39;AFUP Day Lyon (2023)</h1><div class="post-info"><span class="author"><span class="name">Backend teams</span></span><span class="spacer"> - </span><span class="publication-date">June 06, 2023</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>Comme à l’accoutumée, les équipes backend de Bedrock étaient présentes le 12 mai 2023 à CPE (au Campus Lyontech) pour une nouvelle édition de l’AFUP Day.</p>
 <p>Pour suivre les conférences qui gravitaient autour de PHP bien sûr, mais aussi pour soutenir notre collègue Pauline Rambaud qui était la star du jour (pour Bedrock du moins) 🤩 !</p>
-
 <p>Et nous n’oublions pas non plus, les âmes braves de Bedrock qui ont revêti le maillot bleu de l’AFUP et qui ont donné de leur personne pour nous accueillir dans d’excellentes conditions.</p>
-
 <p>Enfin <strong>bref</strong> (🐘), voici le petit récap habituel des différentes conférences de cette journée 👇</p>
-
 <h2 id="tirer-parti-du-composant-expressionlanguage-de-symfony-laissez-les-utilisateurs-finaux-être-créatifs-">Tirer parti du composant ExpressionLanguage de Symfony, laissez les utilisateurs finaux être créatifs !</h2>
-
 <blockquote>
-  <p>Conférence présentée par Florian MERLE et Mathias ARLAUD</p>
+<p>Conférence présentée par Florian MERLE et Mathias ARLAUD</p>
 </blockquote>
-
-<p>Dans leur talk, Florian et Mathias nous parlent du composant Symfony Expression Language. 
-Ce composant fournit au développeur un moteur d’expressions et permet l’utilisation de ces dernières dans la configuration d’un projet ou bien encore comme fondation d’un moteur de règles métiers. 
+<p>Dans leur talk, Florian et Mathias nous parlent du composant Symfony Expression Language.
+Ce composant fournit au développeur un moteur d’expressions et permet l’utilisation de ces dernières dans la configuration d’un projet ou bien encore comme fondation d’un moteur de règles métiers.
 Si ce composant vous est inconnu, sachez qu’il est lui-même utilisé par Symfony : par exemple pour la sécurité sur les règles de validation des routes.</p>
-
-<p>Florian et Mathias nous familiarisent avec le fonctionnement du composant : on peut définir des expressions simples qui ne requièrent pas d’être compilées en PHP (ex : “1+1”) et à l’inverse des expressions compilées en PHP qui vont correspondre à des règles personnalisées définies au sein de notre projet (“est_eligible_a_une_promo(client)”). 
+<p>Florian et Mathias nous familiarisent avec le fonctionnement du composant : on peut définir des expressions simples qui ne requièrent pas d’être compilées en PHP (ex : “1+1”) et à l’inverse des expressions compilées en PHP qui vont correspondre à des règles personnalisées définies au sein de notre projet (“est_eligible_a_une_promo(client)”).
 Pour mieux comprendre comment tout cela fonctionne en interne, nous avons ensuite une présentation de comment les expressions sont interprétées grâce à de l’analyse lexicale et le principe d’arbre syntaxique.</p>
-
-<p>Pour finir ce talk, nous avons le droit à une démonstration du composant comme moteur de règles métiers. 
+<p>Pour finir ce talk, nous avons le droit à une démonstration du composant comme moteur de règles métiers.
 On nous présente un petit site e-commerce où les administrateurs peuvent, via un formulaire, utiliser les règles métiers définies dans le projet et les ajuster pour correspondre au mieux à leurs besoins.</p>
-
 <h2 id="mentors--super-héros-ou-super-vilains-">Mentors : super-héros ou super-vilains ?</h2>
-
 <blockquote>
-  <p>Conférence présentée par Pauline RAMBAUD</p>
+<p>Conférence présentée par Pauline RAMBAUD</p>
 </blockquote>
-
-<p>On a choisi de ne rien vous dévoiler sur cette conférence donnée par notre collègue Pauline, il fallait être présent pour savourer l’instant 😉… 
+<p>On a choisi de ne rien vous dévoiler sur cette conférence donnée par notre collègue Pauline, il fallait être présent pour savourer l’instant 😉…
 Ceci dit, Pauline sera sûrement ravie d’en parler avec vous <a href="https://twitter.com/pauinegu">sur Twitter</a>.</p>
-
 <h2 id="monades--paradigme-unique-pour-la-programmation">Monades : paradigme unique pour la programmation</h2>
-
 <blockquote>
-  <p>Conférence présentée par Baptiste LANGLADE</p>
+<p>Conférence présentée par Baptiste LANGLADE</p>
 </blockquote>
-
-<p>Dans cette <a href="https://baptouuuu.github.io/talks/monads%20a-sync%20programming/">conférence</a>, Baptiste nous a fait un rapide tour d’horizon des solutions existantes pour faire de l’asynchrone en PHP. 
+<p>Dans cette <a href="https://baptouuuu.github.io/talks/monads%20a-sync%20programming/">conférence</a>, Baptiste nous a fait un rapide tour d’horizon des solutions existantes pour faire de l’asynchrone en PHP.
 Le conférencier nous a expliqué qu’il était difficile aujourd’hui de faire du synchrone et de l’asynchrone de la même manière, facilement.</p>
-
-<p>C’est pour cela que le speaker a développé le composant <a href="https://github.com/Innmind/Immutable#sequence">Sequence</a>. 
+<p>C’est pour cela que le speaker a développé le composant <a href="https://github.com/Innmind/Immutable#sequence">Sequence</a>.
 Grâce à ce projet et sa <a href="https://www.youtube.com/watch?v=RwCJwKfbDhE">démo</a>, nous avons pu voir comment, sans changer le code (hormis une dépendance), nous pouvons faire des appels synchrones ou asynchrones.</p>
-
 <p>Nous avons, au passage, eu la présentation du composant <a href="https://github.com/Innmind/Filesystem">Filesystem</a> qui apporte des outils intéressants pour la manipulation de fichiers.</p>
-
 <h2 id="le-zéro-downtime-deployment-en-pratique">Le Zéro Downtime Deployment en pratique</h2>
-
 <blockquote>
-  <p>Conférence présentée par Smaïne MILIANNI</p>
+<p>Conférence présentée par Smaïne MILIANNI</p>
 </blockquote>
-
 <p>Smaïne nous a présenté la logique à avoir lorsque l’on veut faire du ZDD avec deux exemples et les limites de cette pratique.</p>
-
 <p>Les deux règles d’or à respecter concernant les changements sont :</p>
 <ul>
-  <li>être rétrocompatibles, c’est-à-dire que les nouvelles modifications doivent fonctionner avec l’existant. 
+<li>être rétrocompatibles, c’est-à-dire que les nouvelles modifications doivent fonctionner avec l’existant.
 Si le déploiement fail cela ne doit pas empêcher la version actuelle de fonctionner.</li>
-  <li>être livré par release</li>
+<li>être livré par release</li>
 </ul>
-
 <p>Cela implique de repenser la façon de construire une nouveauté et pour illustrer cela, Smaïne a donné l’exemple de l’ajout d’une colonne not null dans une base de données.</p>
-
 <p>Objectif : ajouter une colonne not null dans une table</p>
-
 <p>Découpage en deux releases :</p>
 <ol>
-  <li>Release 1
-    <ul>
-      <li>ajout d’une colonne A null dans la table</li>
-      <li>mise à jour de l’entité concernée dans le code initialisé à null</li>
-    </ul>
-  </li>
-  <li>Release 2
-    <ul>
-      <li>mettre à jour les lignes sans valeur dans la colonne A avec une valeur par défaut</li>
-      <li>ajouter la contrainte NOT NULL sur la colonne A</li>
-      <li>mettre à jour l’entité en spécifiant l’attribut comme non nullable</li>
-    </ul>
-  </li>
+<li>Release 1
+<ul>
+<li>ajout d’une colonne A null dans la table</li>
+<li>mise à jour de l’entité concernée dans le code initialisé à null</li>
+</ul>
+</li>
+<li>Release 2
+<ul>
+<li>mettre à jour les lignes sans valeur dans la colonne A avec une valeur par défaut</li>
+<li>ajouter la contrainte NOT NULL sur la colonne A</li>
+<li>mettre à jour l’entité en spécifiant l’attribut comme non nullable</li>
+</ul>
+</li>
 </ol>
-
 <p>Afin de s’assurer que chaque release peut fonctionner avec l’existant et anticiper les impacts que pourraient avoir les modifications, il ne faut pas hésiter à tester de façon automatique ou manuelle.</p>
-
 <p>Suite à l’exemple, Smaïne a présenté les limites du ZDD qui sont :</p>
 <ul>
-  <li>cette pratique a du sens si vous faites des releases fréquemment</li>
-  <li>un changement majeur nécessitera toujours une maintenance</li>
-  <li>tant que l’ensemble des releases prévues pour faire une modification ne sont pas en production, le système est considéré comme instable</li>
-  <li>cette pratique nécessite de penser et de concevoir différemment les releases.</li>
+<li>cette pratique a du sens si vous faites des releases fréquemment</li>
+<li>un changement majeur nécessitera toujours une maintenance</li>
+<li>tant que l’ensemble des releases prévues pour faire une modification ne sont pas en production, le système est considéré comme instable</li>
+<li>cette pratique nécessite de penser et de concevoir différemment les releases.</li>
 </ul>
-
 <p>Pour conclure, le speaker a donné quelques clés pour se lancer dans le ZDD :</p>
 <ul>
-  <li>former ses équipes</li>
-  <li>documenter les processus mis en place</li>
-  <li>itérer et s’améliorer avec chaque expérience</li>
-  <li>tester et encore tester</li>
+<li>former ses équipes</li>
+<li>documenter les processus mis en place</li>
+<li>itérer et s’améliorer avec chaque expérience</li>
+<li>tester et encore tester</li>
 </ul>
-
 <h2 id="démystifions-les-pratiques-du-software-craftsmanship-">Démystifions les pratiques du Software craftsmanship !</h2>
-
 <blockquote>
-  <p>Conférence présentée par Thomas BOILEAU</p>
+<p>Conférence présentée par Thomas BOILEAU</p>
 </blockquote>
-
 <p>Après une rapide présentation des différentes pratiques autour du <em>craftsmanship</em> (Test Driven Development, Domain Driven Development, Clean Architecture, Architecture Hexagonale …), Thomas nous raconte comment il est tombé dans le piège du <strong>Gatekeeping</strong>.</p>
-
 <p>Qu’est-ce que le <strong>Gatekeeping</strong> ? D’après lui (cf. photo), c’est l’art de marquer son appartenance à un groupe en excluant les autres.</p>
-
-<p><img src="/images/posts/afup-day-lyon-2023/gatekeeper.jpg" alt="Gatekeeper" /></p>
-
+<p><img src="/images/posts/afup-day-lyon-2023/gatekeeper.jpg" alt="Gatekeeper"></p>
 <p>Tout commence avec une remarque lue sur Internet, du style “Si tu ne fais pas de TDD, alors tu n’es pas un vrai développeur”, qui le complexera au point de le pousser à étudier et appliquer cette pratique jusqu’à son tour devenir l’auteur de ce genre de remarque.</p>
-
 <p>En considérant le <strong>craftsmanship</strong> comme la solution universelle et en l’appliquant de manière dogmatique, il se retrouve à proposer des solutions inadaptées à ses projets et donc à nuire à ses clients.</p>
-
 <p>L’objet de cette conférence sera donc de nous parler de comment il a su se remettre en question et sortir de l’impasse.</p>
-
-<p>Comment faire pour ne plus être un gatekeeper ? 
-Thomas nous parle alors de prendre du recul sur soi, d’être pragmatique et bien sûr de savoir faire preuve d’humilité. 
+<p>Comment faire pour ne plus être un gatekeeper ?
+Thomas nous parle alors de prendre du recul sur soi, d’être pragmatique et bien sûr de savoir faire preuve d’humilité.
 Mais il existe aussi des pratiques reconnues dans notre milieu telles que l’<em>Egoless programming</em>, le <em>Pair Programming</em>, ou tout simplement reconnaître à chacun le droit à l’erreur et connaître ses propres limites.</p>
-
 <h2 id="comment-refondre-un-legacy-sans-cris-et-sans-larmes---retour-dexpérience-et-bonnes-pratiques">Comment refondre un legacy sans cris et sans larmes - Retour d’expérience et bonnes pratiques</h2>
-
 <blockquote>
-  <p>Conférence présentée par Kevin BALICOT</p>
+<p>Conférence présentée par Kevin BALICOT</p>
 </blockquote>
-
 <p>À travers son retour d’expérience d’une refonte d’un très vieux projet PHP, Kevin BALICOT nous a offert sa recette d’une refonte progressive sans cris ni larmes :</p>
-
 <ol>
-  <li>Lister tous les problèmes de l’application</li>
-  <li>Définir une stratégie et des objectifs</li>
-  <li>Faire un inventaire de l’application</li>
-  <li>Mettre en place un Golden Master</li>
-  <li>Mettre des outils d’analyse de code</li>
-  <li>Implémenter des Design Pattern et des architectures</li>
-  <li>Consolider les choix avec des ADR et du Pair Programming</li>
-  <li>Tester !</li>
+<li>Lister tous les problèmes de l’application</li>
+<li>Définir une stratégie et des objectifs</li>
+<li>Faire un inventaire de l’application</li>
+<li>Mettre en place un Golden Master</li>
+<li>Mettre des outils d’analyse de code</li>
+<li>Implémenter des Design Pattern et des architectures</li>
+<li>Consolider les choix avec des ADR et du Pair Programming</li>
+<li>Tester !</li>
 </ol>
-
 <p>Si vous souhaitez approfondir un de ces points, vous pouvez sans doute lui demander directement <a href="https://twitter.com/kevinbalicot">sur Twitter</a>.</p>
-
 <h2 id="le-travail-invisible-en-entreprise--le-cas-du-glue-work">Le travail invisible en entreprise : le cas du glue work</h2>
-
 <blockquote>
-  <p>Conférence présentée par Camille CASTILLO</p>
+<p>Conférence présentée par Camille CASTILLO</p>
 </blockquote>
-
 <p>Nous avons découvert le concept du “glue work” lors de la première conférence de Camille.</p>
-
 <p>Enfin, nous avons un terme pour décrire cette idée que nous avions tous.tes en tête, mais qui manquait d’une définition concrète.</p>
-
 <p>Le “glue work” représente toutes ces tâches accomplies par les employé.e.s, notamment les développeur.euse.s, lors de leur travail quotidien, qui ne sont généralement pas facilement quantifiables et rarement valorisées par l’entreprise.</p>
-
 <p>Camille a identifié trois catégories de “glue work” : social, managérial et technique.</p>
-
 <p>Par exemple, organiser une sortie au restaurant favorise les liens sociaux. Planifier une réunion avec des clients renforce les relations professionnelles. Et effectuer une veille et proposer de nouveaux outils de développement relève de la dimension technique.</p>
-
 <p>Malheureusement, en effectuant ces tâches essentielles à la vie de l’entreprise et même à sa productivité, les employé.e.s consacrent logiquement moins de temps à leurs tâches principales, comme le développement.</p>
-
 <p>Cela peut devenir problématique si l’entreprise ne reconnaît pas la valeur de ces activités.</p>
-
 <p>Alors quelles solutions pour prendre en considération le glue work ?</p>
-
 <p>Tout d’abord, le repérer et se porter volontaire.</p>
-
 <p>Un manager peut aussi veiller à répartir ces tâches.</p>
-
 <p>Camille conclut en indiquant que le glue work est nécessaire à l’entreprise, qu’il faut l’identifier et être acteur.ice.s chacun à son niveau pour le faire reconnaître.</p>
-
 <h2 id="transformer-efficacement-du-json-en-structure-php-fortement-typée">Transformer efficacement du JSON en structure PHP fortement typée</h2>
-
 <blockquote>
-  <p>Conférence présentée par Romain CANON</p>
+<p>Conférence présentée par Romain CANON</p>
 </blockquote>
-
 <p>Une chouette conférence qui présentait la librairie d’Object Mapping pour PHP <a href="https://github.com/CuyZ/Valinor">Valinor</a>, permettant de tirer parti au maximum des types PHP au runtime.</p>
-
 <p>D’ailleurs suite à ça, certaines de nos équipes ont commencé à l’utiliser à Bedrock… Peut-être un prochain article de REX à prévoir 😉</p>
-
 <h2 id="les-instruments-des-devs-augmentées">Les instruments des devs augmenté·e·s</h2>
-
 <blockquote>
-  <p>Conférence présentée par Gabriel PILLET</p>
+<p>Conférence présentée par Gabriel PILLET</p>
 </blockquote>
-
 <p>On a fini cette journée en beauté, par une vue d’ensemble des différents outils permettant dès aujourd’hui d’épauler les développeurs dans leur travail quotidien.</p>
-
 <p>De PHPStan à GPT-4 en passant par GitHub Copilot, cette conférence, dont les slides étaient habillées d’images générées par une IA, nous a bien fait comprendre qu’on a tout intérêt à accueillir ces nouveaux outils, si on souhaite décupler notre productivité 🤞.</p>
-
 <h2 id="à-lannée-prochaine-">À l’année prochaine !</h2>
-
-<p><img src="/images/posts/afup-day-lyon-2023/team.jpg" alt="Team backend" /></p>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tag</li>
-      
-
-      
-        <li><a class="button" href="/tags/#backend">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="Deux jours à Android Makers by Droidcon 2023" href="/2023/06/19/android-makers-23.html">
-            <p>Previous post</p>
-            Deux jours à Android Makers by Droidcon 2023
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="Bedrock à MiXiT Lyon (2023)" href="/2023/04/25/mixit-lyon-2023.html">
-            <p>Next post</p>
-            Bedrock à MiXiT Lyon (2023)
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<p><img src="/images/posts/afup-day-lyon-2023/team.jpg" alt="Team backend"></p></section><div class="tag-list"><ul><li class="meta">Tag</li> <li><a class="button" href="/tags/#backend"><p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2023/06/19/android-makers-23.html"><p>Previous post</p>Deux jours à Android Makers by Droidcon 2023</a></div><div id="next-post"><a href="/2023/04/25/mixit-lyon-2023.html"><p>Next post</p>Bedrock à MiXiT Lyon (2023)</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

@@ -1,787 +1,173 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Bedrock Dev Facts #14 | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Bedrock Dev Facts #14" />
-<meta name="author" content="Bedrock" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Les plus belles phrases de nos équipes techniques" />
-<meta property="og:description" content="Les plus belles phrases de nos équipes techniques" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-07-16T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Bedrock Dev Facts #14" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Les plus belles phrases de nos équipes techniques","author":{"@type":"Person","name":"Bedrock"},"headline":"Bedrock Dev Facts #14","dateModified":"2021-07-16T00:00:00+00:00","datePublished":"2021-07-16T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Bedrock Dev Facts #14">
-    <meta name="twitter:description" content="Apportez vos devfacts à la plage cet été!Les phases de test  Pour une fois qu’on est payé à faire des 500Le panier de crabes  _ On attend le GoNoGo  _ On ne ...">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    <meta name="twitter:image:alt" content="Bedrock Dev Facts #14">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Bedrock Dev Facts #14 " aria-label="Bedrock Dev Facts #14" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Bedrock+Dev+Facts+%2314" class="title">Bedrock Dev Facts #14</h1>
-      <div class="post-info">
-
-
-<span class="author">
-
-    
-      <span class="name">
-        Bedrock
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    July 16, 2021
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>Apportez vos <a href="/tags.html#devfacts">devfacts</a> à la plage cet été!</p>
-
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Bedrock Dev Facts #14 | Bedrock Tech Blog</title><meta name="description" content="Les plus belles phrases de nos équipes techniques"><link rel="canonical" href="https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html"><meta property="og:title" content="Bedrock Dev Facts #14"><meta property="og:description" content="Les plus belles phrases de nos équipes techniques"><meta property="og:url" content="https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2021-07-16T00:00:00.000Z"><meta name="author" content="Bedrock"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bedrock Dev Facts #14","description":"Les plus belles phrases de nos équipes techniques","author":{"@type":"Person","name":"Bedrock"},"datePublished":"2021-07-16T00:00:00.000Z","dateModified":"2021-07-16T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2021/07/16/bedrock-dev-facts-14.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Bedrock Dev Facts #14"><meta name="twitter:description" content="Apportez vos devfacts à la plage cet été! Les phases de test Pour une fois qu’on est payé à faire des 500 Le panier de crabes _ On attend le GoNoGo _ On ne p..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="Bedrock Dev Facts #14"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Bedrock Dev Facts #14" aria-label="Bedrock Dev Facts #14" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Bedrock Dev Facts #14</h1><div class="post-info"><span class="author"><span class="name">Bedrock</span></span><span class="spacer"> - </span><span class="publication-date">July 16, 2021</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>Apportez vos <a href="/tags.html#devfacts">devfacts</a> à la plage cet été!</p>
 <h1 id="les-phases-de-test">Les phases de test</h1>
 <blockquote>
-  <p>Pour une fois qu’on est payé à faire des 500</p>
+<p>Pour une fois qu’on est payé à faire des 500</p>
 </blockquote>
-
 <h1 id="le-panier-de-crabes">Le panier de crabes</h1>
 <blockquote>
-  <p>_ On attend le GoNoGo</p>
-
-  <p>_ On ne pourrait pas attendre le RustNoRust ce serait plus performant</p>
+<p>_ On attend le GoNoGo</p>
+<p>_ On ne pourrait pas attendre le RustNoRust ce serait plus performant</p>
 </blockquote>
-
 <h1 id="1-2-3-extincteurs">1… 2… 3… extincteurs</h1>
 <blockquote>
-  <p>Parlant à un hébergeur cloud</p>
-
-  <p>“Tu sais la petite boite française en trois lettres qui a eu chaud ce matin?”</p>
+<p>Parlant à un hébergeur cloud</p>
+<p>“Tu sais la petite boite française en trois lettres qui a eu chaud ce matin?”</p>
 </blockquote>
-
 <h1 id="échec-et-mat">Échec et mat</h1>
 <blockquote>
-  <p>We’ve been hacked by our incompetence</p>
+<p>We’ve been hacked by our incompetence</p>
 </blockquote>
-
 <h1 id="le-vrai-du-faux">Le vrai du faux</h1>
 <blockquote>
-  <p>C’est pas le bon true</p>
+<p>C’est pas le bon true</p>
 </blockquote>
-
 <h1 id="darladidadada">Darladidadada</h1>
-<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Quand tu fais du ménage dans ton compte AWS de tests et que tu te dis qu&#39;un collègue doit avoir l&#39;oreille musicale 🎶 <a href="https://t.co/yIINlboQBy">pic.twitter.com/yIINlboQBy</a></p>&mdash; Pascal MARTIN (@pascal_martin) <a href="https://twitter.com/pascal_martin/status/1370331336477659137?ref_src=twsrc%5Etfw">March 12, 2021</a></blockquote>
-
+<blockquote class="twitter-tweet"><p lang="fr" dir="ltr">Quand tu fais du ménage dans ton compte AWS de tests et que tu te dis qu'un collègue doit avoir l'oreille musicale 🎶 <a href="https://t.co/yIINlboQBy">pic.twitter.com/yIINlboQBy</a></p>— Pascal MARTIN (@pascal_martin) <a href="https://twitter.com/pascal_martin/status/1370331336477659137?ref_src=twsrc%5Etfw">March 12, 2021</a></blockquote> 
 <h1 id="review-in-progress">Review in progress</h1>
-<p><img src="/images/posts/dev-facts-14/in-progress-review.png" alt="screenshot d'une Pull request avec à la fois in review et in progress en label" /></p>
-
+<p><img src="/images/posts/dev-facts-14/in-progress-review.png" alt="screenshot d&#x27;une Pull request avec à la fois in review et in progress en label"></p>
 <h1 id="ipv6-cest-pas-encore-hyper-clair">IPV6 c’est pas encore hyper clair</h1>
 <blockquote>
-  <p>Oui mais c’est une grosse IP</p>
+<p>Oui mais c’est une grosse IP</p>
 </blockquote>
-
 <h1 id="la-confiance">La confiance</h1>
 <blockquote>
-  <p>Normalement, si tout va bien, ça marche!</p>
+<p>Normalement, si tout va bien, ça marche!</p>
 </blockquote>
-
 <h1 id="alors-cette-mise-en-production-">Alors cette mise en production ?</h1>
 <blockquote>
-  <p>Elle s’est bien passée mais il a fallu revert</p>
+<p>Elle s’est bien passée mais il a fallu revert</p>
 </blockquote>
-
 <h1 id="et-oui-mon-petit">Et oui mon petit</h1>
 <blockquote>
-  <p>L’Internet, c’était nous</p>
+<p>L’Internet, c’était nous</p>
 </blockquote>
-
 <h1 id="une-api-cest-pas-si-mal-en-fait">Une API c’est pas si mal en fait</h1>
 <blockquote>
-  <p>Quand je vois l’UX de la console AWS, je me demande s’il n’y a pas une véritable volonté à nous pousser à faire de <em>l’infrastructure as code</em></p>
+<p>Quand je vois l’UX de la console AWS, je me demande s’il n’y a pas une véritable volonté à nous pousser à faire de <em>l’infrastructure as code</em></p>
 </blockquote>
-
 <h1 id="de-la-part-dun-dev-backend-php-">De la part d’un dev backend Php 😱</h1>
 <blockquote>
-  <p>J’aime mettre du javascript partout</p>
+<p>J’aime mettre du javascript partout</p>
 </blockquote>
-
 <h1 id="le-retour-du-come-back-de-lautomatisation-manuelle">Le retour du come-back de l’automatisation manuelle</h1>
 <blockquote>
-  <p>On pourra faire un rattrapage à moitié manuel, mais quand même automatique</p>
+<p>On pourra faire un rattrapage à moitié manuel, mais quand même automatique</p>
 </blockquote>
-
 <h1 id="dans-les-méandres-des-fonctionnalités-de-airtable">Dans les méandres des fonctionnalités de Airtable</h1>
 <blockquote>
-  <p>Bon, on va faire simple, on va écrire du JS</p>
+<p>Bon, on va faire simple, on va écrire du JS</p>
 </blockquote>
-
 <h1 id="un-mercredi-à-15h55">Un mercredi à 15h55</h1>
 <blockquote>
-  <p>Cette phrase est trop complexe pour un lundi matin</p>
+<p>Cette phrase est trop complexe pour un lundi matin</p>
 </blockquote>
-
 <h1 id="à-bicyclette-">À bicyclette 🚲</h1>
 <blockquote>
-  <p>Le client il s’en fout que tu mettes des petites roues sur ton vélo, il veut juste que t’avances sans te péter la gueule</p>
+<p>Le client il s’en fout que tu mettes des petites roues sur ton vélo, il veut juste que t’avances sans te péter la gueule</p>
 </blockquote>
-
 <h1 id="entendu-dans-une-réunion-à-distance">Entendu dans une réunion à distance</h1>
 <blockquote>
-  <p>Rassurez-vous c’est pas moi qui ronfle c’est mon chat</p>
+<p>Rassurez-vous c’est pas moi qui ronfle c’est mon chat</p>
 </blockquote>
-
 <h1 id="en-parlant-de-choix-techniques">En parlant de choix techniques</h1>
 <blockquote>
-  <p>Attention le choix pris aujourd’hui fera jurisprudence sur la suite</p>
+<p>Attention le choix pris aujourd’hui fera jurisprudence sur la suite</p>
 </blockquote>
-
 <h1 id="cest-géré-">C’est géré !</h1>
 <blockquote>
-  <p>Je crois que l’on gère cette erreur, même si on ne la comprend pas</p>
+<p>Je crois que l’on gère cette erreur, même si on ne la comprend pas</p>
 </blockquote>
-
 <h1 id="1--1--11">1 + 1 = 11</h1>
 <blockquote>
-  <p>30 est un nombre énorme</p>
+<p>30 est un nombre énorme</p>
 </blockquote>
-
 <h1 id="entendu-juste-après-une-grosse-mep">Entendu juste après une grosse MEP</h1>
 <blockquote>
-  <p>Oh! Il faut que je mette en place un mail de vacances.</p>
+<p>Oh! Il faut que je mette en place un mail de vacances.</p>
 </blockquote>
-
 <h1 id="des-frites-">Des frites 🍟</h1>
 <blockquote>
-  <p>Mes critères de succès, c’est les grosses patates</p>
+<p>Mes critères de succès, c’est les grosses patates</p>
 </blockquote>
-
 <h1 id="po-pas-un-métier-facile">PO, pas un métier facile</h1>
 <blockquote>
-  <p>Le dev: “Est-ce que les PO peuvent le faire ?”</p>
-
-  <p>Le PO: “On ne sait rien faire nous”</p>
+<p>Le dev: “Est-ce que les PO peuvent le faire ?”</p>
+<p>Le PO: “On ne sait rien faire nous”</p>
 </blockquote>
-
 <h1 id="bougez-pas">Bougez pas</h1>
 <blockquote>
-  <p>Je déploie le deployer</p>
+<p>Je déploie le deployer</p>
 </blockquote>
-
 <p><em>Une légende raconte qu’il faut déployer deux fois le deployer</em></p>
-
 <h1 id="une-petite-équipe">Une petite équipe</h1>
 <blockquote>
-  <p>On était 80 stagiaires sur le projet</p>
+<p>On était 80 stagiaires sur le projet</p>
 </blockquote>
-
-<h1>🎰</h1>
+<h1 id="">🎰</h1>
 <blockquote>
-  <p>La magie du chmod -R 777. Je te dirais pas que j’en ai rajouté dans mes 3 dernières PR pour fixer de la CI</p>
+<p>La magie du chmod -R 777. Je te dirais pas que j’en ai rajouté dans mes 3 dernières PR pour fixer de la CI</p>
 </blockquote>
-
 <h1 id="iterm-2-secret-features">Iterm 2 secret features</h1>
 <p>Ma recherche Google:</p>
 <blockquote>
-  <p>Iterm2 big sur blinking</p>
+<p>Iterm2 big sur blinking</p>
 </blockquote>
-
 <p>Gitlab issue reponse :</p>
 <blockquote>
-  <p>Just turn on Prefs &gt; Advanced &gt; Work around Big Sur bug where a white line flashes at the top of the screen in full screen mode.</p>
+<p>Just turn on Prefs > Advanced > Work around Big Sur bug where a white line flashes at the top of the screen in full screen mode.</p>
 </blockquote>
-
 <h1 id="les-quadricolors">Les quadricolors</h1>
 <blockquote>
-  <p>“_ Pourquoi avoir choisi du vert pour la doc ?”</p>
-
-  <p>“_ Écoute je suis daltonien.”</p>
+<p>”_ Pourquoi avoir choisi du vert pour la doc ?”</p>
+<p>”_ Écoute je suis daltonien.”</p>
 </blockquote>
-
 <h1 id="pourquoi-douter-">Pourquoi douter ?</h1>
 <blockquote>
-  <p>“_ Je ne sais pas comment valider fonctionnellement mon développement.”</p>
-
-  <p>“_ Ben, pareil que tu l’as testé.”</p>
-
-  <p>“_ Je ne l’ai pas testé.”</p>
-
-  <p>“_ 😅”</p>
+<p>”_ Je ne sais pas comment valider fonctionnellement mon développement.”</p>
+<p>”_ Ben, pareil que tu l’as testé.”</p>
+<p>”_ Je ne l’ai pas testé.”</p>
+<p>”_ 😅”</p>
 </blockquote>
-
 <h1 id="timber-">Timber !!!!</h1>
 <blockquote>
-  <p>Dans la vie comme dans git tu peux pas supprimer la branch sur laquelle t’es.</p>
+<p>Dans la vie comme dans git tu peux pas supprimer la branch sur laquelle t’es.</p>
 </blockquote>
-
 <h1 id="cest-du-propre">C’est du propre</h1>
 <blockquote>
-  <p>La refacto, c’est comme le ménage, il faut en faire régulièrement.</p>
+<p>La refacto, c’est comme le ménage, il faut en faire régulièrement.</p>
 </blockquote>
-
 <h1 id="les-conflits-de-canard">Les conflits de canard</h1>
 <blockquote>
-  <p>C’est <code class="language-plaintext highlighter-rouge">git checkout verdun</code> ton rebase</p>
+<p>C’est <code>git checkout verdun</code> ton rebase</p>
 </blockquote>
-
 <h1 id="reconversion">Reconversion</h1>
 <blockquote>
-  <p>De toute manière avec le réchauffement climatique, je vais tout plaquer et monter un business de vente de djellaba.</p>
+<p>De toute manière avec le réchauffement climatique, je vais tout plaquer et monter un business de vente de djellaba.</p>
 </blockquote>
-
 <h1 id="incident-sur-la-ligne-b">Incident sur la ligne B</h1>
 <blockquote>
-  <p>Parfois les réunions c’est comme les transports, tu es coincé dedans et ça n’avance pas</p>
-</blockquote>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tag</li>
-      
-
-      
-        <li><a class="button" href="/tags/#culture">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="Bonnes pratiques pour la maintenance d'une application web" href="/2021/09/01/bonnes-pratiques-web.html">
-            <p>Previous post</p>
-            Bonnes pratiques pour la maintenance d'une application web
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="The organisational challenge of building a Data team: lessons learnt" href="/data/2021/05/19/organisational-challenge-building-data-team.html">
-            <p>Next post</p>
-            The organisational challenge of building a Data team: lessons learnt
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<p>Parfois les réunions c’est comme les transports, tu es coincé dedans et ça n’avance pas</p>
+</blockquote></section><div class="tag-list"><ul><li class="meta">Tag</li> <li><a class="button" href="/tags/#culture"><p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2021/09/01/bonnes-pratiques-web.html"><p>Previous post</p>Bonnes pratiques pour la maintenance d&#39;une application web</a></div><div id="next-post"><a href="/data/2021/05/19/organisational-challenge-building-data-team.html"><p>Next post</p>The organisational challenge of building a Data team: lessons learnt</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

@@ -1,715 +1,97 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/how-to-spike/cactus.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Les spikes : quand, comment, pour quoi faire ? | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Les spikes : quand, comment, pour quoi faire ?" />
-<meta name="author" content="Etienne Doyon" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Décomposer une tâche complexe, de A à Z" />
-<meta property="og:description" content="Décomposer une tâche complexe, de A à Z" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/how-to-spike" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/how-to-spike" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-23T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Les spikes : quand, comment, pour quoi faire ?" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Décomposer une tâche complexe, de A à Z","author":{"@type":"Person","name":"Etienne Doyon"},"headline":"Les spikes : quand, comment, pour quoi faire ?","dateModified":"2022-08-23T00:00:00+00:00","datePublished":"2022-08-23T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/how-to-spike","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/how-to-spike"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Les spikes : quand, comment, pour quoi faire ?">
-    <meta name="twitter:description" content="C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement comple...">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/how-to-spike/cactus.jpg">
-    <meta name="twitter:image:alt" content="Les spikes : quand, comment, pour quoi faire ?">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Les spikes : quand, comment, pour quoi faire ? " aria-label="Les spikes : quand, comment, pour quoi faire ?" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article class="feature-image" >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Les+spikes+%3A+quand%2C+comment%2C+pour+quoi+faire+%3F" class="title">Les spikes : quand, comment, pour quoi faire ?</h1>
-      <div class="post-info">
-
-
-<span class="author">
-      <img alt="Author's avatar" src="/images/avatar/e_doyon.jpeg" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Etienne Doyon
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    August 23, 2022
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».</p>
-
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Les spikes : quand, comment, pour quoi faire ? | Bedrock Tech Blog</title><meta name="description" content="Décomposer une tâche complexe, de A à Z"><link rel="canonical" href="https://tech.bedrockstreaming.com/how-to-spike"><meta property="og:title" content="Les spikes : quand, comment, pour quoi faire ?"><meta property="og:description" content="Décomposer une tâche complexe, de A à Z"><meta property="og:url" content="https://tech.bedrockstreaming.com/how-to-spike"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/how-to-spike/cactus.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2022-08-23T00:00:00.000Z"><meta name="author" content="Etienne Doyon"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Les spikes : quand, comment, pour quoi faire ?","description":"Décomposer une tâche complexe, de A à Z","author":{"@type":"Person","name":"Etienne Doyon"},"datePublished":"2022-08-23T00:00:00.000Z","dateModified":"2022-08-23T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/how-to-spike","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/how-to-spike"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Les spikes : quand, comment, pour quoi faire ?"><meta name="twitter:description" content="C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement comple..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/how-to-spike/cactus.jpg"><meta name="twitter:image:alt" content="Les spikes : quand, comment, pour quoi faire ?"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Les spikes : quand, comment, pour quoi faire ?" aria-label="Les spikes : quand, comment, pour quoi faire ?" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article class="feature-image" data-pagefind-body><header id="main" style="background-image: url('/images/posts/how-to-spike/cactus.jpg')"><div class="title-padder"><h1 class="title">Les spikes : quand, comment, pour quoi faire ?</h1><div class="post-info"><span class="author"><img alt="Author's avatar" src="/images/avatar/e_doyon.jpeg" class="thumbnail"><span class="name">Etienne Doyon</span></span><span class="spacer"> - </span><span class="publication-date">August 23, 2022</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>C’est une histoire bien connue, dans la vie de n’importe quel développeur : un ticket arrive dans le backlog, décrivant une problématique relativement complexe. C’est parfois une question de technologie inconnue, ou parfois simplement un chantier un peu trapu. Je pense que toutes les équipes ont, au moins une fois dans leur vie, fait face à ce genre de tâche impossible : c’est l’occasion des regards désespérés, alors qu’un junior se lamente en disant « Mais par où est-ce qu’il faut commencer ? ». Et c’est là qu’on répond : « Essaye de faire un spike ».</p>
 <p>Faire un spike ? Quelle excellente idée ! Encore faudrait-il savoir ce qu’est un spike, comment ça marche, et à quoi ça sert.</p>
-
 <p>Je vous propose donc ensemble de voir dans cet article : qu’est-ce qu’un spike, quand l’utiliser, et comment considérer qu’il est réussi ?</p>
-
 <h1 id="spike-help-">spike –help 📚</h1>
-
 <p>Si je devais citer <a href="https://en.wikipedia.org/wiki/Spike_(software_development)">Wikipedia</a>, je dirais qu’un Spike, c’est “une méthode de développement de produit, dérivée de l’extrême programming, et qui cherche à créer le code le plus simple possible pour obtenir des solutions potentielles”.</p>
-
 <p>En gros, le but d’un spike, c’est de répondre à la question <em>“Comment on fait ?”</em> avec un prototype de code réalisé grâce à une série de petites étapes simples. Un spike n’est pas une formule magique qui va vous permettre de réaliser la tâche impossible que votre client vous a donné. En revanche, le spike va vous permettre de savoir si la tâche impossible ou compliquée à première vue est en fait possible, et si oui, comment.
 Il arrivera également que votre spike vous permette de constater qu’une tâche donnée peut être réalisée de plusieurs manières : que ce soit en passant par des librairies différentes, avec une implémentation changeante, ou autre chose encore. Dans ces cas, le spike va également vous servir à essayer ces différentes possibilités, et à choisir celle qui est la plus appropriée !</p>
-
 <p>Le moyen le plus simple est de procéder morceau par morceau. Alors je vous propose qu’on s’y mette maintenant, et qu’on regarde quoi faire !</p>
-
 <h1 id="kowalski-analysis--">“kowalski, analysis !” 📊</h1>
-
 <p>Avant toute chose, il faut savoir exactement ce que vous souhaitez faire. Rien ne sert de mettre la charrue avant les bœufs.</p>
-
 <p>Si ce n’est pas fait, écrivez noir sur blanc les lignes exactes qui vont définir votre tâche comme finie. Que ce soit connecter votre utilisateur de façon sécurisée, afficher une vidéo sans heurt, ou juste avoir une page qui clignote en blanc et bleu, il faut que vous ayez une liste de <em>bullet points</em>, qui définit précisément ce que vous voulez faire.</p>
-
 <p>Votre objectif final est de réaliser tout ce que vous avez sur cette liste : strictement rien de moins, mais aussi strictement rien de plus ! Pas de demande implicite de type “Ah mais je voulais aussi que l’image soit visible en noir et blanc” : si ce n’est pas sur la liste, ce n’est pas à faire.</p>
-
 <p>Cette liste peut être écrite selon votre format favori : un cahier des charges, une série de directives <em>Gherkin</em>, l’important c’est qu’elle soit écrite, claire et précise. En d’autres termes, vous définissez ici votre propre cahier des charges.</p>
-
 <p>Le résultat final doit donc être quelque chose dans ce style :</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>As a client
-I want to see my product in 3 dimensions
-So that I can know what it looks like
-
-As a client
-I want to be able to rotate my product using the arrow keys
-So that I can check it out entirely
-
-As a client
-I want to be able to zoom on my product
-So that I can see even the smallest details
-</code></pre></div></div>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>As a client</span></span>
+<span class="line"><span>I want to see my product in 3 dimensions</span></span>
+<span class="line"><span>So that I can know what it looks like</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>As a client</span></span>
+<span class="line"><span>I want to be able to rotate my product using the arrow keys</span></span>
+<span class="line"><span>So that I can check it out entirely</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>As a client</span></span>
+<span class="line"><span>I want to be able to zoom on my product</span></span>
+<span class="line"><span>So that I can see even the smallest details</span></span></code></pre>
 <p>Une fois que vous savez quoi faire, on peut vraiment commencer à mettre la main dans le code !</p>
-
 <h1 id="-todo--make-the-code-below-work-">// TODO : make the code below work 💻</h1>
-
 <p>Stop. Lâchez tout.</p>
-
 <p>Je vous vois déjà, votre liste de points en main, à tenter de la faire rentrer dans votre gros projet à grands coups de burin, de vous gratter la tête à comprendre pourquoi ça ne rentre pas, et qu’est-ce qui a bien pu casser, cette fois.</p>
-
 <p>Un peu de calme : le but d’un spike n’est pas de faire tout fonctionner, pas du tout. Prenez de la distance, et on va y aller en douceur.</p>
-
 <p>Pour commencer, isolez une partie de votre projet et de vos points objectifs. Il existe plusieurs moyens de s’y prendre : créer un nouveau projet, créer une nouvelle page avec seulement quelques composants, décharger votre backend… On veut un environnement le plus propre possible.
 Beaucoup de projets sont vieux, et si mal conçus qu’il <a href="/2021/09/01/bonnes-pratiques-web">aurait fallu les jeter au bout de deux ans</a>. On cherche ici à se détacher au maximum de cette dette technique.</p>
-
 <p>N’hésitez pas à utiliser des <em>mocks</em>, des faux appels et résultats au reste de votre application :  en simulant comment se comporte le reste de votre projet sans véritablement y faire appel, vous diminuez au maximum votre marge d’erreur, et vous assurez que vous contrôlez la moindre information qui transite par votre code.</p>
-
 <p>Maintenant seulement, vous pouvez prendre votre clavier, et coder. Regardez comment implémenter chacun de ces points dans votre code propre de manière épurée.
 Ça fonctionne du premier coup ? Génial, notez comment vous avez fait ! Ça ne marche pas ? Dommage, mais ce n’est pas une raison pour Ctrl+Z et recommencer. Notez bien ce qui n’a pas marché, avant de retenter ! Si ça ne marche toujours pas au bout de 2/3 essais, pas de soucis, n’hésitez pas à laisser ce point de côté et passer à un autre. Mais écrivez tout, car cela va vous servir très bientôt !</p>
-
 <h1 id="ifbug--true--deletebug-consolelogit-works---">if(bug == true) { delete(bug); console.log(“It works !”); } 🤖</h1>
-
 <p>Il peut cependant arriver que, parfois, tous vos efforts ne mènent à rien. Vous avez déjà passé plusieurs jours sur les différents sujets du spike, et vous n’avez pas encore identifié de solution pour faire fonctionner le tout.
 Dans ce cas-là, pas de panique ! Il s’agit également d’un des objectifs du spike. Après tout, si vous n’avez pas pu réaliser votre objectif dans un cadre réduit, il est bien probable que vous n’auriez jamais pu le faire fonctionner dans votre projet lui-même.</p>
-
 <p>Les mêmes points qu’indiqués ci-dessus continuent de s’appliquer : notez ce que vous avez tenté et les soucis rencontrés avec chaque implémentation. Puis, continuez le processus détaillé ici : ce n’est pas parce que votre code n’as pas fonctionné qu’il ne doit surtout pas être présenté. Peut-être un de vos collègues trouvera-t-il la ligne qui vous manque, ou le point-virgule que vous avez oublié : mais peut-être aussi qu’il vous aidera à comprendre ensemble pourquoi la solution ne fonctionne pas dans votre cadre.
 Et puis, vous pourrez alors vous poser la question : est-ce qu’il faut bien faire comprendre que la tâche demandée est irréalisable, ou est-ce qu’il faut prévoir un chantier pour réussir à trouver un moyen de remplir la requête ?</p>
-
 <h1 id="linstant-doc-">L’instant doc 📝</h1>
-
-<p>Une fois que vous avez terminé de coder, il est temps pour vous de poser votre IDE, et de sortir votre outil de documentation favori : Confluence, Jira, que sais-je. 
+<p>Une fois que vous avez terminé de coder, il est temps pour vous de poser votre IDE, et de sortir votre outil de documentation favori : Confluence, Jira, que sais-je.
 Puis, écrivez un compte-rendu de votre aventure. Présentez l’origine de votre spike (Le <strong>Pourquoi</strong>), ce que vous avez tenté (Le <strong>Comment</strong>). Expliquez ce qui a marché et ce qui n’a pas marché : cela vous servira lorsque vous implémenterez vraiment la feature !
 Enfin, écrivez également les étapes qu’il faudrait suivre pour terminer la feature : ajoutez un maximum de détails techniques. Ce sera autant de problématiques en moins pour le pauvre dev qui va récupérer les US après vous.</p>
-
 <p>Je vous suggère donc de faire un plan de ce type :</p>
-
 <ol>
-  <li><strong>Problème</strong> - Expliquez ici l’état initial. Qu’est-ce qui était demandé ? Pourquoi avoir choisi de faire un spike ? Quel en est l’objectif ?</li>
-  <li><strong>Observations</strong>  - Indiquez là vos réflexions et le code que vous avez produit. Expliquez ce que vous avez tenté, les problèmes rencontrés et les solutions établies, vos pistes de réflexion. N’hésitez surtout pas à détailler !</li>
-  <li><strong>Actions</strong> - Enfin, détaillez dans cette dernière partie ce qu’il restera à faire afin de transformer ce spike en une feature fonctionnelle. Quels bugs corriger ? Quels points n’ont pas encore été réalisés, et comment faire pour les réaliser ?</li>
+<li><strong>Problème</strong> - Expliquez ici l’état initial. Qu’est-ce qui était demandé ? Pourquoi avoir choisi de faire un spike ? Quel en est l’objectif ?</li>
+<li><strong>Observations</strong>  - Indiquez là vos réflexions et le code que vous avez produit. Expliquez ce que vous avez tenté, les problèmes rencontrés et les solutions établies, vos pistes de réflexion. N’hésitez surtout pas à détailler !</li>
+<li><strong>Actions</strong> - Enfin, détaillez dans cette dernière partie ce qu’il restera à faire afin de transformer ce spike en une feature fonctionnelle. Quels bugs corriger ? Quels points n’ont pas encore été réalisés, et comment faire pour les réaliser ?</li>
 </ol>
-
 <p>Pour la dernière étape, je vous conseille de réaliser un tableau d’actions <em>SMART</em> afin de définir au mieux les tâches à réaliser.
 Le principe SMART suppose qu’une tâche doit être composées des cinq caractéristiques suivantes afin d’être pertinente :</p>
 <ul>
-  <li>Elle doit être <strong>Spécifique</strong>, afin que l’objectif soit clair et concis (Qu’est-ce que je dois faire ? Exemple de réponse : « Il faut que l’image d’un objet soit en 3D »)</li>
-  <li>Elle doit être <strong>Mesurable</strong>, pour définir un objectif quantifiable (Quant est-ce que ma tâche sera finie ? Exemple de réponse : « Il faut que je puisse faire tourner l’image avec les flèches gauches et droites du clavier  »))</li>
-  <li>Elle doit être <strong>Atteignable</strong>, sans demander de décrocher les étoiles (Comment réaliser ma tâche ? Exemple de réponse : « Utiliser la méthode <em>Get3D</em> de la librairie <em>Easy3D</em> »))</li>
-  <li>Elle doit être <strong>Réaliste</strong> au sujet en cours, donc nécessaire à l’accomplissement final (Est-ce qu’il est pertinent de prendre du temps pour faire ça ? Exemple de réponse : « Afin que notre client puisse voir l’avant et l’arrière de nos produits »)</li>
-  <li>Elle doit être définie de façon <strong>Temporelle</strong>, afin de ne pas pouvoir s’éterniser (Pour quand ma tâche doit-elle être réalisée ? Exemple de réponse : « A réaliser avant que la feature soit considérée terminée »)</li>
+<li>Elle doit être <strong>Spécifique</strong>, afin que l’objectif soit clair et concis (Qu’est-ce que je dois faire ? Exemple de réponse : « Il faut que l’image d’un objet soit en 3D »)</li>
+<li>Elle doit être <strong>Mesurable</strong>, pour définir un objectif quantifiable (Quant est-ce que ma tâche sera finie ? Exemple de réponse : « Il faut que je puisse faire tourner l’image avec les flèches gauches et droites du clavier  »))</li>
+<li>Elle doit être <strong>Atteignable</strong>, sans demander de décrocher les étoiles (Comment réaliser ma tâche ? Exemple de réponse : « Utiliser la méthode <em>Get3D</em> de la librairie <em>Easy3D</em> »))</li>
+<li>Elle doit être <strong>Réaliste</strong> au sujet en cours, donc nécessaire à l’accomplissement final (Est-ce qu’il est pertinent de prendre du temps pour faire ça ? Exemple de réponse : « Afin que notre client puisse voir l’avant et l’arrière de nos produits »)</li>
+<li>Elle doit être définie de façon <strong>Temporelle</strong>, afin de ne pas pouvoir s’éterniser (Pour quand ma tâche doit-elle être réalisée ? Exemple de réponse : « A réaliser avant que la feature soit considérée terminée »)</li>
 </ul>
-
 <p>Dans le cas où une des tâches que vous avez devisé ne peut pas répondre à un de ces cinq points, alors il est probable qu’elle ne soit pas suffisamment précise : peut-être la tâche manque-t-elle de cadre ou de contexte, ou le temps nécessaire pour la réaliser ne peut que difficilement être justifié. Je vous invite alors à la supprimer, ou à la fusionner avec une autre jusqu’à enfin pouvoir répondre à ces cinq questions !</p>
-
 <p>Bien entendu, n’hésitez pas à modifier le plan de cette documentation comme vous l’entendez : vous êtes celui qui allez l’utiliser, après tout !</p>
-
 <p>La doc est finie ? Il ne reste plus que deux étapes, puis on pourra enfin considérer ce spike comme fini !</p>
-
 <h1 id="presentation_spikeppt-">Presentation_Spike.ppt 🎬</h1>
-
 <p>Avant de pouvoir clôturer ce spike, il serait bien d’avoir des retours extérieurs. Pour ça, rien de mieux que de le présenter à votre équipe !
 Organisez ensemble une réunion, pas très longue. Au sein de mon équipe, une demi-heure suffit. Il vous faudra peut-être un peu moins ou un peu plus de temps.</p>
-
 <p>Utilisez cette présentation afin de montrer, étape par étape, ce que vous avez réalisé. Rappelez tout d’abord les objectifs du spike, avant d’expliquer votre analyse du problème et les objectifs que vous avez identifiés. Puis, présentez les différentes implémentations que vous avez tentées, avant de conclure en montrant votre documentation et en expliquant les tâches qui restent à accomplir pour réaliser la feature objectif.</p>
-
 <p>Il est très important que vous ne présentiez pas uniquement le code que vous avez réussi à faire fonctionner, mais aussi vos tentatives échouées, et ce pour plusieurs raisons. Tout d’abord, il est tout à fait possible qu’un de vos collègues, en voyant votre présentation, réalise une de vos erreurs et vous l’indique. Mais surtout, si quelqu’un d’autre que vous récupère une des tâches restantes, il risque de tenter les mêmes pistes que vous, et rencontrer les mêmes problématiques que vous !</p>
-
 <p>Une fois votre présentation terminée, débattez avec le reste de votre équipe. S’ils sont d’accord avec vous sur le plan d’action que vous avez établi grâce à votre tableau SMART, il vous reste une toute dernière étape à accomplir !</p>
-
 <h1 id="happily-ever-after-">“Happily ever after…” 💭</h1>
-
 <p>Maintenant que tous vos coéquipiers ont pu constater et valider votre travail, il ne vous reste plus qu’à acter la mise en place : et pour ça, rien de mieux que, aux côtés de votre <em>Product Owner</em> (Ou de l’équivalent dans votre équipe) de créer des tâches, <em>User Story</em>, post-its, ou quoi que ce soit, pour que les étapes restantes soient visibles et accessibles par tous !</p>
-
 <p>N’hésitez pas à le guider pour ajouter encore une fois des détails techniques dans ces US ou tâches : vous avez réalisé l’analyse, il serait dommage de ne pas l’utiliser, et ce sera autant de temps gagné pour votre équipe. Tant que vous y êtes, pensez aussi à ajouter un lien vers votre documentation, ou vers une vidéo de votre présentation… Plus il y aura de détails, mieux ça sera !</p>
-
 <p>Il est également possible, comme indiqué plus haut, que la tâche qui a entraîné la réalisation de ce spike se découvre être impossible à implémenter. Il s’agit là également d’un point à faire avec votre <em>Product Owner</em>, afin de décider ensemble de la procédure à suivre : peut-être faudra-t-il redéfinir les critères d’acceptation, ou bien laisser tomber complètement cette idée.</p>
-
 <h1 id="return-0">return 0;</h1>
-
-<p>Vous avez fini votre spike ! Ce qui était à l’origine une tâche complexe, confuse ou impossible à prévoir, est désormais divisée en une série d’étapes, qui sera désormais bien plus aisée à réaliser pour votre équipe. Alors, satisfait ?</p>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tag</li>
-      
-
-      
-        <li><a class="button" href="/tags/#practices">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="BFF's error definition, and handling connections to multiple API" href="/2022/08/25/backend-errors-connections.html">
-            <p>Previous post</p>
-            BFF's error definition, and handling connections to multiple API
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="Handling dependencies failures in an API gateway" href="/2022/08/12/backend-fallbacks.html">
-            <p>Next post</p>
-            Handling dependencies failures in an API gateway
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-  header#main { background-image: url('/images/posts/how-to-spike/cactus.jpg'); }
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<p>Vous avez fini votre spike ! Ce qui était à l’origine une tâche complexe, confuse ou impossible à prévoir, est désormais divisée en une série d’étapes, qui sera désormais bien plus aisée à réaliser pour votre équipe. Alors, satisfait ?</p></section><div class="tag-list"><ul><li class="meta">Tag</li> <li><a class="button" href="/tags/#practices"><p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2022/08/25/backend-errors-connections.html"><p>Previous post</p>BFF&#39;s error definition, and handling connections to multiple API</a></div><div id="next-post"><a href="/2022/08/12/backend-fallbacks.html"><p>Next post</p>Handling dependencies failures in an API gateway</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

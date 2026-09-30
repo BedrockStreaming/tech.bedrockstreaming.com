@@ -1,809 +1,182 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Comment appliquer automatiquement des modifications sur une codebase JS 🤖 | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" />
-<meta name="author" content="Martin Schneider" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift" />
-<meta property="og:description" content="Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-07-26T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Ou comment j’ai appris à ne plus m’en faire et à aimer JSCodeshift","author":{"@type":"Person","name":"Martin Schneider"},"headline":"Comment appliquer automatiquement des modifications sur une codebase JS 🤖","dateModified":"2022-07-26T00:00:00+00:00","datePublished":"2022-07-26T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖">
-    <meta name="twitter:description" content="Dans cet article, je vais vous présenter JSCodeshift, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du cod...">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    <meta name="twitter:image:alt" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Comment appliquer automatiquement des modifications sur une codebase JS 🤖 " aria-label="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Comment+appliquer+automatiquement+des+modifications+sur+une+codebase+JS+%F0%9F%A4%96" class="title">Comment appliquer automatiquement des modifications sur une codebase JS 🤖</h1>
-      <div class="post-info">
-
-
-<a
-      href="https://github.com/martinschneider01"
-      target="_blank"
-      rel="noopener"
-      class="author">
-      <img alt="Author's avatar" src="/images/avatar/m_schneider.png" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Martin Schneider
-      </span>
-    </a><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    July 26, 2022
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>Dans cet article, je vais vous présenter <a href="https://github.com/facebook/jscodeshift">JSCodeshift</a>, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.</p>
-
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Comment appliquer automatiquement des modifications sur une codebase JS 🤖 | Bedrock Tech Blog</title><meta name="description" content="Ou comment j'ai appris à ne plus m'en faire et à aimer JSCodeshift"><link rel="canonical" href="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"><meta property="og:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖"><meta property="og:description" content="Ou comment j'ai appris à ne plus m'en faire et à aimer JSCodeshift"><meta property="og:url" content="https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2022-07-26T00:00:00.000Z"><meta name="author" content="Martin Schneider"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Comment appliquer automatiquement des modifications sur une codebase JS 🤖","description":"Ou comment j'ai appris à ne plus m'en faire et à aimer JSCodeshift","author":{"@type":"Person","name":"Martin Schneider"},"datePublished":"2022-07-26T00:00:00.000Z","dateModified":"2022-07-26T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/refactorer-avec-jscodeshift"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖"><meta name="twitter:description" content="Dans cet article, je vais vous présenter JSCodeshift, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du cod..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="Comment appliquer automatiquement des modifications sur une codebase JS 🤖"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" aria-label="Comment appliquer automatiquement des modifications sur une codebase JS 🤖" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Comment appliquer automatiquement des modifications sur une codebase JS 🤖</h1><div class="post-info"><a class="author" href="https://github.com/martinschneider01" target="_blank" rel="noopener"><img alt="Author's avatar" src="/images/avatar/m_schneider.png" class="thumbnail"><span class="name">Martin Schneider</span></a><span class="spacer"> - </span><span class="publication-date">July 26, 2022</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>Dans cet article, je vais vous présenter <a href="https://github.com/facebook/jscodeshift">JSCodeshift</a>, une libraire qui va vous permettre d’analyser et appliquer automatiquement des modifications sur du code Javascript ou Typescript.</p>
 <h1 id="cas-décole-">Cas d’école 👨‍🎓</h1>
-
 <p>Maintenir à jour les dépendances de nos projets JS est l’une des règles primordiales que nous nous efforçons de bien respecter pour <a href="/2021/09/01/bonnes-pratiques-web">ne pas avoir à jeter nos applications tous les deux ans. 🗑</a></p>
-
 <p>Cette tâche exige souvent d’un développeur plus de travail que de simplement changer les versions des libraires dans le <em>package.json</em>.
 Si une dépendance est utilisée dans différentes parties du code et qu’un breaking-change est introduit, on peut vite se retrouver avec <strong>des centaines</strong> de fichiers à modifier manuellement.</p>
-
 <center>
-<a href="https://www.monkeyuser.com/2018/implementation/"><img src="/images/posts/refactorer-avec-jscodeshift/102-implementation.png" alt="Caricature de projet avec ses dependencies" /></a>
-<br />
-
-ℹ️ <em>Exemple d'un project Javascript qui ne respecte pas cette règle</em>
-</center>
-<p><br /></p>
-
+<a href="https://www.monkeyuser.com/2018/implementation/"><img src="/images/posts/refactorer-avec-jscodeshift/102-implementation.png" alt="Caricature de projet avec ses dependencies"></a>
+<br>
+<p>ℹ️ <em>Exemple d’un project Javascript qui ne respecte pas cette règle</em></p>
+</center> <br>
 <p>C’est un problème de ce genre que nous avons rencontré lors de la mise à jour de <a href="https://github.com/BedrockStreaming/i18n-tools">notre librairie d’internationalisation</a> sur notre web app React en JS.</p>
-
 <p>Après mise à jour, l’appel à l’API de la librairie change de forme :</p>
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Before</span>
-<span class="kd">const</span> <span class="nx">t</span><span class="p">:</span> <span class="p">(</span>
-    <span class="nx">translationKey</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
-    <span class="c1">// All options are passed as parameters</span>
-    <span class="nx">data</span><span class="p">?:</span> <span class="nx">object</span><span class="p">,</span> <span class="c1">// Data used for interpolation</span>
-    <span class="kr">number</span><span class="p">?:</span> <span class="kr">number</span><span class="p">,</span> <span class="c1">// Amount used for plural form</span>
-    <span class="nx">general</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span> <span class="c1">// Use general plural form</span>
-    <span class="nx">renderers</span><span class="p">?:</span> <span class="nx">object</span> <span class="c1">// JSX renderers</span>
-<span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">string</span>
-
-<span class="c1">//After</span>
-<span class="kd">const</span> <span class="nx">t</span><span class="p">:</span> <span class="p">(</span>
-    <span class="nx">translationKey</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
-    <span class="c1">// Object containing all options</span>
-    <span class="nx">options</span><span class="p">?:</span> <span class="p">{</span>
-      <span class="nx">data</span><span class="p">?:</span> <span class="nx">object</span><span class="p">,</span> <span class="c1">// Data used for interpolation</span>
-      <span class="kr">number</span><span class="p">?:</span> <span class="kr">number</span><span class="p">,</span> <span class="c1">// Amount used for plural form</span>
-      <span class="nx">general</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">,</span> <span class="c1">// Use general plural form</span>
-      <span class="nx">renderers</span><span class="p">?:</span> <span class="nx">object</span> <span class="c1">// JSX renderers</span>
-    <span class="p">}</span>
-<span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">string</span>
-</code></pre></div></div>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:var(--astro-code-token-comment)">//Before</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> (</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    translationKey</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-constant)"> string</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">    // All options are passed as parameters</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    data</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> object</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-comment)"> // Data used for interpolation</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    number</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> number</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-comment)"> // Amount used for plural form</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    general</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> boolean</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-comment)"> // Use general plural form</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    renderers</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> object</span><span style="color:var(--astro-code-token-comment)"> // JSX renderers</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-token-constant)"> string</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">//After</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> (</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    translationKey</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-constant)"> string</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">    // Object containing all options</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    options</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      data</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> object</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-comment)"> // Data used for interpolation</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      number</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> number</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-comment)"> // Amount used for plural form</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      general</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> boolean</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-comment)"> // Use general plural form</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      renderers</span><span style="color:var(--astro-code-token-keyword)">?:</span><span style="color:var(--astro-code-token-constant)"> object</span><span style="color:var(--astro-code-token-comment)"> // JSX renderers</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    }</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-token-constant)"> string</span></span></code></pre>
 <p>Plus simplement, quelques exemples de transformations :</p>
-<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Before</span>
-<span class="kd">const</span> <span class="nx">title1</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">)</span>
-<span class="kd">const</span> <span class="nx">title2</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="nx">labelKey</span><span class="p">,</span> <span class="p">{</span> <span class="nx">someData</span> <span class="p">},</span> <span class="nx">aNumber</span><span class="p">);</span>
-<span class="kd">const</span> <span class="nx">title3</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-
-<span class="c1">// After</span>
-<span class="kd">const</span> <span class="nx">title1</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// Basic usecase with only one argument, nothing changed on this one</span>
-<span class="kd">const</span> <span class="nx">title2</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="nx">labelKey</span><span class="p">,</span> <span class="p">{</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">someData</span> <span class="p">},</span> <span class="na">number</span><span class="p">:</span> <span class="nx">aNumber</span> <span class="p">});</span>
-<span class="kd">const</span> <span class="nx">title3</span> <span class="o">=</span> <span class="nf">t</span><span class="p">(</span><span class="dl">'</span><span class="s1">translationKeyExample</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">number</span><span class="p">:</span> <span class="mi">0</span> <span class="p">});</span>
-</code></pre></div></div>
-
-<p>Dans le cas le plus basique sans les arguments optionnels <code class="language-plaintext highlighter-rouge">t(‘translationKey’)</code> nous n’avons rien à modifier, mais dans les autres cas, il y a du changement à faire. 🧹</p>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="tsx"><code><span class="line"><span style="color:var(--astro-code-token-comment)">// Before</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> title1</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-string-expression)">'translationKeyExample'</span><span style="color:var(--astro-code-foreground)">)</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> title2</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-foreground)">(labelKey</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> { someData }</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> aNumber);</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> title3</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-string-expression)">'translationKeyExample'</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-constant)"> undefined</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-constant)"> 0</span><span style="color:var(--astro-code-foreground)">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">// After</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> title1</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-string-expression)">'translationKeyExample'</span><span style="color:var(--astro-code-foreground)">); </span><span style="color:var(--astro-code-token-comment)">// Basic usecase with only one argument, nothing changed on this one</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> title2</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-foreground)">(labelKey</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> { data</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> { someData }</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> number</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> aNumber });</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> title3</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-function)"> t</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-string-expression)">'translationKeyExample'</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> { number</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-constant)"> 0</span><span style="color:var(--astro-code-foreground)"> });</span></span></code></pre>
+<p>Dans le cas le plus basique sans les arguments optionnels <code>t(‘translationKey’)</code> nous n’avons rien à modifier, mais dans les autres cas, il y a du changement à faire. 🧹</p>
 <h2 id="les-solutions-que-nous-avons-écartées-">Les solutions que nous avons écartées ❌</h2>
-
 <ul>
-  <li>Avec un <strong>Find All</strong>, trouver toutes les utilisations de la librairie et modifier les appels problématiques à la main.
-    <ul>
-      <li>Cette solution est la plus simple, mais peut être très répétitive, ce qui augmente la probabilité de faire une erreur. On aura du mal à uniquement filtrer les cas spécifiques qui nous intéressent.</li>
-    </ul>
-  </li>
-  <li>Utiliser des RegExp pour mieux cibler les cas spécifiques
-    <ul>
-      <li>Cela nous a permis de faire rapidement une estimation approximative du nombre de cas qu’il nous faudrait modifier, mais nous avons eu du mal à cibler correctement tous les appels et la modification se fait toujours à la main.</li>
-    </ul>
-  </li>
-  <li>Créer un fichier de définition TypeScript pour la librairie, et laisser le Language Server Protocol ou son IDE trouver les appels problématiques
-    <ul>
-      <li>La solution la plus rapide et la plus fiable pour la partie détection, mais qui demande toujours de faire les modifications à la main.</li>
-    </ul>
-  </li>
+<li>Avec un <strong>Find All</strong>, trouver toutes les utilisations de la librairie et modifier les appels problématiques à la main.
+<ul>
+<li>Cette solution est la plus simple, mais peut être très répétitive, ce qui augmente la probabilité de faire une erreur. On aura du mal à uniquement filtrer les cas spécifiques qui nous intéressent.</li>
 </ul>
-
+</li>
+<li>Utiliser des RegExp pour mieux cibler les cas spécifiques
+<ul>
+<li>Cela nous a permis de faire rapidement une estimation approximative du nombre de cas qu’il nous faudrait modifier, mais nous avons eu du mal à cibler correctement tous les appels et la modification se fait toujours à la main.</li>
+</ul>
+</li>
+<li>Créer un fichier de définition TypeScript pour la librairie, et laisser le Language Server Protocol ou son IDE trouver les appels problématiques
+<ul>
+<li>La solution la plus rapide et la plus fiable pour la partie détection, mais qui demande toujours de faire les modifications à la main.</li>
+</ul>
+</li>
+</ul>
 <p>Mais il nous restait encore un Joker pour cette tâche. 🃏</p>
-
 <h1 id="jscodeshift-">JSCodeshift 🪄</h1>
-
 <p><a href="https://github.com/facebook/jscodeshift">Cette librairie</a> permet d’exposer facilement <a href="https://fr.wikipedia.org/wiki/Arbre_de_la_syntaxe_abstraite"><em>l’Abstract Syntax Tree</em></a>, autrement dit la représentation du code après le parsing des fichiers.
 Nous pouvons ainsi écrire des scripts qui nous permettent de parcourir cet arbre, de le modifier facilement, d’appliquer les modifications et de les formater.
 Ces scripts s’appellent des <em>codemods</em>.</p>
-
 <p>Pour en savoir un peu plus sur <em>l’Abstract Syntax Tree</em>, je vous conseille de jeter un coup d’œil à <a href="https://astexplorer.net/">ASTExplorer</a> qui vous permet de visualiser l’AST d’un fichier facilement pour en comprendre le fonctionnement.</p>
-
 <p>Quelques librairies ont proposé des <em>codemods</em> lors de leurs grosses mises à jour, par exemple <a href="https://github.com/reactjs/react-codemod">React avec react-codemod</a>.</p>
-
 <center>
-<a href="https://astexplorer.net/"><img src="/images/posts/refactorer-avec-jscodeshift/astexplorer.png" alt="Capture d'écran du site ASTExplorer" /></a>
-<br />
-
-ℹ️ <em>Capture d'écran du site ASTExplorer</em>
-</center>
-<p><br /></p>
-
+<a href="https://astexplorer.net/"><img src="/images/posts/refactorer-avec-jscodeshift/astexplorer.png" alt="Capture d&#x27;écran du site ASTExplorer"></a>
+<br>
+<p>ℹ️ <em>Capture d’écran du site ASTExplorer</em></p>
+</center> <br>
 <h2 id="en-application-">En application 💪</h2>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nf">function </span><span class="p">(</span><span class="nx">file</span><span class="p">:</span> <span class="nx">FileInfo</span><span class="p">,</span> <span class="nx">api</span><span class="p">:</span> <span class="nx">API</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">jscodeshift</span><span class="p">;</span>
-
-  <span class="c1">// If we don't find any "Translate" string inside our file, we can assume that it's safe to skip it</span>
-  <span class="kd">const</span> <span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RegExp</span><span class="p">(</span><span class="dl">'</span><span class="s1">Translate[(]</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">i</span><span class="dl">'</span><span class="p">);</span>
-  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">regex</span><span class="p">.</span><span class="nf">test</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">source</span><span class="p">))</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="nf">j</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">source</span><span class="p">)</span>
-    <span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nx">CallExpression</span><span class="p">,</span> <span class="p">{</span>
-      <span class="na">callee</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Identifier</span><span class="dl">'</span><span class="p">,</span>
-        <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">t</span><span class="dl">'</span><span class="p">,</span>
-      <span class="p">},</span>
-    <span class="p">})</span>
-    <span class="p">.</span><span class="nf">filter</span><span class="p">(</span><span class="nx">filterOutSimpleUsages</span><span class="p">)</span>
-    <span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nf">mutatePath</span><span class="p">(</span><span class="nx">j</span><span class="p">))</span>
-    <span class="p">.</span><span class="nf">toSource</span><span class="p">();</span>
-<span class="p">};</span>
-</code></pre></div></div>
-
-<p>Dans la fonction principale du script, j’ai utilisé une expression régulière pour filtrer les fichiers qui ne possèdent pas la chaîne de caractères <code class="language-plaintext highlighter-rouge">Translate(</code>.
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:var(--astro-code-token-constant)">module</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">exports</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-keyword)"> function</span><span style="color:var(--astro-code-foreground)"> (file</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-function)"> FileInfo</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> api</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-function)"> API</span><span style="color:var(--astro-code-foreground)">) {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  const</span><span style="color:var(--astro-code-token-constant)"> j</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-constant)"> api</span><span style="color:var(--astro-code-foreground)">.jscodeshift;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">  // If we don't find any "Translate" string inside our file, we can assume that it's safe to skip it</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  const</span><span style="color:var(--astro-code-token-constant)"> regex</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-keyword)"> new</span><span style="color:var(--astro-code-token-function)"> RegExp</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-string-expression)">'Translate[(]'</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-string-expression)"> 'i'</span><span style="color:var(--astro-code-foreground)">);</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  if</span><span style="color:var(--astro-code-foreground)"> (</span><span style="color:var(--astro-code-token-keyword)">!</span><span style="color:var(--astro-code-token-constant)">regex</span><span style="color:var(--astro-code-token-function)">.test</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">file</span><span style="color:var(--astro-code-foreground)">.source)) {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    return</span><span style="color:var(--astro-code-token-constant)"> null</span><span style="color:var(--astro-code-foreground)">;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  return</span><span style="color:var(--astro-code-token-function)"> j</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">file</span><span style="color:var(--astro-code-foreground)">.source)</span></span>
+<span class="line"><span style="color:var(--astro-code-token-function)">    .find</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">j</span><span style="color:var(--astro-code-foreground)">.CallExpression</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      callee</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">        type</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-string-expression)"> 'Identifier'</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">        name</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-string-expression)"> 't'</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      }</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    })</span></span>
+<span class="line"><span style="color:var(--astro-code-token-function)">    .filter</span><span style="color:var(--astro-code-foreground)">(filterOutSimpleUsages)</span></span>
+<span class="line"><span style="color:var(--astro-code-token-function)">    .map</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-function)">mutatePath</span><span style="color:var(--astro-code-foreground)">(j))</span></span>
+<span class="line"><span style="color:var(--astro-code-token-function)">    .toSource</span><span style="color:var(--astro-code-foreground)">();</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">};</span></span></code></pre>
+<p>Dans la fonction principale du script, j’ai utilisé une expression régulière pour filtrer les fichiers qui ne possèdent pas la chaîne de caractères <code>Translate(</code>.
 Ceci permet de gagner un peu de temps sur l’exécution. ⌛️</p>
-
-<p>Ensuite, je cherche dans le fichier une ou plusieurs variables <code class="language-plaintext highlighter-rouge">t</code>. Si aucune n’est présente, on peut passer au fichier suivant, sinon on continue le raffinage.</p>
-
-<p>On passe dans un filtre qui va nous permettre d’enlever les usages de la fonction <code class="language-plaintext highlighter-rouge">t</code> avec un seul argument qui ne posent pas de problème.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">requiredPropertiesKeys</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">general</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">renderers</span><span class="dl">'</span><span class="p">]</span> <span class="kd">as const</span><span class="p">;</span>
-
-<span class="c1">// Filter function to ensure that we enter the mutation function only if needed</span>
-<span class="kd">const</span> <span class="nx">filterOutSimpleUsages</span> <span class="o">=</span> <span class="p">(</span><span class="nx">p</span><span class="p">:</span> <span class="nx">ASTPath</span><span class="o">&lt;</span><span class="nx">CallExpression</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">;</span>
-
-  <span class="c1">// If we only have the translation key, we don't need to refactor this usage</span>
-  <span class="k">if </span><span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// More than 2 arguments is an absolute sign of an old usage</span>
-  <span class="c1">// If second argument is not an object, we need to manually fix this case</span>
-  <span class="k">if </span><span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">||</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="kd">type</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">ObjectExpression</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="p">}</span>
-
-  <span class="c1">// If none of the above properties is found in second argument, we can say that this is an old usage</span>
-  <span class="k">return</span> <span class="nx">requiredPropertiesKeys</span><span class="p">.</span><span class="nf">every</span><span class="p">(</span>
-    <span class="p">(</span><span class="nx">requiredPropertyKey</span><span class="p">)</span> <span class="o">=&gt;</span>
-      <span class="o">!</span><span class="p">(</span><span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="kd">as </span><span class="nx">ObjectExpression</span><span class="p">).</span><span class="nx">properties</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
-        <span class="c1">// I needed to do some TS trickery to avoid getting warnings everywhere, sorry for that</span>
-        <span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">((</span><span class="nx">property</span> <span class="kd">as </span><span class="nx">ObjectProperty</span><span class="p">).</span><span class="nx">key</span> <span class="kd">as </span><span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">===</span> <span class="nx">requiredPropertyKey</span><span class="p">,</span>
-      <span class="p">),</span>
-  <span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div></div>
-
+<p>Ensuite, je cherche dans le fichier une ou plusieurs variables <code>t</code>. Si aucune n’est présente, on peut passer au fichier suivant, sinon on continue le raffinage.</p>
+<p>On passe dans un filtre qui va nous permettre d’enlever les usages de la fonction <code>t</code> avec un seul argument qui ne posent pas de problème.</p>
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-constant)"> requiredPropertiesKeys</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-foreground)"> [</span><span style="color:var(--astro-code-token-string-expression)">'data'</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-string-expression)"> 'number'</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-string-expression)"> 'general'</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-string-expression)"> 'renderers'</span><span style="color:var(--astro-code-foreground)">] </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-keyword)"> const</span><span style="color:var(--astro-code-foreground)">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">// Filter function to ensure that we enter the mutation function only if needed</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-function)"> filterOutSimpleUsages</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-foreground)"> (p</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-function)"> ASTPath</span><span style="color:var(--astro-code-foreground)">&#x3C;</span><span style="color:var(--astro-code-token-function)">CallExpression</span><span style="color:var(--astro-code-foreground)">>) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  const</span><span style="color:var(--astro-code-token-constant)"> args</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-constant)"> p</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">value</span><span style="color:var(--astro-code-foreground)">.arguments;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">  // If we only have the translation key, we don't need to refactor this usage</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  if</span><span style="color:var(--astro-code-foreground)"> (</span><span style="color:var(--astro-code-token-constant)">args</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">length</span><span style="color:var(--astro-code-token-keyword)"> ===</span><span style="color:var(--astro-code-token-constant)"> 1</span><span style="color:var(--astro-code-foreground)">) {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    return</span><span style="color:var(--astro-code-token-constant)"> false</span><span style="color:var(--astro-code-foreground)">;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">  // More than 2 arguments is an absolute sign of an old usage</span></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">  // If second argument is not an object, we need to manually fix this case</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  if</span><span style="color:var(--astro-code-foreground)"> (</span><span style="color:var(--astro-code-token-constant)">args</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">length</span><span style="color:var(--astro-code-token-keyword)"> ></span><span style="color:var(--astro-code-token-constant)"> 2</span><span style="color:var(--astro-code-token-keyword)"> ||</span><span style="color:var(--astro-code-foreground)"> args[</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-foreground)">].type </span><span style="color:var(--astro-code-token-keyword)">!==</span><span style="color:var(--astro-code-token-string-expression)"> 'ObjectExpression'</span><span style="color:var(--astro-code-foreground)">) {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    return</span><span style="color:var(--astro-code-token-constant)"> true</span><span style="color:var(--astro-code-foreground)">;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">  // If none of the above properties is found in second argument, we can say that this is an old usage</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  return</span><span style="color:var(--astro-code-token-constant)"> requiredPropertiesKeys</span><span style="color:var(--astro-code-token-function)">.every</span><span style="color:var(--astro-code-foreground)">(</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    (requiredPropertyKey) </span><span style="color:var(--astro-code-token-keyword)">=></span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">      !</span><span style="color:var(--astro-code-foreground)">(args[</span><span style="color:var(--astro-code-token-constant)">1</span><span style="color:var(--astro-code-foreground)">] </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-function)"> ObjectExpression</span><span style="color:var(--astro-code-foreground)">).</span><span style="color:var(--astro-code-token-constant)">properties</span><span style="color:var(--astro-code-token-function)">.find</span><span style="color:var(--astro-code-foreground)">(</span></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">        // I needed to do some TS trickery to avoid getting warnings everywhere, sorry for that</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">        (property) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-foreground)"> ((property </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-function)"> ObjectProperty</span><span style="color:var(--astro-code-foreground)">).key </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-function)"> Identifier</span><span style="color:var(--astro-code-foreground)">).name </span><span style="color:var(--astro-code-token-keyword)">===</span><span style="color:var(--astro-code-foreground)"> requiredPropertyKey</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">      )</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">  );</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">};</span></span></code></pre>
 <p>Finalement, on peut passer dans la fonction de mutation, qui va nous permettre de modifier directement le code des fichiers.</p>
-
-<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Mutation function, we apply our modification to the AST</span>
-<span class="kd">const</span> <span class="nx">mutatePath</span> <span class="o">=</span> <span class="p">(</span><span class="nx">j</span><span class="p">:</span> <span class="nx">JSCodeshift</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">p</span><span class="p">:</span> <span class="nx">ASTPath</span><span class="o">&lt;</span><span class="nx">CallExpression</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="kd">const</span> <span class="nx">objectProperties</span> <span class="o">=</span> <span class="nx">requiredPropertiesKeys</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">propertyKey</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">argument</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="c1">// If no argument or argument is a spread type, we don't take it in consideration</span>
-    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">argument</span> <span class="o">||</span> <span class="nx">argument</span><span class="p">.</span><span class="kd">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">SpreadElement</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// If argument is undefined, we skip it</span>
-    <span class="k">if </span><span class="p">((</span><span class="nx">argument</span> <span class="kd">as </span><span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">argument</span> <span class="kd">as </span><span class="nx">Identifier</span><span class="p">).</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">undefined</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="c1">// We create a new object property with an identifier (the object key) and put our argument inside</span>
-    <span class="k">return</span> <span class="p">[...</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">j</span><span class="p">.</span><span class="nf">objectProperty</span><span class="p">(</span><span class="nx">j</span><span class="p">.</span><span class="nf">identifier</span><span class="p">(</span><span class="nx">propertyKey</span><span class="p">),</span> <span class="nx">argument</span><span class="p">)];</span>
-  <span class="p">},</span> <span class="p">[]</span> <span class="kd">as </span><span class="nx">ObjectProperty</span><span class="p">[]);</span>
-
-  <span class="c1">// Finally, we keep our translation key in first position and our newly created object in second argument</span>
-  <span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span> <span class="o">=</span> <span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">j</span><span class="p">.</span><span class="nf">objectExpression</span><span class="p">(</span><span class="nx">objectProperties</span><span class="p">)];</span>
-
-  <span class="k">return</span> <span class="nx">p</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div></div>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="typescript"><code><span class="line"><span style="color:var(--astro-code-token-comment)">// Mutation function, we apply our modification to the AST</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">const</span><span style="color:var(--astro-code-token-function)"> mutatePath</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-foreground)"> (j</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-function)"> JSCodeshift</span><span style="color:var(--astro-code-foreground)">) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-foreground)"> (p</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-function)"> ASTPath</span><span style="color:var(--astro-code-foreground)">&#x3C;</span><span style="color:var(--astro-code-token-function)">CallExpression</span><span style="color:var(--astro-code-foreground)">>) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  const</span><span style="color:var(--astro-code-token-constant)"> objectProperties</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-constant)"> requiredPropertiesKeys</span><span style="color:var(--astro-code-token-function)">.reduce</span><span style="color:var(--astro-code-foreground)">((acc</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> propertyKey</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> index) </span><span style="color:var(--astro-code-token-keyword)">=></span><span style="color:var(--astro-code-foreground)"> {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    const</span><span style="color:var(--astro-code-token-constant)"> argument</span><span style="color:var(--astro-code-token-keyword)"> =</span><span style="color:var(--astro-code-token-constant)"> p</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">value</span><span style="color:var(--astro-code-foreground)">.arguments[index </span><span style="color:var(--astro-code-token-keyword)">+</span><span style="color:var(--astro-code-token-constant)"> 1</span><span style="color:var(--astro-code-foreground)">];</span></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">    // If no argument or argument is a spread type, we don't take it in consideration</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    if</span><span style="color:var(--astro-code-foreground)"> (</span><span style="color:var(--astro-code-token-keyword)">!</span><span style="color:var(--astro-code-foreground)">argument </span><span style="color:var(--astro-code-token-keyword)">||</span><span style="color:var(--astro-code-token-constant)"> argument</span><span style="color:var(--astro-code-foreground)">.type </span><span style="color:var(--astro-code-token-keyword)">===</span><span style="color:var(--astro-code-token-string-expression)"> 'SpreadElement'</span><span style="color:var(--astro-code-foreground)">) {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">      return</span><span style="color:var(--astro-code-foreground)"> acc;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">    // If argument is undefined, we skip it</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    if</span><span style="color:var(--astro-code-foreground)"> ((argument </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-function)"> Identifier</span><span style="color:var(--astro-code-foreground)">).name </span><span style="color:var(--astro-code-token-keyword)">&#x26;&#x26;</span><span style="color:var(--astro-code-foreground)"> (argument </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-function)"> Identifier</span><span style="color:var(--astro-code-foreground)">).name </span><span style="color:var(--astro-code-token-keyword)">===</span><span style="color:var(--astro-code-token-string-expression)"> 'undefined'</span><span style="color:var(--astro-code-foreground)">) {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">      return</span><span style="color:var(--astro-code-foreground)"> acc;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">    // We create a new object property with an identifier (the object key) and put our argument inside</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    return</span><span style="color:var(--astro-code-foreground)"> [</span><span style="color:var(--astro-code-token-keyword)">...</span><span style="color:var(--astro-code-foreground)">acc</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-constant)"> j</span><span style="color:var(--astro-code-token-function)">.objectProperty</span><span style="color:var(--astro-code-foreground)">(</span><span style="color:var(--astro-code-token-constant)">j</span><span style="color:var(--astro-code-token-function)">.identifier</span><span style="color:var(--astro-code-foreground)">(propertyKey)</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> argument)];</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">  }</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-foreground)"> [] </span><span style="color:var(--astro-code-token-keyword)">as</span><span style="color:var(--astro-code-token-function)"> ObjectProperty</span><span style="color:var(--astro-code-foreground)">[]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-comment)">  // Finally, we keep our translation key in first position and our newly created object in second argument</span></span>
+<span class="line"><span style="color:var(--astro-code-token-constant)">  p</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">value</span><span style="color:var(--astro-code-foreground)">.arguments </span><span style="color:var(--astro-code-token-keyword)">=</span><span style="color:var(--astro-code-foreground)"> [</span><span style="color:var(--astro-code-token-constant)">p</span><span style="color:var(--astro-code-foreground)">.</span><span style="color:var(--astro-code-token-constant)">value</span><span style="color:var(--astro-code-foreground)">.arguments[</span><span style="color:var(--astro-code-token-constant)">0</span><span style="color:var(--astro-code-foreground)">]</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-constant)"> j</span><span style="color:var(--astro-code-token-function)">.objectExpression</span><span style="color:var(--astro-code-foreground)">(objectProperties)];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">  return</span><span style="color:var(--astro-code-foreground)"> p;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">};</span></span></code></pre>
 <p>On récupère les arguments déjà existants, on crée un nouvel objet et on y place nos arguments !</p>
-
 <h2 id="résultats-">Résultats ✨</h2>
-
 <p>⏱ Pour à peu près <strong>2900 fichiers</strong>, le script a mis moins de <strong>5,9 secondes</strong> à s’exécuter <em>(Macbook Pro 13” 2019)</em>.</p>
-
 <p>JSCodeshift nous a permis de cibler très rapidement 99 % des cas problématiques et de les corriger automatiquement.</p>
-
-<p>Le pourcentage restant concerne des cas où il était généralement difficile de cibler la fonction <code class="language-plaintext highlighter-rouge">t</code> (passée en props à un autre composant sous un autre nom). Ces quelques cas ont pu être corrigés rapidement à la main et détectés grâce à nos nombreux tests (heureusement qu’on a <a href="/2021/09/01/bonnes-pratiques-web#tester-tester-tester">une règle de bonne pratique</a> pour ça 😇).</p>
-
-<h1 id="tldr--conclusion-">tl;dr &amp; conclusion 🏃</h1>
-
+<p>Le pourcentage restant concerne des cas où il était généralement difficile de cibler la fonction <code>t</code> (passée en props à un autre composant sous un autre nom). Ces quelques cas ont pu être corrigés rapidement à la main et détectés grâce à nos nombreux tests (heureusement qu’on a <a href="/2021/09/01/bonnes-pratiques-web#tester-tester-tester">une règle de bonne pratique</a> pour ça 😇).</p>
+<h1 id="tldr--conclusion-">tl;dr &#x26; conclusion 🏃</h1>
 <p>Vous pouvez retrouver la source du codemod <a href="https://gist.github.com/martinschneider01/40e0f340cf2ed549a875e8de00475b97">ici même</a>.</p>
-
 <p>Si vous êtes mainteneur d’une librairie, il peut être très intéressant de livrer des <em>codemods</em> en même temps que les breaking-changes pour faciliter l’adoption des mises à jour par exemple !</p>
-
 <p>Avec une prise en main relativement facile pour un résultat très rapide, nous avons été très satisfaits de JSCodeshift et nous n’hésiterons pas à réutiliser cette librairie dans le futur. 👊</p>
-
-<p>Merci à tous pour la lecture de mon premier article et JSCodeshiftez bien. 😘</p>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tags</li>
-      
-
-      
-        <li><a class="button" href="/tags/#architecture">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#frontend">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#practices">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="Retour sur la conférence MiXiT 2022" href="/2022/07/28/retour-sur-mixit-2022.html">
-            <p>Previous post</p>
-            Retour sur la conférence MiXiT 2022
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="Bedrock Dev Facts #17" href="/2022/07/22/bedrock-dev-facts-17.html">
-            <p>Next post</p>
-            Bedrock Dev Facts #17
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<p>Merci à tous pour la lecture de mon premier article et JSCodeshiftez bien. 😘</p></section><div class="tag-list"><ul><li class="meta">Tags</li> <li><a class="button" href="/tags/#architecture"><p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p></a></li> <li><a class="button" href="/tags/#frontend"><p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p></a></li> <li><a class="button" href="/tags/#practices"><p><i class="fas fa-tag fa-fw fa-sm"></i> practices</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2022/07/28/retour-sur-mixit-2022.html"><p>Previous post</p>Retour sur la conférence MiXiT 2022</a></div><div id="next-post"><a href="/2022/07/22/bedrock-dev-facts-17.html"><p>Next post</p>Bedrock Dev Facts #17</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

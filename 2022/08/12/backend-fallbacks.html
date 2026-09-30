@@ -1,760 +1,140 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Handling dependencies failures in an API gateway | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Handling dependencies failures in an API gateway" />
-<meta name="author" content="Valentin Claras" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="How are we handling downtime from the API we are calling, and what can we do about it?" />
-<meta property="og:description" content="How are we handling downtime from the API we are calling, and what can we do about it?" />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-12T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Handling dependencies failures in an API gateway" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"How are we handling downtime from the API we are calling, and what can we do about it?","author":{"@type":"Person","name":"Valentin Claras"},"headline":"Handling dependencies failures in an API gateway","dateModified":"2022-08-12T00:00:00+00:00","datePublished":"2022-08-12T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Handling dependencies failures in an API gateway">
-    <meta name="twitter:description" content="Welcome to our second article about the backend architecture and its api gateway.In the first part, we talked about the BFF and all services it depends on.To...">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    <meta name="twitter:image:alt" content="Handling dependencies failures in an API gateway">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Handling dependencies failures in an API gateway " aria-label="Handling dependencies failures in an API gateway" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="Handling+dependencies+failures+in+an+API+gateway" class="title">Handling dependencies failures in an API gateway</h1>
-      <div class="post-info">
-
-
-<span class="author">
-      <img alt="Author's avatar" src="/images/avatar/v_claras.jpg" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Valentin Claras
-      </span>
-    </span><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    August 12, 2022
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">en</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>Welcome to our second article about the backend architecture and its api gateway.
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Handling dependencies failures in an API gateway | Bedrock Tech Blog</title><meta name="description" content="How are we handling downtime from the API we are calling, and what can we do about it?"><link rel="canonical" href="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"><meta property="og:title" content="Handling dependencies failures in an API gateway"><meta property="og:description" content="How are we handling downtime from the API we are calling, and what can we do about it?"><meta property="og:url" content="https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2022-08-12T00:00:00.000Z"><meta name="author" content="Valentin Claras"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Handling dependencies failures in an API gateway","description":"How are we handling downtime from the API we are calling, and what can we do about it?","author":{"@type":"Person","name":"Valentin Claras"},"datePublished":"2022-08-12T00:00:00.000Z","dateModified":"2022-08-12T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2022/08/12/backend-fallbacks.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Handling dependencies failures in an API gateway"><meta name="twitter:description" content="Welcome to our second article about the backend architecture and its api gateway. In the first part, we talked about the BFF and all services it depends on. ..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="Handling dependencies failures in an API gateway"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Handling dependencies failures in an API gateway" aria-label="Handling dependencies failures in an API gateway" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Handling dependencies failures in an API gateway</h1><div class="post-info"><span class="author"><img alt="Author's avatar" src="/images/avatar/v_claras.jpg" class="thumbnail"><span class="name">Valentin Claras</span></span><span class="spacer"> - </span><span class="publication-date">August 12, 2022</span><span class="spacer"> - </span><span class="publication-language">en</span></div></div></header><section class="post-content"><p>Welcome to our second article about the backend architecture and its api gateway.
 In <a href="/2022/06/10/backend-bff-intro.html">the first part</a>, we talked about the BFF and all services it depends on.
 Today we’re going to take a look at what to do when one of them (or many), fails to respond.</p>
-
 <h2 id="service-dependencies">Service dependencies</h2>
-
 <p>As seen previously, the BFF uses multiple data sources and services to create a full layout.</p>
-
 <p>Those services are used to gather the contents to be displayed in the application:</p>
 <ul>
-  <li>getting user personalisation data;</li>
-  <li>advertising and analytics configuration;</li>
-  <li>asking if the user has some authorizations.</li>
+<li>getting user personalisation data;</li>
+<li>advertising and analytics configuration;</li>
+<li>asking if the user has some authorizations.</li>
 </ul>
-
 <p>If we don’t want our BFF to become one giant SPOF <a href="#notes">(1)</a>, we need to be resilient to the death <a href="#notes">(2)</a> of those dependencies, any of them, at any time!
 You must keep in mind that <strong>our top priority is to always be able to answer something readable</strong> to the frontend applications.</p>
-
 <h2 id="ddd">DDD</h2>
-
 <p>First thing first, we are using a DDD <a href="#notes">(3)</a> approach for our modeling.
 This means that we focus on the business, as described by our Product Owner. We try not to worry about the various implementation of our backend’s friends and their different services.</p>
-
 <p>A picture is always easier to understand.</p>
-
-<p><img src="/images/posts/2022-08-12-backend-fallbacks/ddd-page-min.png" alt="asking for a layout to the domain means asking a interface for" /></p>
-
-<p>Above, we can see that when a user ask for a layout A, we are looking to resolve who is <code class="language-plaintext highlighter-rouge">A</code>.
+<p><img src="/images/posts/2022-08-12-backend-fallbacks/ddd-page-min.png" alt="asking for a layout to the domain means asking a interface for"></p>
+<p>Above, we can see that when a user ask for a layout A, we are looking to resolve who is <code>A</code>.
 From the domain point of view, the page collection is only an interface.</p>
-
 <p>In the picture below, we see the “Page collection implem (Infra)”.
 It’s a layer implementing the interface defined in the domain. It uses multiple clients that call the services behind.
 It’s its responsibility to chose which service to look on for the page.</p>
-
-<p><img src="/images/posts/2022-08-12-backend-fallbacks/ddd-page-full.png" alt="page collection implementation chose the correct data source" /></p>
-
+<p><img src="/images/posts/2022-08-12-backend-fallbacks/ddd-page-full.png" alt="page collection implementation chose the correct data source"></p>
 <p>DDD is a too large subjects to be perfectly defined in this article. If you want to dig deeper into it, there are multiple great reads, feel free to check them out!
 Now, how does this help us?</p>
-
 <h2 id="handling-failures">Handling failures</h2>
-
 <p>Failures handling is done by the middle layer seen in the previous example.
 Its goal is to catch error <a href="#notes">(4)</a>, and convert them to something expected and defined by the interface.</p>
-
 <p>That said, its responsibility is not to know what the expected answer is. To do that, we use the domain.</p>
-
 <p>Let’s see with a small code sample.</p>
-
 <p><em>Note: The following example is not a real use-case, but it’s representative and simple enough to illustrate how it works.</em></p>
-
 <p>In the code below, we see a class that represents the subscribing status of a user, which has two properties:</p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">hasAccess</code> controls whether the user can read protected contents;</li>
-  <li><code class="language-plaintext highlighter-rouge">isSubscribed</code> is used in analytics, and to show subscription pages.</li>
+<li><code>hasAccess</code> controls whether the user can read protected contents;</li>
+<li><code>isSubscribed</code> is used in analytics, and to show subscription pages.</li>
 </ul>
-
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="k">final</span> <span class="kd">class</span> <span class="nc">SubscribeStatus</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="k">function</span> <span class="n">__construct</span><span class="p">(</span>
-        <span class="k">public</span> <span class="k">readonly</span> <span class="kt">bool</span> <span class="nv">$hasAccess</span><span class="p">,</span>
-        <span class="k">public</span> <span class="k">readonly</span> <span class="kt">bool</span> <span class="nv">$isSubscribed</span><span class="p">,</span>
-    <span class="p">)</span> <span class="p">{</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">createAnonymous</span><span class="p">():</span> <span class="kt">self</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nc">self</span><span class="p">(</span><span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="n">createSubscribed</span><span class="p">():</span> <span class="kt">self</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nc">self</span><span class="p">(</span><span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="php"><code><span class="line"><span style="color:var(--astro-code-token-keyword)">&#x3C;?</span><span style="color:var(--astro-code-foreground)">php</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">final</span><span style="color:var(--astro-code-token-keyword)"> class</span><span style="color:var(--astro-code-token-function)"> SubscribeStatus</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">{</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    private</span><span style="color:var(--astro-code-token-keyword)"> function</span><span style="color:var(--astro-code-token-function)"> __construct</span><span style="color:var(--astro-code-foreground)">(</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">        public</span><span style="color:var(--astro-code-token-keyword)"> readonly</span><span style="color:var(--astro-code-token-keyword)"> bool</span><span style="color:var(--astro-code-foreground)"> $hasAccess</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">        public</span><span style="color:var(--astro-code-token-keyword)"> readonly</span><span style="color:var(--astro-code-token-keyword)"> bool</span><span style="color:var(--astro-code-foreground)"> $isSubscribed</span><span style="color:var(--astro-code-token-punctuation)">,</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    ) {</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    public</span><span style="color:var(--astro-code-token-keyword)"> static</span><span style="color:var(--astro-code-token-keyword)"> function</span><span style="color:var(--astro-code-token-function)"> createAnonymous</span><span style="color:var(--astro-code-foreground)">()</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-keyword)"> self</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">        return</span><span style="color:var(--astro-code-token-keyword)"> new</span><span style="color:var(--astro-code-token-keyword)"> self</span><span style="color:var(--astro-code-token-punctuation)">(</span><span style="color:var(--astro-code-token-constant)">false</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-constant)"> false</span><span style="color:var(--astro-code-token-punctuation)">)</span><span style="color:var(--astro-code-foreground)">;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">    public</span><span style="color:var(--astro-code-token-keyword)"> static</span><span style="color:var(--astro-code-token-keyword)"> function</span><span style="color:var(--astro-code-token-function)"> createSubscribed</span><span style="color:var(--astro-code-foreground)">()</span><span style="color:var(--astro-code-token-keyword)">:</span><span style="color:var(--astro-code-token-keyword)"> self</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    {</span></span>
+<span class="line"><span style="color:var(--astro-code-token-keyword)">        return</span><span style="color:var(--astro-code-token-keyword)"> new</span><span style="color:var(--astro-code-token-keyword)"> self</span><span style="color:var(--astro-code-token-punctuation)">(</span><span style="color:var(--astro-code-token-constant)">true</span><span style="color:var(--astro-code-token-punctuation)">,</span><span style="color:var(--astro-code-token-constant)"> true</span><span style="color:var(--astro-code-token-punctuation)">)</span><span style="color:var(--astro-code-foreground)">;</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">    }</span></span>
+<span class="line"><span style="color:var(--astro-code-foreground)">}</span></span></code></pre>
 <p>To create such an object, we use either one of the two static functions, depending on the status we get from the subscriptions API.
 This is done in the middle layer, but the business is kept in the domain.</p>
-
 <p>To handle the failure, we add a new named constructor, dedicated to this specific case.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    public static function createUnknown(): self
-    {
-        return new self(true, false);
-    }
-</code></pre></div></div>
-
+<pre class="astro-code css-variables" style="background-color:var(--astro-code-background);color:var(--astro-code-foreground); overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>    public static function createUnknown(): self</span></span>
+<span class="line"><span>    {</span></span>
+<span class="line"><span>        return new self(true, false);</span></span>
+<span class="line"><span>    }</span></span></code></pre>
 <p>When an error happens and we can’t retrieve the user subscription status, we now have a fallback option.
 With this fallback option, the user will:</p>
 <ul>
-  <li>be able to access any content, it’s better to let an anonymous user access a content it should not, that blocking a paying customer;</li>
-  <li>still be reported as not subscribed and will see all available offers.</li>
+<li>be able to access any content, it’s better to let an anonymous user access a content it should not, that blocking a paying customer;</li>
+<li>still be reported as not subscribed and will see all available offers.</li>
 </ul>
-
 <p>Most of the time, the answer is even simpler than this one.</p>
-
 <p>Another example would be user’s viewing statuses. If we can’t retrieve them, we don’t display any progress bar.
 Users won’t be able to tell if they have seen a content, but they will still be able to navigate the application.</p>
-
 <h2 id="infrastructure-solution-the-stale-cache">Infrastructure solution, the stale cache</h2>
-
 <p>In some cases, the above solution doesn’t work.
 For example, contents information cannot be replaced by default values. If we don’t know about a video or a program, we cannot guess what it is.</p>
-
 <p>Luckily, we can rely on the stale cache.
 Stale cache is an old cache entry which is expired. When the cache finds such entry, it usually ignores it and asks for a new version of the response.
 In case of failure, we can use the available staled version.</p>
-
-<p><img src="/images/posts/2022-08-12-backend-fallbacks/stale-cache-usage.png" alt="following first example, when the http fails to answer, we use the stale cached response" /></p>
-
+<p><img src="/images/posts/2022-08-12-backend-fallbacks/stale-cache-usage.png" alt="following first example, when the http fails to answer, we use the stale cached response"></p>
 <p><em>The limitation is that a response must have been cached at least once, in order to have a staled version.</em></p>
-
 <p>When there is no stale cache, we don’t display the content <a href="#notes">(5)</a>.</p>
-
 <p>So far, we are only using it with http implementation:</p>
 <ul>
-  <li>called API must answers with <code class="language-plaintext highlighter-rouge">stale-if-error</code> cache directive, it allows for the response to be used while stale when an error happens;</li>
-  <li>called API can answer with <code class="language-plaintext highlighter-rouge">stale-while-revalidate</code> cache directive, for better performances;</li>
-  <li>calling API can query with <code class="language-plaintext highlighter-rouge">max-stale</code> cache directive, to use stale response see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives">the mdn for more on those headers</a>;</li>
-  <li>on the client side, we are using the <a href="https://github.com/Kevinrob/guzzle-cache-middleware"><code class="language-plaintext highlighter-rouge">Kevinrob/guzzle-cache-middleware</code></a> to do the job.</li>
+<li>called API must answers with <code>stale-if-error</code> cache directive, it allows for the response to be used while stale when an error happens;</li>
+<li>called API can answer with <code>stale-while-revalidate</code> cache directive, for better performances;</li>
+<li>calling API can query with <code>max-stale</code> cache directive, to use stale response see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#cache_directives">the mdn for more on those headers</a>;</li>
+<li>on the client side, we are using the <a href="https://github.com/Kevinrob/guzzle-cache-middleware"><code>Kevinrob/guzzle-cache-middleware</code></a> to do the job.</li>
 </ul>
-
-<p>For an entry cached for up to 10 minutes (answered with <code class="language-plaintext highlighter-rouge">max-age</code>), we allow up to 4 hours of stale cache (with <code class="language-plaintext highlighter-rouge">stale-if-error</code>).
-Since we are using a shared cache, we are using <code class="language-plaintext highlighter-rouge">max-stale</code> when querying, with a random value up to 1 hour.
+<p>For an entry cached for up to 10 minutes (answered with <code>max-age</code>), we allow up to 4 hours of stale cache (with <code>stale-if-error</code>).
+Since we are using a shared cache, we are using <code>max-stale</code> when querying, with a random value up to 1 hour.
 This makes most requests use the last stale response while one of them ask for a fresher response.
 Those values are chosen according to our platform usages where peak visitor last for about 2 to 3 hours at night.</p>
-
 <p>We plan to expand its usage to other kinds of cached entries, such as manually saved data, and database queries.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>In today’s post, we have seen how we handle the loss of our dependencies by anticipating their potential failures and preparing default acceptable behaviours.</p>
-
 <p>Next time, we will see how we can spare some traffic on those dependencies when they’re struggling with traffic.</p>
-
 <h2 id="notes">Notes</h2>
 <ol>
-  <li>SPOF, as <a href="https://en.wikipedia.org/wiki/Single_point_of_failure">single point of failure</a> since all frontend applications have to rely on the BFF, I cannot resist linking this excellent <a href="https://xkcd.com/2347/">xkcd</a>.</li>
-  <li>By “death”, we mean anything unexpected. It can be a 500 error code, a timeout, a wrong content. We will talk a bit more about this in the next article.</li>
-  <li>DDD, as domain driven design, you can read more about it on <a href="https://martinfowler.com/bliki/DomainDrivenDesign.html">Martin FOWLER’s website</a>.</li>
-  <li>Throwing errors is still allowed, but restricted to domain exceptions, and must be specified in the method’s declaration in the interface (i.e. via a comment).</li>
-  <li>There will be a dedicated article on partial rendering.</li>
+<li>SPOF, as <a href="https://en.wikipedia.org/wiki/Single_point_of_failure">single point of failure</a> since all frontend applications have to rely on the BFF, I cannot resist linking this excellent <a href="https://xkcd.com/2347/">xkcd</a>.</li>
+<li>By “death”, we mean anything unexpected. It can be a 500 error code, a timeout, a wrong content. We will talk a bit more about this in the next article.</li>
+<li>DDD, as domain driven design, you can read more about it on <a href="https://martinfowler.com/bliki/DomainDrivenDesign.html">Martin FOWLER’s website</a>.</li>
+<li>Throwing errors is still allowed, but restricted to domain exceptions, and must be specified in the method’s declaration in the interface (i.e. via a comment).</li>
+<li>There will be a dedicated article on partial rendering.</li>
 </ol>
-
 <h2 id="from-the-same-series">From the same series</h2>
-
 <ol>
-  <li><a href="/2022/06/10/backend-bff-intro.html">What’s a BFF</a></li>
-  <li><a href="/2022/08/12/backend-fallbacks.html">Handling API failures in a gateway</a></li>
-  <li><a href="/2022/08/25/backend-errors-connections.html">What’s an error, and handling connection to multiple APIs</a></li>
-  <li><a href="/2022/09/02/backend-circuit-breaker.html">Using a circuit breaker</a></li>
+<li><a href="/2022/06/10/backend-bff-intro.html">What’s a BFF</a></li>
+<li><a href="/2022/08/12/backend-fallbacks.html">Handling API failures in a gateway</a></li>
+<li><a href="/2022/08/25/backend-errors-connections.html">What’s an error, and handling connection to multiple APIs</a></li>
+<li><a href="/2022/09/02/backend-circuit-breaker.html">Using a circuit breaker</a></li>
 </ol>
-
-<hr />
+<hr>
 <p>In the meantime, feel free to have a look at other articles available on this blog:</p>
-
 <ul>
-  <li>🇺🇸 <a href="/2022/07/08/encrypt-aws-amis.html">Encrypt AWS AMIs: one way to do it wrong</a></li>
-  <li>🇫🇷 <a href="/2022/06/13/kubecon-2022-part-1.html">Bedrock à la kubecon 2022 (4 articles)</a></li>
-</ul>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tags</li>
-      
-
-      
-        <li><a class="button" href="/tags/#architecture">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#backend">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="Les spikes : quand, comment, pour quoi faire ?" href="/how-to-spike">
-            <p>Previous post</p>
-            Les spikes : quand, comment, pour quoi faire ?
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="How to ingest 400GB of logs per hour?" href="/2022/08/08/private-cdn-logs.html">
-            <p>Next post</p>
-            How to ingest 400GB of logs per hour?
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<li>🇺🇸 <a href="/2022/07/08/encrypt-aws-amis.html">Encrypt AWS AMIs: one way to do it wrong</a></li>
+<li>🇫🇷 <a href="/2022/06/13/kubecon-2022-part-1.html">Bedrock à la kubecon 2022 (4 articles)</a></li>
+</ul></section><div class="tag-list"><ul><li class="meta">Tags</li> <li><a class="button" href="/tags/#architecture"><p><i class="fas fa-tag fa-fw fa-sm"></i> architecture</p></a></li> <li><a class="button" href="/tags/#backend"><p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/how-to-spike"><p>Previous post</p>Les spikes : quand, comment, pour quoi faire ?</a></div><div id="next-post"><a href="/2022/08/08/private-cdn-logs.html"><p>Next post</p>How to ingest 400GB of logs per hour?</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>

@@ -1,857 +1,196 @@
-<!DOCTYPE html>
-<!--
-    Type on Strap jekyll theme v2.4.0
-    Theme free for personal and commercial use under the MIT license
-    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
--->
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
-
-    
-    <!-- Theme Mode -->
-    <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
-    </script>
-    
-
-    <!-- Main JS (navbar, dark mode, cookie consent) -->
-    <script defer src="/assets/js/main.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/main.css">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-
-    
-    <!-- Mermaid 8.13.10 -->
-    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
-    
-
-    <!-- Simple Jekyll Search 1.9.1 -->
-    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
-
-    
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://bedrockstreaming.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '2']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    
-
-    <!-- Google Analytics / Cookie Consent -->
-    <script>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script><script>
       const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
       const isCookieConsent = 'false';
       const analyticsName = '';
-    </script>
-
-    
-    
-
-    <!-- SEO tags -->
-    <meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    
-    <meta property="og:type" content="website" />
-    
-    <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique | Bedrock Tech Blog</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" />
-<meta name="author" content="Timothé Crespy" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale." />
-<meta property="og:description" content="Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale." />
-<link rel="canonical" href="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html" />
-<meta property="og:url" content="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html" />
-<meta property="og:site_name" content="Bedrock Tech Blog" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-03-25T00:00:00+00:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","description":"Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.","author":{"@type":"Person","name":"Timothé Crespy"},"headline":"De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique","dateModified":"2023-03-25T00:00:00+00:00","datePublished":"2023-03-25T00:00:00+00:00","url":"https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"/>
-    <link type="application/atom+xml" rel="alternate" href="https://tech.bedrockstreaming.com/feed.xml" title="Bedrock Tech Blog" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique">
-    <meta name="twitter:description" content="Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons...">
-    
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg">
-    <meta name="twitter:image:alt" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique">
-</head>
-
-  <body>
-    <header class="site-header">
-
-    <!-- Logo and title -->
-	<div class="branding">
-        
-		<a href="/">
-			<img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg" />
-		</a>
-        
-        <a class="site-title" aria-label="Bedrock Tech Blog" href="/">
-        Bedrock Tech Blog
-		</a>
-	</div>
-
-    <!-- Toggle menu -->
-    <nav class="clear">
-    <a aria-label="pull" id="pull" class="toggle" href="#">
-    <i class="fas fa-bars fa-lg"></i>
-    </a>
-
-    <!-- Menu -->
-    <ul class="hide">
-        
-
-        
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">
-                     Jobs 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">
-                     Last Friday Talks 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Meetups & Conferences" title="Meetups & Conferences" href="/meetups/">
-                     Meetups & Conferences 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="OSS" title="OSS" href="/oss/">
-                     OSS 
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Search" title="Search" href="/search/">
-                     <i class="fas fa-search" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="Topics" title="Topics" href="/tags/">
-                     <i class="fas fa-tags" aria-hidden="true"></i>
-                    
-                </a>
-            </li>
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-            
-            
-        
-        
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique " aria-label="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" onclick="themeToggle()"></a></li>
-        
-    </ul>
-
-	</nav>
-</header>
-
-    <div class="content">
-      <article >
-  <header id="main" style="">
-    <div class="title-padder">
-      
-      <h1 id="De+Node.js+10+%C3%A0+Node.js+18%2C+nous+avons+rattrap%C3%A9+8+ans+de+retard+et+de+dette+technique" class="title">De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique</h1>
-      <div class="post-info">
-
-
-<a
-      href="https://timothecrespy.fr/"
-      target="_blank"
-      rel="noopener"
-      class="author">
-      <img alt="Author's avatar" src="/images/avatar/t_crespy.jpg" class="thumbnail">
-    
-
-    
-      <span class="name">
-        Timothé Crespy
-      </span>
-    </a><span class="spacer"> - </span>
-
-
-
-  <span class="publication-date">
-    
-    March 25, 2023
-  </span>
-  
-  <span class="spacer"> - </span>
-  <span class="publication-language">fr</span>
-  
-</div>
-
-      
-    </div>
-  </header>
-
-  <section class="post-content">
-      <p>Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.</p>
-
+    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique | Bedrock Tech Blog</title><meta name="description" content="Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale."><link rel="canonical" href="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html"><meta property="og:title" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique"><meta property="og:description" content="Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale."><meta property="og:url" content="https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2023-03-25T00:00:00.000Z"><meta name="author" content="Timothé Crespy"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique","description":"Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.","author":{"@type":"Person","name":"Timothé Crespy"},"datePublished":"2023-03-25T00:00:00.000Z","dateModified":"2023-03-25T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2023/03/25/de-node-js-10-a-node-js-18-nous-avons-rattrape-8-ans-de-retard-et-de-dette-technique.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique"><meta name="twitter:description" content="Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
+</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" aria-label="De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">De Node.js 10 à Node.js 18, nous avons rattrapé 8 ans de retard et de dette technique</h1><div class="post-info"><a class="author" href="https://timothecrespy.fr/" target="_blank" rel="noopener"><img alt="Author's avatar" src="/images/avatar/t_crespy.jpg" class="thumbnail"><span class="name">Timothé Crespy</span></a><span class="spacer"> - </span><span class="publication-date">March 25, 2023</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>Difficile de faire évoluer des applications et améliorer une stack si l’ensemble est basé sur une version obsolète de Node.js… Dans cet article, nous verrons comment nous avons réussi à migrer vers une version récente et maintenue de Node.js grâce à une approche progressive et incrémentale.</p>
 <ul id="markdown-toc">
-  <li><a href="#contexte-général-et-fonctionnel" id="markdown-toc-contexte-général-et-fonctionnel">Contexte général et fonctionnel</a></li>
-  <li><a href="#contexte-technique" id="markdown-toc-contexte-technique">Contexte technique</a></li>
-  <li><a href="#objectif" id="markdown-toc-objectif">Objectif</a></li>
-  <li><a href="#une-première-stratégie-problématique--la-méthode-rhinocéros-" id="markdown-toc-une-première-stratégie-problématique--la-méthode-rhinocéros-">Une première stratégie problématique : la méthode “rhinocéros” 🦏</a></li>
-  <li><a href="#la-stratégie-gagnante--une-migration-progressive-" id="markdown-toc-la-stratégie-gagnante--une-migration-progressive-">La stratégie gagnante : une migration progressive 📶</a>    <ul>
-      <li><a href="#motivation" id="markdown-toc-motivation">Motivation</a></li>
-      <li><a href="#plan-daction" id="markdown-toc-plan-daction">Plan d’action</a></li>
-    </ul>
-  </li>
-  <li><a href="#difficultés-rencontrées" id="markdown-toc-difficultés-rencontrées">Difficultés rencontrées</a>    <ul>
-      <li><a href="#non-découpage-des-étapes-de-migration" id="markdown-toc-non-découpage-des-étapes-de-migration">Non découpage des étapes de migration</a></li>
-      <li><a href="#méconnaissance-de-typescript" id="markdown-toc-méconnaissance-de-typescript">Méconnaissance de Typescript</a></li>
-      <li><a href="#suppression-précipitée-de-librairies-obsolètes" id="markdown-toc-suppression-précipitée-de-librairies-obsolètes">Suppression précipitée de librairies obsolètes</a></li>
-      <li><a href="#non-anticipation-de-la-complexité-liée-à-certaines-dépendances" id="markdown-toc-non-anticipation-de-la-complexité-liée-à-certaines-dépendances">Non anticipation de la complexité liée à certaines dépendances</a></li>
-      <li><a href="#entretien-des-applications-legacy-en-même-temps" id="markdown-toc-entretien-des-applications-legacy-en-même-temps">Entretien des applications legacy en même temps</a></li>
-    </ul>
-  </li>
-  <li><a href="#autres-avantages" id="markdown-toc-autres-avantages">Autres avantages</a>    <ul>
-      <li><a href="#uniformisation-des-technologies-au-sein-de-la-société" id="markdown-toc-uniformisation-des-technologies-au-sein-de-la-société">Uniformisation des technologies au sein de la société</a></li>
-      <li><a href="#attractivité-et-rétention-des-développeurs" id="markdown-toc-attractivité-et-rétention-des-développeurs">Attractivité et rétention des développeurs</a></li>
-    </ul>
-  </li>
-  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
-</ul>
-
-<h1 id="contexte-général-et-fonctionnel">Contexte général et fonctionnel</h1>
-
-<p>Bedrock streaming est une co-entreprise (joint-venture) créée en 2020 par M6 Group et RTL Group, permettant à 7 diffuseurs et sociétés de médias dans 5 pays d’Europe de divertir 45 millions d’utilisateurs chaque jour, sur tous les écrans.</p>
-
-<p>Pour gérer tous leurs utilisateurs ainsi que leurs contenus, notamment vidéos, les clients de Bedrock Streaming accèdent chacun à une constellation d’applications au sein d’un back-office centralisé (appelé BO par la suite).</p>
-
-<h1 id="contexte-technique">Contexte technique</h1>
-
-<p>De part sa conception initiale, le BO est une application monorepo. Elle fournit (à elle-même donc), des données via une API Symfony 4 (PHP 7.4), consommées uniquement par :</p>
-
+<li><a href="#contexte-g%C3%A9n%C3%A9ral-et-fonctionnel" id="markdown-toc-contexte-général-et-fonctionnel">Contexte général et fonctionnel</a></li>
+<li><a href="#contexte-technique" id="markdown-toc-contexte-technique">Contexte technique</a></li>
+<li><a href="#objectif" id="markdown-toc-objectif">Objectif</a></li>
+<li><a href="#une-premi%C3%A8re-strat%C3%A9gie-probl%C3%A9matique--la-m%C3%A9thode-rhinoc%C3%A9ros-" id="markdown-toc-une-première-stratégie-problématique--la-méthode-rhinocéros-">Une première stratégie problématique : la méthode “rhinocéros” 🦏</a></li>
+<li><a href="#la-strat%C3%A9gie-gagnante--une-migration-progressive-" id="markdown-toc-la-stratégie-gagnante--une-migration-progressive-">La stratégie gagnante : une migration progressive 📶</a>
 <ul>
-  <li>des applications Vue.js 1 et Vue.js 2 gérées par la team backend (qui historiquement maintient le frontend de quelques applications) ;</li>
-  <li>des applications Vue.js 2 gérées par la team frontend.</li>
+<li><a href="#motivation" id="markdown-toc-motivation">Motivation</a></li>
+<li><a href="#plan-daction" id="markdown-toc-plan-daction">Plan d’action</a></li>
 </ul>
-
-<p>Le tout, dans un environnement <a href="https://github.com/nodejs/Release/blob/main/schedule.json#L50">Node.js 10</a>.</p>
-
-<h1 id="objectif">Objectif</h1>
-
-<p>Node.js 10 est arrivé en fin de vie le 30 avril 2021. Il n’est donc plus maintenu, que ce soit en terme de fonctionnalités ou en terme de sécurité. Naturellement, toutes les dépendances JS migrent progressivement vers un support des versions de Node.js supérieures, et abandonnent le support de cette version 10 devenue obsolète.</p>
-
-<p>Il s’agit donc de migrer la version de Node.js vers une version supérieure, dans l’idéal LTS afin de se prémunir d’une obsolescence prématurée. Dans un premier temps, Node.js 12.</p>
-
-<p>Voici plusieurs raisons qui poussent à migrer Node.js :</p>
-
-<ul>
-  <li>Nouvelles fonctionnalités (e.g. nouvelle implémentation pour l’ES6 Module Support expérimental, source : <a href="https://nodejs.medium.com/announcing-a-new-experimental-modules-1be8d2d6c2ff">https://nodejs.medium.com/announcing-a-new-experimental-modules-1be8d2d6c2ff</a> ) ;</li>
-  <li>Abandon de fonctionnalités défaillantes (e.g. via dépréciation) ;</li>
-  <li>Performance (e.g. mise à jour de V8 engine, source : <a href="https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f">https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f</a> ) ;</li>
-  <li>Sécurité (e.g. mise à jour de TLS, source : <a href="https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f">https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f</a> ) ;</li>
-  <li>Évolutions des dépendances externes. (e.g. Cypress qui abandonne les versions de Node.js non maintenues et qui requiert Node.js 14, 16 ou 18+, source : <a href="https://docs.cypress.io/guides/references/changelog#12-0-0">https://docs.cypress.io/guides/references/changelog#12-0-0</a>).</li>
-</ul>
-
-<h1 id="une-première-stratégie-problématique--la-méthode-rhinocéros-">Une première stratégie problématique : la méthode “rhinocéros” 🦏</h1>
-
-<p>La décision a été prise de migrer le repository de Node.js 10 vers Node.js 12 en début d’année 2021.</p>
-
-<p>Empiriquement, cette méthode a montré plusieurs limites :</p>
-
-<ul>
-  <li>même si la compilation semblait bien se dérouler, des erreurs apparaissaient au moment de l’affichage de l’UI ➡ Il semblait donc nécessaire de parcourir l’intégralité des écrans afin de déceler toutes les anomalies possibles ➡ Le travail de la QA était alors conséquent ;</li>
-  <li>même lorsqu’une anomalie est corrigée, une nouvelle peut apparaitre ➡ Il fallait re-parcourir les écrans concernés (par exemple, après avoir corrigé une anomalie qui empêche l’apparition d’une modale, de nouvelles anomalies peuvent être décelées au niveau des fonctionnalités que permet cette modale) ➡ Le travail de la QA augmentait de façon exponentielle au fil des corrections d’anomalies ;</li>
-  <li>des dizaines voire centaines de dépendances dans le projet étaient dépendantes de Node.js 10 sans être encore compatibles avec Node.js 12 ➡ Il s’agissait donc de faire le point sur celles-ci, pour trouver des équivalents compatibles.</li>
-</ul>
-
-<p>Après plusieurs mois, bien que bon nombre d’anomalies avaient pu être corrigées, la situation stagnait et la fin ne semblait pas plus proche qu’au début.</p>
-
-<p>Les raisons de l’échec :</p>
-
-<ul>
-  <li>L’ancienneté de certaines applications. Certaines d’entre elles avaient plus de 8 ans d’existence. En n’ayant subi que quelques corrections seulement. Les connaissances fonctionnelles et techniques s’étaient donc estompées naturellement, en raison d’une absence de documentation (autant fonctionnelle que technique). Il s’agit là des dettes fonctionnelle et technique. Lorsqu’elles sont là, elles sont relativement simples à identifier. Mais c’est déjà trop tard… ;</li>
-  <li>L’absence de mise à jour des technologies. Certaines technologies devenues obsolètes (<code class="language-plaintext highlighter-rouge">jQuery 1.9</code>, <code class="language-plaintext highlighter-rouge">Vue.js 1</code>, <code class="language-plaintext highlighter-rouge">Bootstrap 2.3</code>) imposait non plus un refactor lié à une migration, mais une véritable refonte ;</li>
-  <li>L’absence de tests. La couverture de tests était alors faible voire nulle. Migrer sans régression relevait alors d’une chance non maitrisable ;</li>
-  <li>La façon dont la migration a été lancée était trop téméraire : c’est la méthode rhinocéros.
-    <ul>
-      <li>création d’une nouvelle branche (et d’une PR pour cette branche)</li>
-      <li>suppression de Node.js 10 et installation de Node.js 12</li>
-      <li>correction de toutes les anomalies qui apparaissent !</li>
-    </ul>
-  </li>
-</ul>
-
-<p>Ce fonctionnement peut marcher pour des périmètres techniques plus petits ou du moins dont les contours sont précisément marqués ;</p>
-
-<p>L’organisation en équipe devenait compliquée. Au fur et à mesure des découvertes des anomalies au sein d’une seule et unique PR, il devenait difficile de suivre tous les sujets, sans découpage précis et rigoureux.</p>
-
-<p>Face à cette situation, dont les développeurs et testeurs ne semblaient plus voir le bout, il a été décidé d’employer une autre stratégie.</p>
-
-<h1 id="la-stratégie-gagnante--une-migration-progressive-">La stratégie gagnante : une migration progressive 📶</h1>
-
-<p>De part un essoufflement des développeurs et une nouvelle énergie insufflée par des départs et arrivées dans l’équipe, une nouvelle stratégie a émergé. Face à l’échec de la première, il a été proposé plus simplement de partir sur des bases saines, afin de migrer les applications sur des fondations plus solides car maitrisées.</p>
-
-<p>Plus techniquement, cela s’est traduit par :</p>
-
-<ol>
-  <li>Création d’un nouveau répertoire <code class="language-plaintext highlighter-rouge">modern-apps/</code> dans le monorepo.</li>
-  <li>Mise en place d’une architecture basée sur Node.js 16 (Oui oui, Node.js 16 directement ! Il s’agissait de la version LTS en cours en date de début 2022.) dans ce répertoire seulement.</li>
-  <li>Migration des applications du BO, une par une, vers une stack plus moderne. En date de début 2023, cette migration est toujours en cours.</li>
-</ol>
-
-<h2 id="motivation">Motivation</h2>
-
-<p>La motivation était principalement portée par :</p>
-
-<ul>
-  <li>une volonté forte d’abandonner des outils et technologies vieillissantes voire obsolètes ;</li>
-  <li>une pression engendrée par l’évolution rapide des technologies :
-    <ul>
-      <li>Node.js sort une version LTS tous les ans ;</li>
-      <li>Vue.js 3 venait de sortir et l’effort des développeurs du framework allait se porter plutôt sur cette version que sur la version 2.</li>
-    </ul>
-  </li>
-  <li>une pression engendrée par les autres équipes de la société qui, elles, étaient à jour (pour certaines), dont celle qui proposait des outils JS et TS dont l’équipe pourrait avoir l’usage, comme par exemple une librairie de configuration pour <code class="language-plaintext highlighter-rouge">eslint</code> couplé à <code class="language-plaintext highlighter-rouge">vue</code> ;</li>
-  <li>une excitation liée à l’utilisation d’une stack récente et de <em>cutting-edge tools</em>.</li>
-</ul>
-
-<h2 id="plan-daction">Plan d’action</h2>
-
-<p>Cette page blanche a nécessité un plan d’action que voici :</p>
-
-<ol>
-  <li>Création d’une application simplissime en guise de PoC, afin de montrer la viabilité d’un travail sous Node.js 16 dans une sous-partie du projet en parallèle d’un travail toujours actif sous Node.js 10 dans le reste du projet.</li>
-  <li>Mise en place d’une certaines DX vis-à-vis des linters et formatters notamment (ainsi que d’extensions d’IDE), par l’application de règles simples mais strictes, qui évitent aux développeurs les tâches sans plus-value, comme ajuster manuellement l’indentation ou ajouter les points-virgules.</li>
-  <li>Migration des librairies internes au monorepo.</li>
-  <li>Migration du design system, ainsi que des outils afférents (Storybook).</li>
-  <li>Migration d’une première application, la plus simple possible. L’objectif était alors de se rendre compte très concrètement des étapes de migration d’une application, afin d’en tirer une documentation exploitable pour les futures applications. Il en est ressorti que la majeure partie du travail consistait à refactor le code avec les nouvelles technologies choisies, en l’occurrence :
-    <ol>
-      <li><code class="language-plaintext highlighter-rouge">Vue.js 3</code> et sa <code class="language-plaintext highlighter-rouge">Composition API</code> (framework JS),</li>
-      <li><code class="language-plaintext highlighter-rouge">Vite</code> (serveur de dev et de build),</li>
-      <li><code class="language-plaintext highlighter-rouge">Pinia</code> (global state management),</li>
-      <li><code class="language-plaintext highlighter-rouge">Vitest</code> (framework de test unitaire),</li>
-      <li><code class="language-plaintext highlighter-rouge">Cypress</code> dans ses dernières versions (framework de test end-to-end)</li>
-      <li>aussi et surtout <code class="language-plaintext highlighter-rouge">Typescript</code> (langage de programmation, sur-couche à JS).</li>
-    </ol>
-  </li>
-  <li>Migration du processus de build et d’intégration aux templates backend (via notamment une extension Twig implémentée par nos soins, <code class="language-plaintext highlighter-rouge">ViteAppExtension.php</code>)</li>
-  <li>Mise en place d’une CI pour ces nouvelles applications, calquée sur celle des anciennes applications : linting, tests pour celles qui en avaient, déploiement en preview, etc.</li>
-</ol>
-
-<p>En quelques mois seulement, il a été possible d’obtenir un résultat concret. Le répertoire <code class="language-plaintext highlighter-rouge">modern-apps/</code> a été initié en février 2022, et dès avril de la même année, une première application migrée était livrée en production. Et cela, avec un seul développeur à plein temps sur le sujet.</p>
-
-<h1 id="difficultés-rencontrées">Difficultés rencontrées</h1>
-
-<p>Cette seconde stratégie n’a bien sûr pas été sans encombre. Voici les principales difficultés rencontrées, dont l’équipe a su se prémunir au fil du temps.</p>
-
-<h2 id="non-découpage-des-étapes-de-migration">Non découpage des étapes de migration</h2>
-
-<p>Lors de la migration d’une des premières applications dont la complexité était légèrement supérieure aux précédentes, nous nous sommes retrouvés embourbés dans une multitude de bugs techniques et fonctionnels. En effet, migrer implique plusieurs changements qui n’ont pas nécessairement de rapport les uns avec les autres :</p>
-
-<ul>
-  <li>ajouter des types TS</li>
-  <li>migrer la librairie de Global State Management de <code class="language-plaintext highlighter-rouge">vuex</code> vers <code class="language-plaintext highlighter-rouge">pinia</code></li>
-  <li>migrer la Global API de Vue (de <code class="language-plaintext highlighter-rouge">new Vue()</code> vers <code class="language-plaintext highlighter-rouge">createApp()</code>)</li>
-  <li>migrer de l’<code class="language-plaintext highlighter-rouge">Options API</code> vers la <code class="language-plaintext highlighter-rouge">Composition API</code> de Vue</li>
-  <li>etc.</li>
-</ul>
-
-<p>Si tous ces changements sont opérés en même temps, comment réagir lors de l’apparition d’une anomalie ? Comment traquer efficacement cette anomalie ?</p>
-
-<blockquote>
-  <p><strong>Solution adoptée</strong></p>
-
-  <p>Nous avons décidé de découper plus finement nos développements. Une PR doit concerner un périmètre réduit et bien défini. Par exemple, la PR de migration de la librairie de Global State Management ne doit comporter que des modifications à ce sujet, et doit fournir une application fonctionnelle dont les tests passent.</p>
-</blockquote>
-
-<h2 id="méconnaissance-de-typescript">Méconnaissance de Typescript</h2>
-
-<blockquote>
-  <p>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</p>
-</blockquote>
-
-<p>Source : <a href="https://www.typescriptlang.org/">https://www.typescriptlang.org/</a></p>
-
-<p>Ce langage de programmation, bien que son adoption parmi les développeurs JS explose, s’est avéré une complète nouveauté dans l’équipe. Il peut être tentant d’écrire des <code class="language-plaintext highlighter-rouge">any</code> partout, ou de supprimer le <code class="language-plaintext highlighter-rouge">strict mode</code>…</p>
-
-<blockquote>
-  <p><strong>Solution adoptée</strong></p>
-
-  <p>Nous avons décidé d’intégrer TS progressivement sans se mettre trop de pression quant à l’intégralité du typage de nos applications. Typescript permet justement cette intégration progressive aux projets.</p>
-
-  <p>Un très gros progrès a aussi été réalisé grâce à la génération automatique des types TS à partir de l’API (grâce à l’<em>introspection system</em> de GraphQL). Les données reçues du backend se voyaient alors avoir une structure directement exploitable dans le frontend.</p>
-</blockquote>
-
-<h2 id="suppression-précipitée-de-librairies-obsolètes">Suppression précipitée de librairies obsolètes</h2>
-
-<p>Lors du découpage des étapes de migration, une problématique est apparue. Par exemple, si nous souhaitons migrer de <code class="language-plaintext highlighter-rouge">vuex</code> vers <code class="language-plaintext highlighter-rouge">pinia</code> dans un second temps, comment faire pour que l’application reste fonctionnelle avec <code class="language-plaintext highlighter-rouge">vuex</code> dans le premier temps ?</p>
-
-<blockquote>
-  <p><strong>Solution adoptée</strong></p>
-
-  <p>Nous avons décidé de conserver certaines librairies, le temps de la migration des applications. Il peut être tentant de vouloir supprimer immédiatement ce qui nous semble obsolète, mais ces éléments ne seront vraiment obsolètes que lorsque toutes les applications seront migrées ; mais pas le temps qu’elles le soient.</p>
-</blockquote>
-
-<h2 id="non-anticipation-de-la-complexité-liée-à-certaines-dépendances">Non anticipation de la complexité liée à certaines dépendances</h2>
-
-<p>Bien que cet aspect n’était pas une surprise, certaines librairies ont apporté plus de difficultés que d’autres lors de la migration. Par exemple, l’intégration de Vue 3 et la Composition API impliquait la montée de version de <code class="language-plaintext highlighter-rouge">vee-validate</code>, un librairie de validation de formulaire. Il s’est avéré que l’implémentation imposée était radicalement différente de la version précédente (compatible avec Vue 2 et l’Options API), moins intuitive et plus complexe.</p>
-
-<blockquote>
-  <p><strong>Solution adoptée</strong></p>
-
-  <p>Ce cas de figure n’est pas vraiment impressionnant car nous nous y attendions. Nous avons décidé dans un premier temps d’effectuer une certaine veille technique, afin de remettre en cause le choix initial de cette librairie. Il s’est avéré que nous l’avons conservée, ce qui amenait dans un second temps une montée en compétence quant à l’utilisation de celle-ci, en vue de son intégration.</p>
-</blockquote>
-
-<h2 id="entretien-des-applications-legacy-en-même-temps">Entretien des applications legacy en même temps</h2>
-
-<p>Une application donnée pouvait se retrouver d’une part en cours de migration, et d’autre part devoir recevoir une évolution ou une correction d’anomalie.</p>
-
-<blockquote>
-  <p><strong>Solution adoptée</strong></p>
-
-  <p>Le choix et l’ordre des applications à migrer a été choisi en fonction des priorités en cours. Nous avons choisi de migrer en premier les applications qui ne subissaient que très peu de modifications. Par la suite, et encore aujourd’hui, nous livrons en production rapidement chaque application migrée, afin de ne pas avoir à maintenir plusieurs versions en même temps (la version legacy étant tout de même conservée le temps de s’assurer que la version moderne tourne correctement en production auprès des clients). Dans les très rares cas où une application en cours de migration devait recevoir une évolution ou une correction d’anomalie, nous la traitions dans les 2 versions.</p>
-</blockquote>
-
-<h1 id="autres-avantages">Autres avantages</h1>
-
-<h2 id="uniformisation-des-technologies-au-sein-de-la-société">Uniformisation des technologies au sein de la société</h2>
-
-<p>Au sein de Bedrock, le back-office n’est pas la seule application. Il existe aussi des applications frontend sur les mêmes technologies pour adresser l’écran web ou les télévisions connectées. Bien que le framework utilisé pour celles-ci soit React.js et non Vue.js, l’outillage peut être uniformisé entre les projets et les équipes. La migration a permis de préparer le terrain pour mettre en place ces outils : TypeScript, PNPM, etc.</p>
-
-<h2 id="attractivité-et-rétention-des-développeurs">Attractivité et rétention des développeurs</h2>
-
-<p>Cette migration générale permet de mettre en place une stack résolument plus moderne et d’utiliser des outils et technologies plus récents. N’est-ce pas là un argument fort pour attirer des nouveaux développeurs et retenir ceux déjà en place ? Dans l’équipe, plusieurs personnes ont émis des doutes sur leur volonté de rester dans la société si la décision de migrer, et donc d’intégrer des technologies plus à jour, n’avait pas été prise. En date de début 2023, il fait peu de doutes que les projets en Vue 3 sont plus attractifs que les projets en Vue 2…</p>
-
-<h1 id="conclusion">Conclusion</h1>
-
-<p>En fin de compte, cette approche progressive et incrémentale, toujours en cours, permet de maintenir dans un répertoire bien défini une stack récente dont les mises à jour sont simples car petites. Par exemple, nous avons récemment migré de Node.js 16 vers Node.js 18… en quelques jours !</p>
-
-<p>Cette grande aventure, toujours en cours, nous a permis de vraiment prendre conscience qu’il faut entretenir certes les applications mais aussi les versions des frameworks et outils ! Utiliser un nouvel outil ou une nouvelle technologie est un choix fort qu’il faut être capable d’assumer dans le temps.</p>
-
-<p>Il peut paraitre frustrant d’entretenir des outils, sans gagner en performance ni en productivité mais seulement pour ne pas devenir obsolète. Mettre l’accent sur ces points, tout en sachant bien jauger jusqu’où doivent aller ces upgrades, est la marque d’un certain professionnalisme.</p>
-
-<p>Il est vrai que dans l’immédiat, la valeur ajoutée pour le client est modérée : les gains restent très techniques, notamment en termes de stabilité et de performances. Ce n’est que plus tard que les gains se feront concrètement sentir : plus d’efficacité et de productivité pour les évolutions, et plus de fiabilité.</p>
-
-<p>Il est aussi important de savoir reconnaitre qu’une technologie utilisée (parfois avec fierté à ses débuts) est devenue obsolète, et qu’il faut s’en débarrasser pendant qu’il est encore temps.</p>
-
-  </section>
-
-   <!-- Tag list -->
-  
-  
-
-
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tags</li>
-      
-
-      
-        <li><a class="button" href="/tags/#backend">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#culture">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#frontend">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#platform">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags/#testing">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p>
-        </a></li>
-      
-    </ul>
-  </div>
-
-
-
-</article>
-
-<!-- Post navigation -->
-
-<div id="post-nav">
-    
-    <div id="previous-post">
-        <a alt="Retour Conférence Vue Amsterdam 2023" href="/2023/03/31/retour-vue-amsterdam-2023.html">
-            <p>Previous post</p>
-            Retour Conférence Vue Amsterdam 2023
-        </a>
-    </div>
-    
-
-    
-    <div id="next-post">
-        <a alt="La gamification contre le legacy" href="/2023/03/20/La-gamification-contre-le-legacy.html">
-            <p>Next post</p>
-            La gamification contre le legacy
-        </a>
-    </div>
-    
-</div>
-
-
-
-<style>
-  header#main {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-  }
-
-  
-</style>
-
-    </div>
-    <footer class="site-footer">
-    <p class="text">
-        Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-</p>
-            <div class="footer-icons">
-                <ul>
-                <!-- Social icons from Font Awesome, if enabled -->
-                
-<li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed"
-       target="_blank">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
 </li>
-
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://github.com/BedrockStreaming"
-               title="Follow on Github"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.linkedin.com/company/bedrock-streaming"
-               title="Follow on Linkedin"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://twitter.com/Bedrock_Tech"
-               title="Follow on Twitter"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-    
-
-    
-
-    
-
-    
-        
-        
-        
-        
-        <li>
-            <a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw"
-               title="Follow on Youtube"
-               target="_blank"
-               rel="noopener">
-            <span class="fa-stack fa-lg">
-              <i class="fas fa-circle fa-stack-2x"></i>
-              <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
-            </span>
-            </a>
-        </li>
-    
-
-
-                </ul>
-            </div>
-</footer>
-
-
-
-  </body>
-</html>
+<li><a href="#difficult%C3%A9s-rencontr%C3%A9es" id="markdown-toc-difficultés-rencontrées">Difficultés rencontrées</a>
+<ul>
+<li><a href="#non-d%C3%A9coupage-des-%C3%A9tapes-de-migration" id="markdown-toc-non-découpage-des-étapes-de-migration">Non découpage des étapes de migration</a></li>
+<li><a href="#m%C3%A9connaissance-de-typescript" id="markdown-toc-méconnaissance-de-typescript">Méconnaissance de Typescript</a></li>
+<li><a href="#suppression-pr%C3%A9cipit%C3%A9e-de-librairies-obsol%C3%A8tes" id="markdown-toc-suppression-précipitée-de-librairies-obsolètes">Suppression précipitée de librairies obsolètes</a></li>
+<li><a href="#non-anticipation-de-la-complexit%C3%A9-li%C3%A9e-%C3%A0-certaines-d%C3%A9pendances" id="markdown-toc-non-anticipation-de-la-complexité-liée-à-certaines-dépendances">Non anticipation de la complexité liée à certaines dépendances</a></li>
+<li><a href="#entretien-des-applications-legacy-en-m%C3%AAme-temps" id="markdown-toc-entretien-des-applications-legacy-en-même-temps">Entretien des applications legacy en même temps</a></li>
+</ul>
+</li>
+<li><a href="#autres-avantages" id="markdown-toc-autres-avantages">Autres avantages</a>
+<ul>
+<li><a href="#uniformisation-des-technologies-au-sein-de-la-soci%C3%A9t%C3%A9" id="markdown-toc-uniformisation-des-technologies-au-sein-de-la-société">Uniformisation des technologies au sein de la société</a></li>
+<li><a href="#attractivit%C3%A9-et-r%C3%A9tention-des-d%C3%A9veloppeurs" id="markdown-toc-attractivité-et-rétention-des-développeurs">Attractivité et rétention des développeurs</a></li>
+</ul>
+</li>
+<li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+<h1 id="contexte-général-et-fonctionnel">Contexte général et fonctionnel</h1>
+<p>Bedrock streaming est une co-entreprise (joint-venture) créée en 2020 par M6 Group et RTL Group, permettant à 7 diffuseurs et sociétés de médias dans 5 pays d’Europe de divertir 45 millions d’utilisateurs chaque jour, sur tous les écrans.</p>
+<p>Pour gérer tous leurs utilisateurs ainsi que leurs contenus, notamment vidéos, les clients de Bedrock Streaming accèdent chacun à une constellation d’applications au sein d’un back-office centralisé (appelé BO par la suite).</p>
+<h1 id="contexte-technique">Contexte technique</h1>
+<p>De part sa conception initiale, le BO est une application monorepo. Elle fournit (à elle-même donc), des données via une API Symfony 4 (PHP 7.4), consommées uniquement par :</p>
+<ul>
+<li>des applications Vue.js 1 et Vue.js 2 gérées par la team backend (qui historiquement maintient le frontend de quelques applications) ;</li>
+<li>des applications Vue.js 2 gérées par la team frontend.</li>
+</ul>
+<p>Le tout, dans un environnement <a href="https://github.com/nodejs/Release/blob/main/schedule.json#L50">Node.js 10</a>.</p>
+<h1 id="objectif">Objectif</h1>
+<p>Node.js 10 est arrivé en fin de vie le 30 avril 2021. Il n’est donc plus maintenu, que ce soit en terme de fonctionnalités ou en terme de sécurité. Naturellement, toutes les dépendances JS migrent progressivement vers un support des versions de Node.js supérieures, et abandonnent le support de cette version 10 devenue obsolète.</p>
+<p>Il s’agit donc de migrer la version de Node.js vers une version supérieure, dans l’idéal LTS afin de se prémunir d’une obsolescence prématurée. Dans un premier temps, Node.js 12.</p>
+<p>Voici plusieurs raisons qui poussent à migrer Node.js :</p>
+<ul>
+<li>Nouvelles fonctionnalités (e.g. nouvelle implémentation pour l’ES6 Module Support expérimental, source : <a href="https://nodejs.medium.com/announcing-a-new-experimental-modules-1be8d2d6c2ff">https://nodejs.medium.com/announcing-a-new-experimental-modules-1be8d2d6c2ff</a> ) ;</li>
+<li>Abandon de fonctionnalités défaillantes (e.g. via dépréciation) ;</li>
+<li>Performance (e.g. mise à jour de V8 engine, source : <a href="https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f">https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f</a> ) ;</li>
+<li>Sécurité (e.g. mise à jour de TLS, source : <a href="https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f">https://nodejs.medium.com/introducing-node-js-12-76c41a1b3f3f</a> ) ;</li>
+<li>Évolutions des dépendances externes. (e.g. Cypress qui abandonne les versions de Node.js non maintenues et qui requiert Node.js 14, 16 ou 18+, source : <a href="https://docs.cypress.io/guides/references/changelog#12-0-0">https://docs.cypress.io/guides/references/changelog#12-0-0</a>).</li>
+</ul>
+<h1 id="une-première-stratégie-problématique--la-méthode-rhinocéros-">Une première stratégie problématique : la méthode “rhinocéros” 🦏</h1>
+<p>La décision a été prise de migrer le repository de Node.js 10 vers Node.js 12 en début d’année 2021.</p>
+<p>Empiriquement, cette méthode a montré plusieurs limites :</p>
+<ul>
+<li>même si la compilation semblait bien se dérouler, des erreurs apparaissaient au moment de l’affichage de l’UI ➡ Il semblait donc nécessaire de parcourir l’intégralité des écrans afin de déceler toutes les anomalies possibles ➡ Le travail de la QA était alors conséquent ;</li>
+<li>même lorsqu’une anomalie est corrigée, une nouvelle peut apparaitre ➡ Il fallait re-parcourir les écrans concernés (par exemple, après avoir corrigé une anomalie qui empêche l’apparition d’une modale, de nouvelles anomalies peuvent être décelées au niveau des fonctionnalités que permet cette modale) ➡ Le travail de la QA augmentait de façon exponentielle au fil des corrections d’anomalies ;</li>
+<li>des dizaines voire centaines de dépendances dans le projet étaient dépendantes de Node.js 10 sans être encore compatibles avec Node.js 12 ➡ Il s’agissait donc de faire le point sur celles-ci, pour trouver des équivalents compatibles.</li>
+</ul>
+<p>Après plusieurs mois, bien que bon nombre d’anomalies avaient pu être corrigées, la situation stagnait et la fin ne semblait pas plus proche qu’au début.</p>
+<p>Les raisons de l’échec :</p>
+<ul>
+<li>L’ancienneté de certaines applications. Certaines d’entre elles avaient plus de 8 ans d’existence. En n’ayant subi que quelques corrections seulement. Les connaissances fonctionnelles et techniques s’étaient donc estompées naturellement, en raison d’une absence de documentation (autant fonctionnelle que technique). Il s’agit là des dettes fonctionnelle et technique. Lorsqu’elles sont là, elles sont relativement simples à identifier. Mais c’est déjà trop tard… ;</li>
+<li>L’absence de mise à jour des technologies. Certaines technologies devenues obsolètes (<code>jQuery 1.9</code>, <code>Vue.js 1</code>, <code>Bootstrap 2.3</code>) imposait non plus un refactor lié à une migration, mais une véritable refonte ;</li>
+<li>L’absence de tests. La couverture de tests était alors faible voire nulle. Migrer sans régression relevait alors d’une chance non maitrisable ;</li>
+<li>La façon dont la migration a été lancée était trop téméraire : c’est la méthode rhinocéros.
+<ul>
+<li>création d’une nouvelle branche (et d’une PR pour cette branche)</li>
+<li>suppression de Node.js 10 et installation de Node.js 12</li>
+<li>correction de toutes les anomalies qui apparaissent !</li>
+</ul>
+</li>
+</ul>
+<p>Ce fonctionnement peut marcher pour des périmètres techniques plus petits ou du moins dont les contours sont précisément marqués ;</p>
+<p>L’organisation en équipe devenait compliquée. Au fur et à mesure des découvertes des anomalies au sein d’une seule et unique PR, il devenait difficile de suivre tous les sujets, sans découpage précis et rigoureux.</p>
+<p>Face à cette situation, dont les développeurs et testeurs ne semblaient plus voir le bout, il a été décidé d’employer une autre stratégie.</p>
+<h1 id="la-stratégie-gagnante--une-migration-progressive-">La stratégie gagnante : une migration progressive 📶</h1>
+<p>De part un essoufflement des développeurs et une nouvelle énergie insufflée par des départs et arrivées dans l’équipe, une nouvelle stratégie a émergé. Face à l’échec de la première, il a été proposé plus simplement de partir sur des bases saines, afin de migrer les applications sur des fondations plus solides car maitrisées.</p>
+<p>Plus techniquement, cela s’est traduit par :</p>
+<ol>
+<li>Création d’un nouveau répertoire <code>modern-apps/</code> dans le monorepo.</li>
+<li>Mise en place d’une architecture basée sur Node.js 16 (Oui oui, Node.js 16 directement ! Il s’agissait de la version LTS en cours en date de début 2022.) dans ce répertoire seulement.</li>
+<li>Migration des applications du BO, une par une, vers une stack plus moderne. En date de début 2023, cette migration est toujours en cours.</li>
+</ol>
+<h2 id="motivation">Motivation</h2>
+<p>La motivation était principalement portée par :</p>
+<ul>
+<li>une volonté forte d’abandonner des outils et technologies vieillissantes voire obsolètes ;</li>
+<li>une pression engendrée par l’évolution rapide des technologies :
+<ul>
+<li>Node.js sort une version LTS tous les ans ;</li>
+<li>Vue.js 3 venait de sortir et l’effort des développeurs du framework allait se porter plutôt sur cette version que sur la version 2.</li>
+</ul>
+</li>
+<li>une pression engendrée par les autres équipes de la société qui, elles, étaient à jour (pour certaines), dont celle qui proposait des outils JS et TS dont l’équipe pourrait avoir l’usage, comme par exemple une librairie de configuration pour <code>eslint</code> couplé à <code>vue</code> ;</li>
+<li>une excitation liée à l’utilisation d’une stack récente et de <em>cutting-edge tools</em>.</li>
+</ul>
+<h2 id="plan-daction">Plan d’action</h2>
+<p>Cette page blanche a nécessité un plan d’action que voici :</p>
+<ol>
+<li>Création d’une application simplissime en guise de PoC, afin de montrer la viabilité d’un travail sous Node.js 16 dans une sous-partie du projet en parallèle d’un travail toujours actif sous Node.js 10 dans le reste du projet.</li>
+<li>Mise en place d’une certaines DX vis-à-vis des linters et formatters notamment (ainsi que d’extensions d’IDE), par l’application de règles simples mais strictes, qui évitent aux développeurs les tâches sans plus-value, comme ajuster manuellement l’indentation ou ajouter les points-virgules.</li>
+<li>Migration des librairies internes au monorepo.</li>
+<li>Migration du design system, ainsi que des outils afférents (Storybook).</li>
+<li>Migration d’une première application, la plus simple possible. L’objectif était alors de se rendre compte très concrètement des étapes de migration d’une application, afin d’en tirer une documentation exploitable pour les futures applications. Il en est ressorti que la majeure partie du travail consistait à refactor le code avec les nouvelles technologies choisies, en l’occurrence :
+<ol>
+<li><code>Vue.js 3</code> et sa <code>Composition API</code> (framework JS),</li>
+<li><code>Vite</code> (serveur de dev et de build),</li>
+<li><code>Pinia</code> (global state management),</li>
+<li><code>Vitest</code> (framework de test unitaire),</li>
+<li><code>Cypress</code> dans ses dernières versions (framework de test end-to-end)</li>
+<li>aussi et surtout <code>Typescript</code> (langage de programmation, sur-couche à JS).</li>
+</ol>
+</li>
+<li>Migration du processus de build et d’intégration aux templates backend (via notamment une extension Twig implémentée par nos soins, <code>ViteAppExtension.php</code>)</li>
+<li>Mise en place d’une CI pour ces nouvelles applications, calquée sur celle des anciennes applications : linting, tests pour celles qui en avaient, déploiement en preview, etc.</li>
+</ol>
+<p>En quelques mois seulement, il a été possible d’obtenir un résultat concret. Le répertoire <code>modern-apps/</code> a été initié en février 2022, et dès avril de la même année, une première application migrée était livrée en production. Et cela, avec un seul développeur à plein temps sur le sujet.</p>
+<h1 id="difficultés-rencontrées">Difficultés rencontrées</h1>
+<p>Cette seconde stratégie n’a bien sûr pas été sans encombre. Voici les principales difficultés rencontrées, dont l’équipe a su se prémunir au fil du temps.</p>
+<h2 id="non-découpage-des-étapes-de-migration">Non découpage des étapes de migration</h2>
+<p>Lors de la migration d’une des premières applications dont la complexité était légèrement supérieure aux précédentes, nous nous sommes retrouvés embourbés dans une multitude de bugs techniques et fonctionnels. En effet, migrer implique plusieurs changements qui n’ont pas nécessairement de rapport les uns avec les autres :</p>
+<ul>
+<li>ajouter des types TS</li>
+<li>migrer la librairie de Global State Management de <code>vuex</code> vers <code>pinia</code></li>
+<li>migrer la Global API de Vue (de <code>new Vue()</code> vers <code>createApp()</code>)</li>
+<li>migrer de l’<code>Options API</code> vers la <code>Composition API</code> de Vue</li>
+<li>etc.</li>
+</ul>
+<p>Si tous ces changements sont opérés en même temps, comment réagir lors de l’apparition d’une anomalie ? Comment traquer efficacement cette anomalie ?</p>
+<blockquote>
+<p><strong>Solution adoptée</strong></p>
+<p>Nous avons décidé de découper plus finement nos développements. Une PR doit concerner un périmètre réduit et bien défini. Par exemple, la PR de migration de la librairie de Global State Management ne doit comporter que des modifications à ce sujet, et doit fournir une application fonctionnelle dont les tests passent.</p>
+</blockquote>
+<h2 id="méconnaissance-de-typescript">Méconnaissance de Typescript</h2>
+<blockquote>
+<p>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</p>
+</blockquote>
+<p>Source : <a href="https://www.typescriptlang.org/">https://www.typescriptlang.org/</a></p>
+<p>Ce langage de programmation, bien que son adoption parmi les développeurs JS explose, s’est avéré une complète nouveauté dans l’équipe. Il peut être tentant d’écrire des <code>any</code> partout, ou de supprimer le <code>strict mode</code>…</p>
+<blockquote>
+<p><strong>Solution adoptée</strong></p>
+<p>Nous avons décidé d’intégrer TS progressivement sans se mettre trop de pression quant à l’intégralité du typage de nos applications. Typescript permet justement cette intégration progressive aux projets.</p>
+<p>Un très gros progrès a aussi été réalisé grâce à la génération automatique des types TS à partir de l’API (grâce à l’<em>introspection system</em> de GraphQL). Les données reçues du backend se voyaient alors avoir une structure directement exploitable dans le frontend.</p>
+</blockquote>
+<h2 id="suppression-précipitée-de-librairies-obsolètes">Suppression précipitée de librairies obsolètes</h2>
+<p>Lors du découpage des étapes de migration, une problématique est apparue. Par exemple, si nous souhaitons migrer de <code>vuex</code> vers <code>pinia</code> dans un second temps, comment faire pour que l’application reste fonctionnelle avec <code>vuex</code> dans le premier temps ?</p>
+<blockquote>
+<p><strong>Solution adoptée</strong></p>
+<p>Nous avons décidé de conserver certaines librairies, le temps de la migration des applications. Il peut être tentant de vouloir supprimer immédiatement ce qui nous semble obsolète, mais ces éléments ne seront vraiment obsolètes que lorsque toutes les applications seront migrées ; mais pas le temps qu’elles le soient.</p>
+</blockquote>
+<h2 id="non-anticipation-de-la-complexité-liée-à-certaines-dépendances">Non anticipation de la complexité liée à certaines dépendances</h2>
+<p>Bien que cet aspect n’était pas une surprise, certaines librairies ont apporté plus de difficultés que d’autres lors de la migration. Par exemple, l’intégration de Vue 3 et la Composition API impliquait la montée de version de <code>vee-validate</code>, un librairie de validation de formulaire. Il s’est avéré que l’implémentation imposée était radicalement différente de la version précédente (compatible avec Vue 2 et l’Options API), moins intuitive et plus complexe.</p>
+<blockquote>
+<p><strong>Solution adoptée</strong></p>
+<p>Ce cas de figure n’est pas vraiment impressionnant car nous nous y attendions. Nous avons décidé dans un premier temps d’effectuer une certaine veille technique, afin de remettre en cause le choix initial de cette librairie. Il s’est avéré que nous l’avons conservée, ce qui amenait dans un second temps une montée en compétence quant à l’utilisation de celle-ci, en vue de son intégration.</p>
+</blockquote>
+<h2 id="entretien-des-applications-legacy-en-même-temps">Entretien des applications legacy en même temps</h2>
+<p>Une application donnée pouvait se retrouver d’une part en cours de migration, et d’autre part devoir recevoir une évolution ou une correction d’anomalie.</p>
+<blockquote>
+<p><strong>Solution adoptée</strong></p>
+<p>Le choix et l’ordre des applications à migrer a été choisi en fonction des priorités en cours. Nous avons choisi de migrer en premier les applications qui ne subissaient que très peu de modifications. Par la suite, et encore aujourd’hui, nous livrons en production rapidement chaque application migrée, afin de ne pas avoir à maintenir plusieurs versions en même temps (la version legacy étant tout de même conservée le temps de s’assurer que la version moderne tourne correctement en production auprès des clients). Dans les très rares cas où une application en cours de migration devait recevoir une évolution ou une correction d’anomalie, nous la traitions dans les 2 versions.</p>
+</blockquote>
+<h1 id="autres-avantages">Autres avantages</h1>
+<h2 id="uniformisation-des-technologies-au-sein-de-la-société">Uniformisation des technologies au sein de la société</h2>
+<p>Au sein de Bedrock, le back-office n’est pas la seule application. Il existe aussi des applications frontend sur les mêmes technologies pour adresser l’écran web ou les télévisions connectées. Bien que le framework utilisé pour celles-ci soit React.js et non Vue.js, l’outillage peut être uniformisé entre les projets et les équipes. La migration a permis de préparer le terrain pour mettre en place ces outils : TypeScript, PNPM, etc.</p>
+<h2 id="attractivité-et-rétention-des-développeurs">Attractivité et rétention des développeurs</h2>
+<p>Cette migration générale permet de mettre en place une stack résolument plus moderne et d’utiliser des outils et technologies plus récents. N’est-ce pas là un argument fort pour attirer des nouveaux développeurs et retenir ceux déjà en place ? Dans l’équipe, plusieurs personnes ont émis des doutes sur leur volonté de rester dans la société si la décision de migrer, et donc d’intégrer des technologies plus à jour, n’avait pas été prise. En date de début 2023, il fait peu de doutes que les projets en Vue 3 sont plus attractifs que les projets en Vue 2…</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>En fin de compte, cette approche progressive et incrémentale, toujours en cours, permet de maintenir dans un répertoire bien défini une stack récente dont les mises à jour sont simples car petites. Par exemple, nous avons récemment migré de Node.js 16 vers Node.js 18… en quelques jours !</p>
+<p>Cette grande aventure, toujours en cours, nous a permis de vraiment prendre conscience qu’il faut entretenir certes les applications mais aussi les versions des frameworks et outils ! Utiliser un nouvel outil ou une nouvelle technologie est un choix fort qu’il faut être capable d’assumer dans le temps.</p>
+<p>Il peut paraitre frustrant d’entretenir des outils, sans gagner en performance ni en productivité mais seulement pour ne pas devenir obsolète. Mettre l’accent sur ces points, tout en sachant bien jauger jusqu’où doivent aller ces upgrades, est la marque d’un certain professionnalisme.</p>
+<p>Il est vrai que dans l’immédiat, la valeur ajoutée pour le client est modérée : les gains restent très techniques, notamment en termes de stabilité et de performances. Ce n’est que plus tard que les gains se feront concrètement sentir : plus d’efficacité et de productivité pour les évolutions, et plus de fiabilité.</p>
+<p>Il est aussi important de savoir reconnaitre qu’une technologie utilisée (parfois avec fierté à ses débuts) est devenue obsolète, et qu’il faut s’en débarrasser pendant qu’il est encore temps.</p></section><div class="tag-list"><ul><li class="meta">Tags</li> <li><a class="button" href="/tags/#backend"><p><i class="fas fa-tag fa-fw fa-sm"></i> backend</p></a></li> <li><a class="button" href="/tags/#culture"><p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p></a></li> <li><a class="button" href="/tags/#frontend"><p><i class="fas fa-tag fa-fw fa-sm"></i> frontend</p></a></li> <li><a class="button" href="/tags/#platform"><p><i class="fas fa-tag fa-fw fa-sm"></i> platform</p></a></li> <li><a class="button" href="/tags/#testing"><p><i class="fas fa-tag fa-fw fa-sm"></i> testing</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2023/03/31/retour-vue-amsterdam-2023.html"><p>Previous post</p>Retour Conférence Vue Amsterdam 2023</a></div><div id="next-post"><a href="/2023/03/20/La-gamification-contre-le-legacy.html"><p>Next post</p>La gamification contre le legacy</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>
