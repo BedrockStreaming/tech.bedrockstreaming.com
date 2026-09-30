@@ -8,3 +8,6 @@ vagrant/.vagrant/
 .jekyll-cache
 .jekyll-metadata
 .idea/*
+
+astro/dist
+astro/.astro

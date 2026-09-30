@@ -1,0 +1,17 @@
+{
+  "name": "tech-bedrockstreaming-com",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "dependencies": {
+    "astro": "^7.3.5",
+    "yaml": "^2.9.1"
+  }
+}
