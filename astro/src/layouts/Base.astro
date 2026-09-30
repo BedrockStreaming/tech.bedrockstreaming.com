@@ -1,0 +1,173 @@
+---
+import '../styles/site.scss';
+import { absoluteUrl, isPreview, site } from '../lib/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  summary?: string;
+  language?: string;
+  image?: string;
+  largeImage?: boolean;
+  canonical?: string;
+  article?: { published: Date; author?: string };
+}
+
+const { title, description, summary, language = 'en', image, largeImage = false, canonical, article } = Astro.props;
+const pageTitle = title ? `${title} | ${site.title}` : site.title;
+const pageUrl = canonical ?? absoluteUrl(Astro.url.pathname);
+const imageUrl = absoluteUrl(image ?? site.headerImage);
+const locale = language === 'fr' ? 'fr_FR' : 'en_US';
+
+const menu = [
+  { title: 'Jobs', href: '/jobs/' },
+  { title: 'Last Friday Talks', href: '/lft/' },
+  { title: 'Meetups & Conferences', href: '/meetups/' },
+  { title: 'OSS', href: '/oss/' },
+  { title: 'Search', href: '/search/', icon: 'fa-search' },
+  { title: 'Topics', href: '/tags/', icon: 'fa-tags' },
+];
+
+const social = [
+  { title: 'Follow on Github', href: 'https://github.com/BedrockStreaming', icon: 'fab fa-github' },
+  { title: 'Follow on Linkedin', href: 'https://www.linkedin.com/company/bedrock-streaming', icon: 'fab fa-linkedin' },
+  { title: 'Follow on Twitter', href: 'https://twitter.com/Bedrock_Tech', icon: 'fab fa-twitter' },
+  { title: 'Follow on Youtube', href: 'https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw', icon: 'fab fa-youtube' },
+];
+
+const jsonLd = article && {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  author: article.author && { '@type': 'Person', name: article.author },
+  datePublished: article.published.toISOString(),
+  dateModified: article.published.toISOString(),
+  url: pageUrl,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+};
+---
+
+<!doctype html>
+<html lang={language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5" />
+
+    <script is:inline>
+      const isAutoTheme = true;
+      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+    </script>
+    <script is:inline>
+      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+    <script is:inline defer src="/assets/js/main.min.js"></script>
+    <link rel="shortcut icon" href={site.favicon} type="image/x-icon" />
+
+    {
+      !isPreview && (
+        <script is:inline>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script>
+      )
+    }
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description ?? site.description} />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:title" content={title ?? site.title} />
+    <meta property="og:description" content={description ?? site.description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    {article && <meta property="article:published_time" content={article.published.toISOString()} />}
+    {article?.author && <meta name="author" content={article.author} />}
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
+    <link rel="alternate" type="application/atom+xml" title={site.title} href={absoluteUrl('feed.xml')} />
+
+    <meta name="twitter:card" content={largeImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title ?? site.title} />
+    <meta name="twitter:description" content={summary || site.headerText} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={title ?? site.title} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="branding">
+        <a href="/"><img alt="logo img" class="avatar" src={site.avatar} /></a>
+        <a class="site-title" aria-label={site.title} href="/">{site.title}</a>
+      </div>
+      <nav class="clear">
+        <a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a>
+        <ul class="hide">
+          {
+            menu.map((item) => (
+              <>
+                <li class="separator"> | </li>
+                <li>
+                  <a class="clear" aria-label={item.title} title={item.title} href={item.href}>
+                    {item.icon ? <i class={`fas ${item.icon}`} aria-hidden="true" /> : item.title}
+                  </a>
+                </li>
+              </>
+            ))
+          }
+          <li class="separator"> | </li>
+          <li><a id="theme-toggle" title={title} aria-label={title} onclick="themeToggle()"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="content">
+      <slot />
+    </div>
+
+    <footer class="site-footer">
+      <p class="text">
+        Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+      </p>
+      <div class="footer-icons">
+        <ul>
+          <li>
+            <a href="/feed.xml" title="Follow RSS feed" target="_blank">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {
+            social.map((item) => (
+              <li>
+                <a href={item.href} title={item.title} target="_blank" rel="noopener">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x" />
+                    <i class={`${item.icon} fa-stack-1x fa-inverse`} />
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
