@@ -25,7 +25,7 @@ export default defineConfig({
   site: 'https://tech.bedrockstreaming.com',
   integrations: [copyStaticFolders],
   build: { format: 'preserve' },
-  markdown: { processor: unified(markdownOptions) },
+  markdown: { processor: unified(markdownOptions), shikiConfig: markdownOptions.shikiConfig },
   vite: {
     css: {
       // _sass/ is compiled unchanged: silence its deprecations and strip its old IE hacks (`*zoom`).

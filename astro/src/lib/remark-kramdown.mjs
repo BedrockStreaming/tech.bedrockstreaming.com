@@ -74,4 +74,8 @@ export default function remarkKramdown() {
 }
 
 // kramdown typography: "--" is an en dash and "---" an em dash.
-export const markdownOptions = { remarkPlugins: [remarkKramdown], smartypants: { dashes: 'oldschool' } };
+export const markdownOptions = {
+  remarkPlugins: [remarkKramdown],
+  smartypants: { dashes: 'oldschool' },
+  shikiConfig: { theme: 'css-variables' },
+};

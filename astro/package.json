@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pagefind --site dist --force-language fr",
     "preview": "astro preview"
   },
   "engines": {
@@ -17,6 +17,7 @@
     "yaml": "^2.9.1"
   },
   "devDependencies": {
+    "pagefind": "^1.5.2",
     "sass": "^1.105.0"
   }
 }

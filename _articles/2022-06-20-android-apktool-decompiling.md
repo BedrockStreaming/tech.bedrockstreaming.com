@@ -49,7 +49,6 @@ flowchart LR
     res[resource files] -- aapt --> resc[compiled resource files] --> packaging --> APK
     classDef transformed fill:#ff0000
     class transform transformed
-
     subgraph APK
     direction TB
     dex1[.dex] -.- dex2[.dex] -.- dex3[.dex] -.- dex4[.dex]
@@ -427,7 +426,6 @@ sequenceDiagram
     participant nr as OkHttp3Instrumentation
     participant okhttp as OkHttpClient
     participant server as Server Endpoint
-
     exo->>nr: body()
     nr->>okhttp: body()
     activate server
@@ -454,7 +452,6 @@ sequenceDiagram
     participant nr as OkHttp3Instrumentation
     participant okhttp as OkHttpClient
     participant server as Server Endpoint
-
     exo->>nr: body()
     nr->>okhttp: body()
     activate server

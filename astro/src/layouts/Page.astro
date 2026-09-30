@@ -3,19 +3,22 @@ import Base from './Base.astro';
 
 interface Props {
   title: string;
+  subtitle?: string;
   featureImage?: string;
-  frontmatter?: { title: string; featureImage?: string };
+  frontmatter?: { title: string; subtitle?: string; featureImage?: string };
 }
 
 // Markdown pages pass their front matter; .astro pages pass props.
-const { title, featureImage } = Astro.props.frontmatter ?? Astro.props;
+const { title, subtitle, featureImage } = Astro.props.frontmatter ?? Astro.props;
 ---
 
 <Base title={title}>
+  <slot name="head" slot="head" />
   <article class={featureImage ? 'feature-image' : undefined}>
     <header id="main" style={`background-image: url('${featureImage ?? ''}')`}>
       <div class="title-padder">
         <h1 id={encodeURIComponent(title).replace(/%20/g, '+')} class="title">{title}</h1>
+        {subtitle && <h2 class="subtitle">{subtitle}</h2>}
       </div>
     </header>
     <section class="post-content">
