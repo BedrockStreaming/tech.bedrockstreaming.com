@@ -4,7 +4,7 @@ import { unified } from '@astrojs/markdown-remark';
 import { defineConfig } from 'astro/config';
 import { markdownOptions } from './src/lib/remark-kramdown.mjs';
 
-const repoRoot = new URL('../', import.meta.url);
+const repoRoot = new URL('./', import.meta.url);
 
 // assets/ and images/ live at the repository root; Articles link to them by absolute URL.
 const copyStaticFolders = {

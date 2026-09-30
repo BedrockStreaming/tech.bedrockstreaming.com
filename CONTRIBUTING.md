@@ -1,6 +1,6 @@
 # Contributing
 
-The blog is built with [Astro](https://astro.build/). The Astro project lives in the `astro/` folder, while the content stays at the root of the repository:
+The blog is built with [Astro](https://astro.build/). The Astro project is at the root of the repository, and the content lives in these folders:
 
 - `_articles/`: the Articles, one Markdown file each.
 - `_talks/`: the Talks (Last Friday Talks, meetups and conferences), one Markdown file each.
@@ -15,13 +15,13 @@ You need [Node.js](https://nodejs.org/) 22.12 or later (the CI and the previews 
 ```shell
 git clone https://github.com/BedrockStreaming/tech.bedrockstreaming.com.git
 cd tech.bedrockstreaming.com
-npm --prefix astro ci
+npm ci
 ```
 
 Then run this command to start a dev server with live reload:
 
 ```shell
-npm --prefix astro run dev
+npm run dev
 ```
 
 Open your browser on `http://localhost:4321` to see the blog.
@@ -29,16 +29,16 @@ Open your browser on `http://localhost:4321` to see the blog.
 :warning: The dev server does not serve `images/` and `assets/`: they are only copied when the site is built. To check your images, build the site and serve the result:
 
 ```shell
-npm --prefix astro run build
-npm --prefix astro run preview
+npm run build
+npm run preview
 ```
 
-The built site is written to `astro/dist`.
+The built site is written to `dist`.
 
 Entries dated in the future are hidden. To show them, as the pull request previews do, set `SITE_PREVIEW=true`:
 
 ```shell
-SITE_PREVIEW=true npm --prefix astro run dev
+SITE_PREVIEW=true npm run dev
 ```
 
 ## How to add an article to the blog?
