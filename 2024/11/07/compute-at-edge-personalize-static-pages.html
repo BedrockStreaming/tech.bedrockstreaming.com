@@ -386,19 +386,15 @@ flowchart LR
     user1[User 1]
     user2[User 2]
     user3[User 3]
-
     user1 --&gt; bff
     user2 --&gt; bff
     user3 --&gt; bff
-
     bff((BFF))
-
     bff --&gt; api1
     bff --&gt; api2
     bff --&gt; api3
     bff --&gt; api4
     bff --&gt; api5
-
     api1[API-1]
     api2[API-2]
     api3[API-3]
@@ -440,28 +436,21 @@ flowchart LR
     user1[User 1]
     user2[User 2]
     user3[User 3]
-
     subgraph In Front Of BFF
         new(NEW)
         datastore[(Datastore)]
-        
         new -.-&gt; datastore
     end
-
     user1 --&gt; new
     user2 --&gt; new
     user3 --&gt; new
-
     new -- cache --&gt; bff
-
     bff((BFF))
-
     bff --&gt; api1
     bff --&gt; api2
     bff --&gt; api3
     bff --&gt; api4
     bff --&gt; api5
-
     api1[API-1]
     api2[API-2]
     api3[API-3]
@@ -487,20 +476,15 @@ flowchart LR
 flowchart LR
     users[Users]
     users --&gt; fastlyVCL
-
     subgraph Fastly CDN
         fastlyVCL[Fastly<br />VCL]
-
         fastlyVCL -- /live --&gt; fastlyCompute
         fastlyCompute[Fastly<br />Compute]
-
         datastore[(Datastore)]
         fastlyCompute -.-&gt; datastore
     end
-
     fastlyVCL -- /* --&gt; bff
     fastlyCompute -- "read<br />(with cache)" --&gt; bff
-
     bff((BFF))
 </div>
 
@@ -533,7 +517,6 @@ flowchart LR
         ddb2 -- DDB<br />Stream --&gt; lambda2
         lambda2(Lambda)
     end
-
     subgraph "API-4 (AWS)"
         api4[API-4]
         ddb4[(DynamoDB)]
@@ -541,10 +524,8 @@ flowchart LR
         ddb4 -- DDB<br />Stream --&gt; lambda4
         lambda4(Lambda)
     end
-
     lambda2 --&gt; datastore
     lambda4 --&gt; datastore
-
     subgraph "Fastly CDN"
         datastore[(Datastore)]
     end
@@ -568,22 +549,16 @@ flowchart LR
 flowchart LR
     users[Users]
     users --&gt; fastlyVCL
-
     subgraph Fastly CDN
         fastlyVCL[Fastly<br />VCL]
-
         fastlyVCL -- /live --&gt; fastlyCompute
         fastlyCompute[Fastly<br />Compute]
-
         datastore[(Datastore)]
         fastlyCompute -.-&gt; datastore
     end
-
     fastlyCompute -- "read<br />(with cache)" --&gt; s3
     s3[(S3 Bucket)]
-
     fastlyVCL -- /* --&gt; bff
-    
     bff((BFF))
     bff -- "Generate static<br />files every X minutes" --&gt; s3
 </div>
