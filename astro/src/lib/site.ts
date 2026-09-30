@@ -1,4 +1,6 @@
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { markdownOptions } from './remark-kramdown.mjs';
 
 export const site = {
   title: 'Bedrock Tech Blog',
@@ -20,11 +22,11 @@ export interface Author {
   url?: string;
 }
 
-// Oldest first, like a Jekyll collection sorted by date.
+// Oldest first, like a Jekyll collection sorted by date; same-day entries in byte order of their file name.
 export async function published<C extends 'articles' | 'talks'>(collection: C) {
   const now = new Date();
   const entries = await getCollection(collection, (entry) => isPreview || entry.data.date <= now);
-  return entries.sort((a, b) => a.data.date.getTime() - b.data.date.getTime() || a.id.localeCompare(b.id));
+  return entries.sort((a, b) => a.data.date.getTime() - b.data.date.getTime() || ((a.filePath ?? '') < (b.filePath ?? '') ? -1 : 1));
 }
 
 export function url(permalink: string) {
@@ -35,7 +37,7 @@ export function absoluteUrl(path: string) {
   return new URL(url(path), 'https://tech.bedrockstreaming.com').href;
 }
 
-// With build.format 'file', slug "a/b" is written to a/b.html: what Jekyll writes for both "a/b" and "a/b.html".
+// With build.format 'preserve', slug "a/b" is written to a/b.html: what Jekyll writes for both "a/b" and "a/b.html".
 export function outputSlug(permalink: string) {
   return permalink.replace(/^\//, '').replace(/\.html$/, '');
 }
@@ -57,4 +59,25 @@ export function plainText(html: string, length: number) {
 export function formatDate(date: Date) {
   const month = date.toLocaleString('en-US', { month: 'long', timeZone: 'UTC' });
   return `${month} ${String(date.getUTCDate()).padStart(2, '0')}, ${date.getUTCFullYear()}`;
+}
+
+const markdown = createMarkdownProcessor(markdownOptions);
+
+// Jekyll's excerpt: the front matter `excerpt`, or the Markdown before the separator with the document's
+// link and footnote definitions appended, rendered.
+export async function excerpt(entry: CollectionEntry<'articles'>) {
+  if (entry.data.excerpt) return entry.data.excerpt;
+  const [head, ...rest] = (entry.body ?? '').trimStart().split(entry.data.excerpt_separator ?? '\n\n');
+  const definitions = rest.join('\n\n').match(/^ {0,3}\[[^\]]+\]:.+$/gm) ?? [];
+  return (await (await markdown).render([head, definitions.join('\n')].join('\n\n'))).code;
+}
+
+export const articlesPerPage = 10;
+
+// Newest first, 10 per page: page 1 is the homepage, later pages are /blog/pageN/.
+export async function articlePages() {
+  const articles = (await published('articles')).reverse();
+  const pages = [];
+  for (let start = 0; start < articles.length; start += articlesPerPage) pages.push(articles.slice(start, start + articlesPerPage));
+  return pages;
 }

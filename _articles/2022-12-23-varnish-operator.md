@@ -26,6 +26,7 @@ This is ideal if applications are mostly called from the outside world. The Varn
 <center><img alt="historically-before-2018" src="/images/posts/2022-12-23-varnish-operator/image2.png"></center>
 
 <br>
+
 In 2023, we think otherwise. We have now a [KOps](https://kops.sigs.k8s.io/) managed Kubernetes cluster running on EC2 spot instances in private subnets at AWS. As we migrated to the cloud we also embarked on the journey of splitting monolith into smaller more manageable microservices.
 
 With less monoliths the Bedrock product is more resilient and easier to scale but it changes the topologies of network calls. Before there were far more calls coming from the internet from end-users browsers. Now with the new architecture coming into place inter-app requests have increased.

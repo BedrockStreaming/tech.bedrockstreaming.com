@@ -3,9 +3,12 @@ $ssp-font-path: "/assets/fonts/roboto";
 $pacifico-font-path: "/assets/fonts/Pacifico";
 @import "../../../_sass/type-on-strap";
 
-// From the <style> block of the Jekyll post, video, and conference layouts.
-header#main {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+// GFM footnotes add a "Footnotes" heading for screen readers only.
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }

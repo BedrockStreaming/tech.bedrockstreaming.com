@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import TalkCards from '../../components/TalkCards.astro';
+import Page from '../../layouts/Page.astro';
+import { published, url } from '../../lib/site';
+
+const talks = (await published('talks')).filter((talk) => talk.data.eventName !== 'Last Friday Talks').reverse();
+const authors = new Map((await getCollection('authors')).map((a) => [a.id, a.data]));
+
+// Grouped by year, then by event, in order of first appearance, like Jekyll's group_by_exp.
+const groupBy = <T,>(items: T[], key: (item: T) => string) => {
+  const groups = new Map<string, T[]>();
+  for (const item of items) groups.set(key(item), [...(groups.get(key(item)) ?? []), item]);
+  return [...groups];
+};
+const years = groupBy(talks, (talk) => String(talk.data.date.getUTCFullYear())).map(
+  ([year, items]) => [year, groupBy(items, (talk) => talk.data.eventName)] as const,
+);
+const dayMonth = (date: Date) =>
+  `${String(date.getUTCDate()).padStart(2, '0')}/${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
+const speakers = (author: unknown) =>
+  (Array.isArray(author) ? author : [author]).map((id) => authors.get(id as string) ?? {});
+---
+
+<Page title="Meetups & Conferences" featureImage="/images/common/travel.jpg">
+  <main class="home">
+    <p>
+      Bedrock through its actions, sponsors events in France, hosts Meetup and conferences in its auditorium. Each of those events is an opportunity for Bedrock members to give conferences in France or abroad.
+    </p>
+    <p><em>⭐ sponsored by Bedrock</em> <em>🏠 hosted by Bedrock</em></p>
+
+    {
+      years.map(([year, events]) => (
+        <>
+          <h3>{year}</h3>
+          <ul>
+            {events.map(([eventName, items]) => {
+              const first = items[0].data;
+              return (
+                <li>
+                  {dayMonth(first.date)} : {first.eventUrl ? <a href={first.eventUrl} target="_blank">{eventName}</a> : eventName}
+                  {first.hosted && ' 🏠'}
+                  {first.sponsored && ' ⭐️'}
+                  <ul>
+                    {items.map((talk) => (
+                      <li>
+                        <a href={url(talk.data.permalink)}>{talk.data.title}</a> -{' '}
+                        {speakers(talk.data.author).map((speaker, index, all) => (
+                          <>
+                            {speaker.url ? <a href={speaker.url}>{speaker.name}</a> : speaker.name}
+                            {index < all.length - 1 && ', '}
+                          </>
+                        ))}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              );
+            })}
+          </ul>
+        </>
+      ))
+    }
+
+    <h2>Replays</h2>
+    <p>Here is the list of the replay of talks given during these events:</p>
+    <TalkCards talks={talks.filter((talk) => talk.data.youtubeId)} />
+  </main>
+</Page>

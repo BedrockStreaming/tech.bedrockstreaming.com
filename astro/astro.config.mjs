@@ -2,7 +2,7 @@ import { cpSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { unified } from '@astrojs/markdown-remark';
 import { defineConfig } from 'astro/config';
-import remarkKramdown from './src/lib/remark-kramdown.mjs';
+import { markdownOptions } from './src/lib/remark-kramdown.mjs';
 
 const repoRoot = new URL('../', import.meta.url);
 
@@ -24,8 +24,8 @@ const copyStaticFolders = {
 export default defineConfig({
   site: 'https://tech.bedrockstreaming.com',
   integrations: [copyStaticFolders],
-  build: { format: 'file' },
-  markdown: { processor: unified({ remarkPlugins: [remarkKramdown] }) },
+  build: { format: 'preserve' },
+  markdown: { processor: unified(markdownOptions) },
   vite: {
     css: {
       // _sass/ is compiled unchanged: silence its deprecations and strip its old IE hacks (`*zoom`).

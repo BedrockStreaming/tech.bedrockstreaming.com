@@ -69,4 +69,11 @@ const authors = defineCollection({
   }),
 });
 
-export const collections = { articles, talks, authors };
+const topicList = defineCollection({
+  loader: file('../_data/topics.yml', {
+    parser: (text) => Object.entries(parse(text)).map(([id, label]) => ({ id, label })),
+  }),
+  schema: z.object({ label: z.string() }),
+});
+
+export const collections = { articles, talks, authors, topics: topicList };

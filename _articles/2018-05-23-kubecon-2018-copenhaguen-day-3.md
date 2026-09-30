@@ -46,9 +46,9 @@ The talk finished with a few words about the [Chaos Toolkit](https://chaostoolki
 # Istio - The Weather Company's Journey - Nick Nellis & Fabio Oliveira, IBM
 
 Several istio talks weren't enough for me, I wanted more. I didn't learn much more on this new one, except those tips:
-*       You can define route specific retries with Istio
-*       They use vistio to visualize istio traffic. That tool seems based on Netflix's Vizceral. Unfortunately, I couldn't find any GH repo nor blog talking about vistio.
-*       If you want to implement Istio: start small
+* You can define route specific retries with Istio
+* They use vistio to visualize istio traffic. That tool seems based on Netflix's Vizceral. Unfortunately, I couldn't find any GH repo nor blog talking about vistio.
+* If you want to implement Istio: start small
 
 
 # Are You Ready to Be Edgy? — Bringing Cloud-Native Applications to the Edge of the Network - Megan O'Keefe & Steve Louie, Cisco

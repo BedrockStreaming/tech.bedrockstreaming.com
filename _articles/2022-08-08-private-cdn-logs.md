@@ -81,11 +81,13 @@ We have 2 different parts in this lambda stack.
 <center><img alt="Move Acess Logs" src="/images/posts/2022-08-08-privateCdnLogs/image3.png"></center>
 <center>source: <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/moveAccessLogs.png" target="blanck">moveAccessLogs</a></center>
 <br>
+
 The first part is called by S3 Event when a new file is pushed to a specific path. This lambda moves the file to a path assigned per server and per hour. This way, logs are stored for each server, each month, each day and each hour in a separate prefix.
 
 <center><img alt="Transform Partition" src="/images/posts/2022-08-08-privateCdnLogs/image2.png"></center>
 <center>source: <a href="https://github.com/aws-samples/amazon-cloudfront-access-logs-queries/blob/mainline/images/transformPartition.png" target="blank">transformPartition</a></center>
 <br>
+
 Then, another lambda transforms logs into [Parquet format](https://parquet.apache.org/). Parquet is an open source format from the Apache Foundation. It is commonly used in big data. It takes up little space and is very effective. 
 
 We chose to use AWS glue in order to create a database of our logs. The columns of the table are based on our log format. We can then request everything we want in Athena.

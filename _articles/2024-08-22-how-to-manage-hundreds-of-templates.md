@@ -32,6 +32,7 @@ We provide them with a **design system**: a set of visual assets they can use to
 
 Hereunder are some sample screens composed of design system components for different customers: 
 
+&nbsp; | &nbsp; | &nbsp;
 :-:|:-:|:-:  
 ![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-m6plus.png) | ![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-videoland.png) | ![](/images/posts/2024-08-22-how-to-manage-hundreds-of-templates/home-rtlhu.png)  
 

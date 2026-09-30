@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import PostInfo from '../../components/PostInfo.astro';
+import Page from '../../layouts/Page.astro';
+import { published, url } from '../../lib/site';
+
+const entries = [...(await published('articles')), ...(await published('talks'))];
+const labels = new Map((await getCollection('topics')).map((topic) => [topic.id, topic.data.label]));
+const topics = [...new Set(entries.flatMap((entry) => entry.data.topics))].sort();
+---
+
+<Page title="Topics">
+  <div class="home">
+    <div class="tag-list">
+      <ul>
+        <li class="meta">{topics.length === 1 ? 'Tag' : 'Tags'}</li>
+        {
+          topics.map((topic) => (
+            <>
+              {' '}
+              <li>
+                <a class="button" href={`/tags/#${topic}`}>
+                  <p><i class="fas fa-tag fa-fw fa-sm" /> {topic}</p>
+                </a>
+              </li>
+            </>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="posts">
+      {
+        topics.map((topic) => (
+          <>
+            <h3 id={topic} class="tag-anchor">
+              <a href={`#${topic}`}>
+                <i class="fas fa-tag fa-fw fa-sm" /> {labels.get(topic) ?? topic}
+              </a>
+              <a href="#Topics" style="float: right">
+                <i class="fas fa-chevron-up fa-lg" aria-hidden="true" />
+              </a>
+            </h3>
+            <div class="tag-posts">
+              {entries
+                .filter((entry) => entry.data.topics.includes(topic))
+                .map((entry) => (
+                  <h5 class="tag-title">
+                    <a href={url(entry.data.permalink)}>
+                      <i class="far fa-file-alt" aria-hidden="true" /> {entry.data.title}
+                    </a>
+                    <PostInfo date={entry.data.date} language={entry.data.language} />
+                  </h5>
+                ))}
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</Page>
