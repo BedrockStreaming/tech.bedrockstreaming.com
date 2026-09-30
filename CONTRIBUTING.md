@@ -2,11 +2,11 @@
 
 The blog is built with [Astro](https://astro.build/). The Astro project is at the root of the repository, and the content lives in these folders:
 
-- `_articles/`: the Articles, one Markdown file each.
-- `_talks/`: the Talks (Last Friday Talks, meetups and conferences), one Markdown file each.
-- `_data/authors.yml`: the Authors and Speakers.
-- `_data/topics.yml`: the closed list of Topics.
-- `images/` and `assets/`: static files, copied as is to the root of the site (`/images/...`, `/assets/...`).
+- `src/content/articles/`: the Articles, one Markdown file each.
+- `src/content/talks/`: the Talks (Last Friday Talks, meetups and conferences), one Markdown file each.
+- `src/data/authors.yml`: the Authors and Speakers.
+- `src/data/topics.yml`: the closed list of Topics.
+- `public/images/` and `public/assets/`: static files, copied as is to the root of the site (`/images/...`, `/assets/...`).
 
 ## How to run the blog locally?
 
@@ -26,7 +26,7 @@ npm run dev
 
 Open your browser on `http://localhost:4321` to see the blog.
 
-:warning: The dev server does not serve `images/` and `assets/`: they are only copied when the site is built. To check your images, build the site and serve the result:
+To check the production build, build the site and serve the result:
 
 ```shell
 npm run build
@@ -43,7 +43,7 @@ SITE_PREVIEW=true npm run dev
 
 ## How to add an article to the blog?
 
-All articles are listed in the `_articles` folder.
+All articles are listed in the `src/content/articles` folder.
 Each article is a Markdown file named like this `YYYY-MM-DD-article-slug.md` where date is the date of publication.
 Set `date` and `permalink` in the front matter: the publication date and the URL are not taken from the filename.
 
@@ -66,11 +66,11 @@ topics: [frontend]
 
 - `layout` must be `post`.
 - `language` is `fr` or `en`.
-- `author` is an author ID from `_data/authors.yml`, or a list of IDs: `[first_author, second_author]`.
-- `topics` is a list of keys of `_data/topics.yml`. It can be empty: `topics: []`.
+- `author` is an author ID from `src/data/authors.yml`, or a list of IDs: `[first_author, second_author]`.
+- `topics` is a list of keys of `src/data/topics.yml`. It can be empty: `topics: []`.
 - `permalink` is the URL of the article. By convention, use `/YYYY/MM/DD/article-slug.html`.
 
-The front matter is checked when the site is built: a missing required attribute, an unknown attribute, a misspelled attribute or a Topic that is not in `_data/topics.yml` makes the build fail with an explicit error.
+The front matter is checked when the site is built: a missing required attribute, an unknown attribute, a misspelled attribute or a Topic that is not in `src/data/topics.yml` makes the build fail with an explicit error.
 
 These optional attributes are also allowed:
 
@@ -97,7 +97,7 @@ To show more than the first paragraph, set `excerpt_separator: <!--more-->` and 
 
 ### Images
 
-Store the images of your article in `images/posts/YYYY-MM-DD-article-slug/` and link them with an absolute URL:
+Store the images of your article in `public/images/posts/YYYY-MM-DD-article-slug/` and link them with an absolute URL:
 
 ```markdown
 ![Description of the image](/images/posts/1970-01-01-article-slug/diagram.png)
@@ -159,7 +159,7 @@ Once merged on `master`, the site is built and deployed to GitHub Pages automati
 
 ## Add an author
 
-Edit `_data/authors.yml` to add an author (authors are sorted alphabetically). The key is the author ID, usually the first letter of the first name and the last name:
+Edit `src/data/authors.yml` to add an author (authors are sorted alphabetically). The key is the author ID, usually the first letter of the first name and the last name:
 
 ```yaml
 j_doe:
@@ -168,18 +168,18 @@ j_doe:
   url: https://www.linkedin.com/in/jane-doe/
 ```
 
-`name` is required. `avatar` (a distant file or an image hosted in the `images/avatar` directory) and `url` are optional.
+`name` is required. `avatar` (a distant file or an image hosted in the `public/images/avatar` directory) and `url` are optional.
 
 Then you will be able to use the author ID in the `author` key of the front matter of your articles and talks.
 
 ## Add a topic
 
-Topics are a small, closed list: prefer an existing topic from `_data/topics.yml`.
-If a new one is really needed, add it to `_data/topics.yml` as `key: Label`, then use the key in the `topics` of the front matter.
+Topics are a small, closed list: prefer an existing topic from `src/data/topics.yml`.
+If a new one is really needed, add it to `src/data/topics.yml` as `key: { label: Label }`, then use the key in the `topics` of the front matter.
 
 ## Add a LFT replay
 
-1. Create a file in the `_talks` folder named `YYYY-MM-DD-slug-of-your-talk.md`.
+1. Create a file in the `src/content/talks` folder named `YYYY-MM-DD-slug-of-your-talk.md`.
     Use the date the talk was first given in public.
 2. Add the configuration of metadata at the beginning of this file
     > :warning: **To make your video appear on the Last Friday Talks page, set `eventName: Last Friday Talks` and a `youtubeId`.**
@@ -193,13 +193,13 @@ If a new one is really needed, add it to `_data/topics.yml` as `key: Label`, the
     # Description (for SEO and context purpose)
     description: "Description of your talk visible in search engine results"
     # Speakers of the talk (can also be a list: [first_speaker, second_speaker])
-    # The complete list of valid author IDs is in `_data/authors.yml`
+    # The complete list of valid author IDs is in `src/data/authors.yml`
     author: speaker_of_your_talk
     language: fr
     eventName: Last Friday Talks
     date: 1970-01-01
     permalink: /1970/01/01/slug-of-your-talk.html
-    # Topics from _data/topics.yml
+    # Topics from src/data/topics.yml
     topics: [frontend]
     ---
     ```
@@ -215,7 +215,7 @@ If there is a `youtubeId` key, the video is also added to the "Replay" section.
 
 ### Publish information about the conference
 
-If you just want the talk listed, add a Markdown file in `_talks` named `YYYY-MM-DD-slug.md`. The body can be empty.
+If you just want the talk listed, add a Markdown file in `src/content/talks` named `YYYY-MM-DD-slug.md`. The body can be empty.
 
 ```markdown
 ---
@@ -235,7 +235,7 @@ That's all folks! Your conference will be displayed in "Meetups & Conferences" p
 
 ### Create a post to present the conference
 
-1. Create a file in the `_talks` folder named `YYYY-MM-DD-slug-of-your-talk.md`.
+1. Create a file in the `src/content/talks` folder named `YYYY-MM-DD-slug-of-your-talk.md`.
     Use the date the talk was first given in public.
 2. Add the configuration of metadata at the beginning of this file:
     ```markdown
@@ -246,7 +246,7 @@ That's all folks! Your conference will be displayed in "Meetups & Conferences" p
     title: "Title of your conference"
     # Description of the page (for SEO and context purpose)
     description: "Description of your talk visible in search engine results"
-    # from _data/authors.yml
+    # from src/data/authors.yml
     author: conference_speaker
     language: fr
     # Public event name
@@ -264,7 +264,7 @@ That's all folks! Your conference will be displayed in "Meetups & Conferences" p
     # Bedrock hosted the event? (default: false)
     hosted: true
 
-    # Topics from _data/topics.yml
+    # Topics from src/data/topics.yml
     topics: [backend]
     date: 1970-01-01
     permalink: /1970/01/01/slug-of-your-talk.html

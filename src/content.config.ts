@@ -5,11 +5,11 @@ import { z } from 'astro/zod';
 import { parse } from 'yaml';
 
 const language = z.enum(['fr', 'en']);
-// Front matter topics must be keys of the closed list in _data/topics.yml.
-const topicIds = Object.keys(parse(readFileSync('./_data/topics.yml', 'utf-8')));
+// Front matter topics must be keys of the closed list in src/data/topics.yml.
+const topicIds = Object.keys(parse(readFileSync('./src/data/topics.yml', 'utf-8')));
 const topics = z.array(z.enum(topicIds as [string, ...string[]]));
 
-// A string id from _data/authors.yml, a list of ids, or an inline author object.
+// A string id from src/data/authors.yml, a list of ids, or an inline author object.
 const author = z.union([
   z.string(),
   z.array(z.string()),
@@ -33,7 +33,7 @@ const shared = {
 };
 
 const articles = defineCollection({
-  loader: glob({ pattern: '*.md', base: './_articles' }),
+  loader: glob({ pattern: '*.md', base: './src/content/articles' }),
   schema: z.strictObject({
     ...shared,
     layout: z.literal('post'),
@@ -46,7 +46,7 @@ const articles = defineCollection({
 });
 
 const talks = defineCollection({
-  loader: glob({ pattern: '*.md', base: './_talks' }),
+  loader: glob({ pattern: '*.md', base: './src/content/talks' }),
   schema: z.strictObject({
     ...shared,
     layout: z.enum(['video', 'conference']),
@@ -61,7 +61,7 @@ const talks = defineCollection({
 });
 
 const authors = defineCollection({
-  loader: file('./_data/authors.yml'),
+  loader: file('./src/data/authors.yml'),
   schema: z.object({
     name: z.string(),
     avatar: z.string().optional(),
@@ -70,9 +70,7 @@ const authors = defineCollection({
 });
 
 const topicList = defineCollection({
-  loader: file('./_data/topics.yml', {
-    parser: (text) => Object.entries(parse(text)).map(([id, label]) => ({ id, label })),
-  }),
+  loader: file('./src/data/topics.yml'),
   schema: z.object({ label: z.string() }),
 });
 
