@@ -3,7 +3,7 @@ import TalkCards from '../../components/TalkCards.astro';
 import Page from '../../layouts/Page.astro';
 import { published } from '../../lib/site';
 
-const talks = (await published('talks')).filter((talk) => talk.data.youtubeId && talk.data.eventName === 'Last Friday Talks');
+const talks = (await published('talks')).filter((talk) => talk.data.youtubeId && talk.data.eventName === 'Last Friday Talks').reverse();
 ---
 
 <Page title="Last Friday Talks" featureImage="/images/common/travel.jpg">

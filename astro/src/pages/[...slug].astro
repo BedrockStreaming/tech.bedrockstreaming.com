@@ -30,7 +30,6 @@ const { Content } = await render(entry);
 const authors = await authorsOf(entry);
 const talk = entry.collection === 'talks' ? (entry.data as Extract<Entry, { collection: 'talks' }>['data']) : undefined;
 const featureImage = data['feature-img'] && url(data['feature-img']);
-const searchImage = (data.thumbnail || data['feature-img']) && url(data.thumbnail || data['feature-img']);
 const summary = plainText(entry.rendered?.html ?? '', 160);
 ---
 
@@ -49,7 +48,7 @@ const summary = plainText(entry.rendered?.html ?? '', 160);
       <script slot="head" is:inline defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});" />
     )
   }
-  <article class={featureImage ? 'feature-image' : undefined} data-pagefind-body data-pagefind-meta={searchImage && `image:${searchImage}`}>
+  <article class={featureImage ? 'feature-image' : undefined} data-pagefind-body>
     <header id="main" style={featureImage ? `background-image: url('${featureImage}')` : undefined}>
       <div class="title-padder">
         <h1 class="title">{data.title}</h1>

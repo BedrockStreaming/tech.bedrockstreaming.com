@@ -50,18 +50,18 @@ const teasers = await Promise.all(
           <a aria-label="Prev" href="/" class="button">
             <span><i class="fas fa-angle-double-left" /></span>
           </a>
-        )}
+        )}{' '}
         <a aria-label="Prev" href={page > 1 ? pagePath(page - 1) : ''} style={page > 1 ? undefined : 'visibility:hidden'} class="button">
-          <span><i class="fas fa-chevron-left" /></span>
+          <span><i class="fas fa-chevron-left" /></span>{' '}
           Prev
         </a>
-      </div>
-      <div class="page_number">{page} / {totalPages}</div>
+      </div>{' '}
+      <div class="page_number">{page} / {totalPages}</div>{' '}
       <div class="next">
         <a aria-label="Next" href={page < totalPages ? pagePath(page + 1) : ''} style={page < totalPages ? undefined : 'visibility:hidden'} class="button">
-          Next
+          Next{' '}
           <span><i class="fas fa-chevron-right" /></span>
-        </a>
+        </a>{' '}
         {page + 1 < totalPages && (
           <a aria-label="Next" href={pagePath(totalPages)} class="button">
             <span><i class="fas fa-angle-double-right" /></span>

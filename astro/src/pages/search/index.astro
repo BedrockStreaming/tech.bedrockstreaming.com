@@ -7,7 +7,7 @@ import Page from '../../layouts/Page.astro';
   <script slot="head" is:inline src="/pagefind/pagefind-ui.js"></script>
   <div id="search"></div>
   <script is:inline>
-    window.addEventListener('DOMContentLoaded', () => new PagefindUI({ element: '#search', showSubResults: true, autofocus: true }));
+    window.addEventListener('DOMContentLoaded', () => new PagefindUI({ element: '#search', showSubResults: true, showImages: false, autofocus: true }));
   </script>
 </Page>
 
