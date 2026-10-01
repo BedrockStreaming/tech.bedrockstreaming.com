@@ -1,16 +1,88 @@
 ---
 import ArticleList from '../components/ArticleList.astro';
+import TalkCards from '../components/TalkCards.astro';
 import Base from '../layouts/Base.astro';
-import { articlePages, site } from '../lib/site';
+import { getCollection } from 'astro:content';
+import { articlePages, authorsOf, coverGradient, excerpt, plainText, published, readingMinutes, site, url } from '../lib/site';
+import PostInfo from '../components/PostInfo.astro';
 
 const pages = await articlePages();
+const featured = pages[0]?.[0];
+const rest = pages[0]?.slice(1) ?? [];
+const labels = new Map((await getCollection('topics')).map((topic) => [topic.id, topic.data.label]));
+const featuredAuthors = featured ? await authorsOf(featured) : [];
+const featuredExcerpt = featured ? plainText(await excerpt(featured), 240) : '';
+const gradient = coverGradient(featured?.id ?? 'home');
+const cover = featured?.data.thumbnail || featured?.data['feature-img'];
+const echoWord = featured?.data.title.split(/\s+/).find((word) => word.length > 3) ?? 'Backstage';
+const talks = (await published('talks')).reverse().slice(0, 4);
 ---
 
-<Base>
-  <div class="home">
-    <div id="main" class="call-out call-out_img" style={`background-image: url('${site.headerImage}')`}>
-      <h1>{site.headerText}</h1>
+<Base description={site.description}>
+  <section class="band masthead">
+    <h1 class="display">{site.headerText}</h1>
+    <p class="lede">{site.description}</p>
+  </section>
+  {
+    featured && (
+      <section class="band">
+        <div class="hero">
+          <div>
+            <p class="kicker-row">
+              <span class="kicker">Featured</span>
+              {featured.data.topics.slice(0, 3).map((topic) => (
+                <a class="kicker" href={`/tags/#${topic}`}>{labels.get(topic) ?? topic}</a>
+              ))}
+            </p>
+            <h2 class="display"><a href={url(featured.data.permalink)}>{featured.data.title}</a></h2>
+            {featuredExcerpt && <p class="lede">{featuredExcerpt}</p>}
+            <PostInfo
+              authors={featuredAuthors}
+              date={featured.data.date}
+              language={featured.data.language}
+              minutes={readingMinutes(featured.body)}
+            />
+          </div>
+          <a class="cover" href={url(featured.data.permalink)} style={`--g1:${gradient[0]};--g2:${gradient[1]}`} aria-hidden="true" tabindex="-1">
+            {cover && <img src={url(cover)} alt="" />}
+            <p class="echo">{echoWord}</p>
+          </a>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="band">
+    <ul class="chips">
+      <li><a class="chip is-on" href="/">All</a></li>
+      {
+        [...labels].map(([id, label]) => (
+          <li><a class="chip" href={`/tags/#${id}`}>{label}</a></li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="band">
+    <div class="section-head">
+      <h2 class="section-title display">Latest articles</h2>
+      <a class="section-more" href="/">All articles</a>
     </div>
-    <ArticleList articles={pages[0]} page={1} totalPages={pages.length} />
-  </div>
+    <ArticleList articles={rest} page={1} totalPages={pages.length} />
+  </section>
+
+  <section class="band band-alt">
+    <div class="section-head">
+      <h2 class="section-title display">Recent talks</h2>
+      <a class="section-more" href="/talks/">All talks</a>
+    </div>
+    <TalkCards talks={talks} />
+  </section>
+
+  <section class="jobs-cta">
+    <p class="echo" aria-hidden="true">Challenge</p>
+    <h2 class="title">Care for a challenge?</h2>
+    <p>{site.headerText}</p>
+    <a class="button" href="/jobs/">See open roles</a>
+  </section>
 </Base>

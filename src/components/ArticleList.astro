@@ -1,6 +1,15 @@
 ---
-import { authorsOf, excerpt, url, type Entry } from '../lib/site';
-import PostInfo from './PostInfo.astro';
+import { getCollection } from 'astro:content';
+import { authorsOf, excerpt, readingMinutes, url, type Entry } from '../lib/site';
+
+function initials(name?: string) {
+  if (!name) return '';
+  return name
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
+}
 
 interface Props {
   articles: Extract<Entry, { collection: 'articles' }>[];
@@ -10,64 +19,62 @@ interface Props {
 
 const { articles, page, totalPages } = Astro.props;
 const pagePath = (n: number) => (n === 1 ? '/' : `/blog/page${n}/`);
+const labels = new Map((await getCollection('topics')).map((topic) => [topic.id, topic.data.label]));
 const teasers = await Promise.all(
-  articles.map(async (article) => ({ article, authors: await authorsOf(article), excerpt: await excerpt(article) })),
+  articles.map(async (article) => ({
+    article,
+    authors: await authorsOf(article),
+    excerpt: await excerpt(article),
+    minutes: readingMinutes(article.body),
+  })),
 );
 ---
 
-<div class="posts">
+<div class="teasers">
   {
-    teasers.map(({ article, authors, excerpt }) => (
-      <div class="post-teaser">
-        {article.data.thumbnail && (
-          <div class="post-img">
-            <a aria-label={article.data.title} href={url(article.data.permalink)}>
-              <img alt={article.data.title} src={url(article.data.thumbnail)} />
-            </a>
+    teasers.map(({ article, authors, excerpt, minutes }) => (
+      <article class="teaser">
+        <time class="teaser-date" datetime={article.data.date.toISOString().slice(0, 10)}>
+          {article.data.date.toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}
+        </time>
+        <div>
+          <h2>
+            <a href={url(article.data.permalink)}>{article.data.title}</a>
+          </h2>
+          <div class="excerpt" set:html={excerpt} />
+          <p class="teaser-meta">
+            {article.data.language && <span class="lang">{article.data.language}</span>}
+            {article.data.topics.map((topic) => (
+              <a href={`/tags/#${topic}`}>{labels.get(topic) ?? topic}</a>
+            ))}
+            {minutes && <span>{minutes} min</span>}
+          </p>
+        </div>
+        {authors.length > 0 && (
+          <div class="teaser-avatars">
+            {authors.slice(0, 3).map((author) => (
+              author.avatar
+                ? <img src={author.avatar} alt={author.name ?? ''} />
+                : <span class="avatar-fallback" title={author.name}>{initials(author.name)}</span>
+            ))}
+            {authors.length > 3 && <span class="avatar-fallback">+{authors.length - 3}</span>}
           </div>
         )}
-        <span>
-          <header>
-            <h1>
-              <a aria-label={article.data.title} class="post-link" href={url(article.data.permalink)}>
-                {article.data.title}
-              </a>
-            </h1>
-            <PostInfo authors={authors} date={article.data.date} language={article.data.language} />
-          </header>
-          <div class="excerpt" set:html={excerpt} />
-        </span>
-      </div>
+      </article>
     ))
   }
 </div>
 
 {
   totalPages > 1 && (
-    <div class="pagination">
-      <div class="previous">
-        {page > 2 && (
-          <a aria-label="Prev" href="/" class="button">
-            <span><i class="fas fa-angle-double-left" /></span>
-          </a>
-        )}{' '}
-        <a aria-label="Prev" href={page > 1 ? pagePath(page - 1) : ''} style={page > 1 ? undefined : 'visibility:hidden'} class="button">
-          <span><i class="fas fa-chevron-left" /></span>{' '}
-          Prev
-        </a>
-      </div>{' '}
-      <div class="page_number">{page} / {totalPages}</div>{' '}
-      <div class="next">
-        <a aria-label="Next" href={page < totalPages ? pagePath(page + 1) : ''} style={page < totalPages ? undefined : 'visibility:hidden'} class="button">
-          Next{' '}
-          <span><i class="fas fa-chevron-right" /></span>
-        </a>{' '}
-        {page + 1 < totalPages && (
-          <a aria-label="Next" href={pagePath(totalPages)} class="button">
-            <span><i class="fas fa-angle-double-right" /></span>
-          </a>
-        )}
+    <nav class="pagination" aria-label="Articles">
+      <div>
+        {page > 1 && <a href={pagePath(page - 1)}>Previous</a>}
       </div>
-    </div>
+      <span>{page} / {totalPages}</span>
+      <div>
+        {page < totalPages && <a href={pagePath(page + 1)}>Next</a>}
+      </div>
+    </nav>
   )
 }

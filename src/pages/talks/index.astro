@@ -1,0 +1,11 @@
+---
+import TalkCards from '../../components/TalkCards.astro';
+import Page from '../../layouts/Page.astro';
+import { published } from '../../lib/site';
+
+const talks = (await published('talks')).reverse();
+---
+
+<Page title="Talks" subtitle="Filters follow the event and the year. Sponsored and hosted talks are labelled." wide>
+  <TalkCards talks={talks} filterable />
+</Page>

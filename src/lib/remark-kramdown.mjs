@@ -1,4 +1,9 @@
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import GithubSlugger from 'github-slugger';
+import { bedrockCode } from './shiki-bedrock.mjs';
+
+const bedrockTheme = JSON.parse(readFileSync(fileURLToPath(new URL('../styles/bedrock-shiki.json', import.meta.url)), 'utf8'));
 
 // The kramdown features the Articles still use: `{:toc}`, and `{:target="_blank"}` on links.
 
@@ -66,6 +71,14 @@ export default function remarkKramdown() {
       if (node.type !== 'heading') continue;
       const id = slugger.slug(text(node));
       node.data = { ...node.data, hProperties: { ...node.data?.hProperties, id } };
+      if (node.depth >= 2) {
+        node.children.push({
+          type: 'link',
+          url: `#${id}`,
+          children: [],
+          data: { hProperties: { class: 'heading-anchor', 'aria-label': 'Link to this section' } },
+        });
+      }
       headings.push({ depth: node.depth, id, label: text(node) });
     }
     tree.children = tree.children.map((node) => (isTocMarker(node) ? tocList(headings) : node));
@@ -77,5 +90,5 @@ export default function remarkKramdown() {
 export const markdownOptions = {
   remarkPlugins: [remarkKramdown],
   smartypants: { dashes: 'oldschool' },
-  shikiConfig: { theme: 'css-variables' },
+  shikiConfig: { theme: bedrockTheme, transformers: [bedrockCode()] },
 };

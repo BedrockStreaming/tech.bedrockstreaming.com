@@ -5,7 +5,7 @@ import { markdownOptions } from './remark-kramdown.mjs';
 export const site = {
   title: 'Bedrock Tech Blog',
   description: 'Blog technique de Bedrock',
-  headerText: 'Creating Streaming Champions',
+  headerText: 'The crazy happens in the backstage',
   headerImage: '/images/common/banner_xl.jpg',
   avatar: '/images/common/br-site-logo.jpg',
   favicon: '/assets/favicon.png',
@@ -70,6 +70,33 @@ export async function excerpt(entry: CollectionEntry<'articles'>) {
   const [head, ...rest] = (entry.body ?? '').trimStart().split(entry.data.excerpt_separator ?? '\n\n');
   const definitions = rest.join('\n\n').match(/^ {0,3}\[[^\]]+\]:.+$/gm) ?? [];
   return (await (await markdown).render([head, definitions.join('\n')].join('\n\n'))).code;
+}
+
+// The five gradient pairs the brand guide allows on photography.
+export const coverGradients = [
+  ['#000000', '#3402F0'],
+  ['#000000', '#FD4D26'],
+  ['#3402F0', '#E82577'],
+  ['#3402F0', '#FD4D26'],
+  ['#3402F0', '#50F1D7'],
+] as const;
+
+export function coverGradient(seed: string) {
+  let hash = 0;
+  for (const char of seed) hash = (hash + char.charCodeAt(0)) % coverGradients.length;
+  return coverGradients[hash];
+}
+
+export function readingMinutes(markdown: string | undefined) {
+  const words = (markdown ?? '').replace(/```[\s\S]*?```/g, ' ').trim().split(/\s+/).filter(Boolean);
+  if (words.length < 40) return undefined;
+  return Math.max(1, Math.round(words.length / 220));
+}
+
+export async function relatedArticles(entry: CollectionEntry<'articles'>, limit = 3) {
+  const topics = new Set(entry.data.topics);
+  const articles = (await published('articles')).reverse();
+  return articles.filter((article) => article.id !== entry.id && article.data.topics.some((topic) => topics.has(topic))).slice(0, limit);
 }
 
 export const articlesPerPage = 10;

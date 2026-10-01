@@ -1,8 +1,19 @@
 ---
-import { render } from 'astro:content';
+import { render, getCollection } from 'astro:content';
 import PostInfo from '../components/PostInfo.astro';
 import Base from '../layouts/Base.astro';
-import { absoluteUrl, authorsOf, outputSlug, plainText, published, url, type Entry } from '../lib/site';
+import {
+  absoluteUrl,
+  authorsOf,
+  coverGradient,
+  outputSlug,
+  plainText,
+  published,
+  readingMinutes,
+  relatedArticles,
+  url,
+  type Entry,
+} from '../lib/site';
 
 export async function getStaticPaths() {
   const paths = [];
@@ -26,11 +37,17 @@ interface Props {
 
 const { entry, newer, older } = Astro.props;
 const { data } = entry;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const authors = await authorsOf(entry);
 const talk = entry.collection === 'talks' ? (entry.data as Extract<Entry, { collection: 'talks' }>['data']) : undefined;
-const featureImage = data['feature-img'] && url(data['feature-img']);
 const summary = plainText(entry.rendered?.html ?? '', 160);
+const labels = new Map((await getCollection('topics')).map((topic) => [topic.id, topic.data.label]));
+const gradient = coverGradient(entry.id);
+const cover = data.thumbnail || data['feature-img'];
+const echo = (data.title.match(/[A-Za-zÀ-ÿ0-9]{4,}/) ?? ['Bedrock'])[0];
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const related = entry.collection === 'articles' ? await relatedArticles(entry) : [];
+const minutes = readingMinutes(entry.body);
 ---
 
 <Base
@@ -48,116 +65,161 @@ const summary = plainText(entry.rendered?.html ?? '', 160);
       <script slot="head" is:inline defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});" />
     )
   }
-  <article class={featureImage ? 'feature-image' : undefined} data-pagefind-body>
-    <header id="main" style={featureImage ? `background-image: url('${featureImage}')` : undefined}>
-      <div class="title-padder">
-        <h1 class="title">{data.title}</h1>
-        <PostInfo authors={authors} date={data.date} language={data.language} />
-      </div>
-    </header>
 
-    <section class="post-content">
-      <Content />
+  <header class="cover article-cover" style={`--g1:${gradient[0]};--g2:${gradient[1]}`}>
+    {cover && <img src={url(cover)} alt="" />}
+    <p class="echo" aria-hidden="true">{echo}</p>
+    <div class="cover-copy">
+      <h1 class="title">{data.title}</h1>
+    </div>
+  </header>
 
-      {
-        talk && data.layout === 'conference' && (
-          <p>
-            <em>
-              Par{' '}
-              {authors.map((author, index) => (
-                <>
-                  {author.url ? <a href={author.url}>{author.name}</a> : author.name}
-                  {index < authors.length - 1 && ' et '}
-                </>
-              ))}{' '}
-              - <a href={talk.eventUrl}>{talk.eventName}</a>
-            </em>
-          </p>
-        )
-      }
-
-      {
-        talk?.youtubeId && (
-          <iframe
-            width="100%"
-            height="auto"
-            style="aspect-ratio: 16/9"
-            src={`https://www.youtube-nocookie.com/embed/${talk.youtubeId}`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
-        )
-      }
-
-      {
-        talk && data.layout === 'conference' && talk.slideshareKey && (
-          <iframe
-            width="100%"
-            height="auto"
-            style="aspect-ratio: 16/9"
-            src={`https://www.slideshare.net/slideshow/embed_code/key/${talk.slideshareKey}`}
-            frameborder="0"
-            allowfullscreen
-          />
-        )
-      }
-
-      {
-        talk && data.layout === 'conference' && talk.conferenceUrl && (
-          <p><a href={talk.conferenceUrl} target="_blank">Lien vers la conférence</a></p>
-        )
-      }
-    </section>
-
-    <div class="tag-list">
+  <div class="article-layout">
+    <article data-pagefind-body>
+      <PostInfo authors={authors} date={data.date} language={data.language} minutes={minutes} />
       {
         data.topics.length > 0 && (
-          <ul>
-            <li class="meta">{data.topics.length === 1 ? 'Tag' : 'Tags'}</li>
-            {[...data.topics].sort().map((topic) => (
-              <>{' '}<li>
-                <a class="button" href={`/tags/#${topic}`}>
-                  <p><i class="fas fa-tag fa-fw fa-sm" /> {topic}</p>
-                </a>
-              </li></>
+          <ul class="chips">
+            {data.topics.map((topic) => (
+              <li><a class="chip" href={`/tags/#${topic}`}>{labels.get(topic) ?? topic}</a></li>
             ))}
           </ul>
         )
       }
-    </div>
-  </article>
+      {
+        toc.length > 0 && (
+          <details class="toc-mobile">
+            <summary>On this page</summary>
+            <ol>
+              {toc.map((heading) => (
+                <li class={`depth-${heading.depth}`}><a href={`#${heading.slug}`}>{heading.text}</a></li>
+              ))}
+            </ol>
+          </details>
+        )
+      }
 
-  <div id="post-nav">
+      <div class="prose">
+        <Content />
+
+        {
+          talk && data.layout === 'conference' && (
+            <p>
+              <em>
+                Par{' '}
+                {authors.map((author, index) => (
+                  <>
+                    {author.url ? <a href={author.url}>{author.name}</a> : author.name}
+                    {index < authors.length - 1 && ' et '}
+                  </>
+                ))}{' '}
+                {talk.eventUrl && <> - <a href={talk.eventUrl}>{talk.eventName}</a></>}
+              </em>
+            </p>
+          )
+        }
+
+        {
+          talk && (
+            <p class="meta">
+              {talk.sponsored && <span class="label label-sponsored">Sponsored</span>}
+              {talk.hosted && <span class="label label-hosted">Hosted</span>}
+            </p>
+          )
+        }
+
+        {
+          talk?.youtubeId && (
+            <button class="youtube-facade" type="button" data-youtube={talk.youtubeId} data-title={data.title}>
+              <img src={`https://i.ytimg.com/vi/${talk.youtubeId}/hqdefault.jpg`} alt="" />
+              <span>Play</span>
+            </button>
+          )
+        }
+
+        {
+          talk && data.layout === 'conference' && talk.slideshareKey && (
+            <iframe
+              src={`https://www.slideshare.net/slideshow/embed_code/key/${talk.slideshareKey}`}
+              title="Slides"
+              allowfullscreen
+            />
+          )
+        }
+
+        {
+          talk && data.layout === 'conference' && talk.conferenceUrl && (
+            <p><a href={talk.conferenceUrl}>Lien vers la conférence</a></p>
+          )
+        }
+      </div>
+
+      {
+        authors.some((author) => author.name) && (
+          <section class="author-card">
+            {authors.map((author) => author.name && (
+              <article>
+                {author.avatar && <img src={author.avatar} alt="" />}
+                <p>
+                  <span class="kicker">Author</span>
+                  {author.url ? <a href={author.url}>{author.name}</a> : author.name}
+                </p>
+              </article>
+            ))}
+          </section>
+        )
+      }
+    </article>
+
     {
-      newer && (
-        <div id="previous-post">
-          <a href={url(newer.data.permalink)}>
-            <p>Previous post</p>
-            {newer.data.title}
-          </a>
-        </div>
-      )
-    }
-    {
-      older && (
-        <div id="next-post">
-          <a href={url(older.data.permalink)}>
-            <p>Next post</p>
-            {older.data.title}
-          </a>
-        </div>
+      toc.length > 0 && (
+        <nav class="toc" aria-label="On this page">
+          <p class="kicker">On this page</p>
+          <ol>
+            {toc.map((heading) => (
+              <li class={`depth-${heading.depth}`}><a href={`#${heading.slug}`}>{heading.text}</a></li>
+            ))}
+          </ol>
+        </nav>
       )
     }
   </div>
-</Base>
 
-<style is:global>
-  /* From the <style> block of the Jekyll post, video, and conference layouts. */
-  header#main {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  {
+    related.length > 0 && (
+      <section class="related">
+        <h2 class="section-title">Related</h2>
+        <div class="teasers">
+          {related.map((article) => (
+            <article class="teaser">
+              <h3><a href={url(article.data.permalink)}>{article.data.title}</a></h3>
+            </article>
+          ))}
+        </div>
+      </section>
+    )
   }
-</style>
+
+  <nav class="post-nav" aria-label="More">
+    <div>
+      {
+        older && (
+          <a href={url(older.data.permalink)}>
+            <p>Previous</p>
+            {older.data.title}
+          </a>
+        )
+      }
+    </div>
+    <div class="next">
+      {
+        newer && (
+          <a href={url(newer.data.permalink)}>
+            <p>Next</p>
+            {newer.data.title}
+          </a>
+        )
+      }
+    </div>
+  </nav>
+</Base>

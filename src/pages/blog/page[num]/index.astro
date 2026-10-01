@@ -1,7 +1,7 @@
 ---
 import ArticleList from '../../../components/ArticleList.astro';
 import Base from '../../../layouts/Base.astro';
-import { articlePages, site } from '../../../lib/site';
+import { articlePages } from '../../../lib/site';
 
 export async function getStaticPaths() {
   const pages = await articlePages();
@@ -15,10 +15,9 @@ const { articles, page, totalPages } = Astro.props;
 ---
 
 <Base title={`Page ${page} of ${totalPages}`}>
-  <div class="home">
-    <div id="main" class="call-out call-out_img" style={`background-image: url('${site.headerImage}')`}>
-      <h1>{site.headerText}</h1>
-    </div>
-    <ArticleList articles={articles} page={page} totalPages={totalPages} />
-  </div>
+  <header class="page-title">
+    <p class="echo" aria-hidden="true">Writing</p>
+    <h1 class="title">Writing</h1>
+  </header>
+  <ArticleList articles={articles} page={page} totalPages={totalPages} />
 </Base>

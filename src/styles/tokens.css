@@ -1,0 +1,141 @@
+/* Brand tokens from Charte graphique Bedrock V1 (2022).
+   Ink on white is a web addition: the guide's allowed pairs miss it, and it clears WCAG. */
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/roboto/roboto-v29-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/roboto/roboto-v29-latin-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/roboto/roboto-v29-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/roboto/roboto-v29-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/roboto/roboto-v29-latin-700italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-condensed/roboto-condensed-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-condensed/roboto-condensed-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-mono/roboto-mono-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/roboto-mono/roboto-mono-latin-400-italic.woff2') format('woff2');
+}
+
+:root {
+  --ink: #3402f0;
+  --scarlet: #fd4d26;
+  --black: #000;
+  --white: #fff;
+  --fuchsia: #e82577;
+  --pearl: #faf8f8;
+  --iris: #50f1d7;
+
+  --font-body: Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Roboto Condensed', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, monospace;
+
+  --text-body: 1.25rem;
+  --leading-body: 1.75;
+  --text-h1: clamp(2.25rem, 5vw, 3.5rem);
+  --text-h2: 1.6rem;
+  --text-meta: 1rem;
+  --text-tag: 0.78rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --measure: 68ch;
+  --gutter: clamp(1.5rem, 4vw, 4.5rem);
+  --content: 72rem;
+  --cut: 0.176;
+  --header-height: 3.25rem;
+}
+
+html,
+html[data-theme='light'] {
+  color-scheme: light;
+  --bg: var(--white);
+  --text: var(--black);
+  --link: var(--ink);
+  --accent: var(--scarlet);
+  --surface: var(--pearl);
+  --muted: #595959;
+  --border: #e6e2e2;
+  --kicker: var(--ink);
+  --code-inline-bg: var(--pearl);
+  --header-bg: var(--white);
+  --selection: #d9d4ff;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: var(--black);
+  --text: var(--pearl);
+  --link: var(--iris);
+  --accent: var(--scarlet);
+  --surface: #1c1c1c;
+  --muted: #8a8a8a;
+  --border: #2a2a2a;
+  --kicker: var(--scarlet);
+  --code-inline-bg: #1c1c1c;
+  --header-bg: var(--black);
+  --selection: #143f38;
+}
