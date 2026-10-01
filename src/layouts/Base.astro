@@ -126,7 +126,8 @@ const jsonLd = article && {
             <a
               href={item.href}
               aria-current={
-                Astro.url.pathname === item.href || (item.href === '/' && Astro.url.pathname.startsWith('/blog/'))
+                Astro.url.pathname.replace(/\/?$/, '/') === item.href ||
+                (item.href === '/' && Astro.url.pathname.startsWith('/blog/'))
                   ? 'page'
                   : undefined
               }
