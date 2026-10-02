@@ -4,7 +4,7 @@ import { markdownOptions } from './remark-kramdown.mjs';
 
 export const site = {
   title: 'Bedrock Tech Blog',
-  description: 'Blog technique de Bedrock',
+  description: 'Bedrock tech blog',
   headerText: 'The crazy happens in the backstage',
   headerImage: '/images/common/banner_xl.jpg',
   avatar: '/images/common/br-site-logo.jpg',
