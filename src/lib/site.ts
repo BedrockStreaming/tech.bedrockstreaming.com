@@ -72,6 +72,10 @@ export async function excerpt(entry: CollectionEntry<'articles'>) {
   return (await (await markdown).render([head, definitions.join('\n')].join('\n\n'))).code;
 }
 
+export async function inlineMarkdown(text: string) {
+  return (await (await markdown).render(text)).code.replace(/^<p>|<\/p>$/g, '');
+}
+
 // The five gradient pairs the brand guide allows on photography.
 export const coverGradients = [
   ['#000000', '#3402F0'],

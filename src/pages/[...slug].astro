@@ -9,6 +9,7 @@ import {
   absoluteUrl,
   authorsOf,
   coverGradient,
+  inlineMarkdown,
   outputSlug,
   plainText,
   published,
@@ -43,6 +44,7 @@ const { data } = entry;
 const { Content, headings } = await render(entry);
 const authors = await authorsOf(entry);
 const talk = entry.collection === 'talks' ? (entry.data as Extract<Entry, { collection: 'talks' }>['data']) : undefined;
+const descriptionHtml = data.description ? await inlineMarkdown(data.description) : '';
 const summary = plainText(entry.rendered?.html ?? '', 160);
 const labels = new Map((await getCollection('topics')).map((topic) => [topic.id, topic.data.label]));
 const gradient = coverGradient(entry.id);
@@ -55,7 +57,7 @@ const minutes = readingMinutes(entry.body);
 
 <Base
   title={data.title}
-  description={data.description || plainText(entry.rendered?.html?.split('</p>')[0] ?? '', 200)}
+  description={plainText(descriptionHtml || (entry.rendered?.html?.split('</p>')[0] ?? ''), 200)}
   summary={summary}
   language={data.language}
   image={data.thumbnail ?? data['feature-img'] ?? undefined}
@@ -69,17 +71,8 @@ const minutes = readingMinutes(entry.body);
     )
   }
 
-  <header class="cover article-cover" style={`--g1:${gradient[0]};--g2:${gradient[1]}`}>
-    {cover && <img src={url(cover)} alt="" />}
-    <p class="echo" aria-hidden="true">{echo}</p>
-    <div class="cover-copy">
-      <h1 class="title">{data.title}</h1>
-    </div>
-  </header>
-
   <div class="article-layout">
-    <article data-pagefind-body>
-      <PostInfo authors={authors} date={data.date} language={data.language} minutes={minutes} />
+    <header class="article-head">
       {
         data.topics.length > 0 && (
           <ul class="chips">
@@ -89,6 +82,16 @@ const minutes = readingMinutes(entry.body);
           </ul>
         )
       }
+      <h1 class="title">{data.title}</h1>
+      {descriptionHtml && <p class="lede" set:html={descriptionHtml} />}
+      <PostInfo authors={authors} date={data.date} language={data.language} minutes={minutes} />
+      <div class="cover article-cover" style={`--g1:${gradient[0]};--g2:${gradient[1]}`}>
+        {cover && <img src={url(cover)} alt="" />}
+        <p class="echo" aria-hidden="true">{echo}</p>
+      </div>
+    </header>
+
+    <article data-pagefind-body>
       {
         toc.length > 0 && (
           <details class="toc-mobile">
@@ -195,6 +198,9 @@ const minutes = readingMinutes(entry.body);
         <div class="teasers">
           {related.map((article) => (
             <article class="teaser">
+              <time class="teaser-date" datetime={article.data.date.toISOString().slice(0, 10)}>
+                {article.data.date.toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}
+              </time>
               <h3><a href={url(article.data.permalink)}>{article.data.title}</a></h3>
             </article>
           ))}

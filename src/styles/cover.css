@@ -29,10 +29,6 @@
   pointer-events: none;
 }
 
-.article-cover::after {
-  background: linear-gradient(to top, #000 0, rgb(0 0 0 / 94%) 13rem, rgb(0 0 0 / 28%) 18rem, transparent 100%);
-}
-
 .cover .echo {
   font-size: 11cqi;
   right: 3cqi;

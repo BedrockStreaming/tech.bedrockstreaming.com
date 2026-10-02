@@ -189,7 +189,7 @@
   color: var(--pearl);
   font-family: var(--font-mono);
   font-size: 0.86rem;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
 .code-block code {
@@ -200,8 +200,10 @@
 }
 
 .code-block .line {
-  display: block;
-  min-height: 1.45em;
+  display: inline-block;
+  vertical-align: top;
+  min-width: 100%;
+  min-height: 1.55em;
 }
 
 .code-block .line.highlighted {
