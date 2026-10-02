@@ -106,7 +106,7 @@
   --gutter: clamp(1.5rem, 4vw, 4.5rem);
   --content: 72rem;
   --cut: 0.176;
-  --header-height: 3.25rem;
+  --header-height: 4rem;
 }
 
 html,

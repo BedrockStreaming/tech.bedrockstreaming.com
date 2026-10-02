@@ -25,7 +25,7 @@
   z-index: 5;
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-4);
   min-height: var(--header-height);
   padding: 0 max(var(--gutter), calc((100% - var(--content)) / 2));
   background: color-mix(in srgb, var(--header-bg) 92%, transparent);
@@ -41,6 +41,7 @@
   color: var(--text);
   text-decoration: none;
   margin-right: auto;
+  flex: none;
 }
 
 .brand img {
@@ -61,16 +62,7 @@ html[data-theme='dark'] .brand img {
   text-transform: uppercase;
   font-size: 1rem;
   line-height: 1;
-}
-
-.brand-name span {
-  display: inline;
-  margin-left: 0.45rem;
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  font-weight: 500;
-  color: var(--muted);
+  white-space: nowrap;
 }
 
 .nav-toggle {
@@ -295,6 +287,25 @@ html[data-theme='dark'] .site-footer {
   --pagefind-ui-border: var(--border);
   --pagefind-ui-tag: var(--surface);
   --pagefind-ui-font: var(--font-body);
+}
+
+@container bar (max-width: 30rem) {
+  .search-trigger span,
+  .search-trigger .key {
+    display: none;
+  }
+
+  .search-trigger {
+    padding: 0 0.5rem;
+  }
+
+  .header-actions {
+    margin-left: 0;
+  }
+
+  .brand-name {
+    font-size: 0.875rem;
+  }
 }
 
 @container bar (min-width: 50rem) {
