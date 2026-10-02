@@ -66,15 +66,34 @@ const jsonLd = article && {
     </script>
     <script is:inline>
       (function () {
+        var clicked;
+        addEventListener('click', function (event) {
+          clicked = event.target instanceof Element ? event.target.closest('a') : undefined;
+        }, true);
+        function nearClick(el) {
+          var card = clicked && clicked.closest('article, li');
+          return clicked ? el.contains(clicked) || clicked.contains(el) || Boolean(card && card.contains(el)) : false;
+        }
         function morph(url) {
           var path = new URL(url).pathname;
           var used = {};
-          document.querySelectorAll('[data-morph]').forEach(function (el) {
-            var name = el.getAttribute('data-morph');
-            var match = new URL(el.getAttribute('data-morph-href'), location.href).pathname === path && !used[name];
-            if (match) used[name] = true;
-            el.style.viewTransitionName = match ? name : '';
+          var elements = Array.prototype.slice.call(document.querySelectorAll('[data-morph]'));
+          elements.forEach(function (el) {
+            el.style.viewTransitionName = '';
           });
+          elements
+            .filter(function (el) {
+              return new URL(el.getAttribute('data-morph-href'), location.href).pathname === path;
+            })
+            .sort(function (a, b) {
+              return Number(nearClick(b)) - Number(nearClick(a));
+            })
+            .forEach(function (el) {
+              var name = el.getAttribute('data-morph');
+              if (used[name]) return;
+              used[name] = true;
+              el.style.viewTransitionName = name;
+            });
         }
         addEventListener('pageswap', function (event) {
           if (event.viewTransition && event.activation) morph(event.activation.entry.url);

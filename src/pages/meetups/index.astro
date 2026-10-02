@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import TalkCards from '../../components/TalkCards.astro';
 import Page from '../../layouts/Page.astro';
-import { published, url } from '../../lib/site';
+import { morphFrom, published, url } from '../../lib/site';
 
 const talks = (await published('talks')).filter((talk) => talk.data.eventName !== 'Last Friday Talks').reverse();
 const authors = new Map((await getCollection('authors')).map((a) => [a.id, a.data]));
@@ -44,7 +44,7 @@ const speakers = (author: unknown) =>
                   <ul>
                     {items.map((talk) => (
                       <li>
-                        <a href={url(talk.data.permalink)}>{talk.data.title}</a> -{' '}
+                        <a href={url(talk.data.permalink)} {...morphFrom(talk, 'title')}>{talk.data.title}</a> -{' '}
                         {speakers(talk.data.author).map((speaker, index, all) => (
                           <>
                             {speaker.url ? <a href={speaker.url}>{speaker.name}</a> : speaker.name}

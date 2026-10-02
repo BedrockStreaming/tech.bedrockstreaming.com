@@ -217,7 +217,7 @@ const minutes = readingMinutes(entry.body);
         older && (
           <a href={url(older.data.permalink)}>
             <p>Previous</p>
-            {older.data.title}
+            <div {...morphFrom(older, 'title')}>{older.data.title}</div>
           </a>
         )
       }
@@ -227,7 +227,7 @@ const minutes = readingMinutes(entry.body);
         newer && (
           <a href={url(newer.data.permalink)}>
             <p>Next</p>
-            {newer.data.title}
+            <div {...morphFrom(newer, 'title')}>{newer.data.title}</div>
           </a>
         )
       }
