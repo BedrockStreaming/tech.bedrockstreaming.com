@@ -1,3 +1,9 @@
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 .skip {
   position: absolute;
   left: var(--space-4);
@@ -25,6 +31,7 @@
   background: color-mix(in srgb, var(--header-bg) 92%, transparent);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
+  view-transition-name: site-header;
 }
 
 .brand {
