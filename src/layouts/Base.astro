@@ -159,7 +159,10 @@ const jsonLd = article && {
         <img alt="" src={site.avatar} />
         <span class="brand-name">Bedrock Tech blog</span>
       </a>
-      <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false">Menu</button>
+      <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" /></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6 18 18M18 6 6 18" /></svg>
+      </button>
       <nav class="site-nav" id="site-nav" aria-label="Sections">
         {
           menu.map((item) => (
@@ -253,10 +256,34 @@ const jsonLd = article && {
 
       const nav = document.getElementById('site-nav');
       const navToggle = document.getElementById('nav-toggle');
+      const page = document.getElementById('content');
+      const footer = document.querySelector('.site-footer');
+      const desktopNav = window.matchMedia('(min-width: 50rem)');
+      const setNavOpen = (open: boolean) => {
+        if (!(navToggle instanceof HTMLButtonElement)) return;
+        const shown = open && !desktopNav.matches;
+        nav?.classList.toggle('is-open', shown);
+        navToggle.setAttribute('aria-expanded', shown ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', shown ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('nav-open', shown);
+        page?.toggleAttribute('inert', shown);
+        footer?.toggleAttribute('inert', shown);
+      };
       navToggle?.addEventListener('click', () => {
-        const open = nav?.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true');
       });
+      nav?.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element) || !target.closest('a')) return;
+        setTimeout(() => setNavOpen(false), 0);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || navToggle?.getAttribute('aria-expanded') !== 'true') return;
+        const search = document.getElementById('search-dialog');
+        if (search instanceof HTMLDialogElement && search.open) return;
+        setNavOpen(false);
+      });
+      desktopNav.addEventListener('change', () => setNavOpen(false));
 
       const dialog = document.getElementById('search-dialog');
       const openSearch = () => {

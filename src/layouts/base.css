@@ -67,20 +67,52 @@ html[data-theme='dark'] .brand img {
 
 .nav-toggle {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  order: 1;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.nav-toggle svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.nav-toggle .icon-close {
+  display: none;
+}
+
+.nav-toggle[aria-expanded='true'] .icon-menu {
+  display: none;
+}
+
+.nav-toggle[aria-expanded='true'] .icon-close {
+  display: block;
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 .site-nav {
   display: none;
   position: absolute;
-  top: var(--header-height);
+  top: 100%;
   left: 0;
   right: 0;
+  height: calc(100dvh - var(--header-height));
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-4) var(--space-5) var(--space-5);
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding: var(--space-4) 0 0;
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .site-nav.is-open {
@@ -101,9 +133,23 @@ html[data-theme='dark'] .brand img {
   cursor: pointer;
 }
 
+.site-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 3.75rem;
+  padding: 0 var(--gutter);
+  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.nav-toggle {
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
 .site-nav a[aria-current='page'] {
-  box-shadow: inset 0 -2px 0 var(--scarlet);
-  padding-bottom: 0.2rem;
+  box-shadow: inset 3px 0 0 var(--scarlet);
 }
 
 .site-nav a:hover,
@@ -317,12 +363,27 @@ html[data-theme='dark'] .site-footer {
   .site-nav.is-open {
     display: flex;
     position: static;
+    height: auto;
     flex-direction: row;
     align-items: center;
     gap: var(--space-4);
     padding: 0;
+    overflow: visible;
     background: none;
     border-bottom: 0;
+  }
+
+  .site-nav a {
+    min-height: 0;
+    padding: 0;
+    border-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .site-nav a[aria-current='page'] {
+    box-shadow: inset 0 -2px 0 var(--scarlet);
+    padding-bottom: 0.2rem;
   }
 }
 
