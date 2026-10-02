@@ -5,7 +5,7 @@ import ArticleList from '../components/ArticleList.astro';
 import TalkCards from '../components/TalkCards.astro';
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
-import { articlePages, authorsOf, coverGradient, excerpt, plainText, published, readingMinutes, site, url } from '../lib/site';
+import { articlePages, authorsOf, coverGradient, excerpt, morphFrom, plainText, published, readingMinutes, site, url } from '../lib/site';
 import PostInfo from '../components/PostInfo.astro';
 
 const pages = await articlePages();
@@ -36,7 +36,7 @@ const talks = (await published('talks')).reverse().slice(0, 4);
                 <a class="kicker" href={`/tags/#${topic}`}>{labels.get(topic) ?? topic}</a>
               ))}
             </p>
-            <h2 class="display"><a href={url(featured.data.permalink)}>{featured.data.title}</a></h2>
+            <h2 class="display" {...morphFrom(featured, 'title')}><a href={url(featured.data.permalink)}>{featured.data.title}</a></h2>
             {featuredExcerpt && <p class="lede">{featuredExcerpt}</p>}
             <PostInfo
               authors={featuredAuthors}
@@ -45,7 +45,7 @@ const talks = (await published('talks')).reverse().slice(0, 4);
               minutes={readingMinutes(featured.body)}
             />
           </div>
-          <a class="cover" href={url(featured.data.permalink)} style={`--g1:${gradient[0]};--g2:${gradient[1]}`} aria-hidden="true" tabindex="-1">
+          <a class="cover" href={url(featured.data.permalink)} style={`--g1:${gradient[0]};--g2:${gradient[1]}`} {...morphFrom(featured, 'cover')} aria-hidden="true" tabindex="-1">
             {cover && <img src={url(cover)} alt="" />}
             <p class="echo">{echoWord}</p>
           </a>

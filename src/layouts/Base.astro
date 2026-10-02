@@ -64,6 +64,27 @@ const jsonLd = article && {
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
+    <script is:inline>
+      (function () {
+        function morph(url) {
+          var path = new URL(url).pathname;
+          var used = {};
+          document.querySelectorAll('[data-morph]').forEach(function (el) {
+            var name = el.getAttribute('data-morph');
+            var match = new URL(el.getAttribute('data-morph-href'), location.href).pathname === path && !used[name];
+            if (match) used[name] = true;
+            el.style.viewTransitionName = match ? name : '';
+          });
+        }
+        addEventListener('pageswap', function (event) {
+          if (event.viewTransition && event.activation) morph(event.activation.entry.url);
+        });
+        addEventListener('pagereveal', function (event) {
+          var activation = window.navigation && navigation.activation;
+          if (event.viewTransition && activation && activation.navigationType === 'traverse' && activation.from) morph(activation.from.url);
+        });
+      })();
+    </script>
     <slot name="head" />
     {!index && <meta name="robots" content="noindex" />}
     <link rel="shortcut icon" href={site.favicon} type="image/x-icon" />

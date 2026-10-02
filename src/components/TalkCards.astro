@@ -1,6 +1,6 @@
 ---
 import './talk.css';
-import { authorsOf, formatDate, url, type Entry } from '../lib/site';
+import { authorsOf, formatDate, morphFrom, url, type Entry } from '../lib/site';
 
 interface Props {
   talks: Extract<Entry, { collection: 'talks' }>[];
@@ -44,11 +44,11 @@ const years = [...new Set(talks.map((talk) => String(talk.data.date.getUTCFullYe
       >
         {talk.data.youtubeId && (
           <a href={url(talk.data.permalink)}>
-            <img loading="lazy" src={`https://i.ytimg.com/vi/${talk.data.youtubeId}/hqdefault.jpg`} alt="" />
+            <img loading="lazy" src={`https://i.ytimg.com/vi/${talk.data.youtubeId}/hqdefault.jpg`} alt="" {...morphFrom(talk, 'video')} />
           </a>
         )}
         <div>
-          <h3><a href={url(talk.data.permalink)}>{talk.data.title}</a></h3>
+          <h3 {...morphFrom(talk, 'title')}><a href={url(talk.data.permalink)}>{talk.data.title}</a></h3>
           <p class="meta">
             <span>{talk.data.eventName}</span>
             <time datetime={talk.data.date.toISOString().slice(0, 10)}>{formatDate(talk.data.date)}</time>

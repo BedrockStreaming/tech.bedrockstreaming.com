@@ -10,6 +10,8 @@ import {
   authorsOf,
   coverGradient,
   inlineMarkdown,
+  morph,
+  morphFrom,
   outputSlug,
   plainText,
   published,
@@ -82,10 +84,10 @@ const minutes = readingMinutes(entry.body);
           </ul>
         )
       }
-      <h1 class="title">{data.title}</h1>
+      <h1 class="title" style={morph(entry, 'title')}>{data.title}</h1>
       {descriptionHtml && <p class="lede" set:html={descriptionHtml} />}
       <PostInfo authors={authors} date={data.date} language={data.language} minutes={minutes} />
-      <div class="cover article-cover" style={`--g1:${gradient[0]};--g2:${gradient[1]}`}>
+      <div class="cover article-cover" style={`--g1:${gradient[0]};--g2:${gradient[1]};${morph(entry, 'cover')}`}>
         {cover && <img src={url(cover)} alt="" />}
         <p class="echo" aria-hidden="true">{echo}</p>
       </div>
@@ -137,7 +139,7 @@ const minutes = readingMinutes(entry.body);
         {
           talk?.youtubeId && (
             <button class="youtube-facade" type="button" data-youtube={talk.youtubeId} data-title={data.title}>
-              <img src={`https://i.ytimg.com/vi/${talk.youtubeId}/hqdefault.jpg`} alt="" />
+              <img src={`https://i.ytimg.com/vi/${talk.youtubeId}/hqdefault.jpg`} alt="" style={morph(entry, 'video')} />
               <span>Play</span>
             </button>
           )
@@ -201,7 +203,7 @@ const minutes = readingMinutes(entry.body);
               <time class="teaser-date" datetime={article.data.date.toISOString().slice(0, 10)}>
                 {article.data.date.toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}
               </time>
-              <h3><a href={url(article.data.permalink)}>{article.data.title}</a></h3>
+              <h3 {...morphFrom(article, 'title')}><a href={url(article.data.permalink)}>{article.data.title}</a></h3>
             </article>
           ))}
         </div>

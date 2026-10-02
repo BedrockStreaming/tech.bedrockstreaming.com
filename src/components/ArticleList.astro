@@ -1,7 +1,7 @@
 ---
 import './teaser.css';
 import { getCollection } from 'astro:content';
-import { authorsOf, excerpt, readingMinutes, url, type Entry } from '../lib/site';
+import { authorsOf, excerpt, morphFrom, readingMinutes, url, type Entry } from '../lib/site';
 
 function initials(name?: string) {
   if (!name) return '';
@@ -39,7 +39,7 @@ const teasers = await Promise.all(
           {article.data.date.toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}
         </time>
         <div>
-          <h2>
+          <h2 {...morphFrom(article, 'title')}>
             <a href={url(article.data.permalink)}>{article.data.title}</a>
           </h2>
           <div class="excerpt" set:html={excerpt} />

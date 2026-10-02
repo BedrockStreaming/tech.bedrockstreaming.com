@@ -91,6 +91,22 @@ export function coverGradient(seed: string) {
   return coverGradients[hash];
 }
 
+type MorphPart = 'title' | 'cover' | 'video';
+
+function morphName(entry: Entry, part: MorphPart) {
+  return `${part}-${entry.id.replace(/[^\w-]/g, '-')}`;
+}
+
+export function morph(entry: Entry, part: MorphPart) {
+  return `view-transition-name:${morphName(entry, part)}`;
+}
+
+// A view-transition-name must be unique on the page, or the browser skips the whole transition.
+// Links to an entry only get theirs while navigating to or back from it (see Base.astro).
+export function morphFrom(entry: Entry, part: MorphPart) {
+  return { 'data-morph': morphName(entry, part), 'data-morph-href': url(entry.data.permalink) };
+}
+
 export function readingMinutes(markdown: string | undefined) {
   const words = (markdown ?? '').replace(/```[\s\S]*?```/g, ' ').trim().split(/\s+/).filter(Boolean);
   if (words.length < 40) return undefined;
