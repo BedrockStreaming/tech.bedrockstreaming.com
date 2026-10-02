@@ -6,14 +6,14 @@ frontend:
         # Install Node with nvm when the build image does not provide it.
         - if ! command -v node; then curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash; . "$HOME/.nvm/nvm.sh"; nvm install 26; fi
         - node -v
-        - npm --prefix astro ci
+        - npm ci
     build:
       commands:
-        - SITE_PREVIEW=true npm --prefix astro run build
+        - SITE_PREVIEW=true npm run build
   artifacts:
-    baseDirectory: astro/dist
+    baseDirectory: dist
     files:
       - '**/*'
   cache:
     paths:
-      - astro/node_modules/**/*
+      - node_modules/**/*

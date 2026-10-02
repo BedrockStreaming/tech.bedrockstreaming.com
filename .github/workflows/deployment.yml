@@ -14,17 +14,17 @@ jobs:
         with:
           node-version: 26
           cache: npm
-          cache-dependency-path: astro/package-lock.json
-      - run: npm --prefix astro ci
+          cache-dependency-path: package-lock.json
+      - run: npm ci
 
       - name: 'Build 📦'
         run: |
-          npm --prefix astro run build
-          cp CNAME astro/dist/
-          touch astro/dist/.nojekyll
+          npm run build
+          cp CNAME dist/
+          touch dist/.nojekyll
 
       - uses: JamesIves/github-pages-deploy-action@v4.3.4
         name: 'Deploy 🚀'
         with:
-          folder: astro/dist
+          folder: dist
           clean: true

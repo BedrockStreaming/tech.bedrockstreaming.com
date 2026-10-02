@@ -1,13 +1,6 @@
-_site
 .DS_Store
-*.sublime-project
-*.sublime-workspace
-codekit-config.json
 node_modules
-vagrant/.vagrant/
-.jekyll-cache
-.jekyll-metadata
 .idea/*
 
-astro/dist
-astro/.astro
+dist
+.astro
