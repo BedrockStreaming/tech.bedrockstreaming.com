@@ -1,5 +1,9 @@
 ---
-import '../styles/site.scss';
+import '../styles/tokens.css';
+import '../styles/type.css';
+import '../styles/prose.css';
+import './base.css';
+import './page.css';
 import { absoluteUrl, isPreview, site } from '../lib/site';
 
 interface Props {
@@ -11,28 +15,28 @@ interface Props {
   largeImage?: boolean;
   canonical?: string;
   article?: { published: Date; author?: string };
+  index?: boolean;
 }
 
-const { title, description, summary, language = 'en', image, largeImage = false, canonical, article } = Astro.props;
+const { title, description, summary, language = 'en', image, largeImage = false, canonical, article, index = true } = Astro.props;
 const pageTitle = `${title ?? site.title} | ${title ? site.title : site.description}`;
 const pageUrl = canonical ?? absoluteUrl(Astro.url.pathname);
 const imageUrl = absoluteUrl(image ?? site.headerImage);
 const locale = language === 'fr' ? 'fr_FR' : 'en_US';
 
 const menu = [
-  { title: 'Jobs', href: '/jobs/' },
-  { title: 'Last Friday Talks', href: '/lft/' },
-  { title: 'Meetups & Conferences', href: '/meetups/' },
-  { title: 'OSS', href: '/oss/' },
-  { title: 'Search', href: '/search/', icon: 'fa-search' },
-  { title: 'Topics', href: '/tags/', icon: 'fa-tags' },
+  { title: 'Articles', href: '/' },
+  { title: 'Talks', href: '/talks/' },
+  { title: 'Topics', href: '/tags/' },
+  { title: 'Open source', href: '/oss/' },
+  { title: 'Jobs', href: 'https://bedrockstreaming.com/career/' },
 ];
 
 const social = [
-  { title: 'Follow on Github', href: 'https://github.com/BedrockStreaming', icon: 'fab fa-github' },
-  { title: 'Follow on Linkedin', href: 'https://www.linkedin.com/company/bedrock-streaming', icon: 'fab fa-linkedin' },
-  { title: 'Follow on Twitter', href: 'https://twitter.com/Bedrock_Tech', icon: 'fab fa-twitter' },
-  { title: 'Follow on Youtube', href: 'https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw', icon: 'fab fa-youtube' },
+  { title: 'GitHub', href: 'https://github.com/BedrockStreaming' },
+  { title: 'LinkedIn', href: 'https://www.linkedin.com/company/bedrock-streaming' },
+  { title: 'YouTube', href: 'https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw' },
+  { title: 'RSS', href: '/feed.xml' },
 ];
 
 const jsonLd = article && {
@@ -52,20 +56,58 @@ const jsonLd = article && {
 <html lang={language}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>
-      const isAutoTheme = true;
-      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+      (function () {
+        var stored = sessionStorage.getItem('theme');
+        var theme = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
     </script>
     <script is:inline>
-      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
-      const isCookieConsent = 'false';
-      const analyticsName = '';
+      (function () {
+        var clicked;
+        addEventListener('click', function (event) {
+          clicked = event.target instanceof Element ? event.target.closest('a') : undefined;
+        }, true);
+        function nearClick(el) {
+          var card = clicked && clicked.closest('article, li');
+          return clicked ? el.contains(clicked) || clicked.contains(el) || Boolean(card && card.contains(el)) : false;
+        }
+        function morph(url) {
+          var path = new URL(url).pathname;
+          var used = {};
+          var elements = Array.prototype.slice.call(document.querySelectorAll('[data-morph]'));
+          elements.forEach(function (el) {
+            el.style.viewTransitionName = '';
+          });
+          elements
+            .filter(function (el) {
+              return new URL(el.getAttribute('data-morph-href'), location.href).pathname === path;
+            })
+            .sort(function (a, b) {
+              return Number(nearClick(b)) - Number(nearClick(a));
+            })
+            .forEach(function (el) {
+              var name = el.getAttribute('data-morph');
+              if (used[name]) return;
+              used[name] = true;
+              el.style.viewTransitionName = name;
+            });
+        }
+        addEventListener('pageswap', function (event) {
+          if (event.viewTransition && event.activation) morph(event.activation.entry.url);
+        });
+        addEventListener('pagereveal', function (event) {
+          var activation = window.navigation && navigation.activation;
+          if (event.viewTransition && activation && activation.navigationType === 'traverse' && activation.from) morph(activation.from.url);
+        });
+      })();
     </script>
-    <script is:inline defer src="/assets/js/main.min.js"></script>
     <slot name="head" />
+    {!index && <meta name="robots" content="noindex" />}
     <link rel="shortcut icon" href={site.favicon} type="image/x-icon" />
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
 
     {
       !isPreview && (
@@ -110,65 +152,184 @@ const jsonLd = article && {
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={title ?? site.title} />
   </head>
-  <body>
+  <body data-pagefind-ignore={index ? undefined : ''}>
+    <a class="skip" href="#content">Skip to content</a>
     <header class="site-header">
-      <div class="branding">
-        <a href="/"><img alt="logo img" class="avatar" src={site.avatar} /></a>
-        <a class="site-title" aria-label={site.title} href="/">{site.title}</a>
-      </div>
-      <nav class="clear">
-        <a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a>
-        <ul class="hide">
-          {
-            menu.map((item) => (
-              <>
-                <li class="separator"> | </li>
-                <li>
-                  <a class="clear" aria-label={item.title} title={item.title} href={item.href}>
-                    {item.icon ? <i class={`fas ${item.icon}`} aria-hidden="true" /> : item.title}
-                  </a>
-                </li>
-              </>
-            ))
-          }
-          <li class="separator"> | </li>
-          <li><a id="theme-toggle" title={title} aria-label={title} onclick="themeToggle()"></a></li>
-        </ul>
+      <a class="brand" href="/" aria-label={site.title}>
+        <img alt="" src={site.avatar} />
+        <span class="brand-name">Bedrock Tech blog</span>
+      </a>
+      <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" /></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6 18 18M18 6 6 18" /></svg>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Sections">
+        {
+          menu.map((item) => (
+            <a
+              href={item.href}
+              aria-current={
+                Astro.url.pathname.replace(/\/?$/, '/') === item.href ||
+                (item.href === '/' && Astro.url.pathname.startsWith('/blog/'))
+                  ? 'page'
+                  : undefined
+              }
+            >
+              {item.title}
+            </a>
+          ))
+        }
       </nav>
+      <div class="header-actions">
+        <button class="search-trigger" id="search-open" type="button" aria-label="Search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+          <span>Search</span>
+          <kbd class="key">⌘K</kbd>
+        </button>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3.1a8.5 8.5 0 1 0 6.4 13.3A7 7 0 0 1 14.5 3.1Z" /></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6" /></svg>
+        </button>
+      </div>
     </header>
 
-    <div class="content">
+    <div class="shell" id="content">
       <slot />
     </div>
 
     <footer class="site-footer">
-      <p class="text">
-        Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
-      </p>
-      <div class="footer-icons">
-        <ul>
-          <li>
-            <a href="/feed.xml" title="Follow RSS feed" target="_blank">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {
-            social.map((item) => (
-              <li>
-                <a href={item.href} title={item.title} target="_blank" rel="noopener">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x" />
-                    <i class={`${item.icon} fa-stack-1x fa-inverse`} />
-                  </span>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+      <div class="footer-zones">
+        <div class="footer-zone footer-brand">
+          <p>{site.headerText}</p>
+        </div>
+        <div class="footer-zone">
+          <h2>Read</h2>
+          <ul>
+            <li><a href="/">Articles</a></li>
+            <li><a href="/talks/">Talks</a></li>
+            <li><a href="/tags/">Topics</a></li>
+          </ul>
+        </div>
+        <div class="footer-zone">
+          <h2>Studio</h2>
+          <ul>
+            <li><a href="https://bedrockstreaming.com/career/">Jobs</a></li>
+            <li><a href="/oss/">Open source</a></li>
+            <li><a href="/lft/">Last Friday Talks</a></li>
+            <li><a href="/meetups/">Meetups</a></li>
+          </ul>
+        </div>
+        <div class="footer-zone">
+          <h2>Follow</h2>
+          <ul>
+            {social.map((item) => (
+              <li><a href={item.href}>{item.title}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <span>Bedrock Tech Blog</span>
+        <span>Search with ⌘K</span>
       </div>
     </footer>
+
+    <dialog class="search-dialog" id="search-dialog" aria-label="Search">
+      <div id="search"></div>
+      <p class="meta" id="search-fallback">The search index is generated when the site is built.</p>
+    </dialog>
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+    <script>
+      const themeButton = document.getElementById('theme-toggle');
+      const syncThemeButton = () => {
+        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+        themeButton?.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        themeButton?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+      };
+      syncThemeButton();
+      themeButton?.addEventListener('click', () => {
+        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        sessionStorage.setItem('theme', next);
+        syncThemeButton();
+      });
+
+      const nav = document.getElementById('site-nav');
+      const navToggle = document.getElementById('nav-toggle');
+      const page = document.getElementById('content');
+      const footer = document.querySelector('.site-footer');
+      const desktopNav = window.matchMedia('(min-width: 50rem)');
+      const setNavOpen = (open: boolean) => {
+        if (!(navToggle instanceof HTMLButtonElement)) return;
+        const shown = open && !desktopNav.matches;
+        nav?.classList.toggle('is-open', shown);
+        navToggle.setAttribute('aria-expanded', shown ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', shown ? 'Close menu' : 'Open menu');
+        document.body.classList.toggle('nav-open', shown);
+        page?.toggleAttribute('inert', shown);
+        footer?.toggleAttribute('inert', shown);
+      };
+      navToggle?.addEventListener('click', () => {
+        setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true');
+      });
+      nav?.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element) || !target.closest('a')) return;
+        setTimeout(() => setNavOpen(false), 0);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || navToggle?.getAttribute('aria-expanded') !== 'true') return;
+        const search = document.getElementById('search-dialog');
+        if (search instanceof HTMLDialogElement && search.open) return;
+        setNavOpen(false);
+      });
+      desktopNav.addEventListener('change', () => setNavOpen(false));
+
+      const dialog = document.getElementById('search-dialog');
+      const openSearch = () => {
+        if (!(dialog instanceof HTMLDialogElement)) return;
+        dialog.showModal();
+        const fallback = document.getElementById('search-fallback');
+        if ('PagefindUI' in window && !dialog.dataset.ready) {
+          const PagefindUI = (window as unknown as { PagefindUI: new (options: object) => void }).PagefindUI;
+          new PagefindUI({ element: '#search', showSubResults: true, showImages: false, autofocus: true });
+          dialog.dataset.ready = 'true';
+          fallback?.remove();
+        }
+        dialog.querySelector('input')?.focus();
+      };
+      document.getElementById('search-open')?.addEventListener('click', openSearch);
+      document.addEventListener('keydown', (event) => {
+        if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+          event.preventDefault();
+          if (dialog instanceof HTMLDialogElement && dialog.open) dialog.close();
+          else openSearch();
+        }
+      });
+
+      document.addEventListener('click', async (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const copy = target.closest('.code-copy');
+        if (copy instanceof HTMLButtonElement) {
+          const code = copy.closest('.code-block')?.querySelector('code')?.innerText ?? '';
+          await navigator.clipboard.writeText(code);
+          const previous = copy.textContent;
+          copy.textContent = 'Copied';
+          setTimeout(() => {
+            copy.textContent = previous;
+          }, 1500);
+        }
+        const play = target.closest('[data-youtube]');
+        if (play instanceof HTMLButtonElement && play.dataset.youtube) {
+          const frame = document.createElement('iframe');
+          frame.src = `https://www.youtube-nocookie.com/embed/${play.dataset.youtube}?autoplay=1`;
+          frame.title = play.dataset.title || 'YouTube video';
+          frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          frame.allowFullscreen = true;
+          play.replaceWith(frame);
+        }
+      });
+    </script>
   </body>
 </html>

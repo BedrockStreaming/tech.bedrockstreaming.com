@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import TalkCards from '../../components/TalkCards.astro';
 import Page from '../../layouts/Page.astro';
-import { published, url } from '../../lib/site';
+import { morphFrom, published, url } from '../../lib/site';
 
 const talks = (await published('talks')).filter((talk) => talk.data.eventName !== 'Last Friday Talks').reverse();
 const authors = new Map((await getCollection('authors')).map((a) => [a.id, a.data]));
@@ -22,12 +22,12 @@ const speakers = (author: unknown) =>
   (Array.isArray(author) ? author : [author]).map((id) => authors.get(id as string) ?? {});
 ---
 
-<Page title="Meetups & Conferences" featureImage="/images/common/travel.jpg">
+<Page title="Meetups & Conferences" wide>
   <main class="home">
     <p>
       Bedrock through its actions, sponsors events in France, hosts Meetup and conferences in its auditorium. Each of those events is an opportunity for Bedrock members to give conferences in France or abroad.
     </p>
-    <p><em>⭐ sponsored by Bedrock</em> <em>🏠 hosted by Bedrock</em></p>
+    <p><span class="label label-sponsored">Sponsored</span> <span class="label label-hosted">Hosted</span></p>
 
     {
       years.map(([year, events]) => (
@@ -39,12 +39,12 @@ const speakers = (author: unknown) =>
               return (
                 <li>
                   {dayMonth(first.date)} : {first.eventUrl ? <a href={first.eventUrl} target="_blank">{eventName}</a> : eventName}
-                  {first.hosted && ' 🏠'}
-                  {first.sponsored && ' ⭐️'}
+                  {first.hosted && <> <span class="label label-hosted">Hosted</span></>}
+                  {first.sponsored && <> <span class="label label-sponsored">Sponsored</span></>}
                   <ul>
                     {items.map((talk) => (
                       <li>
-                        <a href={url(talk.data.permalink)}>{talk.data.title}</a> -{' '}
+                        <a href={url(talk.data.permalink)} {...morphFrom(talk, 'title')}>{talk.data.title}</a> -{' '}
                         {speakers(talk.data.author).map((speaker, index, all) => (
                           <>
                             {speaker.url ? <a href={speaker.url}>{speaker.name}</a> : speaker.name}

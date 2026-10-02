@@ -6,7 +6,7 @@ import { published } from '../../lib/site';
 const talks = (await published('talks')).filter((talk) => talk.data.youtubeId && talk.data.eventName === 'Last Friday Talks').reverse();
 ---
 
-<Page title="Last Friday Talks" featureImage="/images/common/travel.jpg">
+<Page title="Last Friday Talks" wide>
   <main class="home">
     <p>
       Last friday talks were at first internal technical conferences at the end of each month given by Bedrock employees about various subjects.{' '}

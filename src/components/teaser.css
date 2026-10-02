@@ -1,0 +1,139 @@
+.teasers {
+  display: flex;
+  flex-direction: column;
+}
+
+.shell > .teasers,
+.shell > .pagination {
+  padding-inline: max(var(--gutter), calc((100% - var(--content)) / 2));
+}
+
+.shell > .teasers:last-child,
+.shell > .pagination {
+  padding-bottom: var(--space-8);
+}
+
+.teaser {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 1.75rem;
+  align-items: start;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.teaser-date {
+  margin: 0;
+  padding-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.teaser-avatars {
+  display: flex;
+  padding-top: 0.15rem;
+}
+
+.teaser-avatars img,
+.avatar-fallback {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: -0.45rem;
+  border: 2px solid var(--bg);
+}
+
+.teaser-avatars :first-child {
+  margin-left: 0;
+}
+
+.avatar-fallback {
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.teaser-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  align-items: center;
+  margin: var(--space-3) 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.teaser-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.teaser .excerpt {
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.teaser h2,
+.teaser h3 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  font-size: 1.65rem;
+  margin: 0 0 var(--space-3);
+}
+
+.teaser h2 a,
+.teaser h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.teaser h2 a:hover,
+.teaser h3 a:hover {
+  color: var(--link);
+}
+
+.teaser .excerpt > :first-child {
+  margin-top: 0;
+}
+
+.teaser .excerpt > :last-child {
+  margin-bottom: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  align-items: center;
+  margin-top: var(--space-5);
+  font-size: var(--text-meta);
+}
+
+.pagination a {
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pagination a:hover {
+  color: var(--link);
+}
+
+@container page (min-width: 50rem) {
+  .teaser {
+    grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+  }
+}

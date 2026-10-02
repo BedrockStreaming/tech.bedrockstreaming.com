@@ -1,61 +1,69 @@
 ---
 import { getCollection } from 'astro:content';
-import PostInfo from '../../components/PostInfo.astro';
 import Page from '../../layouts/Page.astro';
-import { published, url } from '../../lib/site';
+import { formatDate, published, url } from '../../lib/site';
 
-const entries = [...(await published('articles')), ...(await published('talks'))];
+const entries = [...(await published('articles')).reverse(), ...(await published('talks')).reverse()];
 const labels = new Map((await getCollection('topics')).map((topic) => [topic.id, topic.data.label]));
-const topics = [...new Set(entries.flatMap((entry) => entry.data.topics))].sort();
+const topics = [...labels.keys()].filter((topic) => entries.some((entry) => entry.data.topics.includes(topic)));
 ---
 
-<Page title="Topics">
-  <div class="home">
-    <div class="tag-list">
-      <ul>
-        <li class="meta">{topics.length === 1 ? 'Tag' : 'Tags'}</li>
-        {
-          topics.map((topic) => (
-            <>
-              {' '}
-              <li>
-                <a class="button" href={`/tags/#${topic}`}>
-                  <p><i class="fas fa-tag fa-fw fa-sm" /> {topic}</p>
-                </a>
-              </li>
-            </>
-          ))
-        }
-      </ul>
-    </div>
+<Page title="Topics" wide>
+  <ul class="chips">
+    {topics.map((topic) => (
+      <li><a class="chip" href={`#${topic}`}>{labels.get(topic)}</a></li>
+    ))}
+  </ul>
 
-    <div class="posts">
-      {
-        topics.map((topic) => (
-          <>
-            <h3 id={topic} class="tag-anchor">
-              <a href={`#${topic}`}>
-                <i class="fas fa-tag fa-fw fa-sm" /> {labels.get(topic) ?? topic}
-              </a>
-              <a href="#Topics" style="float: right">
-                <i class="fas fa-chevron-up fa-lg" aria-hidden="true" />
-              </a>
-            </h3>
-            <div class="tag-posts">
-              {entries
-                .filter((entry) => entry.data.topics.includes(topic))
-                .map((entry) => (
-                  <h5 class="tag-title">
-                    <a href={url(entry.data.permalink)}>
-                      <i class="far fa-file-alt" aria-hidden="true" /> {entry.data.title}
-                    </a>
-                    <PostInfo date={entry.data.date} language={entry.data.language} />
-                  </h5>
-                ))}
-            </div>
-          </>
-        ))
-      }
-    </div>
-  </div>
+  {
+    topics.map((topic) => (
+      <section class="tag-group" id={topic}>
+        <h2 class="section-title"><a href={`#${topic}`}>{labels.get(topic) ?? topic}</a></h2>
+        <ul>
+          {entries
+            .filter((entry) => entry.data.topics.includes(topic))
+            .map((entry) => (
+              <li>
+                <a href={url(entry.data.permalink)}>{entry.data.title}</a>
+                <span class="meta">
+                  <time datetime={entry.data.date.toISOString().slice(0, 10)}>{formatDate(entry.data.date)}</time>
+                  <span class="lang">{entry.data.language}</span>
+                </span>
+              </li>
+            ))}
+        </ul>
+      </section>
+    ))
+  }
 </Page>
+
+<style>
+  .tag-group {
+    margin: var(--space-6) 0;
+  }
+
+  .tag-group h2 {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-3);
+  }
+
+  .tag-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tag-group li {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tag-group a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .tag-group a:hover {
+    color: var(--link);
+  }
+</style>

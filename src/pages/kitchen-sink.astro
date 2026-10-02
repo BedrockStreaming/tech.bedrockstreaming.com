@@ -1,0 +1,123 @@
+---
+import './home.css';
+import '../styles/cover.css';
+import './kitchen.css';
+import '../components/talk.css';
+import { codeToHtml } from 'shiki';
+import theme from '../styles/bedrock-shiki.json';
+import { bedrockCode } from '../lib/shiki-bedrock.mjs';
+import Base from '../layouts/Base.astro';
+import { coverGradients } from '../lib/site';
+
+const code = await codeToHtml(
+  ['const platform = "streaming";', 'const scarlet = "#FD4D26";', 'const count = 1;'].join('\n'),
+  {
+    lang: 'ts',
+    theme,
+    transformers: [bedrockCode()],
+    meta: { __raw: 'title="player.ts" {2}' },
+  },
+);
+
+const swatches = [
+  ['Ink', '#3402F0', '#fff'],
+  ['Scarlet', '#FD4D26', '#fff'],
+  ['Black', '#000', '#FAF8F8'],
+  ['White', '#fff', '#000'],
+  ['Fuchsia', '#E82577', '#fff'],
+  ['Pearl', '#FAF8F8', '#000'],
+  ['Iris', '#50F1D7', '#000'],
+];
+---
+
+<Base title="Kitchen sink" index={false}>
+  <header class="page-title">
+    <p class="echo" aria-hidden="true">Tokens</p>
+    <h1 class="display">Kitchen sink</h1>
+    <p class="lede">Every component, in whichever theme the header toggle is set to.</p>
+  </header>
+
+  <section class="section">
+    <h2 class="display">Colour</h2>
+    <div class="swatch-grid">
+      {swatches.map(([name, hex, ink]) => (
+        <div class="swatch" style={`background:${hex};color:${ink}`}>
+          <strong>{name}</strong>
+          <span>{hex}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="display">Type</h2>
+    <p class="kicker">Kicker / tag</p>
+    <p class="display" style="font-size:var(--text-h1)">Display heading</p>
+    <h2 class="display">Section title</h2>
+    <p>Body copy stays in Roboto. Only the hero, section titles and covers use Roboto Condensed, in uppercase. Code uses Roboto Mono.</p>
+    <p class="meta"><span class="lang">en</span><span>12 min</span><span>Meta is 0.875rem</span></p>
+  </section>
+
+  <section class="section">
+    <h2 class="display">Chips and labels</h2>
+    <ul class="chips">
+      <li><a class="chip" href="/tags/#frontend">Frontend</a></li>
+      <li><a class="chip" href="/tags/#video">Video</a></li>
+      <li><span class="label label-sponsored">Sponsored</span></li>
+      <li><span class="label label-hosted">Hosted</span></li>
+    </ul>
+  </section>
+
+  <section class="section prose">
+    <h2 class="display">Callouts</h2>
+    <aside class="callout callout-tldr">
+      <p class="kicker">TL;DR</p>
+      <p>A short summary sits in the article column, not in the hero.</p>
+    </aside>
+    <aside class="callout callout-warning">
+      <p class="kicker">Warning</p>
+      <p>Scarlet marks the warning. It is not used for body-sized link text on white.</p>
+    </aside>
+    <blockquote>
+      <p>A plain blockquote from an article uses the same surface, with the link colour on the rule.</p>
+    </blockquote>
+  </section>
+
+  <section class="section">
+    <h2 class="display">Code</h2>
+    <div class="prose" set:html={code} />
+  </section>
+
+  <section class="section">
+    <h2 class="display">Covers</h2>
+    <div class="swatch-grid">
+      {coverGradients.map(([from, to]) => (
+        <div class="cover" style={`--g1:${from};--g2:${to};--cover-height:9rem`}>
+          <p class="echo">Cut</p>
+          <div class="cover-copy"><p class="kicker">{from}</p></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="display">Talk</h2>
+    <article class="talk-card">
+      <div></div>
+      <div>
+        <h3>A talk title stays in Roboto</h3>
+        <p class="meta">
+          <span>Last Friday Talks</span>
+          <span class="label label-hosted">Hosted</span>
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <section class="jobs-cta">
+    <p class="echo" aria-hidden="true">Challenge</p>
+    <h2 class="display">Care for a challenge?</h2>
+    <p>The crazy happens in the backstage.</p>
+    <a class="button" href="https://bedrockstreaming.com/career/">See open roles</a>
+  </section>
+</Base>
