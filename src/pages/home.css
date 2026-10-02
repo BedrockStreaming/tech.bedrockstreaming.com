@@ -2,6 +2,19 @@
   padding: var(--space-8) max(var(--gutter), calc((100% - var(--content)) / 2));
 }
 
+.band-tight {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.band:has(+ .band-tight) {
+  padding-bottom: var(--space-5);
+}
+
+.band-tight + .band {
+  padding-top: var(--space-5);
+}
+
 .band-alt {
   background: var(--surface);
   border-top: 4px solid var(--ink);
