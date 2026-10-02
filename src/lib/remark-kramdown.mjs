@@ -1,9 +1,6 @@
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import GithubSlugger from 'github-slugger';
 import { bedrockCode } from './shiki-bedrock.mjs';
-
-const bedrockTheme = JSON.parse(readFileSync(fileURLToPath(new URL('../styles/bedrock-shiki.json', import.meta.url)), 'utf8'));
+import bedrockTheme from '../styles/bedrock-shiki.json' with { type: 'json' };
 
 // The kramdown features the Articles still use: `{:toc}`, and `{:target="_blank"}` on links.
 
