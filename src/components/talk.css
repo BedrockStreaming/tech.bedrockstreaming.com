@@ -77,3 +77,131 @@
     grid-template-columns: 11rem minmax(0, 1fr);
   }
 }
+
+.talks-page .section-title {
+  margin: var(--space-7) 0 var(--space-4);
+  padding-bottom: 0.7rem;
+  border-bottom: 3px solid var(--text);
+}
+
+.talks-page section:first-of-type .section-title {
+  margin-top: 0;
+}
+
+.poster-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5) var(--space-4);
+}
+
+.poster a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.poster-media {
+  position: relative;
+  display: block;
+  background: var(--black);
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.poster img,
+.prose .poster img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.poster h3,
+.prose .poster h3 {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: var(--space-2) 0 var(--space-1);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.poster a:hover h3 {
+  color: var(--link);
+}
+
+.poster .meta,
+.prose .poster .meta,
+.appearance .meta {
+  margin: 0;
+}
+
+.lft-more,
+.prose .lft-more {
+  margin: var(--space-5) 0 0;
+}
+
+.appearance-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.appearance h3,
+.prose .appearance h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0 0 var(--space-2);
+}
+
+.appearance h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.appearance h3 a:hover {
+  color: var(--link);
+}
+
+.appearance time {
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 0.7rem;
+}
+
+.appearance ul,
+.prose .appearance ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appearance li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  align-items: baseline;
+  padding: 0.2rem 0;
+}
+
+.appearance-title {
+  font-weight: 500;
+}
+
+.appearance-title a {
+  color: inherit;
+}
+
+@container page (min-width: 46rem) {
+  .poster-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container page (min-width: 68rem) {
+  .poster-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

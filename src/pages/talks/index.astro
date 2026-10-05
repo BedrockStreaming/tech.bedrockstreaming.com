@@ -1,11 +1,63 @@
 ---
-import TalkCards from '../../components/TalkCards.astro';
+import TalkAppearances from '../../components/TalkAppearances.astro';
+import TalkPosters from '../../components/TalkPosters.astro';
 import Page from '../../layouts/Page.astro';
 import { published } from '../../lib/site';
 
 const talks = (await published('talks')).reverse();
+const replays = talks.filter((talk) => talk.data.youtubeId && talk.data.eventName !== 'Last Friday Talks');
+const appearances = talks.filter((talk) => !talk.data.youtubeId);
+const lftCount = talks.filter((talk) => talk.data.youtubeId && talk.data.eventName === 'Last Friday Talks').length;
+const years = [...new Set([...replays, ...appearances].map((talk) => String(talk.data.date.getUTCFullYear())))].sort(
+  (a, b) => Number(b) - Number(a),
+);
 ---
 
-<Page title="Talks" subtitle="Filters follow the event and the year. Sponsored and hosted talks are labelled." wide>
-  <TalkCards talks={talks} filterable />
+<Page title="Talks" subtitle="Replays to watch, and the conferences we spoke at." wide>
+  <div class="talks-page">
+    <form class="filters">
+      <label>
+        Year
+        <select id="filter-year">
+          <option value="">All</option>
+          {years.map((year) => <option value={year}>{year}</option>)}
+        </select>
+      </label>
+    </form>
+
+    <section id="watch">
+      <h2 class="section-title">Watch</h2>
+      <TalkPosters talks={replays} />
+    </section>
+    {
+      lftCount > 0 && (
+        <p class="lft-more">
+          <a href="/lft/">{lftCount} Last Friday Talks replays</a>
+        </p>
+      )
+    }
+
+    <section id="on-stage">
+      <h2 class="section-title">On stage</h2>
+      <TalkAppearances talks={appearances} />
+    </section>
+  </div>
+
+  <script>
+    const yearFilter = document.getElementById('filter-year');
+    const apply = () => {
+      const year = yearFilter instanceof HTMLSelectElement ? yearFilter.value : '';
+      document.querySelectorAll('.poster, .appearance').forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
+        card.hidden = Boolean(year) && card.dataset.year !== year;
+      });
+      for (const id of ['watch', 'on-stage']) {
+        const section = document.getElementById(id);
+        if (!section) continue;
+        const cards = [...section.querySelectorAll('.poster, .appearance')];
+        section.hidden = cards.length > 0 && cards.every((card) => card instanceof HTMLElement && card.hidden);
+      }
+    };
+    yearFilter?.addEventListener('change', apply);
+  </script>
 </Page>

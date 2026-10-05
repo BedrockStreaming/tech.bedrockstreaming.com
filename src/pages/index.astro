@@ -2,7 +2,7 @@
 import './home.css';
 import '../styles/cover.css';
 import ArticleList from '../components/ArticleList.astro';
-import TalkCards from '../components/TalkCards.astro';
+import TalkPosters from '../components/TalkPosters.astro';
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 import { articlePages, authorsOf, coverGradient, excerpt, morphFrom, plainText, published, readingMinutes, site, url } from '../lib/site';
@@ -17,7 +17,10 @@ const featuredExcerpt = featured ? plainText(await excerpt(featured), 240) : '';
 const gradient = coverGradient(featured?.id ?? 'home');
 const cover = featured?.data.thumbnail || featured?.data['feature-img'];
 const echoWord = featured?.data.title.split(/\s+/).find((word) => word.length > 3) ?? 'Backstage';
-const talks = (await published('talks')).reverse().slice(0, 4);
+const talks = (await published('talks'))
+  .reverse()
+  .filter((talk) => talk.data.youtubeId && talk.data.eventName !== 'Last Friday Talks')
+  .slice(0, 3);
 ---
 
 <Base description={site.description}>
@@ -78,7 +81,7 @@ const talks = (await published('talks')).reverse().slice(0, 4);
       <h2 class="section-title display">Recent talks</h2>
       <a class="section-more" href="/talks/">All talks</a>
     </div>
-    <TalkCards talks={talks} />
+    <TalkPosters talks={talks} />
   </section>
 
   <section class="jobs-cta">
