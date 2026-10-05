@@ -9,9 +9,10 @@
 }
 
 .page-title .echo {
-  -webkit-text-stroke: 1px var(--text);
+  -webkit-text-stroke: 2px var(--text);
   opacity: 0.22;
   top: -0.15em;
+  padding-top: 0.35em;
 }
 
 .page-title h1 {
