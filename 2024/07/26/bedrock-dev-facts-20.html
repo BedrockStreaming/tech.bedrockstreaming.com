@@ -1,11 +1,49 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5"><script>
-      const isAutoTheme = true;
-      document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'));
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script>
+      (function () {
+        var stored = sessionStorage.getItem('theme');
+        var theme = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
     </script><script>
-      const cookieName = 'cookie-notice-dismissed-https://tech.bedrockstreaming.com';
-      const isCookieConsent = 'false';
-      const analyticsName = '';
-    </script><script defer src="/assets/js/main.min.js"></script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><script>
+      (function () {
+        var clicked;
+        addEventListener('click', function (event) {
+          clicked = event.target instanceof Element ? event.target.closest('a') : undefined;
+        }, true);
+        function nearClick(el) {
+          var card = clicked && clicked.closest('article, li');
+          return clicked ? el.contains(clicked) || clicked.contains(el) || Boolean(card && card.contains(el)) : false;
+        }
+        function morph(url) {
+          var path = new URL(url).pathname;
+          var used = {};
+          var elements = Array.prototype.slice.call(document.querySelectorAll('[data-morph]'));
+          elements.forEach(function (el) {
+            el.style.viewTransitionName = '';
+          });
+          elements
+            .filter(function (el) {
+              return new URL(el.getAttribute('data-morph-href'), location.href).pathname === path;
+            })
+            .sort(function (a, b) {
+              return Number(nearClick(b)) - Number(nearClick(a));
+            })
+            .forEach(function (el) {
+              var name = el.getAttribute('data-morph');
+              if (used[name]) return;
+              used[name] = true;
+              el.style.viewTransitionName = name;
+            });
+        }
+        addEventListener('pageswap', function (event) {
+          if (event.viewTransition && event.activation) morph(event.activation.entry.url);
+        });
+        addEventListener('pagereveal', function (event) {
+          var activation = window.navigation && navigation.activation;
+          if (event.viewTransition && activation && activation.navigationType === 'traverse' && activation.from) morph(activation.from.url);
+        });
+      })();
+    </script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><script>
           var _paq = (window._paq = window._paq || []);
           _paq.push(['trackPageView']);
           _paq.push(['enableLinkTracking']);
@@ -20,36 +58,38 @@
             g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
             s.parentNode.insertBefore(g, s);
           })();
-        </script><title>Bedrock Dev Facts #20 | Bedrock Tech Blog</title><meta name="description" content="Les plus belles phrases de nos équipes techniques"><link rel="canonical" href="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html"><meta property="og:title" content="Bedrock Dev Facts #20"><meta property="og:description" content="Les plus belles phrases de nos équipes techniques"><meta property="og:url" content="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2024-07-26T00:00:00.000Z"><meta name="author" content="Bedrock"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bedrock Dev Facts #20","description":"Les plus belles phrases de nos équipes techniques","author":{"@type":"Person","name":"Bedrock"},"datePublished":"2024-07-26T00:00:00.000Z","dateModified":"2024-07-26T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Bedrock Dev Facts #20"><meta name="twitter:description" content="Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles d..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="Bedrock Dev Facts #20"><link rel="stylesheet" href="/_astro/Base.ByAcGcZW.css"><style>header#main{background-position:50%;background-repeat:no-repeat;background-size:cover}
-</style></head><body><header class="site-header"><div class="branding"><a href="/"><img alt="logo img" class="avatar" src="/images/common/br-site-logo.jpg"></a><a class="site-title" aria-label="Bedrock Tech Blog" href="/">Bedrock Tech Blog</a></div><nav class="clear"><a aria-label="pull" id="pull" class="toggle" href="#"><i class="fas fa-bars fa-lg"></i></a><ul class="hide"><li class="separator"> | </li><li><a class="clear" aria-label="Jobs" title="Jobs" href="/jobs/">Jobs</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Last Friday Talks" title="Last Friday Talks" href="/lft/">Last Friday Talks</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Meetups &amp; Conferences" title="Meetups &amp; Conferences" href="/meetups/">Meetups &amp; Conferences</a></li><li class="separator"> | </li><li><a class="clear" aria-label="OSS" title="OSS" href="/oss/">OSS</a></li><li class="separator"> | </li><li><a class="clear" aria-label="Search" title="Search" href="/search/"><i class="fas fa-search" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a class="clear" aria-label="Topics" title="Topics" href="/tags/"><i class="fas fa-tags" aria-hidden="true"></i></a></li><li class="separator"> | </li><li><a id="theme-toggle" title="Bedrock Dev Facts #20" aria-label="Bedrock Dev Facts #20" onclick="themeToggle()"></a></li></ul></nav></header><div class="content"><article data-pagefind-body><header id="main"><div class="title-padder"><h1 class="title">Bedrock Dev Facts #20</h1><div class="post-info"><span class="author"><span class="name">Bedrock</span></span><span class="spacer"> - </span><span class="publication-date">July 26, 2024</span><span class="spacer"> - </span><span class="publication-language">fr</span></div></div></header><section class="post-content"><p>Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs.
+        </script><title>Bedrock Dev Facts #20 | Bedrock Tech Blog</title><meta name="description" content="Les plus belles phrases de nos équipes techniques"><link rel="canonical" href="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html"><meta property="og:title" content="Bedrock Dev Facts #20"><meta property="og:description" content="Les plus belles phrases de nos équipes techniques"><meta property="og:url" content="https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="fr_FR"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2024-07-26T00:00:00.000Z"><meta name="author" content="Bedrock"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Bedrock Dev Facts #20","description":"Les plus belles phrases de nos équipes techniques","author":{"@type":"Person","name":"Bedrock"},"datePublished":"2024-07-26T00:00:00.000Z","dateModified":"2024-07-26T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2024/07/26/bedrock-dev-facts-20.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Bedrock Dev Facts #20"><meta name="twitter:description" content="Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles d..."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/common/banner_xl.jpg"><meta name="twitter:image:alt" content="Bedrock Dev Facts #20"><style>.teasers{flex-direction:column;display:flex}.shell>.teasers,.shell>.pagination{padding-inline:max(var(--gutter), calc((100% - var(--content)) / 2))}.shell>.teasers:last-child,.shell>.pagination{padding-bottom:var(--space-8)}.teaser{border-top:1px solid var(--border);grid-template-columns:1fr;align-items:start;gap:1rem 1.75rem;padding:1.35rem 0;display:grid}.teaser-date{color:var(--muted);margin:0;padding-top:.35rem;font-size:.95rem}.teaser-avatars{padding-top:.15rem;display:flex}.teaser-avatars img,.avatar-fallback{object-fit:cover;border:2px solid var(--bg);border-radius:50%;width:2.25rem;height:2.25rem;margin-left:-.45rem}.teaser-avatars :first-child{margin-left:0}.avatar-fallback{background:var(--surface);color:var(--text);place-items:center;font-size:.72rem;font-weight:500;display:grid}.teaser-meta{margin:var(--space-3) 0 0;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;flex-wrap:wrap;align-items:center;gap:.35rem .75rem;font-size:.8rem;display:flex}.teaser-meta a{color:inherit;text-decoration:none}.teaser .excerpt{color:var(--muted);-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.teaser h2,.teaser h3{font-family:var(--font-body);text-transform:none;letter-spacing:-.015em;margin:0 0 var(--space-3);font-size:1.65rem;font-weight:500;line-height:1.3}.teaser h2 a,.teaser h3 a{color:inherit;text-decoration:none}.teaser h2 a:hover,.teaser h3 a:hover{color:var(--link)}.teaser .excerpt>:first-child{margin-top:0}.teaser .excerpt>:last-child{margin-bottom:0}.pagination{justify-content:space-between;gap:var(--space-4);margin-top:var(--space-5);font-size:var(--text-meta);align-items:center;display:flex}.pagination a{color:var(--text);letter-spacing:.08em;text-transform:uppercase;text-decoration:none}.pagination a:hover{color:var(--link)}@container page (width>=50rem){.teaser{grid-template-columns:7.5rem minmax(0,1fr) auto}}
+.cover{--cover-height:16rem;--g1:var(--black);--g2:var(--ink);height:var(--cover-height);color:var(--pearl);background:linear-gradient(115deg, var(--g1), var(--g2));clip-path:none;position:relative;overflow:hidden;container-type:inline-size}.cover img{object-fit:cover;filter:grayscale();mix-blend-mode:luminosity;width:100%;height:100%;position:absolute;inset:0}.cover:after{content:"";pointer-events:none;background:linear-gradient(#00000014 42%,#000000b8);position:absolute;inset:0}.cover .echo{max-width:94%;font-size:11cqi;top:2cqi;right:3cqi}.cover-copy{z-index:1;height:100%;padding:var(--space-5);padding-left:var(--space-5);flex-direction:column;justify-content:flex-end;display:flex;position:relative}.cover-copy h1,.cover-copy p{margin:0}.cover-copy h1{font-size:var(--text-h1);color:var(--pearl)}@container page (width>=50rem){.cover{--cover-height:22rem;clip-path:polygon(calc(var(--cut) * var(--cover-height)) 0, 100% 0, 100% 100%, 0 100%)}.cover-copy{padding-left:calc(var(--cut) * var(--cover-height) + var(--space-5))}}
+.article-layout{grid-template-columns:minmax(0, var(--measure));gap:var(--space-7);width:min(var(--content), 100%);padding:var(--space-7) var(--gutter) 0;justify-content:center;align-items:start;margin:0 auto;display:grid}.article-head{grid-column:1/-1}.article-head .chips{margin-bottom:var(--space-5)}.article-head .title{margin:0 0 var(--space-4);font-size:var(--text-h1)}.article-head .lede{max-width:var(--measure);margin-bottom:var(--space-5);color:var(--muted)}.article-head .meta{margin-bottom:var(--space-6)}.cover.article-cover{clip-path:none}.article-cover:after{content:none}.toc{top:calc(var(--header-height) + 1rem);max-height:calc(100vh - var(--header-height) - 2rem);font-size:var(--text-meta);display:none;position:sticky;overflow:auto}.toc p{margin:0 0 var(--space-2)}.toc ol{margin:0;padding:0;list-style:none}.toc li{margin:.35rem 0}.toc a{color:var(--muted);text-decoration:none}.toc a:hover{color:var(--link)}.toc .depth-3{padding-left:.8rem}.toc-mobile{margin-bottom:var(--space-5);border:1px solid var(--border);background:var(--surface);padding:.6rem .9rem;display:block}.toc-mobile summary{cursor:pointer;letter-spacing:.12em;text-transform:uppercase;font-size:var(--text-tag)}.author-card{gap:var(--space-5);margin:var(--space-8) 0 var(--space-7);padding:var(--space-5);border:1px solid var(--border);background:var(--surface);flex-wrap:wrap;display:flex}.author-card article{gap:var(--space-4);align-items:center;min-width:14rem;display:flex}.author-card img{object-fit:cover;border-radius:50%;width:4.5rem;height:4.5rem}.author-card p{margin:0;font-size:1.25rem;font-weight:500}.author-card .kicker{margin-bottom:var(--space-1);display:block}.author-card a{color:inherit;text-decoration:none}.author-card a:hover{color:var(--link)}.related,.post-nav{width:100%;padding-left:max(var(--gutter), calc((100% - var(--content)) / 2));padding-right:max(var(--gutter), calc((100% - var(--content)) / 2));margin-left:0;margin-right:0}.related{background:var(--surface);border-top:4px solid var(--ink);padding-top:var(--space-8);padding-bottom:var(--space-6);margin-top:0}html[data-theme=dark] .related,html[data-theme=dark] .post-nav{border-top-color:var(--iris)}.related h2{font-size:var(--text-h2);margin-bottom:var(--space-4)}.post-nav{gap:var(--space-5);padding-top:var(--space-7);padding-bottom:var(--space-8);border-top:4px solid var(--ink);grid-template-columns:1fr;margin-top:0;margin-bottom:0;display:grid}.post-nav a{color:inherit;text-decoration:none}.post-nav a:hover{color:var(--link)}.post-nav p{color:var(--muted);font-size:var(--text-tag);letter-spacing:.15em;text-transform:uppercase;margin:0}.post-nav .next{text-align:left}.youtube-facade{background:var(--black);cursor:pointer;aspect-ratio:16/9;border:0;width:100%;padding:0;display:block;position:relative}.youtube-facade img{object-fit:cover;width:100%;height:100%;margin:0}.youtube-facade span{background:var(--scarlet);color:var(--white);font-size:var(--text-tag);letter-spacing:.15em;text-transform:uppercase;padding:.7rem .9rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}@container page (width>=50rem){.article-cover{--cover-height:20rem}.post-nav{grid-template-columns:1fr 1fr}.post-nav .next{text-align:right}}@container page (width>=68.75rem){.article-layout{grid-template-columns:minmax(0, var(--measure)) 15rem}.toc{display:block}.toc-mobile{display:none}}
+</style><link rel="stylesheet" href="/_astro/Base.DLKW-1W7.css"></head><body><a class="skip" href="#content">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Bedrock Tech Blog"><img alt="" src="/images/common/br-site-logo.jpg"><span class="brand-name">Bedrock Tech blog</span></a><button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6 18 18M18 6 6 18"></path></svg></button><nav class="site-nav" id="site-nav" aria-label="Sections"><a href="/">Articles</a><a href="/talks/">Talks</a><a href="/tags/">Topics</a><a href="/oss/">Open source</a><a href="https://bedrockstreaming.com/career/">Jobs</a></nav><div class="header-actions"><button class="search-trigger" id="search-open" type="button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span>Search</span><kbd class="key">⌘K</kbd></button><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3.1a8.5 8.5 0 1 0 6.4 13.3A7 7 0 0 1 14.5 3.1Z"></path></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"></path></svg></button></div></header><div class="shell" id="content"><div class="article-layout"><header class="article-head"><ul class="chips"><li><a class="chip" href="/tags/#culture">Culture</a></li></ul><h1 class="title" style="view-transition-name:title-2024-07-26-bedrock-dev-facts-20">Bedrock Dev Facts #20</h1><p class="lede">Les plus belles phrases de nos équipes techniques</p><p class="meta"><span>Bedrock</span><time datetime="2024-07-26">July 26, 2024</time><span class="lang">fr</span><span>9 min</span></p><div class="cover article-cover" style="--g1:#3402F0;--g2:#FD4D26;view-transition-name:cover-2024-07-26-bedrock-dev-facts-20"><p class="echo" aria-hidden="true">Bedrock</p></div></header><article data-pagefind-body><details class="toc-mobile"><summary>On this page</summary><ol><li class="depth-2"><a href="#tester-cest-douter">Tester, c’est douter</a></li><li class="depth-2"><a href="#jai-appris-à-lire-je-ne-souhaite-ça-à-personne">J’ai appris à lire, je ne souhaite ça à personne</a></li><li class="depth-2"><a href="#professionnel-jusquà-lassiette">Professionnel jusqu’à l’assiette</a></li><li class="depth-2"><a href="#la-mutualisation">La mutualisation</a></li><li class="depth-2"><a href="#les-doigts-devraient-suffir">Les doigts devraient suffir</a></li><li class="depth-2"><a href="#le-débat-mode-demploi">Le débat, mode d’emploi</a></li><li class="depth-2"><a href="#quand-les-admins-découvrent-la-vie-réelle">Quand les admins découvrent la vie réelle</a></li><li class="depth-2"><a href="#quand-il-faut-éteindre-un-client">Quand il faut éteindre un client</a></li><li class="depth-2"><a href="#cest-un-peu-plus-moins-bien">C’est un peu plus moins bien</a></li><li class="depth-2"><a href="#le-télétravail-v2">Le télétravail v2</a></li><li class="depth-2"><a href="#lentrainement-cest-important">L’entrainement, c’est important</a></li><li class="depth-2"><a href="#un-développeur-un-vrai-avec-pleins-de-doigts">Un développeur, un vrai, avec pleins de doigts</a></li><li class="depth-2"><a href="#léchelle-sociale-en-entreprise">L’échelle sociale en entreprise</a></li><li class="depth-2"><a href="#quand-le-respect-sest-enfui">Quand le respect s’est enfui</a></li><li class="depth-2"><a href="#ou-alors-cest-le-9ème-jour-de-la-semaine">Ou alors, c’est le 9ème jour de la semaine</a></li><li class="depth-2"><a href="#quand-ça-échoue-vraiment">Quand ça échoue vraiment</a></li><li class="depth-2"><a href="#pas-vu-pas-pris">Pas vu, pas pris</a></li><li class="depth-2"><a href="#cest-pas-faux">C’est pas faux</a></li><li class="depth-2"><a href="#lingéniosité">L’ingéniosité</a></li><li class="depth-2"><a href="#cest-pas-faux-bis">C’est pas faux, bis</a></li><li class="depth-2"><a href="#ils-ne-savaient-pas-que-cétait-impossible-alors-ils-lont-fait">Ils ne savaient pas que c’était impossible, alors ils l’ont fait</a></li><li class="depth-2"><a href="#il-na-visiblement-pas-eu-son-stagiaire">Il n’a visiblement pas eu son stagiaire</a></li><li class="depth-2"><a href="#vous-faites-quoi-mercredi-soir-">Vous faites quoi mercredi soir ?</a></li><li class="depth-2"><a href="#de-la-sagesse-il-faut-faire-preuve">De la sagesse, il faut faire preuve</a></li><li class="depth-2"><a href="#le-positivisme">Le positivisme</a></li><li class="depth-2"><a href="#a-la-pointe-de-la-technologie">A la pointe de la technologie</a></li><li class="depth-2"><a href="#linflation-cest-compliqué">L’inflation, c’est compliqué</a></li><li class="depth-2"><a href="#la-quadrature-du-cercle-new-gen">La quadrature du cercle new gen</a></li><li class="depth-2"><a href="#but-why-">But why ?</a></li><li class="depth-2"><a href="#exemple-très-parlant">Exemple très parlant</a></li><li class="depth-2"><a href="#il-fait-aussi-du-thé-">Il fait aussi du thé ?</a></li><li class="depth-2"><a href="#cest-pas-faux-ter">C’est pas faux, ter</a></li><li class="depth-2"><a href="#je-ne-dirais-pas-que-ça-a-échoué-je-dirais-que-ça-na-pas-marché">Je ne dirais pas que ça a échoué, je dirais que ça n’a pas marché</a></li><li class="depth-2"><a href="#the-yes-need-the-no-to-win-against-the-no">The yes need the no, to win, against the no</a></li><li class="depth-2"><a href="#avoir-une-passion-cest-important">Avoir une passion, c’est important</a></li><li class="depth-2"><a href="#le-trou-noir-de-la-productivité">Le trou noir de la productivité</a></li><li class="depth-2"><a href="#un-chef-cest-fait-pour-cheffer">Un chef, c’est fait pour cheffer</a></li><li class="depth-2"><a href="#lagenda-cest-so-2010">L’agenda, c’est so 2010</a></li><li class="depth-2"><a href="#tout-dépend-de-la-zone">Tout dépend de la zone</a></li><li class="depth-2"><a href="#rtfm">RTFM</a></li><li class="depth-2"><a href="#pour-un-peu-quil-soit-caché-on-est-foutu">Pour un peu qu’il soit caché, on est foutu</a></li><li class="depth-2"><a href="#on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche">On m’a dit de regarder s’il y a des erreurs, pas s’il marche</a></li><li class="depth-2"><a href="#cest-pour-engager-un-engagement">C’est pour engager un engagement</a></li><li class="depth-2"><a href="#après-le-no-code-le-code-à-emporter">Après le no code, le code à emporter</a></li><li class="depth-2"><a href="#il-na-pas-lhabitude">Il n’a pas l’habitude</a></li><li class="depth-2"><a href="#cest-pas-faux-quarter">C’est pas faux, quarter</a></li><li class="depth-2"><a href="#et-tout-ça-pour-pas-cher">Et tout ça, pour pas cher</a></li><li class="depth-2"><a href="#du-coup-ça-ne-fait-pas-grand-chose-">Du coup, ça ne fait pas grand chose ?</a></li><li class="depth-2"><a href="#quand-tu-développes-à-base-de-tnt">Quand tu développes à base de TNT</a></li><li class="depth-2"><a href="#sudo-make-me-a-sandwich">Sudo make me a sandwich</a></li><li class="depth-2"><a href="#et-si-on-utilise-des-carottes-jaunes-">Et si on utilise des carottes jaunes ?</a></li><li class="depth-2"><a href="#optimisme-définition">Optimisme, définition</a></li><li class="depth-2"><a href="#si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin">Si, mais tu les comprends plus tard, quand tu n’en as plus besoin</a></li><li class="depth-2"><a href="#en-plus-il-faut-lire-des-choses">En plus, il faut lire des choses</a></li><li class="depth-2"><a href="#le-legacy-de-demain-qui-a-été-fait-hier-mais-vu-daujourdhui">Le legacy de demain, qui a été fait hier, mais vu d’aujourd’hui</a></li><li class="depth-2"><a href="#ça-nous-est-tous-arrivé">Ça nous est tous arrivé</a></li><li class="depth-2"><a href="#le-pianiste">Le pianiste</a></li><li class="depth-2"><a href="#ça-explique-des-choses-">Ça explique des choses …</a></li><li class="depth-2"><a href="#cest-presque-ça">C’est presque ça</a></li><li class="depth-2"><a href="#du-coup-on-passe-la-prod-en-staging-">Du coup, on passe la prod en staging ?</a></li><li class="depth-2"><a href="#en-signal-de-fumée-">En signal de fumée ?</a></li><li class="depth-2"><a href="#cétait-au-tour-du-chien-de-surveiller-lalerting-">C’était au tour du chien de surveiller l’alerting ?</a></li><li class="depth-2"><a href="#merci">Merci</a></li><li class="depth-2"><a href="#il-échoue-rapidement-peut-être-">Il échoue rapidement peut-être ?</a></li><li class="depth-2"><a href="#mais-comme-personne-ne-lit-la-doc-">Mais comme personne ne lit la doc …</a></li><li class="depth-2"><a href="#une-histoire-de-marsche">Une histoire de mar(s|c)h(e)</a></li><li class="depth-2"><a href="#4g-ou-5g-">4G ou 5G ?</a></li><li class="depth-2"><a href="#nous-avons-affaire-à-un-serial-killer">Nous avons affaire à un serial killer</a></li><li class="depth-2"><a href="#you-have-to-be-curious">You have to be curious</a></li><li class="depth-2"><a href="#on-a-dit-que-le-chef-est-là-pour-cheffer">On a dit que le chef est là pour cheffer</a></li><li class="depth-2"><a href="#cest-beau-ou-beau-">C’est beau ou beau ?</a></li><li class="depth-2"><a href="#quand-tu-vas-trop-loin-dans-lintimité-des-gens">Quand tu vas trop loin dans l’intimité des gens</a></li><li class="depth-2"><a href="#les-solutions-les-plus-simples">Les solutions les plus simples</a></li><li class="depth-2"><a href="#encore-quelquun-qui-na-pas-lu-la-doc-avant">Encore quelqu’un qui n’a pas lu la doc avant</a></li><li class="depth-2"><a href="#au-moins-il-est-indispensable">Au moins, il est indispensable</a></li><li class="depth-2"><a href="#et-pour-prendre-un-wget-">Et pour prendre un wget ?</a></li><li class="depth-2"><a href="#cest-pas-faux-quinquies">C’est pas faux, quinquies</a></li><li class="depth-2"><a href="#lynchez-le-">Lynchez le !</a></li><li class="depth-2"><a href="#et-le-meilleur-pour-la-fin">Et le meilleur pour la fin</a></li></ol></details><div class="prose"><p>Bien que cela fasse près de 18 mois que nous n’avons pas publié une nouvelle fournée de Dev Facts, nos équipes ont continués à alimenter la pile des perles des développeurs.
 Et du coup, double fournée !!</p>
-<h2 id="tester-cest-douter">Tester, c’est douter</h2>
+<h2 id="tester-cest-douter">Tester, c’est douter<a href="#tester-cest-douter" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : Attention, je vais peut-être (je l’espère) faire sonner [la prod]</li>
 <li>B : A, toujours là pour utiliser la prod comme son bac à sable</li>
 </ul>
 </blockquote>
-<h2 id="jai-appris-à-lire-je-ne-souhaite-ça-à-personne">J’ai appris à lire, je ne souhaite ça à personne</h2>
+<h2 id="jai-appris-à-lire-je-ne-souhaite-ça-à-personne">J’ai appris à lire, je ne souhaite ça à personne<a href="#jai-appris-%C3%A0-lire-je-ne-souhaite-%C3%A7a-%C3%A0-personne" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Nan mais en plus je sais même pas ce qu’il faut faire ! Le ticket il est là, y a plein de mots !</p>
 </blockquote>
-<h2 id="professionnel-jusquà-lassiette">Professionnel jusqu’à l’assiette</h2>
+<h2 id="professionnel-jusquà-lassiette">Professionnel jusqu’à l’assiette<a href="#professionnel-jusqu%C3%A0-lassiette" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : Mais moi quand je commande ma salade moulin, je fais gaffe a prendre des trucs qui vont ensembles ! Genre, chou rouge et betterave, c’est des couleurs complémentaires !</li>
 <li>B : Ah bah tout de suite on voit le dev qui se débrouille en CSS ici</li>
 </ul>
 </blockquote>
-<h2 id="la-mutualisation">La mutualisation</h2>
+<h2 id="la-mutualisation">La mutualisation<a href="#la-mutualisation" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>c’est l’avantage d’avoir une solution core, tu retrouveras sûrement les mêmes bugs chez les autres clients</p>
 </blockquote>
-<h2 id="les-doigts-devraient-suffir">Les doigts devraient suffir</h2>
+<h2 id="les-doigts-devraient-suffir">Les doigts devraient suffir<a href="#les-doigts-devraient-suffir" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est le moment où je croise les fesses</p>
 </blockquote>
-<h2 id="le-débat-mode-demploi">Le débat, mode d’emploi</h2>
+<h2 id="le-débat-mode-demploi">Le débat, mode d’emploi<a href="#le-d%C3%A9bat-mode-demploi" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : en fait c’était vachement mieux</li>
@@ -58,140 +98,140 @@ Et du coup, double fournée !!</p>
 <li>C :  j’aime les débats argumentés 🤣</li>
 </ul>
 </blockquote>
-<h2 id="quand-les-admins-découvrent-la-vie-réelle">Quand les admins découvrent la vie réelle</h2>
+<h2 id="quand-les-admins-découvrent-la-vie-réelle">Quand les admins découvrent la vie réelle<a href="#quand-les-admins-d%C3%A9couvrent-la-vie-r%C3%A9elle" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Super faut respecter les règles quoi</p>
 </blockquote>
-<h2 id="quand-il-faut-éteindre-un-client">Quand il faut éteindre un client</h2>
+<h2 id="quand-il-faut-éteindre-un-client">Quand il faut éteindre un client<a href="#quand-il-faut-%C3%A9teindre-un-client" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>J’ai l’impression de supprimer mon skyblog</p>
 </blockquote>
-<h2 id="cest-un-peu-plus-moins-bien">C’est un peu plus moins bien</h2>
+<h2 id="cest-un-peu-plus-moins-bien">C’est un peu plus moins bien<a href="#cest-un-peu-plus-moins-bien" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est cute dans le côté dégueulasse</p>
 </blockquote>
-<h2 id="le-télétravail-v2">Le télétravail v2</h2>
+<h2 id="le-télétravail-v2">Le télétravail v2<a href="#le-t%C3%A9l%C3%A9travail-v2" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : Il fait plus chaud dans les couloirs que dans les bureaux.</li>
 <li>B : On a qu’à déplacer les bureaux dans les couloirs. On fera du téléprésentiel</li>
 </ul>
 </blockquote>
-<h2 id="lentrainement-cest-important">L’entrainement, c’est important</h2>
+<h2 id="lentrainement-cest-important">L’entrainement, c’est important<a href="#lentrainement-cest-important" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Mon temps de réaction en réunion n’est plus très bon depuis que j’ai arrêté de jouer a StarCraft.</p>
 </blockquote>
-<h2 id="un-développeur-un-vrai-avec-pleins-de-doigts">Un développeur, un vrai, avec pleins de doigts</h2>
+<h2 id="un-développeur-un-vrai-avec-pleins-de-doigts">Un développeur, un vrai, avec pleins de doigts<a href="#un-d%C3%A9veloppeur-un-vrai-avec-pleins-de-doigts" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Je fais pas un copier-coller, je retape doigt par doigt</p>
 </blockquote>
-<h2 id="léchelle-sociale-en-entreprise">L’échelle sociale en entreprise</h2>
+<h2 id="léchelle-sociale-en-entreprise">L’échelle sociale en entreprise<a href="#l%C3%A9chelle-sociale-en-entreprise" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Un alternant : Je peux avoir un stagiaire moi aussi ?</p>
 </blockquote>
-<h2 id="quand-le-respect-sest-enfui">Quand le respect s’est enfui</h2>
+<h2 id="quand-le-respect-sest-enfui">Quand le respect s’est enfui<a href="#quand-le-respect-sest-enfui" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Vas-y répète, je n’écoutais pas</p>
 </blockquote>
-<h2 id="ou-alors-cest-le-9ème-jour-de-la-semaine">Ou alors, c’est le 9ème jour de la semaine</h2>
+<h2 id="ou-alors-cest-le-9ème-jour-de-la-semaine">Ou alors, c’est le 9ème jour de la semaine<a href="#ou-alors-cest-le-9%C3%A8me-jour-de-la-semaine" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est le 5 le dernier vendredi du mois ?</p>
 </blockquote>
-<h2 id="quand-ça-échoue-vraiment">Quand ça échoue vraiment</h2>
+<h2 id="quand-ça-échoue-vraiment">Quand ça échoue vraiment<a href="#quand-%C3%A7a-%C3%A9choue-vraiment" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Au lieu d’échouer avec succès ça échoue avec échec</p>
 </blockquote>
-<h2 id="pas-vu-pas-pris">Pas vu, pas pris</h2>
+<h2 id="pas-vu-pas-pris">Pas vu, pas pris<a href="#pas-vu-pas-pris" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est une feature potentiellement pas impactante tant que tu ne l’utilises pas</p>
 </blockquote>
-<h2 id="cest-pas-faux">C’est pas faux</h2>
+<h2 id="cest-pas-faux">C’est pas faux<a href="#cest-pas-faux" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Ca sert à rien d’avoir un truc qui sert à rien</p>
 </blockquote>
-<h2 id="lingéniosité">L’ingéniosité</h2>
+<h2 id="lingéniosité">L’ingéniosité<a href="#ling%C3%A9niosit%C3%A9" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Ah ? Ma molette est en panne … tant pis je vais scroller au clic</p>
 </blockquote>
-<h2 id="cest-pas-faux-bis">C’est pas faux, bis</h2>
+<h2 id="cest-pas-faux-bis">C’est pas faux, bis<a href="#cest-pas-faux-bis" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est cool les choses bien</p>
 </blockquote>
-<h2 id="ils-ne-savaient-pas-que-cétait-impossible-alors-ils-lont-fait">Ils ne savaient pas que c’était impossible, alors ils l’ont fait</h2>
+<h2 id="ils-ne-savaient-pas-que-cétait-impossible-alors-ils-lont-fait">Ils ne savaient pas que c’était impossible, alors ils l’ont fait<a href="#ils-ne-savaient-pas-que-c%C3%A9tait-impossible-alors-ils-lont-fait" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>On est obligés de pouvoir puisque c’est la seule solution</p>
 </blockquote>
-<h2 id="il-na-visiblement-pas-eu-son-stagiaire">Il n’a visiblement pas eu son stagiaire</h2>
+<h2 id="il-na-visiblement-pas-eu-son-stagiaire">Il n’a visiblement pas eu son stagiaire<a href="#il-na-visiblement-pas-eu-son-stagiaire" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Un alternant: Je vois pas mon code si je pleure</p>
 </blockquote>
-<h2 id="vous-faites-quoi-mercredi-soir-">Vous faites quoi mercredi soir ?</h2>
+<h2 id="vous-faites-quoi-mercredi-soir-">Vous faites quoi mercredi soir ?<a href="#vous-faites-quoi-mercredi-soir-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <blockquote>
 <p>J’ai une nouvelle passion purée de piments qui m’a bien occupée durant le dernier week-end</p>
 </blockquote>
 <p>J’adore ce genre de phrases. Je suis 100% susceptible d’en faire sur plein de sujets cuisine. Mais à chaque fois je ne peux m’empécher de penser qu’on pourrait être invité à un diner de cons avec ce genre de phrase 😂</p>
 </blockquote>
-<h2 id="de-la-sagesse-il-faut-faire-preuve">De la sagesse, il faut faire preuve</h2>
+<h2 id="de-la-sagesse-il-faut-faire-preuve">De la sagesse, il faut faire preuve<a href="#de-la-sagesse-il-faut-faire-preuve" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>La vie est un breaking-change</p>
 </blockquote>
-<h2 id="le-positivisme">Le positivisme</h2>
+<h2 id="le-positivisme">Le positivisme<a href="#le-positivisme" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>“Non”, c’est pas négatif</p>
 </blockquote>
-<h2 id="a-la-pointe-de-la-technologie">A la pointe de la technologie</h2>
+<h2 id="a-la-pointe-de-la-technologie">A la pointe de la technologie<a href="#a-la-pointe-de-la-technologie" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>On a commencé les travaux de refonte auj 😄. (injection de dependance, puis on enchaine sur l’utilisation des “nouvelles” api apple (qui datent d’il y a 4 ans déjà 😄))</p>
 </blockquote>
-<h2 id="linflation-cest-compliqué">L’inflation, c’est compliqué</h2>
+<h2 id="linflation-cest-compliqué">L’inflation, c’est compliqué<a href="#linflation-cest-compliqu%C3%A9" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Ouais y a l’inflation, c’est bien pour ça que tu me gonfles ?</p>
 </blockquote>
-<h2 id="la-quadrature-du-cercle-new-gen">La quadrature du cercle new gen</h2>
+<h2 id="la-quadrature-du-cercle-new-gen">La quadrature du cercle new gen<a href="#la-quadrature-du-cercle-new-gen" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Je suis entrain de tourner en rond dans un triangle</p>
 </blockquote>
-<h2 id="but-why-">But why ?</h2>
+<h2 id="but-why-">But why ?<a href="#but-why-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Parce que parler lascivement a une chaise, j’ai jamais tenté</p>
 </blockquote>
-<h2 id="exemple-très-parlant">Exemple très parlant</h2>
+<h2 id="exemple-très-parlant">Exemple très parlant<a href="#exemple-tr%C3%A8s-parlant" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est écrit plus petit que derrière les paquets de céréales</p>
 </blockquote>
-<h2 id="il-fait-aussi-du-thé-">Il fait aussi du thé ?</h2>
+<h2 id="il-fait-aussi-du-thé-">Il fait aussi du thé ?<a href="#il-fait-aussi-du-th%C3%A9-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Je n’ai pas la science infuse, je suis juste un connard qui fait des commentaires.</p>
 </blockquote>
-<h2 id="cest-pas-faux-ter">C’est pas faux, ter</h2>
+<h2 id="cest-pas-faux-ter">C’est pas faux, ter<a href="#cest-pas-faux-ter" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Alors c’est moche, parce qu’en vrai, c’est pas très beau</p>
 </blockquote>
-<h2 id="je-ne-dirais-pas-que-ça-a-échoué-je-dirais-que-ça-na-pas-marché">Je ne dirais pas que ça a échoué, je dirais que ça n’a pas marché</h2>
+<h2 id="je-ne-dirais-pas-que-ça-a-échoué-je-dirais-que-ça-na-pas-marché">Je ne dirais pas que ça a échoué, je dirais que ça n’a pas marché<a href="#je-ne-dirais-pas-que-%C3%A7a-a-%C3%A9chou%C3%A9-je-dirais-que-%C3%A7a-na-pas-march%C3%A9" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est pas du DDOS, c’est un stress test pas vraiment sous contrôle</p>
 </blockquote>
-<h2 id="the-yes-need-the-no-to-win-against-the-no">The yes need the no, to win, against the no</h2>
+<h2 id="the-yes-need-the-no-to-win-against-the-no">The yes need the no, to win, against the no<a href="#the-yes-need-the-no-to-win-against-the-no" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Ca peut être long à écrire très vite</p>
 </blockquote>
-<h2 id="avoir-une-passion-cest-important">Avoir une passion, c’est important</h2>
+<h2 id="avoir-une-passion-cest-important">Avoir une passion, c’est important<a href="#avoir-une-passion-cest-important" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Casser les couilles, c’est ma passion</p>
 </blockquote>
-<h2 id="le-trou-noir-de-la-productivité">Le trou noir de la productivité</h2>
+<h2 id="le-trou-noir-de-la-productivité">Le trou noir de la productivité<a href="#le-trou-noir-de-la-productivit%C3%A9" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>‘Tain je sais pas si c’est votre ilot, mais j’ai vraiment l’impression de rien foutre ici</p>
 </blockquote>
-<h2 id="un-chef-cest-fait-pour-cheffer">Un chef, c’est fait pour cheffer</h2>
+<h2 id="un-chef-cest-fait-pour-cheffer">Un chef, c’est fait pour cheffer<a href="#un-chef-cest-fait-pour-cheffer" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : C’est marrant mais on a jamais fait de pair ensemble !</li>
 <li>B : En même temps, je dev pas… et toi non plus…</li>
 </ul>
 </blockquote>
-<h2 id="lagenda-cest-so-2010">L’agenda, c’est so 2010</h2>
+<h2 id="lagenda-cest-so-2010">L’agenda, c’est so 2010<a href="#lagenda-cest-so-2010" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>Un lead à un membre (appelons le T) de son équipe : Bon, tu nous rejoins ?</li>
@@ -199,22 +239,22 @@ Et du coup, double fournée !!</p>
 <li>Le lead : ben on est en retro surtout là</li>
 </ul>
 </blockquote>
-<h2 id="tout-dépend-de-la-zone">Tout dépend de la zone</h2>
+<h2 id="tout-dépend-de-la-zone">Tout dépend de la zone<a href="#tout-d%C3%A9pend-de-la-zone" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : Tout depend de la policy</li>
 <li>B : et pas de la gendarmerie ?</li>
 </ul>
 </blockquote>
-<h2 id="rtfm">RTFM</h2>
+<h2 id="rtfm">RTFM<a href="#rtfm" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Putain lire la doc ça sert !</p>
 </blockquote>
-<h2 id="pour-un-peu-quil-soit-caché-on-est-foutu">Pour un peu qu’il soit caché, on est foutu</h2>
+<h2 id="pour-un-peu-quil-soit-caché-on-est-foutu">Pour un peu qu’il soit caché, on est foutu<a href="#pour-un-peu-quil-soit-cach%C3%A9-on-est-foutu" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>le jwt actuel expire le  26/11/5189 20:26:26. (j’espère que ça suffira)</p>
 </blockquote>
-<h2 id="on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche">On m’a dit de regarder s’il y a des erreurs, pas s’il marche</h2>
+<h2 id="on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche">On m’a dit de regarder s’il y a des erreurs, pas s’il marche<a href="#on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : Dites, quelqu’un arrive a accéder a notre outil de monitoring ?</li>
@@ -222,11 +262,11 @@ Et du coup, double fournée !!</p>
 <li>C : … Mais tu as mis RAS sur ton rapport de Monitoring ?</li>
 </ul>
 </blockquote>
-<h2 id="cest-pour-engager-un-engagement">C’est pour engager un engagement</h2>
+<h2 id="cest-pour-engager-un-engagement">C’est pour engager un engagement<a href="#cest-pour-engager-un-engagement" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Il faut qu’on sache ce qu’il y a contractuellement dans le contrat…</p>
 </blockquote>
-<h2 id="après-le-no-code-le-code-à-emporter">Après le no code, le code à emporter</h2>
+<h2 id="après-le-no-code-le-code-à-emporter">Après le no code, le code à emporter<a href="#apr%C3%A8s-le-no-code-le-code-%C3%A0-emporter" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A :  On se fait un point “plan d’actions” si tu veux.</li>
@@ -234,27 +274,27 @@ Et du coup, double fournée !!</p>
 <li>A : Non, à emporter !</li>
 </ul>
 </blockquote>
-<h2 id="il-na-pas-lhabitude">Il n’a pas l’habitude</h2>
+<h2 id="il-na-pas-lhabitude">Il n’a pas l’habitude<a href="#il-na-pas-lhabitude" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Oulaaa, mon PC il aime pas quand je travaille</p>
 </blockquote>
-<h2 id="cest-pas-faux-quarter">C’est pas faux, quarter</h2>
+<h2 id="cest-pas-faux-quarter">C’est pas faux, quarter<a href="#cest-pas-faux-quarter" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Dell c’est le Apple de Windows</p>
 </blockquote>
-<h2 id="et-tout-ça-pour-pas-cher">Et tout ça, pour pas cher</h2>
+<h2 id="et-tout-ça-pour-pas-cher">Et tout ça, pour pas cher<a href="#et-tout-%C3%A7a-pour-pas-cher" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Avec rien, tu ne fais pas grand chose</p>
 </blockquote>
-<h2 id="du-coup-ça-ne-fait-pas-grand-chose-">Du coup, ça ne fait pas grand chose ?</h2>
+<h2 id="du-coup-ça-ne-fait-pas-grand-chose-">Du coup, ça ne fait pas grand chose ?<a href="#du-coup-%C3%A7a-ne-fait-pas-grand-chose-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Ca allait bien jusqu’à ce qu’on ne fasse rien</p>
 </blockquote>
-<h2 id="quand-tu-développes-à-base-de-tnt">Quand tu développes à base de TNT</h2>
+<h2 id="quand-tu-développes-à-base-de-tnt">Quand tu développes à base de TNT<a href="#quand-tu-d%C3%A9veloppes-%C3%A0-base-de-tnt" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Là on pourrait tout casser sans rien faire marcher</p>
 </blockquote>
-<h2 id="sudo-make-me-a-sandwich">Sudo make me a sandwich</h2>
+<h2 id="sudo-make-me-a-sandwich">Sudo make me a sandwich<a href="#sudo-make-me-a-sandwich" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : Ma commande marche pas</li>
@@ -263,19 +303,19 @@ Et du coup, double fournée !!</p>
 <li>B : Rajoute un –force.</li>
 </ul>
 </blockquote>
-<h2 id="et-si-on-utilise-des-carottes-jaunes-">Et si on utilise des carottes jaunes ?</h2>
+<h2 id="et-si-on-utilise-des-carottes-jaunes-">Et si on utilise des carottes jaunes ?<a href="#et-si-on-utilise-des-carottes-jaunes-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>J’ai néanmoins le sentiment que le client compare des carottes et des patates. Par hasard au début les carottes et les patates (douces) avaient la même couleur, et que maintenant qu’on a des vraies patates, ca marche plus</p>
 </blockquote>
-<h2 id="optimisme-définition">Optimisme, définition</h2>
+<h2 id="optimisme-définition">Optimisme, définition<a href="#optimisme-d%C3%A9finition" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Pour le burndown, si on enlève tous les jours ou ça stagne, ça descend</p>
 </blockquote>
-<h2 id="si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin">Si, mais tu les comprends plus tard, quand tu n’en as plus besoin</h2>
+<h2 id="si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin">Si, mais tu les comprends plus tard, quand tu n’en as plus besoin<a href="#si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>De toutes façon les blagues de front on ne peux pas les comprendre, elles sont asynchrone</p>
 </blockquote>
-<h2 id="en-plus-il-faut-lire-des-choses">En plus, il faut lire des choses</h2>
+<h2 id="en-plus-il-faut-lire-des-choses">En plus, il faut lire des choses<a href="#en-plus-il-faut-lire-des-choses" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : J’ai résolu notre problème</li>
@@ -284,35 +324,35 @@ Et du coup, double fournée !!</p>
 <li>B : Ouais mais leurs docs elles sont trop longues !</li>
 </ul>
 </blockquote>
-<h2 id="le-legacy-de-demain-qui-a-été-fait-hier-mais-vu-daujourdhui">Le legacy de demain, qui a été fait hier, mais vu d’aujourd’hui</h2>
+<h2 id="le-legacy-de-demain-qui-a-été-fait-hier-mais-vu-daujourdhui">Le legacy de demain, qui a été fait hier, mais vu d’aujourd’hui<a href="#le-legacy-de-demain-qui-a-%C3%A9t%C3%A9-fait-hier-mais-vu-daujourdhui" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est un legacy futur</p>
 </blockquote>
-<h2 id="ça-nous-est-tous-arrivé">Ça nous est tous arrivé</h2>
+<h2 id="ça-nous-est-tous-arrivé">Ça nous est tous arrivé<a href="#%C3%A7a-nous-est-tous-arriv%C3%A9" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Putain, je viens de faire un commit que j’ai appelé <code>--amend</code></p>
 </blockquote>
-<h2 id="le-pianiste">Le pianiste</h2>
+<h2 id="le-pianiste">Le pianiste<a href="#le-pianiste" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est mes doigts qui connaissent mon mot de passe, c’est pas moi</p>
 </blockquote>
-<h2 id="ça-explique-des-choses-">Ça explique des choses …</h2>
+<h2 id="ça-explique-des-choses-">Ça explique des choses …<a href="#%C3%A7a-explique-des-choses-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Hier j’ai utilisé mes compétences de dev front, j’ai fait un gâteau au chocolat</p>
 </blockquote>
-<h2 id="cest-presque-ça">C’est presque ça</h2>
+<h2 id="cest-presque-ça">C’est presque ça<a href="#cest-presque-%C3%A7a" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>J’veux pas faire des features sur la comète</p>
 </blockquote>
-<h2 id="du-coup-on-passe-la-prod-en-staging-">Du coup, on passe la prod en staging ?</h2>
+<h2 id="du-coup-on-passe-la-prod-en-staging-">Du coup, on passe la prod en staging ?<a href="#du-coup-on-passe-la-prod-en-staging-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>La validation a conclut que ça marchait en prod mais pas en staging</p>
 </blockquote>
-<h2 id="en-signal-de-fumée-">En signal de fumée ?</h2>
+<h2 id="en-signal-de-fumée-">En signal de fumée ?<a href="#en-signal-de-fum%C3%A9e-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Je sais pas comment je vais dev, ce qui est branché a mon écran c’est une cigarette électronique</p>
 </blockquote>
-<h2 id="cétait-au-tour-du-chien-de-surveiller-lalerting-">C’était au tour du chien de surveiller l’alerting ?</h2>
+<h2 id="cétait-au-tour-du-chien-de-surveiller-lalerting-">C’était au tour du chien de surveiller l’alerting ?<a href="#c%C3%A9tait-au-tour-du-chien-de-surveiller-lalerting-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : C’est quoi qui sonne comme ça ?</li>
@@ -320,30 +360,30 @@ Et du coup, double fournée !!</p>
 <li>A : Je voulais dire dans notre alerting</li>
 </ul>
 </blockquote>
-<h2 id="merci">Merci</h2>
+<h2 id="merci">Merci<a href="#merci" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : On sait faire un test atoum</li>
 <li>B : À tes souhaits</li>
 </ul>
 </blockquote>
-<h2 id="il-échoue-rapidement-peut-être-">Il échoue rapidement peut-être ?</h2>
+<h2 id="il-échoue-rapidement-peut-être-">Il échoue rapidement peut-être ?<a href="#il-%C3%A9choue-rapidement-peut-%C3%AAtre-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Putain le code est tellement optimisé qu’il marche plus</p>
 </blockquote>
-<h2 id="mais-comme-personne-ne-lit-la-doc-">Mais comme personne ne lit la doc …</h2>
+<h2 id="mais-comme-personne-ne-lit-la-doc-">Mais comme personne ne lit la doc …<a href="#mais-comme-personne-ne-lit-la-doc-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>C’est pas de la magie, c’est documenté</p>
 </blockquote>
-<h2 id="une-histoire-de-marsche">Une histoire de mar(s|c)h(e)</h2>
+<h2 id="une-histoire-de-marsche">Une histoire de mar(s|c)h(e)<a href="#une-histoire-de-marsche" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Si on Unmarshal puis Marshal, ça doit marcher</p>
 </blockquote>
-<h2 id="4g-ou-5g-">4G ou 5G ?</h2>
+<h2 id="4g-ou-5g-">4G ou 5G ?<a href="#4g-ou-5g-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Avez-vous un cable Wi-fi à me prêter ?</p>
 </blockquote>
-<h2 id="nous-avons-affaire-à-un-serial-killer">Nous avons affaire à un <em>serial killer</em></h2>
+<h2 id="nous-avons-affaire-à-un-serial-killer">Nous avons affaire à un <em>serial killer</em><a href="#nous-avons-affaire-%C3%A0-un-serial-killer" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>A : He is on <em>AirTiTi</em> (RTT)</li>
@@ -352,27 +392,27 @@ Et du coup, double fournée !!</p>
 <li>B : Oh, on <em>AirTiTi</em></li>
 </ul>
 </blockquote>
-<h2 id="you-have-to-be-curious">You have to be curious</h2>
+<h2 id="you-have-to-be-curious">You have to be curious<a href="#you-have-to-be-curious" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>On a la salle bi curieux</p>
 </blockquote>
-<h2 id="on-a-dit-que-le-chef-est-là-pour-cheffer">On a dit que le chef est là pour cheffer</h2>
+<h2 id="on-a-dit-que-le-chef-est-là-pour-cheffer">On a dit que le chef est là pour cheffer<a href="#on-a-dit-que-le-chef-est-l%C3%A0-pour-cheffer" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>J’aimerais bien un assistant, genre un team lead</p>
 </blockquote>
-<h2 id="cest-beau-ou-beau-">C’est beau ou beau ?</h2>
+<h2 id="cest-beau-ou-beau-">C’est beau ou beau ?<a href="#cest-beau-ou-beau-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Je t’ai demandé de constater à quel point c’est beau, pas de me dire que c’est moche</p>
 </blockquote>
-<h2 id="quand-tu-vas-trop-loin-dans-lintimité-des-gens">Quand tu vas trop loin dans l’intimité des gens</h2>
+<h2 id="quand-tu-vas-trop-loin-dans-lintimité-des-gens">Quand tu vas trop loin dans l’intimité des gens<a href="#quand-tu-vas-trop-loin-dans-lintimit%C3%A9-des-gens" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Sachez que Mark Zuckerberg transpire beaucoup.</p>
 </blockquote>
-<h2 id="les-solutions-les-plus-simples">Les solutions les plus simples</h2>
+<h2 id="les-solutions-les-plus-simples">Les solutions les plus simples<a href="#les-solutions-les-plus-simples" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Mon script qui sort mon PC de veille c’est mon chien qui passe vers le PC en bougeant la souris</p>
 </blockquote>
-<h2 id="encore-quelquun-qui-na-pas-lu-la-doc-avant">Encore quelqu’un qui n’a pas lu la doc avant</h2>
+<h2 id="encore-quelquun-qui-na-pas-lu-la-doc-avant">Encore quelqu’un qui n’a pas lu la doc avant<a href="#encore-quelquun-qui-na-pas-lu-la-doc-avant" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <ul>
 <li>On va tous mourrir, le BOv3 aussi, mais lui c’est son jour. J’ai dit pareil pour ma mamie</li>
@@ -381,23 +421,23 @@ Et du coup, double fournée !!</p>
 <li>😱 J’ai pas recompilé mamie !</li>
 </ul>
 </blockquote>
-<h2 id="au-moins-il-est-indispensable">Au moins, il est indispensable</h2>
+<h2 id="au-moins-il-est-indispensable">Au moins, il est indispensable<a href="#au-moins-il-est-indispensable" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Moi avec le temps, je me suis spécialisé dans les sujets qu’aiment pas le reste de la team</p>
 </blockquote>
-<h2 id="et-pour-prendre-un-wget-">Et pour prendre un wget ?</h2>
+<h2 id="et-pour-prendre-un-wget-">Et pour prendre un wget ?<a href="#et-pour-prendre-un-wget-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>T’as pas d’ami prends un Curly, t’as pas d’âme prends un curl</p>
 </blockquote>
-<h2 id="cest-pas-faux-quinquies">C’est pas faux, quinquies</h2>
+<h2 id="cest-pas-faux-quinquies">C’est pas faux, quinquies<a href="#cest-pas-faux-quinquies" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Notre monitoring n’est fiable que si on peut s’y fier</p>
 </blockquote>
-<h2 id="lynchez-le-">Lynchez le !</h2>
+<h2 id="lynchez-le-">Lynchez le !<a href="#lynchez-le-" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Mais quoi ? Zelda c’est pas le personnage principal qu’on joue dans Zelda</p>
 </blockquote>
-<h2 id="et-le-meilleur-pour-la-fin">Et le meilleur pour la fin</h2>
+<h2 id="et-le-meilleur-pour-la-fin">Et le meilleur pour la fin<a href="#et-le-meilleur-pour-la-fin" class="heading-anchor" aria-label="Link to this section"></a></h2>
 <blockquote>
 <p>Y a peu de temps j’étais en train de faire du python, là je reviens sur du JS. Et du coup je suis en train de debugger mon site, quand d’un coup sans que je comprenne pourquoi à chaque fois que je le reload il imprime une feuille de papier. J’ai mis une heure à chercher avant de voir que par réflexe, j’ai debuggé mon code en utilisant la commande <code>print</code> au lieu de faire un <code>console.log</code></p>
-</blockquote></section><div class="tag-list"><ul><li class="meta">Tag</li> <li><a class="button" href="/tags/#culture"><p><i class="fas fa-tag fa-fw fa-sm"></i> culture</p></a></li></ul></div></article><div id="post-nav"><div id="previous-post"><a href="/2024/08/07/euro-resiliency-special-event-page.html"><p>Previous post</p>How Special Event Page allowed us to handle more than 1 million of users</a></div><div id="next-post"><a href="/2024/07/18/gophercon-eu-berlin-2024.html"><p>Next post</p>Bedrock GopherCon Berlin 2024</a></div></div></div><footer class="site-footer"><p class="text">Powered by <a href="https://astro.build/">Astro</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a></p><div class="footer-icons"><ul><li><a href="/feed.xml" title="Follow RSS feed" target="_blank"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://github.com/BedrockStreaming" title="Follow on Github" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming" title="Follow on Linkedin" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://twitter.com/Bedrock_Tech" title="Follow on Twitter" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span></a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw" title="Follow on Youtube" target="_blank" rel="noopener"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-youtube fa-stack-1x fa-inverse"></i></span></a></li></ul></div></footer></body></html>
+</blockquote></div><section class="author-card"><article><p><span class="kicker">Author</span>Bedrock</p></article></section></article><nav class="toc" aria-label="On this page"><p class="kicker">On this page</p><ol><li class="depth-2"><a href="#tester-cest-douter">Tester, c’est douter</a></li><li class="depth-2"><a href="#jai-appris-à-lire-je-ne-souhaite-ça-à-personne">J’ai appris à lire, je ne souhaite ça à personne</a></li><li class="depth-2"><a href="#professionnel-jusquà-lassiette">Professionnel jusqu’à l’assiette</a></li><li class="depth-2"><a href="#la-mutualisation">La mutualisation</a></li><li class="depth-2"><a href="#les-doigts-devraient-suffir">Les doigts devraient suffir</a></li><li class="depth-2"><a href="#le-débat-mode-demploi">Le débat, mode d’emploi</a></li><li class="depth-2"><a href="#quand-les-admins-découvrent-la-vie-réelle">Quand les admins découvrent la vie réelle</a></li><li class="depth-2"><a href="#quand-il-faut-éteindre-un-client">Quand il faut éteindre un client</a></li><li class="depth-2"><a href="#cest-un-peu-plus-moins-bien">C’est un peu plus moins bien</a></li><li class="depth-2"><a href="#le-télétravail-v2">Le télétravail v2</a></li><li class="depth-2"><a href="#lentrainement-cest-important">L’entrainement, c’est important</a></li><li class="depth-2"><a href="#un-développeur-un-vrai-avec-pleins-de-doigts">Un développeur, un vrai, avec pleins de doigts</a></li><li class="depth-2"><a href="#léchelle-sociale-en-entreprise">L’échelle sociale en entreprise</a></li><li class="depth-2"><a href="#quand-le-respect-sest-enfui">Quand le respect s’est enfui</a></li><li class="depth-2"><a href="#ou-alors-cest-le-9ème-jour-de-la-semaine">Ou alors, c’est le 9ème jour de la semaine</a></li><li class="depth-2"><a href="#quand-ça-échoue-vraiment">Quand ça échoue vraiment</a></li><li class="depth-2"><a href="#pas-vu-pas-pris">Pas vu, pas pris</a></li><li class="depth-2"><a href="#cest-pas-faux">C’est pas faux</a></li><li class="depth-2"><a href="#lingéniosité">L’ingéniosité</a></li><li class="depth-2"><a href="#cest-pas-faux-bis">C’est pas faux, bis</a></li><li class="depth-2"><a href="#ils-ne-savaient-pas-que-cétait-impossible-alors-ils-lont-fait">Ils ne savaient pas que c’était impossible, alors ils l’ont fait</a></li><li class="depth-2"><a href="#il-na-visiblement-pas-eu-son-stagiaire">Il n’a visiblement pas eu son stagiaire</a></li><li class="depth-2"><a href="#vous-faites-quoi-mercredi-soir-">Vous faites quoi mercredi soir ?</a></li><li class="depth-2"><a href="#de-la-sagesse-il-faut-faire-preuve">De la sagesse, il faut faire preuve</a></li><li class="depth-2"><a href="#le-positivisme">Le positivisme</a></li><li class="depth-2"><a href="#a-la-pointe-de-la-technologie">A la pointe de la technologie</a></li><li class="depth-2"><a href="#linflation-cest-compliqué">L’inflation, c’est compliqué</a></li><li class="depth-2"><a href="#la-quadrature-du-cercle-new-gen">La quadrature du cercle new gen</a></li><li class="depth-2"><a href="#but-why-">But why ?</a></li><li class="depth-2"><a href="#exemple-très-parlant">Exemple très parlant</a></li><li class="depth-2"><a href="#il-fait-aussi-du-thé-">Il fait aussi du thé ?</a></li><li class="depth-2"><a href="#cest-pas-faux-ter">C’est pas faux, ter</a></li><li class="depth-2"><a href="#je-ne-dirais-pas-que-ça-a-échoué-je-dirais-que-ça-na-pas-marché">Je ne dirais pas que ça a échoué, je dirais que ça n’a pas marché</a></li><li class="depth-2"><a href="#the-yes-need-the-no-to-win-against-the-no">The yes need the no, to win, against the no</a></li><li class="depth-2"><a href="#avoir-une-passion-cest-important">Avoir une passion, c’est important</a></li><li class="depth-2"><a href="#le-trou-noir-de-la-productivité">Le trou noir de la productivité</a></li><li class="depth-2"><a href="#un-chef-cest-fait-pour-cheffer">Un chef, c’est fait pour cheffer</a></li><li class="depth-2"><a href="#lagenda-cest-so-2010">L’agenda, c’est so 2010</a></li><li class="depth-2"><a href="#tout-dépend-de-la-zone">Tout dépend de la zone</a></li><li class="depth-2"><a href="#rtfm">RTFM</a></li><li class="depth-2"><a href="#pour-un-peu-quil-soit-caché-on-est-foutu">Pour un peu qu’il soit caché, on est foutu</a></li><li class="depth-2"><a href="#on-ma-dit-de-regarder-sil-y-a-des-erreurs-pas-sil-marche">On m’a dit de regarder s’il y a des erreurs, pas s’il marche</a></li><li class="depth-2"><a href="#cest-pour-engager-un-engagement">C’est pour engager un engagement</a></li><li class="depth-2"><a href="#après-le-no-code-le-code-à-emporter">Après le no code, le code à emporter</a></li><li class="depth-2"><a href="#il-na-pas-lhabitude">Il n’a pas l’habitude</a></li><li class="depth-2"><a href="#cest-pas-faux-quarter">C’est pas faux, quarter</a></li><li class="depth-2"><a href="#et-tout-ça-pour-pas-cher">Et tout ça, pour pas cher</a></li><li class="depth-2"><a href="#du-coup-ça-ne-fait-pas-grand-chose-">Du coup, ça ne fait pas grand chose ?</a></li><li class="depth-2"><a href="#quand-tu-développes-à-base-de-tnt">Quand tu développes à base de TNT</a></li><li class="depth-2"><a href="#sudo-make-me-a-sandwich">Sudo make me a sandwich</a></li><li class="depth-2"><a href="#et-si-on-utilise-des-carottes-jaunes-">Et si on utilise des carottes jaunes ?</a></li><li class="depth-2"><a href="#optimisme-définition">Optimisme, définition</a></li><li class="depth-2"><a href="#si-mais-tu-les-comprends-plus-tard-quand-tu-nen-as-plus-besoin">Si, mais tu les comprends plus tard, quand tu n’en as plus besoin</a></li><li class="depth-2"><a href="#en-plus-il-faut-lire-des-choses">En plus, il faut lire des choses</a></li><li class="depth-2"><a href="#le-legacy-de-demain-qui-a-été-fait-hier-mais-vu-daujourdhui">Le legacy de demain, qui a été fait hier, mais vu d’aujourd’hui</a></li><li class="depth-2"><a href="#ça-nous-est-tous-arrivé">Ça nous est tous arrivé</a></li><li class="depth-2"><a href="#le-pianiste">Le pianiste</a></li><li class="depth-2"><a href="#ça-explique-des-choses-">Ça explique des choses …</a></li><li class="depth-2"><a href="#cest-presque-ça">C’est presque ça</a></li><li class="depth-2"><a href="#du-coup-on-passe-la-prod-en-staging-">Du coup, on passe la prod en staging ?</a></li><li class="depth-2"><a href="#en-signal-de-fumée-">En signal de fumée ?</a></li><li class="depth-2"><a href="#cétait-au-tour-du-chien-de-surveiller-lalerting-">C’était au tour du chien de surveiller l’alerting ?</a></li><li class="depth-2"><a href="#merci">Merci</a></li><li class="depth-2"><a href="#il-échoue-rapidement-peut-être-">Il échoue rapidement peut-être ?</a></li><li class="depth-2"><a href="#mais-comme-personne-ne-lit-la-doc-">Mais comme personne ne lit la doc …</a></li><li class="depth-2"><a href="#une-histoire-de-marsche">Une histoire de mar(s|c)h(e)</a></li><li class="depth-2"><a href="#4g-ou-5g-">4G ou 5G ?</a></li><li class="depth-2"><a href="#nous-avons-affaire-à-un-serial-killer">Nous avons affaire à un serial killer</a></li><li class="depth-2"><a href="#you-have-to-be-curious">You have to be curious</a></li><li class="depth-2"><a href="#on-a-dit-que-le-chef-est-là-pour-cheffer">On a dit que le chef est là pour cheffer</a></li><li class="depth-2"><a href="#cest-beau-ou-beau-">C’est beau ou beau ?</a></li><li class="depth-2"><a href="#quand-tu-vas-trop-loin-dans-lintimité-des-gens">Quand tu vas trop loin dans l’intimité des gens</a></li><li class="depth-2"><a href="#les-solutions-les-plus-simples">Les solutions les plus simples</a></li><li class="depth-2"><a href="#encore-quelquun-qui-na-pas-lu-la-doc-avant">Encore quelqu’un qui n’a pas lu la doc avant</a></li><li class="depth-2"><a href="#au-moins-il-est-indispensable">Au moins, il est indispensable</a></li><li class="depth-2"><a href="#et-pour-prendre-un-wget-">Et pour prendre un wget ?</a></li><li class="depth-2"><a href="#cest-pas-faux-quinquies">C’est pas faux, quinquies</a></li><li class="depth-2"><a href="#lynchez-le-">Lynchez le !</a></li><li class="depth-2"><a href="#et-le-meilleur-pour-la-fin">Et le meilleur pour la fin</a></li></ol></nav></div><section class="related"><h2 class="section-title">Related</h2><div class="teasers"><article class="teaser"><time class="teaser-date" datetime="2024-11-12">12 Nov 2024</time><h3 data-morph="title-2024-11-12-golab-florence" data-morph-href="/2024/11/12/golab-florence.html"><a href="/2024/11/12/golab-florence.html">Insights from Golab Conference 2024, Florence</a></h3></article><article class="teaser"><time class="teaser-date" datetime="2024-07-18">18 Jul 2024</time><h3 data-morph="title-2024-07-18-gophercon-eu-berlin-2024" data-morph-href="/2024/07/18/gophercon-eu-berlin-2024.html"><a href="/2024/07/18/gophercon-eu-berlin-2024.html">Bedrock GopherCon Berlin 2024</a></h3></article><article class="teaser"><time class="teaser-date" datetime="2024-04-09">9 Apr 2024</time><h3 data-morph="title-2024-04-09-kubecon-europe-2024" data-morph-href="/2024/04/09/kubecon-europe-2024.html"><a href="/2024/04/09/kubecon-europe-2024.html">KubeCon Europe 2024, Paris</a></h3></article></div></section><nav class="post-nav" aria-label="More"><div><a href="/2024/07/18/gophercon-eu-berlin-2024.html"><p>Previous</p><div data-morph="title-2024-07-18-gophercon-eu-berlin-2024" data-morph-href="/2024/07/18/gophercon-eu-berlin-2024.html">Bedrock GopherCon Berlin 2024</div></a></div><div class="next"><a href="/2024/08/07/euro-resiliency-special-event-page.html"><p>Next</p><div data-morph="title-2024-08-07-euro-resiliency-special-event-page" data-morph-href="/2024/08/07/euro-resiliency-special-event-page.html">How Special Event Page allowed us to handle more than 1 million of users</div></a></div></nav></div><footer class="site-footer"><div class="footer-zones"><div class="footer-zone footer-brand"><p>The crazy happens in the backstage</p></div><div class="footer-zone"><h2>Read</h2><ul><li><a href="/">Articles</a></li><li><a href="/talks/">Talks</a></li><li><a href="/tags/">Topics</a></li></ul></div><div class="footer-zone"><h2>Studio</h2><ul><li><a href="https://bedrockstreaming.com/career/">Jobs</a></li><li><a href="/oss/">Open source</a></li><li><a href="/lft/">Last Friday Talks</a></li><li><a href="/meetups/">Meetups</a></li></ul></div><div class="footer-zone"><h2>Follow</h2><ul><li><a href="https://github.com/BedrockStreaming">GitHub</a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming">LinkedIn</a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw">YouTube</a></li><li><a href="/feed.xml">RSS</a></li></ul></div></div><div class="footer-bar"><span>Bedrock Tech Blog</span><span>Search with ⌘K</span></div></footer><dialog class="search-dialog" id="search-dialog" aria-label="Search"><div id="search"></div><p class="meta" id="search-fallback">The search index is generated when the site is built.</p></dialog><script src="/pagefind/pagefind-ui.js"></script><script type="module">var e=document.getElementById(`theme-toggle`),t=()=>{let t=document.documentElement.getAttribute(`data-theme`)===`dark`;e?.setAttribute(`aria-pressed`,t?`true`:`false`),e?.setAttribute(`aria-label`,t?`Switch to light theme`:`Switch to dark theme`)};t(),e?.addEventListener(`click`,()=>{let e=document.documentElement.getAttribute(`data-theme`)===`dark`?`light`:`dark`;document.documentElement.setAttribute(`data-theme`,e),sessionStorage.setItem(`theme`,e),t()});var n=document.getElementById(`site-nav`),r=document.getElementById(`nav-toggle`),i=document.getElementById(`content`),a=document.querySelector(`.site-footer`),o=window.matchMedia(`(min-width: 50rem)`),s=e=>{if(!(r instanceof HTMLButtonElement))return;let t=e&&!o.matches;n?.classList.toggle(`is-open`,t),r.setAttribute(`aria-expanded`,t?`true`:`false`),r.setAttribute(`aria-label`,t?`Close menu`:`Open menu`),document.body.classList.toggle(`nav-open`,t),i?.toggleAttribute(`inert`,t),a?.toggleAttribute(`inert`,t)};r?.addEventListener(`click`,()=>{s(r.getAttribute(`aria-expanded`)!==`true`)}),n?.addEventListener(`click`,e=>{let t=e.target;t instanceof Element&&t.closest(`a`)&&setTimeout(()=>s(!1),0)}),document.addEventListener(`keydown`,e=>{if(e.key!==`Escape`||r?.getAttribute(`aria-expanded`)!==`true`)return;let t=document.getElementById(`search-dialog`);t instanceof HTMLDialogElement&&t.open||s(!1)}),o.addEventListener(`change`,()=>s(!1));var c=document.getElementById(`search-dialog`),l=()=>{if(!(c instanceof HTMLDialogElement))return;c.showModal();let e=document.getElementById(`search-fallback`);if(`PagefindUI`in window&&!c.dataset.ready){let t=window.PagefindUI;new t({element:`#search`,showSubResults:!0,showImages:!1,autofocus:!0}),c.dataset.ready=`true`,e?.remove()}c.querySelector(`input`)?.focus()};document.getElementById(`search-open`)?.addEventListener(`click`,l),document.addEventListener(`keydown`,e=>{(e.metaKey||e.ctrlKey)&&e.key.toLowerCase()===`k`&&(e.preventDefault(),c instanceof HTMLDialogElement&&c.open?c.close():l())}),document.addEventListener(`click`,async e=>{let t=e.target;if(!(t instanceof Element))return;let n=t.closest(`.code-copy`);if(n instanceof HTMLButtonElement){let e=n.closest(`.code-block`)?.querySelector(`code`)?.innerText??``;await navigator.clipboard.writeText(e);let t=n.textContent;n.textContent=`Copied`,setTimeout(()=>{n.textContent=t},1500)}let r=t.closest(`[data-youtube]`);if(r instanceof HTMLButtonElement&&r.dataset.youtube){let e=document.createElement(`iframe`);e.src=`https://www.youtube-nocookie.com/embed/${r.dataset.youtube}?autoplay=1`,e.title=r.dataset.title||`YouTube video`,e.allow=`accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture`,e.allowFullscreen=!0,r.replaceWith(e)}});</script></body></html>
