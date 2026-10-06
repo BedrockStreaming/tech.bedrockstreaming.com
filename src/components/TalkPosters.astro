@@ -1,0 +1,40 @@
+---
+import './talk.css';
+import { authorsOf, formatDate, morphFrom, url, type Entry } from '../lib/site';
+
+interface Props {
+  talks: Extract<Entry, { collection: 'talks' }>[];
+}
+
+const { talks } = Astro.props;
+const cards = await Promise.all(
+  talks
+    .filter((talk) => talk.data.youtubeId)
+    .map(async (talk) => ({ talk, authors: await authorsOf(talk) })),
+);
+---
+
+<div class="poster-grid">
+  {
+    cards.map(({ talk, authors }) => (
+      <article class="poster" data-year={String(talk.data.date.getUTCFullYear())}>
+        <a href={url(talk.data.permalink)}>
+          <span class="poster-media">
+            <img
+              loading="lazy"
+              src={`https://i.ytimg.com/vi/${talk.data.youtubeId}/hqdefault.jpg`}
+              alt=""
+              {...morphFrom(talk, 'video')}
+            />
+          </span>
+          <h3 {...morphFrom(talk, 'title')}>{talk.data.title}</h3>
+        </a>
+        <p class="meta">
+          {authors.map((author) => author.name && <span>{author.name}</span>)}
+          <span>{talk.data.eventName}</span>
+          <time datetime={talk.data.date.toISOString().slice(0, 10)}>{formatDate(talk.data.date)}</time>
+        </p>
+      </article>
+    ))
+  }
+</div>

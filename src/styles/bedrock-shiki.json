@@ -1,0 +1,60 @@
+{
+  "name": "bedrock",
+  "displayName": "Bedrock",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#000000",
+    "editor.foreground": "#FAF8F8",
+    "editor.selectionBackground": "#3402F055",
+    "editor.lineHighlightBackground": "#50F1D71F"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment", "punctuation.definition.comment", "string.comment"],
+      "settings": { "foreground": "#8A8A8A", "fontStyle": "italic" }
+    },
+    {
+      "scope": ["string", "string.quoted", "string.template", "string.regexp", "markup.inserted"],
+      "settings": { "foreground": "#FD4D26" }
+    },
+    {
+      "scope": ["constant.numeric", "constant.language", "constant.character", "number"],
+      "settings": { "foreground": "#E82577" }
+    },
+    {
+      "scope": [
+        "keyword",
+        "keyword.control",
+        "keyword.operator",
+        "storage",
+        "storage.type",
+        "storage.modifier",
+        "variable.language"
+      ],
+      "settings": { "foreground": "#50F1D7" }
+    },
+    {
+      "scope": ["entity.name.function", "support.function", "meta.function-call"],
+      "settings": { "foreground": "#FAF8F8" }
+    },
+    {
+      "scope": ["entity.name.type", "entity.name.class", "support.type", "support.class"],
+      "settings": { "foreground": "#50F1D7" }
+    },
+    {
+      "scope": ["variable", "variable.parameter", "variable.other", "meta.definition.variable"],
+      "settings": { "foreground": "#FAF8F8" }
+    },
+    {
+      "scope": ["punctuation", "meta.brace"],
+      "settings": { "foreground": "#FAF8F8" }
+    },
+    {
+      "scope": ["markup.deleted", "invalid"],
+      "settings": { "foreground": "#E82577" }
+    },
+    {
+      "settings": { "foreground": "#FAF8F8" }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { absoluteUrl, articlePages, excerpt, site } from '../lib/site';
+import { absoluteUrl, articlePages, excerpt, inlineMarkdown, site } from '../lib/site';
 
 const escape = (text: string) =>
   text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
@@ -12,7 +12,8 @@ export const GET: APIRoute = async () => {
   const entries = await Promise.all(
     articles.map(async (article) => {
       const link = absoluteUrl(article.data.permalink);
-      const summary = article.data.description || plain(await excerpt(article));
+      const { description } = article.data;
+      const summary = description ? await inlineMarkdown(description) : plain(await excerpt(article));
       return `  <entry>
     <title type="html">${escape(plain(article.data.title))}</title>
     <link href="${link}" rel="alternate" type="text/html" title="${escape(article.data.title)}" />

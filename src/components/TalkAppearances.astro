@@ -1,0 +1,44 @@
+---
+import './talk.css';
+import { authorsOf, formatDate, url, type Entry } from '../lib/site';
+
+interface Props {
+  talks: Extract<Entry, { collection: 'talks' }>[];
+}
+
+const { talks } = Astro.props;
+type Talk = (typeof talks)[number];
+
+const groups: { eventName: string; eventUrl?: string; date: Date; talks: { talk: Talk; authors: Awaited<ReturnType<typeof authorsOf>> }[] }[] = [];
+for (const talk of talks) {
+  const authors = await authorsOf(talk);
+  const current = groups.at(-1);
+  if (current && current.eventName === talk.data.eventName) current.talks.push({ talk, authors });
+  else groups.push({ eventName: talk.data.eventName, eventUrl: talk.data.eventUrl, date: talk.data.date, talks: [{ talk, authors }] });
+}
+---
+
+<div class="appearance-list">
+  {
+    groups.map((group) => (
+      <article class="appearance" data-year={String(group.date.getUTCFullYear())}>
+        <h3>
+          {group.eventUrl ? <a href={group.eventUrl}>{group.eventName}</a> : group.eventName}
+          <time datetime={group.date.toISOString().slice(0, 10)}>{formatDate(group.date)}</time>
+        </h3>
+        <ul>
+          {group.talks.map(({ talk, authors }) => (
+            <li>
+              <span class="appearance-title">
+                {talk.body?.trim() ? <a href={url(talk.data.permalink)}>{talk.data.title}</a> : talk.data.title}
+              </span>
+              {authors.map((author) => author.name && <span class="meta">{author.name}</span>)}
+              {talk.data.sponsored && <span class="label label-sponsored">Sponsored</span>}
+              {talk.data.hosted && <span class="label label-hosted">Hosted</span>}
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))
+  }
+</div>

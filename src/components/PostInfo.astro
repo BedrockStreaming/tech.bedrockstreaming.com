@@ -5,33 +5,24 @@ interface Props {
   authors?: Author[];
   date: Date;
   language?: string;
+  minutes?: number;
 }
 
-const { authors = [], date, language } = Astro.props;
+const { authors = [], date, language, minutes } = Astro.props;
 ---
 
-<div class="post-info">
+<p class="meta">
   {
     authors.map((author) => {
       const Tag = author.url ? 'a' : 'span';
       return (
-        <>
-          <Tag class="author" {...(author.url ? { href: author.url, target: '_blank', rel: 'noopener' } : {})}>
-            {author.avatar && <img alt="Author's avatar" src={author.avatar} class="thumbnail" />}
-            {author.name && <span class="name">{author.name}</span>}
-          </Tag>
-          <span class="spacer"> - </span>
-        </>
+        <Tag {...(author.url ? { href: author.url } : {})}>
+          {author.name}
+        </Tag>
       );
     })
   }
-  <span class="publication-date">{formatDate(date)}</span>
-  {
-    language && (
-      <>
-        <span class="spacer"> - </span>
-        <span class="publication-language">{language}</span>
-      </>
-    )
-  }
-</div>
+  <time datetime={date.toISOString().slice(0, 10)}>{formatDate(date)}</time>
+  {language && <span class="lang">{language}</span>}
+  {minutes && <span>{minutes} min</span>}
+</p>
