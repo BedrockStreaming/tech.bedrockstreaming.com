@@ -49,7 +49,7 @@ Set `date` and `permalink` in the front matter: the publication date and the URL
 
 :information_source: If you put a future date of publication, your article won't be visible until this date is passed (and the site is rebuilt). It is visible in the pull request preview.
 
-Complete the _front matter_ of your Markdown file with at least those attributes:
+Complete the front matter of your Markdown file. `layout`, `title`, `language`, `date`, `permalink`, and `topics` are required. `description` and `author` are optional.
 
 ```markdown
 ---
@@ -70,7 +70,7 @@ topics: [frontend]
 - `topics` is a list of keys of `src/data/topics.yml`. It can be empty: `topics: []`.
 - `permalink` is the URL of the article. By convention, use `/YYYY/MM/DD/article-slug.html`.
 
-The front matter is checked when the site is built: a missing required attribute, an unknown attribute, a misspelled attribute or a Topic that is not in `src/data/topics.yml` makes the build fail with an explicit error.
+The front matter is checked when the site is built. A missing required attribute, an unknown attribute, a misspelled attribute, or a topic that is not in `src/data/topics.yml` makes the build fail with an explicit error. An author ID that is not in `src/data/authors.yml` does not fail the build. The byline stays empty.
 
 These optional attributes are also allowed:
 
@@ -89,6 +89,8 @@ excerpt: "A short introduction to the article."
 # Marker ending the excerpt, if it should be longer than the first paragraph
 excerpt_separator: <!--more-->
 ```
+
+The schema also accepts `cover`, `twitter`, and `image`. No template reads them. Do not add them to a new article.
 
 ### Excerpt
 
