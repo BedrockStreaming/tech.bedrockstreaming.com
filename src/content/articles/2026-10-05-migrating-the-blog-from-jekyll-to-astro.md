@@ -2,79 +2,63 @@
 layout: post
 title: "Migrating the blog from Jekyll to Astro"
 author: [j_poissonnet]
+thumbnail: /images/posts/2026-10-05-migrating-the-blog-from-jekyll-to-astro/thumbnail.jpg
 language: en
 date: 2026-10-05
 permalink: /2026/10/05/migrating-the-blog-from-jekyll-to-astro.html
 topics: [architecture]
 ---
 
-The blog moved from Jekyll to Astro in pull requests small enough to revert. Two earlier attempts tried to land the same move as one change.
+We moved the blog framework from Jekyll to Astro. It took a while and multiple attempts, but applying how we work at Bedrock when we do migration is what made it work.
 
-## Jekyll still published. Nobody could own it.
+## More than a decade of Jekyll.
 
-The first posts are from May 2012. People kept shipping articles. The blog had readers. It did not have an owner for the Ruby toolchain under them, and a local setup was hard to reproduce.
+People write articles on this blog since 2012 and still publish some articles from time to time. The problem is that Jekyll works with Ruby, which is a language that nobody uses daily in our teams. It became hard to maintain as the people who knew how it works were not here anymore. The developer experience of writing an article was hard for new-comers as it required to use docker and devcontainers to work locally. That made people rely on previews, with the configuration outside of the repo.
 
-The theme could not take an upstream fix. `type-on-strap.gemspec` pinned Type on Strap 2.4.0, `_config.yml` set `remote_theme` to the same project, and the layouts, includes, and stylesheets in the repo already overrode it.
+The theme we were using had not been updated since. We used `type-on-strap` , which started to look a bit dusty and not aligned with our brand anymore.
 
-Tags were not a way to browse. On 28 August 2026 the repo had 333 distinct tags, and 196 of them were used once. `php`, `PHP`, and `Php` were three tags.
+The posts had more than 300 distinct tags, and 200 of them were used once, which made them irrelevant for browsing. 
 
-Every page loaded scripts almost nobody used. The figures are from the inventory in [RFC 0001](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/blob/master/docs/rfcs/0001-replace-the-jekyll-stack.md){:target="_blank"}, measured that day.
+> `php`, `PHP`, and `Php` were three tags.
 
-| Script | Size | Posts that used it |
-| --- | --- | --- |
-| Mermaid | 2.5 MB | 2 |
-| KaTeX | 264 KB | 0 |
+In conclusion, time had passed and it made some problems appear. The question to replace Jekyll with a framework more modern to enable a better developer experience, and a do some cleanup to have a better user experience starting to get popularity. 
 
-The RFC ends on a question it leaves open. Phase 0 was planned as ten pull requests. Who champions them?
+## It was time to meet Astro
 
-## Two attempts, one pull request each
+[Astro](https://astro.build) is a web framework made for content sites. For the people writing, it runs on JavaScript, the language some of our teams already use, so maintaining the blog no longer meant learning Ruby or opening a container just to reread a paragraph. Articles metadata are checked when the site builds, so a mistake in the metadata fails the build instead of showing up wrong on the page, and prevents from ending up with ~300 tags ;-)
 
-In November 2024, [pull request 457](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/457){:target="_blank"} moved the whole blog to Astro in one change. It asked for feedback rather than a merge, and this repository had no preview for it. A fork on Vercel was the preview. The first comment was "No preview?"
+That improvement stays on our side of the site. A reader still gets static HTML, the same way they did with Jekyll, and JavaScript is only sent on the pages that actually need it. The developer experience gets closer to the rest of our work. The page a visitor opens stays a page, with room afterwards to clean the tags and the theme.
 
-The comments that stalled it arrived in March 2025. Mermaid diagrams did not render. URLs had dropped the `.html` suffix, with no redirect. Last Friday Talk pages overlapped the header. Replay links in the meetup section returned 404. I closed the pull request on 28 August 2026. It was too old to rebase, and a single cutover is not how we migrate a site that has to stay up.
+## Two attempts, in vain
 
-In May 2026, [pull request 484](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/484){:target="_blank"} tried again. Thirteen commits, one pull request against `master`, keeping the URLs and the old design. Those constraints were right. The pull request is still open, and it has no approving review.
+With the hope of migrating the blog and the will to learn about Astro, a first attempt was made in November 2024 in one go. At that time the previews were too mysterious to for the apprentice – me – to work. A fork on Vercel was the preview, hard to review, hard to consider merging... Obviouslly the first comment was **"No preview?"** A lot of things were missing or broken, and maintaining the fork on another repo, while people continued to write articles were really hard. The time dedicated to the blog being sparsed over the year, the first attempt was abandoned.
 
-## Phase 0 stayed on Jekyll
+In May 2026, we [tried again](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/484). That time, another approach was taken: heavy AI-usage and the will to make the blog look identical to the Jekyll version. Thirteen commits, one pull request against `master`, keeping everything as it was. It faced similar problems of maintenance, and since it had no previews the reviews were hard to get and it never made it on production.
 
-I opened [RFC 0001](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/488){:target="_blank"} the day I closed pull request 457. The RFC records the inventory, the decisions, and three phases. It does not ship the new site.
+## Applying Bedrock methods
 
-We treated the blog the way we treat an application that already has users. Phase 0 prepares the live Jekyll site so the later cut is small. Astro is not required for that work. Writers kept publishing while it landed.
+At Bedrock we have teams that are used to do technical migrations. We applied their method by opening the first Read For Comments (RFC) of the repository: [RFC 0001](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/488). The point was to make a plan that could be stopped by someone and started again by someone else.
 
-Six pull requests merged on 28 September 2026.
+We treated the blog the way we treat an application that already has users. We made what we call a Phase 0 to prepare the live Jekyll site so the later cut is as small as possible. By working on the current site to clean it, we enabled the possibility for people to continue contributing.
 
-1. [490](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/490){:target="_blank"} dropped features that never rendered, including KaTeX, the share buttons, and jQuery.
-2. [491](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/491){:target="_blank"} replaced Liquid `{% highlight %}` and `{% post_url %}` with Markdown.
-3. [493](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/493){:target="_blank"} split posts into Article and Talk collections.
-4. [494](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/494){:target="_blank"} backfilled `language`.
-5. [495](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/495){:target="_blank"} mapped the 333 tags onto a closed topic list.
-6. [496](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/496){:target="_blank"} validated front matter in CI, so a new article could not invent a tag or skip `language`.
-
-The RFC also listed Amplify previews, a new URL scheme, image optimisation, and Pagefind as Phase 0 work. Those four did not land as Jekyll changes. The URLs stayed. Pagefind and the Astro previews came in the next phase.
+We started by cleaning features not needed or too coupled with Jekyll, we split posts into articles and talks, backfilled articles to have the right metadatas and clean the tags.
 
 ## The cutover was a stack
 
-Astro was bootstrapped beside Jekyll. Jekyll stayed the source of truth until the last step. Each box is one pull request. The arrow means the child branch targeted the parent branch.
+Astro was bootstrapped beside Jekyll so that the revert was easy to make. The first step was to make the previews work for Astro so that everything kept being readable. Jekyll stayed the source of truth until the last step and its assets and styles were used by Astro. 
 
-<div class="mermaid">
-flowchart TD
-    S[497 Scaffold Astro] --> P[498 Article and talk pages]
-    P --> L[499 Listings, 404, and feed]
-    L --> M[501 Shiki, Mermaid, and Pagefind]
-</div>
+Then we made another pull request to make the production Astro so that the impact of the end-user was contained in one commit and easy to undo.
 
-Three further pull requests targeted `master`, each small enough to revert on its own.
+The last step was to give the repo an Astro shape and remove Jekyll, concluding the technical modernisation.
 
-- [504](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/504){:target="_blank"} built the Amplify previews with Astro, so a review could compare a preview with production.
-- [502](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/502){:target="_blank"} deployed the Astro build to GitHub Pages.
-- [503](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/503){:target="_blank"} gave the repo an Astro shape and removed Jekyll. It merged on 2 October 2026.
+## What made it work
 
-## An agent could take one phase
+The two attempts failed for the same reason. They tried to move the whole blog in one pull request, with no preview people could trust, while articles were still being written. A change that big is hard to review, and hard to leave and come back to.
 
-The inventory and the split are what made an agent useful. I could point it at one pull request and at the RFC. It did not have to rediscover that KaTeX was unused, or that a tag used once is not navigation.
+What worked was the way we migrate anything else that already has users. A plan someone else can pick up, a cleanup on the live site so people could keep publishing, then a cutover in small steps that we could revert. Writers now work in JavaScript, with metadata checked at build time. Readers still open a static page. The technical move is done.
 
-The review question became whether this step matched the RFC.
+To wrap it up, let me quote the villain in John Wick 4
 
-## The redesign needs the team
+> how you do anything is how you do everything - Marquis de Gramont
 
-Phase 2 is the restyle you are reading. The cutover kept the old look on purpose. This phase is the user-facing one. The team has to decide what to keep and what to add. The machinery can stay in the pull requests. The value of the blog is the writing.
+And at Bedrock we make it work with method, and that's how the migration succeeded.
