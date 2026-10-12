@@ -21,7 +21,7 @@ The posts had more than 300 distinct tags, and 200 of them were used once, which
 
 > `php`, `PHP`, and `Php` were three tags.
 
-In conclusion, time had passed and it made some problems appear. The question to replace Jekyll with a framework more modern to enable a better developer experience, and a do some cleanup to have a better user experience starting to get popularity. 
+In conclusion, time had passed and it made some problems appear. The question to replace Jekyll with a framework more modern to enable a better developer experience, and to do some cleanup to have a better user experience started to gain traction. 
 
 ## It was time to meet Astro
 
@@ -31,7 +31,7 @@ That improvement stays on our side of the site. A reader still gets static HTML,
 
 ## Two attempts, in vain
 
-With the hope of migrating the blog and the will to learn about Astro, a first attempt was made in November 2024 in one go. At that time the previews were too mysterious to for the apprentice – me – to work. A fork on Vercel was the preview, hard to review, hard to consider merging... Obviouslly the first comment was **"No preview?"** A lot of things were missing or broken, and maintaining the fork on another repo, while people continued to write articles were really hard. The time dedicated to the blog being sparsed over the year, the first attempt was abandoned.
+With the hope of migrating the blog and the will to learn about Astro, a first attempt was made in November 2024 in one go. At that time the previews were too mysterious for the apprentice – me – to work. A fork on Vercel was the preview, hard to review, hard to consider merging... Obviously the first comment was **"No preview?"** A lot of things were missing or broken, and maintaining the fork on another repo, while people continued to write articles was really hard. The time dedicated to the blog being scattered over the year, the first attempt was abandoned.
 
 In May 2026, we [tried again](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/484). That time, another approach was taken: heavy AI-usage and the will to make the blog look identical to the Jekyll version. Thirteen commits, one pull request against `master`, keeping everything as it was. It faced similar problems of maintenance, and since it had no previews the reviews were hard to get and it never made it on production.
 
@@ -41,7 +41,7 @@ At Bedrock we have teams that are used to do technical migrations. We applied th
 
 We treated the blog the way we treat an application that already has users. We made what we call a Phase 0 to prepare the live Jekyll site so the later cut is as small as possible. By working on the current site to clean it, we enabled the possibility for people to continue contributing.
 
-We started by cleaning features not needed or too coupled with Jekyll, we split posts into articles and talks, backfilled articles to have the right metadatas and clean the tags.
+We started by cleaning features not needed or too coupled with Jekyll, we split posts into articles and talks, backfilled articles to have the right metadata and clean the tags.
 
 ## The cutover was a stack
 
