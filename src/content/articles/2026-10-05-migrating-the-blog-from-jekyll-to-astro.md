@@ -37,7 +37,7 @@ In May 2026, we [tried again](https://github.com/BedrockStreaming/tech.bedrockst
 
 ## Applying Bedrock methods
 
-At Bedrock we have teams that are used to do technical migrations. We applied their method by opening the first Read For Comments (RFC) of the repository: [RFC 0001](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/488). The point was to make a plan that could be stopped by someone and started again by someone else.
+At Bedrock we have teams that are used to do technical migrations. We applied their method by opening the first Request For Comments (RFC) of the repository: [RFC 0001](https://github.com/BedrockStreaming/tech.bedrockstreaming.com/pull/488). The point was to make a plan that could be stopped by someone and started again by someone else.
 
 We treated the blog the way we treat an application that already has users. We made what we call a Phase 0 to prepare the live Jekyll site so the later cut is as small as possible. By working on the current site to clean it, we enabled the possibility for people to continue contributing.
 
