@@ -4,8 +4,8 @@ title: "Migrating the blog from Jekyll to Astro"
 author: [j_poissonnet]
 thumbnail: /images/posts/2026-10-05-migrating-the-blog-from-jekyll-to-astro/thumbnail.jpg
 language: en
-date: 2026-10-05
-permalink: /2026/10/05/migrating-the-blog-from-jekyll-to-astro.html
+date: 2026-10-14
+permalink: /2026/10/14/migrating-the-blog-from-jekyll-to-astro.html
 topics: [architecture]
 ---
 
