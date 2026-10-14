@@ -209,15 +209,22 @@ body.nav-open {
   border-radius: 0.45rem;
 }
 
-.theme-toggle .icon-sun {
+.theme-toggle .icon-sun,
+.theme-toggle .icon-moon,
+.theme-toggle .icon-system {
   display: none;
 }
 
-html[data-theme='dark'] .theme-toggle .icon-moon {
-  display: none;
+html[data-theme-preference='light'] .theme-toggle .icon-sun {
+  display: block;
 }
 
-html[data-theme='dark'] .theme-toggle .icon-sun {
+html[data-theme-preference='dark'] .theme-toggle .icon-moon {
+  display: block;
+}
+
+html[data-theme-preference='system'] .theme-toggle .icon-system,
+html:not([data-theme-preference]) .theme-toggle .icon-system {
   display: block;
 }
 
