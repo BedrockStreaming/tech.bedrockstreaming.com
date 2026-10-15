@@ -215,16 +215,16 @@ body.nav-open {
   display: none;
 }
 
-html[data-theme-preference='light'] .theme-toggle .icon-sun {
+html[data-theme-preference='system'] .theme-toggle .icon-sun,
+html:not([data-theme-preference]) .theme-toggle .icon-sun {
   display: block;
 }
 
-html[data-theme-preference='dark'] .theme-toggle .icon-moon {
+html[data-theme-preference='light'] .theme-toggle .icon-moon {
   display: block;
 }
 
-html[data-theme-preference='system'] .theme-toggle .icon-system,
-html:not([data-theme-preference]) .theme-toggle .icon-system {
+html[data-theme-preference='dark'] .theme-toggle .icon-system {
   display: block;
 }
 
