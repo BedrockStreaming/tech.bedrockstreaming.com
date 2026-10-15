@@ -59,9 +59,76 @@ const jsonLd = article && {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script is:inline>
       (function () {
-        var stored = sessionStorage.getItem('theme');
-        var theme = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
+        var ORDER = ['system', 'light', 'dark'];
+        var LABEL = {
+          system: 'Use system theme',
+          light: 'Switch to light theme',
+          dark: 'Switch to dark theme',
+        };
+        var media = matchMedia('(prefers-color-scheme: dark)');
+
+        function parsePreference(value) {
+          return ORDER.indexOf(value) === -1 ? 'system' : value;
+        }
+
+        function readPreference() {
+          try {
+            return parsePreference(localStorage.getItem('theme'));
+          } catch (e) {
+            return 'system';
+          }
+        }
+
+        function writePreference(value) {
+          try {
+            localStorage.setItem('theme', value);
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function resolveTheme(value) {
+          if (value === 'light' || value === 'dark') return value;
+          return media.matches ? 'dark' : 'light';
+        }
+
+        function nextPreference(value) {
+          return ORDER[(ORDER.indexOf(value) + 1) % ORDER.length];
+        }
+
+        function apply(value) {
+          var root = document.documentElement;
+          root.setAttribute('data-theme-preference', value);
+          root.setAttribute('data-theme', resolveTheme(value));
+          var button = document.getElementById('theme-toggle');
+          if (button) button.setAttribute('aria-label', LABEL[nextPreference(value)]);
+        }
+
+        function onSchemeChange() {
+          if (preference !== 'system') return;
+          document.documentElement.setAttribute('data-theme', resolveTheme(preference));
+        }
+
+        function onToggle() {
+          var next = nextPreference(preference);
+          if (!writePreference(next)) next = 'system';
+          preference = next;
+          apply(preference);
+        }
+
+        function bind() {
+          var button = document.getElementById('theme-toggle');
+          if (!button) return;
+          apply(preference);
+          button.addEventListener('click', onToggle);
+        }
+
+        var preference = readPreference();
+        apply(preference);
+        media.addEventListener('change', onSchemeChange);
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+        else bind();
       })();
     </script>
     <script is:inline>
@@ -186,9 +253,10 @@ const jsonLd = article && {
           <span>Search</span>
           <kbd class="key">⌘K</kbd>
         </button>
-        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch theme">
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3.1a8.5 8.5 0 1 0 6.4 13.3A7 7 0 0 1 14.5 3.1Z" /></svg>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-system" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="2" /><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 20h8M12 16v4" /></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6" /></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3.1a8.5 8.5 0 1 0 6.4 13.3A7 7 0 0 1 14.5 3.1Z" /></svg>
         </button>
       </div>
     </header>
@@ -240,20 +308,6 @@ const jsonLd = article && {
     </dialog>
     <script is:inline src="/pagefind/pagefind-ui.js"></script>
     <script>
-      const themeButton = document.getElementById('theme-toggle');
-      const syncThemeButton = () => {
-        const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-        themeButton?.setAttribute('aria-pressed', dark ? 'true' : 'false');
-        themeButton?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-      };
-      syncThemeButton();
-      themeButton?.addEventListener('click', () => {
-        const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        sessionStorage.setItem('theme', next);
-        syncThemeButton();
-      });
-
       const nav = document.getElementById('site-nav');
       const navToggle = document.getElementById('nav-toggle');
       const page = document.getElementById('content');
