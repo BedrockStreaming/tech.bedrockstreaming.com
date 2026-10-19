@@ -17,7 +17,7 @@ const cards = await Promise.all(
 <div class="poster-grid">
   {
     cards.map(({ talk, authors }) => (
-      <article class="poster" data-year={String(talk.data.date.getUTCFullYear())}>
+      <article class="poster" data-year={String(talk.data.date.getUTCFullYear())} data-language={talk.data.language}>
         <a href={url(talk.data.permalink)}>
           <span class="poster-media">
             <img
