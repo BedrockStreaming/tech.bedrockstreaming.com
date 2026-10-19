@@ -11,6 +11,8 @@ const lftCount = talks.filter((talk) => talk.data.youtubeId && talk.data.eventNa
 const years = [...new Set([...replays, ...appearances].map((talk) => String(talk.data.date.getUTCFullYear())))].sort(
   (a, b) => Number(b) - Number(a),
 );
+const languageLabels: Record<string, string> = { en: 'English', fr: 'French' };
+const languages = [...new Set(talks.map((talk) => talk.data.language))].sort();
 ---
 
 <Page title="Talks" subtitle="Replays to watch, and the conferences we spoke at." wide>
@@ -21,6 +23,13 @@ const years = [...new Set([...replays, ...appearances].map((talk) => String(talk
         <select id="filter-year">
           <option value="">All</option>
           {years.map((year) => <option value={year}>{year}</option>)}
+        </select>
+      </label>
+      <label>
+        Language
+        <select id="filter-language">
+          <option value="">All</option>
+          {languages.map((language) => <option value={language}>{languageLabels[language] ?? language}</option>)}
         </select>
       </label>
     </form>
@@ -45,11 +54,23 @@ const years = [...new Set([...replays, ...appearances].map((talk) => String(talk
 
   <script>
     const yearFilter = document.getElementById('filter-year');
+    const languageFilter = document.getElementById('filter-language');
     const apply = () => {
       const year = yearFilter instanceof HTMLSelectElement ? yearFilter.value : '';
-      document.querySelectorAll('.poster, .appearance').forEach((card) => {
+      const language = languageFilter instanceof HTMLSelectElement ? languageFilter.value : '';
+      const matches = (el: HTMLElement) => !language || el.dataset.language === language;
+      document.querySelectorAll('.poster').forEach((card) => {
         if (!(card instanceof HTMLElement)) return;
-        card.hidden = Boolean(year) && card.dataset.year !== year;
+        card.hidden = (Boolean(year) && card.dataset.year !== year) || !matches(card);
+      });
+      document.querySelectorAll('.appearance').forEach((group) => {
+        if (!(group instanceof HTMLElement)) return;
+        const yearMatches = !year || group.dataset.year === year;
+        const talks = [...group.querySelectorAll('li')].filter((li): li is HTMLLIElement => li instanceof HTMLLIElement);
+        talks.forEach((li) => {
+          li.hidden = !matches(li);
+        });
+        group.hidden = !yearMatches || talks.every((li) => li.hidden);
       });
       for (const id of ['watch', 'on-stage']) {
         const section = document.getElementById(id);
@@ -59,5 +80,6 @@ const years = [...new Set([...replays, ...appearances].map((talk) => String(talk
       }
     };
     yearFilter?.addEventListener('change', apply);
+    languageFilter?.addEventListener('change', apply);
   </script>
 </Page>

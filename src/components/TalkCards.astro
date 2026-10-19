@@ -50,6 +50,7 @@ const years = [...new Set(talks.map((talk) => String(talk.data.date.getUTCFullYe
         <div>
           <h3 {...morphFrom(talk, 'title')}><a href={url(talk.data.permalink)}>{talk.data.title}</a></h3>
           <p class="meta">
+            <span class="lang">{talk.data.language}</span>
             <span>{talk.data.eventName}</span>
             <time datetime={talk.data.date.toISOString().slice(0, 10)}>{formatDate(talk.data.date)}</time>
             {authors.map((author) => author.name && <span>{author.name}</span>)}
