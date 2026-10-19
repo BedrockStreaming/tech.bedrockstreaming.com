@@ -29,6 +29,7 @@ for (const talk of talks) {
         <ul>
           {group.talks.map(({ talk, authors }) => (
             <li>
+              <span class="lang">{talk.data.language}</span>
               <span class="appearance-title">
                 {talk.body?.trim() ? <a href={url(talk.data.permalink)}>{talk.data.title}</a> : talk.data.title}
               </span>
