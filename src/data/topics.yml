@@ -14,3 +14,4 @@ open-source: { label: Open source }
 architecture: { label: Architecture }
 practices: { label: Practices }
 culture: { label: Culture }
+ai: { label: AI }
