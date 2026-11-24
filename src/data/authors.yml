@@ -310,6 +310,10 @@ t_gianella:
   avatar: /images/avatar/t_gianella.jpeg
 t_jarrand:
   name: Thomas Jarrand
+t_petit:
+  name: Thomas Petit
+  avatar: /images/avatar/t_petit.jpg
+  url: https://www.linkedin.com/in/thomas-petit-dev
 t_sontag:
   name: Thomas Sontag
 v_chabrier:
