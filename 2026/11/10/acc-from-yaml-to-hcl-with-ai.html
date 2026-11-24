@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><script>
+      (function () {
+        var ORDER = ['system', 'light', 'dark'];
+        var LABEL = {
+          system: 'Use system theme',
+          light: 'Switch to light theme',
+          dark: 'Switch to dark theme',
+        };
+        var media = matchMedia('(prefers-color-scheme: dark)');
+
+        function parsePreference(value) {
+          return ORDER.indexOf(value) === -1 ? 'system' : value;
+        }
+
+        function readPreference() {
+          try {
+            return parsePreference(localStorage.getItem('theme'));
+          } catch (e) {
+            return 'system';
+          }
+        }
+
+        function writePreference(value) {
+          try {
+            localStorage.setItem('theme', value);
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function resolveTheme(value) {
+          if (value === 'light' || value === 'dark') return value;
+          return media.matches ? 'dark' : 'light';
+        }
+
+        function nextPreference(value) {
+          return ORDER[(ORDER.indexOf(value) + 1) % ORDER.length];
+        }
+
+        function apply(value) {
+          var root = document.documentElement;
+          root.setAttribute('data-theme-preference', value);
+          root.setAttribute('data-theme', resolveTheme(value));
+          var button = document.getElementById('theme-toggle');
+          if (button) button.setAttribute('aria-label', LABEL[nextPreference(value)]);
+        }
+
+        function onSchemeChange() {
+          if (preference !== 'system') return;
+          document.documentElement.setAttribute('data-theme', resolveTheme(preference));
+        }
+
+        function onToggle() {
+          var next = nextPreference(preference);
+          if (!writePreference(next)) next = 'system';
+          preference = next;
+          apply(preference);
+        }
+
+        function bind() {
+          var button = document.getElementById('theme-toggle');
+          if (!button) return;
+          apply(preference);
+          button.addEventListener('click', onToggle);
+        }
+
+        var preference = readPreference();
+        apply(preference);
+        media.addEventListener('change', onSchemeChange);
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind);
+        else bind();
+      })();
+    </script><script>
+      (function () {
+        var clicked;
+        addEventListener('click', function (event) {
+          clicked = event.target instanceof Element ? event.target.closest('a') : undefined;
+        }, true);
+        function nearClick(el) {
+          var card = clicked && clicked.closest('article, li');
+          return clicked ? el.contains(clicked) || clicked.contains(el) || Boolean(card && card.contains(el)) : false;
+        }
+        function morph(url) {
+          var path = new URL(url).pathname;
+          var used = {};
+          var elements = Array.prototype.slice.call(document.querySelectorAll('[data-morph]'));
+          elements.forEach(function (el) {
+            el.style.viewTransitionName = '';
+          });
+          elements
+            .filter(function (el) {
+              return new URL(el.getAttribute('data-morph-href'), location.href).pathname === path;
+            })
+            .sort(function (a, b) {
+              return Number(nearClick(b)) - Number(nearClick(a));
+            })
+            .forEach(function (el) {
+              var name = el.getAttribute('data-morph');
+              if (used[name]) return;
+              used[name] = true;
+              el.style.viewTransitionName = name;
+            });
+        }
+        addEventListener('pageswap', function (event) {
+          if (event.viewTransition && event.activation) morph(event.activation.entry.url);
+        });
+        addEventListener('pagereveal', function (event) {
+          var activation = window.navigation && navigation.activation;
+          if (event.viewTransition && activation && activation.navigationType === 'traverse' && activation.from) morph(activation.from.url);
+        });
+      })();
+    </script><link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/pagefind/pagefind-ui.css"><script>
+          var _paq = (window._paq = window._paq || []);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function () {
+            var u = 'https://bedrockstreaming.matomo.cloud/';
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document,
+              g = d.createElement('script'),
+              s = d.getElementsByTagName('script')[0];
+            g.async = true;
+            g.src = '//cdn.matomo.cloud/bedrockstreaming.matomo.cloud/matomo.js';
+            s.parentNode.insertBefore(g, s);
+          })();
+        </script><title>Our ad configuration moves to HCL, with AI as co-pilot | Bedrock Tech Blog</title><meta name="description" content="Why and how we migrated the configuration of Ad Configurator, our ad decisioning service, from YAML to HCL, Terraform’s configuration language, with AI involved end to end: design, code, review, mo..."><link rel="canonical" href="https://tech.bedrockstreaming.com/2026/11/10/acc-from-yaml-to-hcl-with-ai.html"><meta property="og:title" content="Our ad configuration moves to HCL, with AI as co-pilot"><meta property="og:description" content="Why and how we migrated the configuration of Ad Configurator, our ad decisioning service, from YAML to HCL, Terraform’s configuration language, with AI involved end to end: design, code, review, mo..."><meta property="og:url" content="https://tech.bedrockstreaming.com/2026/11/10/acc-from-yaml-to-hcl-with-ai.html"><meta property="og:site_name" content="Bedrock Tech Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://tech.bedrockstreaming.com/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/thumbnail.jpg"><meta property="og:type" content="article"><meta property="article:published_time" content="2026-11-10T00:00:00.000Z"><meta name="author" content="Thomas Petit"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Our ad configuration moves to HCL, with AI as co-pilot","description":"Why and how we migrated the configuration of Ad Configurator, our ad decisioning service, from YAML to HCL, Terraform’s configuration language, with AI involved end to end: design, code, review, mo...","author":{"@type":"Person","name":"Thomas Petit"},"datePublished":"2026-11-10T00:00:00.000Z","dateModified":"2026-11-10T00:00:00.000Z","url":"https://tech.bedrockstreaming.com/2026/11/10/acc-from-yaml-to-hcl-with-ai.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://tech.bedrockstreaming.com/2026/11/10/acc-from-yaml-to-hcl-with-ai.html"}}</script><link rel="alternate" type="application/atom+xml" title="Bedrock Tech Blog" href="https://tech.bedrockstreaming.com/feed.xml"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Our ad configuration moves to HCL, with AI as co-pilot"><meta name="twitter:description" content="Ad Configurator (ACC, for Ad Configurator Configurable) is the service that decides, for every ad request, which ad server to call and with which parameters...."><meta name="twitter:image" content="https://tech.bedrockstreaming.com/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/thumbnail.jpg"><meta name="twitter:image:alt" content="Our ad configuration moves to HCL, with AI as co-pilot"><style>.teasers{flex-direction:column;display:flex}.shell>.teasers,.shell>.pagination{padding-inline:max(var(--gutter), calc((100% - var(--content)) / 2))}.shell>.teasers:last-child,.shell>.pagination{padding-bottom:var(--space-8)}.teaser{border-top:1px solid var(--border);grid-template-columns:1fr;align-items:start;gap:1rem 1.75rem;padding:1.35rem 0;display:grid}.teaser-date{color:var(--muted);margin:0;padding-top:.35rem;font-size:.95rem}.teaser-avatars{padding-top:.15rem;display:flex}.teaser-avatars img,.avatar-fallback{object-fit:cover;border:2px solid var(--bg);border-radius:50%;width:2.25rem;height:2.25rem;margin-left:-.45rem}.teaser-avatars :first-child{margin-left:0}.avatar-fallback{background:var(--surface);color:var(--text);place-items:center;font-size:.72rem;font-weight:500;display:grid}.teaser-meta{margin:var(--space-3) 0 0;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;flex-wrap:wrap;align-items:center;gap:.35rem .75rem;font-size:.8rem;display:flex}.teaser-meta a{color:inherit;text-decoration:none}.teaser .excerpt{color:var(--muted);-webkit-line-clamp:2;-webkit-box-orient:vertical;display:-webkit-box;overflow:hidden}.teaser h2,.teaser h3{font-family:var(--font-body);text-transform:none;letter-spacing:-.015em;margin:0 0 var(--space-3);font-size:1.65rem;font-weight:500;line-height:1.3}.teaser h2 a,.teaser h3 a{color:inherit;text-decoration:none}.teaser h2 a:hover,.teaser h3 a:hover{color:var(--link)}.teaser .excerpt>:first-child{margin-top:0}.teaser .excerpt>:last-child{margin-bottom:0}.pagination{justify-content:space-between;gap:var(--space-4);margin-top:var(--space-5);font-size:var(--text-meta);align-items:center;display:flex}.pagination a{color:var(--text);letter-spacing:.08em;text-transform:uppercase;text-decoration:none}.pagination a:hover{color:var(--link)}@container page (width>=50rem){.teaser{grid-template-columns:7.5rem minmax(0,1fr) auto}}
+.cover{--cover-height:16rem;--g1:var(--black);--g2:var(--ink);height:var(--cover-height);color:var(--pearl);background:linear-gradient(115deg, var(--g1), var(--g2));clip-path:none;position:relative;overflow:hidden;container-type:inline-size}.cover img{object-fit:cover;filter:grayscale();mix-blend-mode:luminosity;width:100%;height:100%;position:absolute;inset:0}.cover:after{content:"";pointer-events:none;background:linear-gradient(#00000014 42%,#000000b8);position:absolute;inset:0}.cover .echo{max-width:94%;font-size:11cqi;top:2cqi;right:3cqi}.cover-copy{z-index:1;height:100%;padding:var(--space-5);padding-left:var(--space-5);flex-direction:column;justify-content:flex-end;display:flex;position:relative}.cover-copy h1,.cover-copy p{margin:0}.cover-copy h1{font-size:var(--text-h1);color:var(--pearl)}@container page (width>=50rem){.cover{--cover-height:22rem;clip-path:polygon(calc(var(--cut) * var(--cover-height)) 0, 100% 0, 100% 100%, 0 100%)}.cover-copy{padding-left:calc(var(--cut) * var(--cover-height) + var(--space-5))}}
+.article-layout{grid-template-columns:minmax(0, var(--measure));gap:var(--space-7);width:min(var(--content), 100%);padding:var(--space-7) var(--gutter) 0;justify-content:center;align-items:start;margin:0 auto;display:grid}.article-head{grid-column:1/-1}.article-head .chips{margin-bottom:var(--space-5)}.article-head .title{margin:0 0 var(--space-4);font-size:var(--text-h1)}.article-head .lede{max-width:var(--measure);margin-bottom:var(--space-5);color:var(--muted)}.article-head .meta{margin-bottom:var(--space-6)}.cover.article-cover{clip-path:none}.article-cover:after{content:none}.toc{top:calc(var(--header-height) + 1rem);max-height:calc(100vh - var(--header-height) - 2rem);font-size:var(--text-meta);display:none;position:sticky;overflow:auto}.toc p{margin:0 0 var(--space-2)}.toc ol{margin:0;padding:0;list-style:none}.toc li{margin:.35rem 0}.toc a{color:var(--muted);text-decoration:none}.toc a:hover{color:var(--link)}.toc .depth-3{padding-left:.8rem}.toc-mobile{margin-bottom:var(--space-5);border:1px solid var(--border);background:var(--surface);padding:.6rem .9rem;display:block}.toc-mobile summary{cursor:pointer;letter-spacing:.12em;text-transform:uppercase;font-size:var(--text-tag)}.author-card{gap:var(--space-5);margin:var(--space-8) 0 var(--space-7);padding:var(--space-5);border:1px solid var(--border);background:var(--surface);flex-wrap:wrap;display:flex}.author-card article{gap:var(--space-4);align-items:center;min-width:14rem;display:flex}.author-card img{object-fit:cover;border-radius:50%;width:4.5rem;height:4.5rem}.author-card p{margin:0;font-size:1.25rem;font-weight:500}.author-card .kicker{margin-bottom:var(--space-1);display:block}.author-card a{color:inherit;text-decoration:none}.author-card a:hover{color:var(--link)}.related,.post-nav{width:100%;padding-left:max(var(--gutter), calc((100% - var(--content)) / 2));padding-right:max(var(--gutter), calc((100% - var(--content)) / 2));margin-left:0;margin-right:0}.related{background:var(--surface);border-top:4px solid var(--ink);padding-top:var(--space-8);padding-bottom:var(--space-6);margin-top:0}html[data-theme=dark] .related,html[data-theme=dark] .post-nav{border-top-color:var(--iris)}.related h2{font-size:var(--text-h2);margin-bottom:var(--space-4)}.post-nav{gap:var(--space-5);padding-top:var(--space-7);padding-bottom:var(--space-8);border-top:4px solid var(--ink);grid-template-columns:1fr;margin-top:0;margin-bottom:0;display:grid}.post-nav a{color:inherit;text-decoration:none}.post-nav a:hover{color:var(--link)}.post-nav p{color:var(--muted);font-size:var(--text-tag);letter-spacing:.15em;text-transform:uppercase;margin:0}.post-nav .next{text-align:left}.youtube-facade{background:var(--black);cursor:pointer;aspect-ratio:16/9;border:0;width:100%;padding:0;display:block;position:relative}.youtube-facade img{object-fit:cover;width:100%;height:100%;margin:0}.youtube-facade span{background:var(--scarlet);color:var(--white);font-size:var(--text-tag);letter-spacing:.15em;text-transform:uppercase;padding:.7rem .9rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}@container page (width>=50rem){.article-cover{--cover-height:20rem}.post-nav{grid-template-columns:1fr 1fr}.post-nav .next{text-align:right}}@container page (width>=68.75rem){.article-layout{grid-template-columns:minmax(0, var(--measure)) 15rem}.toc{display:block}.toc-mobile{display:none}}
+</style><link rel="stylesheet" href="/_astro/Base.rGuGVuNo.css"></head><body><a class="skip" href="#content">Skip to content</a><header class="site-header"><a class="brand" href="/" aria-label="Bedrock Tech Blog"><img alt="" src="/images/common/br-site-logo.jpg"><span class="brand-name">Bedrock Tech blog</span></a><button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg><svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6 18 18M18 6 6 18"></path></svg></button><nav class="site-nav" id="site-nav" aria-label="Sections"><a href="/">Articles</a><a href="/talks/">Talks</a><a href="/tags/">Topics</a><a href="/oss/">Open source</a><a href="https://bedrockstreaming.com/career/">Jobs</a></nav><div class="header-actions"><button class="search-trigger" id="search-open" type="button" aria-label="Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"></circle><path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg><span>Search</span><kbd class="key">⌘K</kbd></button><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme"><svg class="icon-system" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1" fill="none" stroke="currentColor" stroke-width="2"></rect><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 20h8M12 16v4"></path></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 3.1a8.5 8.5 0 1 0 6.4 13.3A7 7 0 0 1 14.5 3.1Z"></path></svg></button></div></header><div class="shell" id="content"><div class="article-layout"><header class="article-head"><ul class="chips"><li><a class="chip" href="/tags/#backend">Backend</a></li><li><a class="chip" href="/tags/#architecture">Architecture</a></li><li><a class="chip" href="/tags/#ai">AI</a></li></ul><h1 class="title" style="view-transition-name:title-2026-11-10-acc-from-yaml-to-hcl-with-ai">Our ad configuration moves to HCL, with AI as co-pilot</h1><p class="lede">Why and how we migrated the configuration of Ad Configurator, our ad decisioning service, from YAML to HCL, Terraform’s configuration language, with AI involved end to end: design, code, review, monitoring. What it cost, what it bought us, and why driving the AI rather than letting it run stays entirely our job.</p><p class="meta"><a href="https://www.linkedin.com/in/thomas-petit-dev">Thomas Petit</a><time datetime="2026-11-10">November 10, 2026</time><span class="lang">en</span><span>15 min</span></p><div class="cover article-cover" style="--g1:#3402F0;--g2:#E82577;view-transition-name:cover-2026-11-10-acc-from-yaml-to-hcl-with-ai"><img src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/thumbnail.jpg" alt=""><p class="echo" aria-hidden="true">configuration</p></div></header><article data-pagefind-body><details class="toc-mobile"><summary>On this page</summary><ol><li class="depth-2"><a href="#context">Context</a></li><li class="depth-2"><a href="#why-leave-yaml">Why leave YAML</a></li><li class="depth-3"><a href="#you-already-had-to-know-what-to-do-and-where-to-look">You already had to know what to do, and where to look</a></li><li class="depth-3"><a href="#acm-and-the-hcl-editor">ACM and the HCL editor</a></li><li class="depth-3"><a href="#yaml-enforces-no-type">YAML enforces no type</a></li><li class="depth-3"><a href="#an-ad-servers-invisible-limit">An ad server’s invisible limit</a></li><li class="depth-2"><a href="#the-migration-steps">The migration steps</a></li><li class="depth-2"><a href="#ais-place-in-this-project">AI’s place in this project</a></li><li class="depth-3"><a href="#costs-and-gains">Costs and gains</a></li><li class="depth-3"><a href="#driving-the-ai-not-riding-along">Driving the AI, not riding along</a></li></ol></details><div class="prose"><p>Ad Configurator (ACC, for Ad Configurator Configurable) is the service that decides, for every ad request, which ad server to call and with which parameters. This is the story of how we migrated its configuration from YAML to HCL (HashiCorp Configuration Language, the language of Terraform), with AI involved end to end: design, code, review, monitoring. What it cost, what it bought us, and why driving the AI rather than letting it run stays entirely our job.</p>
+<h2 id="context">Context<a href="#context" class="heading-anchor" aria-label="Link to this section"></a></h2>
+<p>ACC decides, for every ad request, which ad server to call and with which parameters. A “configuration” is a set of files describing, for a given customer and platform, which ad server to contact, which URL to call, and which parameters to send. Business and engineers change this content constantly, at two speeds: a value changes with no deployment, while a real business rule stays code, reviewed and deployed like any other change. That’s the system we set out to preserve while migrating.</p>
+<p>These configuration files lived in YAML, edited through Ad Configurator Manager (ACM), a dedicated back office hosted in a separate project. We’d wanted to change that for a while: too many easy mistakes to make, implicit behavior that only lived in code, a format that enforced neither precision nor consistency. We moved to HCL, with an editor built into ACC (language server and linter included), all of it built with AI as a pair-programmer. Here’s why, and how we got there without breaking anyone’s ads.</p>
+<h2 id="why-leave-yaml">Why leave YAML<a href="#why-leave-yaml" class="heading-anchor" aria-label="Link to this section"></a></h2>
+<p>The format had three concrete flaws, which we let accumulate without ever tackling head-on. Here they are in detail, with real examples.</p>
+<h3 id="you-already-had-to-know-what-to-do-and-where-to-look">You already had to know what to do, and where to look<a href="#you-already-had-to-know-what-to-do-and-where-to-look" class="heading-anchor" aria-label="Link to this section"></a></h3>
+<p>Here is, pretty much as-is, a real chunk of YAML configuration for one customer, three different files, shown here one after another:</p>
+<p><em>Customer and ad server names are anonymized here and in the rest of the article: <code>{{customer}}</code> stands for the customer, <code>{{customer's_ad_server}}</code> for its ad server, and <code>{{ad_server}}</code> for any other ad server.</em></p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">yaml</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#FD4D26">kind</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">configuration</span></span>
+<span class="line"><span style="color:#FD4D26">metadata</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  active</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">true</span></span>
+<span class="line"><span style="color:#FD4D26">  customer</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  description</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer</span><span style="color:#FAF8F8">}} {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}} </span><span style="color:#FD4D26">Web</span></span>
+<span class="line"><span style="color:#FD4D26">  id</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">live_web</span></span>
+<span class="line"><span style="color:#FD4D26">  version</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">11</span></span>
+<span class="line"><span style="color:#FD4D26">spec</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  constraints</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FAF8F8">    - </span><span style="color:#FD4D26">routine</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">target</span></span>
+<span class="line"><span style="color:#FD4D26">      values</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">live</span></span>
+<span class="line"><span style="color:#FAF8F8">    - </span><span style="color:#FD4D26">routine</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">platform</span></span>
+<span class="line"><span style="color:#FD4D26">      values</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FAF8F8">        - </span><span style="color:#FD4D26">web</span></span>
+<span class="line"><span style="color:#FD4D26">  providers</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FAF8F8">    - </span><span style="color:#FD4D26">id</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}}</span><span style="color:#FD4D26">_live_web</span></span>
+<span class="line"><span style="color:#FD4D26">      output_key</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">ad_server</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">      output_name</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">ad_server</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FAF8F8">---</span></span>
+<span class="line"><span style="color:#FD4D26">kind</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">provider</span></span>
+<span class="line"><span style="color:#FD4D26">metadata</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  active</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">true</span></span>
+<span class="line"><span style="color:#FD4D26">  customer</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  description</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer</span><span style="color:#FAF8F8">}} - </span><span style="color:#FD4D26">web - LIVE - {{customer's_ad_server}}</span></span>
+<span class="line"><span style="color:#FD4D26">  id</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}}</span><span style="color:#FD4D26">_live_web</span></span>
+<span class="line"><span style="color:#FD4D26">  version</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">7</span></span>
+<span class="line"><span style="color:#FD4D26">spec</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  ad_server</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  format</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">composed</span></span>
+<span class="line"><span style="color:#FD4D26">  attributes</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">    ang_plrh</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">      routine</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">player_height</span></span>
+<span class="line"><span style="color:#FD4D26">      if_empty</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">      if_error</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">    fwd_rpusr</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">      routine</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">ad_scheme</span></span>
+<span class="line"><span style="color:#FD4D26">      if_empty</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">ada_free</span></span>
+<span class="line"><span style="color:#FD4D26">      if_error</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">ada_max</span></span>
+<span class="line"><span style="color:#FAF8F8">---</span></span>
+<span class="line"><span style="color:#FD4D26">kind</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">parameters</span></span>
+<span class="line"><span style="color:#FD4D26">metadata</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  active</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">true</span></span>
+<span class="line"><span style="color:#FD4D26">  customer</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  description</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}} </span><span style="color:#FD4D26">ad server parameters for {{customer}}</span></span>
+<span class="line"><span style="color:#FD4D26">  id</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  version</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">5</span></span>
+<span class="line"><span style="color:#FD4D26">spec</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  ad_server</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">customer's_ad_server</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  base_url</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">host</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  host_targeting_separator</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">?</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">  targeting_keys_separator</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">&#x26;</span><span style="color:#FAF8F8">"</span></span></code></pre></figure>
+<p>One thing this file doesn’t say: <code>spec.format: composed</code> silently requires that a <code>targeting: {}</code> be returned, a requirement hardcoded in the Go that interprets that field, never mentioned in any configuration. Worse: it complicates onboarding. Old hands know what <code>composed</code> and <code>decomposed</code> mean; newcomers struggle more. It’s implicit behavior living in code rather than in the data meant to describe it.</p>
+<p>Even once you’ve found the right file, finding your way around is a challenge. A definition nests <code>configuration</code>, then <code>provider</code>, then <code>parameters</code> (an inherited name that doesn’t make much sense today). Each level is its own file, referenced by ID strings like <code>{{customer's_ad_server}}_live_web</code> or <code>{{customer's_ad_server}}</code>: connecting the three snippets above means already knowing they reference each other, and where to find each one.</p>
+<p>In HCL, all of that fits in a single file, every reference is clickable (jump-to-definition, like in an IDE), and a block shared by several definitions is automatically factored out: delete the last reference to it, and the tooling folds it back in on its own. Here’s the full equivalent of the customer above, in a single HCL file:</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">hcl</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="hcl"><code><span class="line"><span style="color:#50F1D7">advertising</span><span style="color:#FAF8F8"> "{{customer}}_live_web" {</span></span>
+<span class="line"><span style="color:#FAF8F8">  customer    </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">{{customer}}</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">  description </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">{{customer}} {{customer's_ad_server}} Web</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FAF8F8">  conditions </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> [</span></span>
+<span class="line"><span style="color:#FAF8F8">    contains([</span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">web</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">], platform()),</span></span>
+<span class="line"><span style="color:#FAF8F8">    target() </span><span style="color:#50F1D7">==</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">live</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">  ]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#50F1D7">  providers</span><span style="color:#FAF8F8"> {</span></span>
+<span class="line"><span style="color:#50F1D7">    slot</span><span style="color:#FAF8F8"> "video" {</span></span>
+<span class="line"><span style="color:#FAF8F8">      name </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">{{customer's_ad_server}}</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#50F1D7">      ad_request</span><span style="color:#FAF8F8"> {</span></span>
+<span class="line"><span style="color:#FAF8F8">        hostTargetingSeparator </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">?</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">        targetingKeysSeparator </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">&#x26;</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">        targeting              </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#50F1D7">        url</span><span style="color:#FAF8F8"> "host" {</span></span>
+<span class="line"><span style="color:#FAF8F8">          base_url </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">{{host}}</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">          query_params </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> {</span></span>
+<span class="line"><span style="color:#FAF8F8">            ang_plrh  </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> fallback(player_height(), </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">, </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">)</span></span>
+<span class="line"><span style="color:#FAF8F8">            fwd_rpusr </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> fallback(ad_scheme(), </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">ada_free</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">, </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">ada_max</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">)</span></span>
+<span class="line"><span style="color:#FAF8F8">          }</span></span>
+<span class="line"><span style="color:#FAF8F8">        }</span></span>
+<span class="line"><span style="color:#FAF8F8">      }</span></span>
+<span class="line"><span style="color:#FAF8F8">    }</span></span>
+<span class="line"><span style="color:#FAF8F8">  }</span></span>
+<span class="line"><span style="color:#FAF8F8">}</span></span></code></pre></figure>
+<p>And it’s that exact HCL block, once resolved, that produces this JSON: the YAML block above produces the exact same result. The separators were present there too, just buried in another file. The real weak point of YAML is the empty <code>targeting</code>, which was never written anywhere in it and shows up here explicitly:</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">json</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#FAF8F8">{</span></span>
+<span class="line"><span style="color:#FAF8F8">  "</span><span style="color:#50F1D7">advertising</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{customer's_ad_server}}</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {</span></span>
+<span class="line"><span style="color:#FAF8F8">      "</span><span style="color:#50F1D7">base_url</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">{{host}}?ang_plrh=404&#x26;fwd_rpusr=ada_free</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">      "</span><span style="color:#50F1D7">host_targeting_separator</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">?</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">      "</span><span style="color:#50F1D7">targeting_keys_separator</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">&#x26;</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">      "</span><span style="color:#50F1D7">targeting</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {}</span></span>
+<span class="line"><span style="color:#FAF8F8">    },</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">providers</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {</span></span>
+<span class="line"><span style="color:#FAF8F8">      "</span><span style="color:#50F1D7">video</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">{{customer's_ad_server}}</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">    }</span></span>
+<span class="line"><span style="color:#FAF8F8">  }</span></span>
+<span class="line"><span style="color:#FAF8F8">}</span></span></code></pre></figure>
+<p>Assuming this is the only definition that exists (not true in reality, but for the sake of the example): if the conditions aren’t met (on replay, say, or on a platform other than web), the response is simply empty, <code>{}</code>. It’s advertising, so nothing is blocking: never an error, an empty response and an HTTP 200 every time.</p>
+<p>Same behavior, same request produced. But one reads, the other has to be deciphered.</p>
+<h3 id="acm-and-the-hcl-editor">ACM and the HCL editor<a href="#acm-and-the-hcl-editor" class="heading-anchor" aria-label="Link to this section"></a></h3>
+<p>ACM, the interface the business side uses, doesn’t help: navigating between linked items there is limited and finicky. Links don’t always show up, and not every definition type is supported for navigation. Going back can land you on an unexpected page, and climbing back up to the root configuration from a provider or a parameters definition can quickly get complicated.</p>
+<center><img alt="ACM, for a single definition: four screens. 1, the flat list behind a single static URL. 2, the detail of {{customer}}_replay_tvjs, where you read IDs rather than links. 3, another page to open to find {{customer}}_pausevast_replay_TVJS. 4, yet another for {{customer&#x27;s_ad_server}}_{{customer}}, the last link in the chain. Purple arrows show each click." src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/acm-four-screens.jpg"></center>
+<ol>
+<li>The flat list, behind a single static URL.</li>
+<li>The detail of <code>{{customer}}_replay_tvjs</code>: you read IDs, not links.</li>
+<li>You have to open another page to find <code>{{customer}}_pausevast_replay_TVJS</code>.</li>
+<li>And yet another for <code>{{customer's_ad_server}}_{{customer}}</code>, the last link in the chain.</li>
+</ol>
+<p>Same definition, this time in the HCL editor: it all fits on one screen, no scavenger hunt.</p>
+<center><img alt="The HCL editor, same definition, one screen: the file tree and version tabs on the left, the HCL for {{customer}}_replay_tvjs in the middle with the pausevast block automatically inlined, the computed payload on the right" src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/hcl-editor-one-screen.jpg"></center>
+<p><em>The file tree on the left, the HCL for <code>{{customer}}_replay_tvjs</code> on the right: here the <code>pausevast</code> block, automatically inlined.</em></p>
+<p>Obviously, we don’t want to duplicate an identical provider in every definition that uses it. In HCL, factoring is automatic: a block shared by several definitions is extracted on its own, and <code>Cmd</code>+click on a reference jumps straight to its declaration; going from an inlined block back to its source, or the other way around, takes no manual gymnastics. For example, <code>endpoint.{{customer's_ad_server}}</code> replaces the old <code>kind: parameters</code>: that variable now only holds the host, to avoid duplication. Neither factoring nor inlining is something you manage by hand: the tooling handles it.</p>
+<h3 id="yaml-enforces-no-type">YAML enforces no type<a href="#yaml-enforces-no-type" class="heading-anchor" aria-label="Link to this section"></a></h3>
+<p>This one is a real bug that shipped to production. The same key, <code>fwd_br</code>, written differently depending on the file:</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">yaml</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#8A8A8A;font-style:italic"># provider {{customer's_ad_server}}</span></span>
+<span class="line"><span style="color:#FD4D26">fwd_br</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">'</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">'</span><span style="color:#8A8A8A;font-style:italic">  # string</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8A8A8A;font-style:italic"># provider {{ad_server}}</span></span>
+<span class="line"><span style="color:#FD4D26">fwd_br</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">1</span><span style="color:#8A8A8A;font-style:italic">    # int</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8A8A8A;font-style:italic"># v2.yaml (drifted over time)</span></span>
+<span class="line"><span style="color:#FD4D26">fwd_br</span><span style="color:#FAF8F8">: </span><span style="color:#E82577">1.0</span><span style="color:#8A8A8A;font-style:italic">  # float</span></span></code></pre></figure>
+<p>Nothing says which of the three is correct. And all three shipped to production without a single alert. In HCL, every attribute has exactly one type, declared once in our Go code, checked on load. It’s not a convention we hope people follow, it’s a structural guarantee.</p>
+<p>That power stays scoped: only ~150 already-reviewed Go routines can produce a value, variables are typed and whitelisted, and the schema rejects any invalid definition before it’s saved.</p>
+<h3 id="an-ad-servers-invisible-limit">An ad server’s invisible limit<a href="#an-ad-servers-invisible-limit" class="heading-anchor" aria-label="Link to this section"></a></h3>
+<p>One last example, probably the clearest. One of our ad servers expects a URL where several parameter blocks are concatenated, separated by <code>;</code> (a constraint imposed by the ad server itself, not by us), a separator that doesn’t follow HTTP conventions.</p>
+<p>In YAML, that concatenation was handled entirely by Go code, wired to assemble exactly two blocks, glued together by a single <code>;</code>:</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">yaml</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#8A8A8A;font-style:italic"># "targeting" is an internal name, the ad server never heard of it,</span></span>
+<span class="line"><span style="color:#8A8A8A;font-style:italic"># hence the rename to "key_values" on the HCL side below</span></span>
+<span class="line"><span style="color:#FD4D26">spec</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">  ad_server</span><span style="color:#FAF8F8">: {{</span><span style="color:#FD4D26">ad_server</span><span style="color:#FAF8F8">}}</span></span>
+<span class="line"><span style="color:#FD4D26">  attributes</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">    ang_api</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">      value</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">2,7</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">    ang_plrh</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">      routine</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">player_height</span></span>
+<span class="line"><span style="color:#FD4D26">      if_empty</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">      if_error</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">    targeting</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">      plcmt</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">        value</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FD4D26">      fwd_nltype</span><span style="color:#FAF8F8">:</span></span>
+<span class="line"><span style="color:#FD4D26">        value</span><span style="color:#FAF8F8">: </span><span style="color:#FD4D26">std</span></span></code></pre></figure>
+<p>→ <code>...host?ang_api=2,7&#x26;ang_plrh=404;plcmt=1&#x26;fwd_nltype=std</code></p>
+<p>Nothing in this file says the ad server expects <code>block_0;block_1;block_2...</code>, or that each block must be generated separately then glued with <code>;</code>. That rule lived only in rendering code, wired for a fixed number of blocks. The day an extra slot showed up, we simply had no way to express it from the configuration. It would have meant touching Go code, not a file.</p>
+<p>Here’s the HCL equivalent, for the same result, and the rename of <code>targeting</code> to <code>key_values</code>, the name the ad server actually expects. And unlike YAML, HCL also lets you declare extra blocks per slot with <code>slot_params</code>, each with its own parameters: something simply not expressible in YAML, where the number of blocks was fixed in rendering code.</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">hcl</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="hcl"><code><span class="line"><span style="color:#50F1D7">ad_request</span><span style="color:#FAF8F8"> "{{ad_server}}" {</span></span>
+<span class="line"><span style="color:#50F1D7">  url</span><span style="color:#FAF8F8"> "host" {</span></span>
+<span class="line"><span style="color:#FAF8F8">    base_url </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> var</span><span style="color:#50F1D7">.</span><span style="color:#FAF8F8">base_url</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#50F1D7">    query_string</span><span style="color:#FAF8F8"> {</span></span>
+<span class="line"><span style="color:#FAF8F8">      param_block_separator </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">;</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FAF8F8">      global_params </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> {</span></span>
+<span class="line"><span style="color:#FAF8F8">        ang_api  </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">2,7</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">        ang_plrh </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> fallback(player_height(), </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">, </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">404</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">)</span></span>
+<span class="line"><span style="color:#FAF8F8">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FAF8F8">      key_values </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> {</span></span>
+<span class="line"><span style="color:#FAF8F8">        plcmt      </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">        fwd_nltype </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">std</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">      }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#8A8A8A;font-style:italic">      # slot_params: only expressible in HCL, not in YAML</span></span>
+<span class="line"><span style="color:#50F1D7">      slot_params</span><span style="color:#FAF8F8"> "0" { ang_ifa </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8"> }</span></span>
+<span class="line"><span style="color:#50F1D7">      slot_params</span><span style="color:#FAF8F8"> "1" {</span></span>
+<span class="line"><span style="color:#FAF8F8">        ang_plrh </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">720</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">        ang_plwh </span><span style="color:#50F1D7">=</span><span style="color:#FAF8F8"> "</span><span style="color:#FD4D26">1080</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">      }</span></span>
+<span class="line"><span style="color:#FAF8F8">    }</span></span>
+<span class="line"><span style="color:#FAF8F8">  }</span></span>
+<span class="line"><span style="color:#FAF8F8">}</span></span></code></pre></figure>
+<p>Without <code>slot_params</code>, one block per <code>;</code>:</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">text</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>...host?ang_api=2,7&#x26;ang_plrh=404</span></span>
+<span class="line"><span>  ;plcmt=1&#x26;fwd_nltype=std</span></span></code></pre></figure>
+<p><em>Exactly the same request (<code>;</code> included), but here every piece is named and declared.</em></p>
+<p>With <code>slot_params</code>:</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">text</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>...host?ang_api=2,7&#x26;ang_plrh=404</span></span>
+<span class="line"><span>  ;plcmt=1&#x26;fwd_nltype=std</span></span>
+<span class="line"><span>  ;ang_ifa=1</span></span>
+<span class="line"><span>  ;ang_plrh=720&#x26;ang_plwh=1080</span></span></code></pre></figure>
+<p><em>Two extra slots, each with its own parameters, each adding its own <code>;</code>, simply not expressible in YAML.</em></p>
+<h2 id="the-migration-steps">The migration steps<a href="#the-migration-steps" class="heading-anchor" aria-label="Link to this section"></a></h2>
+<p>The single most important point isn’t the language, it’s the double run: for several weeks, YAML and HCL ran side by side, with production serving never depending on the new format until it had proven it produced the same result. Nothing migrated in one shot. It was a chain of small, reversible steps, at the pace of earned confidence rather than a calendar.</p>
+<p>During that double run, we kept shipping new features, on this project and others, without ever impacting the migration, and once it was running, it cost us no daily time: monitoring told us what was happening, and alerted us if production serving misbehaved or the gap between YAML and HCL went beyond what’s normal.</p>
+<p>Building that plan took time, and AI was involved as much as in the execution: breaking the project into a precise number of steps, ordering their dependencies, defining for each one what would prove it had gone well. That preparation was at least as much work as the code generated afterwards.</p>
+<p>We rolled this out through progressive shadowing: every request ran both decoders, the YAML result was the only one served, the HCL result was only compared. External dependencies (an API call, say) only ran once: nothing was duplicated on the network side. Only the HCL interpretation ran in addition, on the same data as the YAML one.</p>
+<center><img alt="Progressive shadowing: one ad request enters an orchestrator that runs both the YAML decoder and the HCL decoder, their results go through a comparison step that logs match or mismatch to New Relic, the YAML result is served with ratio 1 always, the HCL result is only compared with a ratio going from 0 to 1 per customer, and rollback is ratio back to 0 with no deployment" src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/diagram-progressive-shadowing.png"></center>
+<p><em>The YAML result shipped alone to production; the HCL result was never served, only compared, until the confidence ratio reached 100%, customer by customer, then switched over to real HCL serving at the same pace.</em></p>
+<p>This rollback principle holds for both phases, shadowing and later serving: resetting the ratio to 0 is enough, no deployment at all. The idea is to minimize, at every step of the process, the number of actions that can go wrong: turning things on or off, at any point, only ever goes through a feature flag.</p>
+<p>This tracking ran on a dedicated New Relic dashboard, built for this project: every YAML/HCL comparison was logged there, customer by customer, platform by platform. The goal was a 100% match. When it wasn’t, the dashboard pointed straight at the customer, the platform, and the field that diverges.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>customer</th><th>platform</th><th>field</th><th>yaml</th><th>hcl</th><th>result</th></tr></thead><tbody><tr><td><code>{{customer}}</code></td><td><code>web</code></td><td><code>fwd_rpusr</code></td><td><code>ada_free</code></td><td><code>ada_max</code></td><td><strong>← mismatch</strong></td></tr></tbody></table>
+<p>Here you can see in seconds that for customer <code>{{customer}}</code>, on <code>web</code>, the field <code>fwd_rpusr</code> diverges: HCL returns <code>ada_max</code> where YAML returns <code>ada_free</code>. Enough to trace straight back to the offending configuration line, without replaying the request by hand.</p>
+<p>We ramped the comparison ratio from 0 to 100%, until zero unexplained mismatches for several weeks straight. During that phase, the new HCL editor was already available, but read-only: you could browse it, get used to it, with no save ever coming from there. ACM remained the only hand on the configuration actually served.</p>
+<p>Concretely, that ratio lived in a feature-flag key like <code>hcl_shadow.{{customer}}.{{customer}}</code>, each customer has its own, with a value per target and then per platform, with a default fallback if something is missing (0 meaning 0%, 1 meaning 100%):</p>
+<figure class="code-block"><figcaption class="code-bar"><span class="code-name">json</span><button class="code-copy" type="button">Copy</button></figcaption><pre class="astro-code bedrock" style="background-color:#000000;color:#FAF8F8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#FAF8F8">{</span></span>
+<span class="line"><span style="color:#FAF8F8">  "</span><span style="color:#50F1D7">_default</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">_default</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">  },</span></span>
+<span class="line"><span style="color:#FAF8F8">  "</span><span style="color:#50F1D7">live</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">_default</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">amazon_kepler</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">chromecast</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{partner_a}}_smarttv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">android_tv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">androidmob</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">androidtab</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">apple_tv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">hbbtv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0.3</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">ipad</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">iphone</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">web</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{partner_b}}_android_box</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{partner_b}}_ott_boxes</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0.5</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">ott_boxes</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">smarttv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">  },</span></span>
+<span class="line"><span style="color:#FAF8F8">  "</span><span style="color:#50F1D7">replay</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: {</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">_default</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">amazon_kepler</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">chromecast</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{partner_a}}_smarttv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0.5</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">google_bot</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">android_tv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">androidmob</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">androidtab</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">apple_tv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">hbbtv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">ipad</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">iphone</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">1</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">web</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{partner_b}}_android_box</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">{{partner_b}}_ott_boxes</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">ott_boxes</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0.6</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">,</span></span>
+<span class="line"><span style="color:#FAF8F8">    "</span><span style="color:#50F1D7">smarttv</span><span style="color:#FAF8F8">"</span><span style="color:#FAF8F8">: </span><span style="color:#FAF8F8">"</span><span style="color:#FD4D26">0</span><span style="color:#FAF8F8">"</span></span>
+<span class="line"><span style="color:#FAF8F8">  }</span></span>
+<span class="line"><span style="color:#FAF8F8">}</span></span></code></pre></figure>
+<p>Once every platform was at 1, the same principle took over on the serving side, through a <code>hcl_serving.{{customer}}.{{customer}}</code> key: that’s the moment ACM switched to read-only, and the HCL editor took over the saves.</p>
+<p>Same ratio-based rollout for serving, with a rollback always available (ratio to 0, no deployment). Today, 100% of traffic is served from HCL, and YAML has been removed.</p>
+<p>Despite the double run (YAML and HCL both computed and compared on every request), response time stayed between 40 and 55ms depending on the tenant, throughout shadowing. Shadowing itself was rolled out progressively, platform by platform.</p>
+<p><em>Small aside: once everything was validated, we reset the ratio to 0% then flipped it back to 100% everywhere at once, on purpose, so we could pull this graph and show in black and white that performance never suffered. The marker below is a feature flag change, not an app deployment.</em></p>
+<center><img alt="New Relic chart, average response time in milliseconds by status over 30 minutes: a flat line around 50ms for HTTP 200, with a deployment marker in the middle that changes nothing" src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/new-relic-response-time.png"></center>
+<h2 id="ais-place-in-this-project">AI’s place in this project<a href="#ais-place-in-this-project" class="heading-anchor" aria-label="Link to this section"></a></h2>
+<p>Without AI, a project of this scope (rewriting the configuration format, the editor, the automatic migrator, and keeping both systems alive in parallel during the switch) simply wouldn’t have happened on this timeline, with one person on it. We used it across the whole chain: for the design of the feature itself, to write the code (the language, parser, editor, migrator), for review (every step coded by one agent is reviewed by another), and for monitoring the cutover (the YAML/HCL comparison dashboard detailed above).</p>
+<p>The project (language, parser, editor, automatic migrator) was built in one month, by a single engineer, for about $4,000 of AI usage overall (Claude and Codex both involved). <strong>51,472 net lines</strong> were added across the five pull requests (PRs) that make up the project, of which only <strong>~75 lines</strong> touched ACC’s business core. That’s the work serving the entirety of ad traffic today.</p>
+<p><em>Small aside: that number is only a snapshot. Once the migration is final, all the YAML-related infrastructure will disappear: its validation, ACM itself, and the cautionary guardrails added along the way. So yes, a lot of lines went in, but a lot are also coming back out.</em></p>
+<p>And despite that volume, ACC’s business core was only touched to add the YAML/HCL comparison: the rest of the core didn’t move; only the primary and secondary infrastructure around it absorbed the changes.</p>
+<h3 id="costs-and-gains">Costs and gains<a href="#costs-and-gains" class="heading-anchor" aria-label="Link to this section"></a></h3>
+<p>Without AI, this project would have stayed in the backlog, not because we’d have moved slower, but because a single engineer couldn’t absorb it on top of everything else, and the team didn’t have the budget to isolate it for several months.</p>
+<center><img alt="About $4,000 of AI for one engineer-month of work. With AI: about one month, one engineer, about $4,000 of usage. Without AI, estimated: several months and a dedicated team budget that was never granted. Result: a project that simply wouldn&#x27;t have happened." src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/diagram-cost.png"></center>
+<h3 id="driving-the-ai-not-riding-along">Driving the AI, not riding along<a href="#driving-the-ai-not-riding-along" class="heading-anchor" aria-label="Link to this section"></a></h3>
+<p>But it wasn’t autopilot. Our job was to drive the AI rather than let it run: verifiable steps one at a time, precise scoping each time, reviewing every line touching the business core like any other sensitive change. That harness (not the model alone) made the difference. The code can come from anywhere. Judgment can’t.</p>
+<p>This harness didn’t exist from day one: for most of the project (nearly all of the ~52,000 lines in the end, including the ~75 touching the business core), we worked with a less structured process, adjusting the method day by day, week by week. Each improvement made it a bit faster and cheaper. Only on the last two steps did it reach its most refined form: Claude and Codex paired under human supervision, with a plan, a plan review, one agent coding the step, the other reviewing it, then the roles flip for the next step. The second-to-last step, run over 23 sub-steps this way, cost about $400.</p>
+<p>Before launching the last one, we refined the harness further: switching models by task size, a model suggested by the agent in charge based on its own estimate, cleaner context sharing between agents. Result: the last step (21 sub-steps, same pattern) cost about $130.</p>
+<p>That harness didn’t improve from human supervision alone: the agents knew they were being tested, and gave their own feedback on how to improve the process. They also knew they were competing with each other, each trying to do better than the other on the next step.</p>
+<p><em>Small aside: we’d already tried this kind of exercise with Claude alone, and the results were worse than with this Claude/Codex mix. But the models changed in the meantime, so that comparison is probably a bit biased.</em></p>
+<center><img alt="Core business-logic lines touched per PR: 0 for PR 1, 50 for PR 2, 0 for PR 3, 0 for PR 4, 25 for PR 5. Not a downward curve: most PRs touched zero lines of the core." src="/images/posts/2026-11-10-acc-from-yaml-to-hcl-with-ai/diagram-core-lines-per-pr.png"></center>
+<p><em>~75 core lines in total, concentrated in just two PRs: adding the YAML/HCL comparison (PR 2) and a later adjustment (PR 5). The other three touched zero core lines: the AI kept its work scoped to the surrounding infrastructure, leaving the core alone.</em></p>
+<p>We also went further than usual on safety nets, knowing AI was involved at this volume of code. Shadowing is one. We also added, temporarily, mechanisms we probably wouldn’t have deemed necessary by hand: <code>recover</code> calls scattered around, and a hard-delete route kept on hand just in case. None of this is meant to stay. It’s cautionary instrumentation, to be removed once trust is established.</p>
+<blockquote>
+<p>The kind of precaution you gladly take when a good chunk of the code didn’t come out of a human keyboard line by line, and you’d rather be able to react fast than bet that nothing will go wrong.</p>
+</blockquote>
+<p>We ship this project two, three, sometimes four times a day, without drama, alongside the squad’s other projects, which also deploy continuously. That was already true before AI, and still is since: what makes us effective is how the code is split, and that hasn’t changed. AI just helps us be even more so.</p>
+<p>The AI itself stays naturally scoped by that architecture: it writes in isolated zones, never in the business core without a review. Some parts could be improved (this isn’t a perfect project), but isolated, they never threaten the rest. We work in parallel on improving those weaker zones and on how we scope the AI, and the two pull each other up: better-split code makes it safer to let AI work on it, and scoping the AI better buys us the time to keep improving the code.</p>
+<p>We’ve come to think that over-constraining AI on a clean codebase is actually counterproductive as models keep improving: we’d rather enforce things with linters, and define an architecture validated by a deterministic tool, than build skills to make the AI do it.</p>
+<p>On more legacy projects, ones we know less well, or ones mid-rewrite, it’s the opposite: we push the AI harder to quickly frame how we want it to work.</p>
+<p>None of this is trust earned once and for all. It’s a balance we keep reworking, and that’s exactly what lets us move fast, with AI, without ever losing control.</p>
+<blockquote>
+<p>My job as a software engineer has never been to write code, but to solve problems. Code is a tool for solving those problems, and today we write it faster than ever, while still staying in control of it. That lets me spend a lot more time on the facets of the job that, to me, matter far more. The faster the code gets written, the more an engineer’s value lies in everything around it.</p>
+</blockquote></div><section class="author-card"><article><img src="/images/avatar/t_petit.jpg" alt=""><p><span class="kicker">Author</span><a href="https://www.linkedin.com/in/thomas-petit-dev">Thomas Petit</a></p></article></section></article><nav class="toc" aria-label="On this page"><p class="kicker">On this page</p><ol><li class="depth-2"><a href="#context">Context</a></li><li class="depth-2"><a href="#why-leave-yaml">Why leave YAML</a></li><li class="depth-3"><a href="#you-already-had-to-know-what-to-do-and-where-to-look">You already had to know what to do, and where to look</a></li><li class="depth-3"><a href="#acm-and-the-hcl-editor">ACM and the HCL editor</a></li><li class="depth-3"><a href="#yaml-enforces-no-type">YAML enforces no type</a></li><li class="depth-3"><a href="#an-ad-servers-invisible-limit">An ad server’s invisible limit</a></li><li class="depth-2"><a href="#the-migration-steps">The migration steps</a></li><li class="depth-2"><a href="#ais-place-in-this-project">AI’s place in this project</a></li><li class="depth-3"><a href="#costs-and-gains">Costs and gains</a></li><li class="depth-3"><a href="#driving-the-ai-not-riding-along">Driving the AI, not riding along</a></li></ol></nav></div><section class="related"><h2 class="section-title">Related</h2><div class="teasers"><article class="teaser"><time class="teaser-date" datetime="2026-10-14">14 Oct 2026</time><h3 data-morph="title-2026-10-05-migrating-the-blog-from-jekyll-to-astro" data-morph-href="/2026/10/14/migrating-the-blog-from-jekyll-to-astro.html"><a href="/2026/10/14/migrating-the-blog-from-jekyll-to-astro.html">Migrating the blog from Jekyll to Astro</a></h3></article><article class="teaser"><time class="teaser-date" datetime="2026-09-17">17 Sept 2026</time><h3 data-morph="title-2026-09-17-how-we-lost-our-tests-migrating-to-databricks" data-morph-href="/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html"><a href="/2026/09/17/how-we-lost-our-tests-migrating-to-databricks.html">How we lost our tests migrating to Databricks (and how we&#39;re getting them back)</a></h3></article><article class="teaser"><time class="teaser-date" datetime="2026-08-25">25 Aug 2026</time><h3 data-morph="title-2026-08-25-hosting-the-2026-world-cup-on-m6plus" data-morph-href="/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html"><a href="/2026/08/25/hosting-the-2026-world-cup-on-m6plus.html">Hosting the 2026 World Cup on M6+</a></h3></article></div></section><nav class="post-nav" aria-label="More"><div><a href="/2026/10/14/migrating-the-blog-from-jekyll-to-astro.html"><p>Previous</p><div data-morph="title-2026-10-05-migrating-the-blog-from-jekyll-to-astro" data-morph-href="/2026/10/14/migrating-the-blog-from-jekyll-to-astro.html">Migrating the blog from Jekyll to Astro</div></a></div><div class="next"></div></nav></div><footer class="site-footer"><div class="footer-zones"><div class="footer-zone footer-brand"><p>The crazy happens in the backstage</p></div><div class="footer-zone"><h2>Read</h2><ul><li><a href="/">Articles</a></li><li><a href="/talks/">Talks</a></li><li><a href="/tags/">Topics</a></li></ul></div><div class="footer-zone"><h2>Studio</h2><ul><li><a href="https://bedrockstreaming.com/career/">Jobs</a></li><li><a href="/oss/">Open source</a></li><li><a href="/lft/">Last Friday Talks</a></li><li><a href="/meetups/">Meetups</a></li></ul></div><div class="footer-zone"><h2>Follow</h2><ul><li><a href="https://github.com/BedrockStreaming">GitHub</a></li><li><a href="https://www.linkedin.com/company/bedrock-streaming">LinkedIn</a></li><li><a href="https://www.youtube.com/channel/UCSwvTdCWHS6ulRaIqdk7lNw">YouTube</a></li><li><a href="/feed.xml">RSS</a></li></ul></div></div><div class="footer-bar"><span>Bedrock Tech Blog</span><span>Search with ⌘K</span></div></footer><dialog class="search-dialog" id="search-dialog" aria-label="Search"><div id="search"></div><p class="meta" id="search-fallback">The search index is generated when the site is built.</p></dialog><script src="/pagefind/pagefind-ui.js"></script><script type="module">var e=document.getElementById(`site-nav`),t=document.getElementById(`nav-toggle`),n=document.getElementById(`content`),r=document.querySelector(`.site-footer`),i=window.matchMedia(`(min-width: 50rem)`),a=a=>{if(!(t instanceof HTMLButtonElement))return;let o=a&&!i.matches;e?.classList.toggle(`is-open`,o),t.setAttribute(`aria-expanded`,o?`true`:`false`),t.setAttribute(`aria-label`,o?`Close menu`:`Open menu`),document.body.classList.toggle(`nav-open`,o),n?.toggleAttribute(`inert`,o),r?.toggleAttribute(`inert`,o)};t?.addEventListener(`click`,()=>{a(t.getAttribute(`aria-expanded`)!==`true`)}),e?.addEventListener(`click`,e=>{let t=e.target;t instanceof Element&&t.closest(`a`)&&setTimeout(()=>a(!1),0)}),document.addEventListener(`keydown`,e=>{if(e.key!==`Escape`||t?.getAttribute(`aria-expanded`)!==`true`)return;let n=document.getElementById(`search-dialog`);n instanceof HTMLDialogElement&&n.open||a(!1)}),i.addEventListener(`change`,()=>a(!1));var o=document.getElementById(`search-dialog`),s=()=>{if(!(o instanceof HTMLDialogElement))return;o.showModal();let e=document.getElementById(`search-fallback`);if(`PagefindUI`in window&&!o.dataset.ready){let t=window.PagefindUI;new t({element:`#search`,showSubResults:!0,showImages:!1,autofocus:!0}),o.dataset.ready=`true`,e?.remove()}o.querySelector(`input`)?.focus()};document.getElementById(`search-open`)?.addEventListener(`click`,s),document.addEventListener(`keydown`,e=>{(e.metaKey||e.ctrlKey)&&e.key.toLowerCase()===`k`&&(e.preventDefault(),o instanceof HTMLDialogElement&&o.open?o.close():s())}),document.addEventListener(`click`,async e=>{let t=e.target;if(!(t instanceof Element))return;let n=t.closest(`.code-copy`);if(n instanceof HTMLButtonElement){let e=n.closest(`.code-block`)?.querySelector(`code`)?.innerText??``;await navigator.clipboard.writeText(e);let t=n.textContent;n.textContent=`Copied`,setTimeout(()=>{n.textContent=t},1500)}let r=t.closest(`[data-youtube]`);if(r instanceof HTMLButtonElement&&r.dataset.youtube){let e=document.createElement(`iframe`);e.src=`https://www.youtube-nocookie.com/embed/${r.dataset.youtube}?autoplay=1`,e.title=r.dataset.title||`YouTube video`,e.allow=`accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture`,e.allowFullscreen=!0,r.replaceWith(e)}});</script></body></html>
