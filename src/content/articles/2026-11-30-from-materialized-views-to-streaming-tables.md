@@ -113,8 +113,6 @@ When we looked at the query closely, we found something worse than cost. `MAX()`
 not mean "latest". It means "biggest". For many columns, the two happen to match. For
 some, they don't.
 
-Two examples:
-
 1. **Rewinding a video.** A user watches up to minute 40, then goes back to minute 10.
    The latest position is minute 10. `MAX()` keeps minute 40. The table said the user
    was further into the video than they were.
@@ -231,9 +229,9 @@ Each parameter does one job:
   `MAX()` skipped nulls, so this looks like a risk. It is safe here because the key
   identifiers, such as `account_id` and `program_id`, are always filled on every event.
 
-With this, both bugs go away. A rewind produces a newer event with a smaller position,
-and it replaces the row. A consent withdrawal produces a newer event that matches the
-delete condition, and the row leaves the table.
+With this, the rewind bug goes away. A rewind produces a newer event with a smaller
+position, and it replaces the row. Deletes work the same way: when the latest event has
+no consent for a purpose, the row leaves that table.
 
 ### How we validated it
 
