@@ -195,6 +195,10 @@ m_blanc:
   name: Maxime Blanc
   avatar: /images/avatar/m_blanc.jpeg
   url: https://maximeblanc.fr
+m_fernandes:
+  name: Marisa Fernandes
+  avatar: /images/avatar/m_fernandes.jpg
+  url: https://www.linkedin.com/in/marisafernandes-dataengineer/
 m_julieron:
   name: Marine Julieron
   avatar: /images/avatar/m_julieron.jpg
